@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 # Arch with Hyprland
 
 ![Screenshot_2022-11-24-18-27-54_19051](https://user-images.githubusercontent.com/10271030/203763303-5fa66fa9-4921-4095-b970-25446d6d7c9e.png)
@@ -59,28 +61,28 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + SHIFT + Return | Open Kitty terminal |
-| SUPER + W | Open firefox in workspace 2 |
-| SUPER + SHIFT + W | Open WhatsApp in workspace 9 silently |
-| SUPER + Q | Kill focused window |
-| SUPER + A | Open Microsoft Edge (Default Profile) |
-| SUPER + SHIFT + A | Open Microsoft Edge (Profile 1) |
-| SUPER + F | Toggle fullscreen of focused window |
-| SUPER + E | Open Nautilus |
-| SUPER + V | Toggle floating of focused window |
-| SUPER + R | Open application using wofi |
-| SUPER + C | Open application using bemenu |
-| SUPER + P | Set focused window to pseudo | |
-| SUPER + J | Focus to next window |
-| SUPER + K | Focus to previous window |
-| SUPER + Return | Swap current focused window with Master window |
-| SUPER + I | Add focused window to Master |
-| SUPER + D | Remove focused window from Master |
-| SUPER + Backspace | Toggle scratch terminal |
-| SUPER + L | Toggle between Master and Dwindle layout |
-| SUPER + M | Set split ratio to 0.3 |
-| SUPER + SHIFT + M | Set split ratio to -0.3 |
-| SUPER + Escape | Toggle Wlogout |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Return</kbd> | Open Kitty terminal |
+| <kbd>SUPER</kbd> + <kbd>W</kbd> | Open firefox in workspace 2 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Open WhatsApp in workspace 9 silently |
+| <kbd>SUPER</kbd> + <kbd>Q</kbd> | Kill focused window |
+| <kbd>SUPER</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Default Profile) |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Profile 1) |
+| <kbd>SUPER</kbd> + <kbd>F</kbd> | Toggle fullscreen of focused window |
+| <kbd>SUPER</kbd> + <kbd>E</kbd> | Open Nautilus |
+| <kbd>SUPER</kbd> + <kbd>V</kbd> | Toggle floating of focused window |
+| <kbd>SUPER</kbd> + <kbd>R</kbd> | Open application using wofi |
+| <kbd>SUPER</kbd> + <kbd>C</kbd> | Open application using bemenu |
+| <kbd>SUPER</kbd> + <kbd>P</kbd> | Set focused window to pseudo | |
+| <kbd>SUPER</kbd> + <kbd>J</kbd> | Focus to next window |
+| <kbd>SUPER</kbd> + <kbd>K</kbd> | Focus to previous window |
+| <kbd>SUPER</kbd> + <kbd>Return | Swap current focused window with Master window |
+| <kbd>SUPER</kbd> + <kbd>I</kbd> | Add focused window to Master |
+| <kbd>SUPER</kbd> + <kbd>D</kbd> | Remove focused window from Master |
+| <kbd>SUPER</kbd> + <kbd>Backspace</kbd> | Toggle scratch terminal |
+| <kbd>SUPER</kbd> + <kbd>L</kbd> | Toggle between Master and Dwindle layout |
+| <kbd>SUPER</kbd> + <kbd>M</kbd> | Set split ratio to 0.3 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>M</kbd> | Set split ratio to -0.3 |
+| <kbd>SUPER</kbd> + <kbd>Escape</kbd> | Toggle Wlogout |
 
 <br />
 
@@ -88,11 +90,11 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| xf86audioraisevolume | Increase volume by 5% |
-| xf86audiolowervolume | Decrease volume by 5% |
-| xf86audiomute | Toggle mute |
-| xf86monbrightnessup | Increase brightness by 5% |
-| xf86monbrightnessdown | Decrease brightness by 5% |
+| <kbd><i class="fas fa-volume-high"></i></kbd> | Increase volume by 5% |
+| <kbd><i class="fas fa-volume-low"></i></kbd> | Decrease volume by 5% |
+| <kbd><i class="fas fa-volume-mute"></i></kbd> | Toggle mute |
+| <kbd><i class="fas fa-sun"></i></kbd> | Increase brightness by 5% |
+| <kbd><i class="fas fa-moon"></i></kbd> | Decrease brightness by 5% |
 
 <br />
 
@@ -100,10 +102,10 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + SHIFT + equal | Enter backlight mode |
-| equal | Increase backlight by 5% |
-| minus | Decrease backlight by 5% |
-| escape | Exit backlight mode |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>=</kbd> | Enter backlight mode |
+| <kbd>=</kbd> | Increase backlight by 5% |
+| <kbd>-</kbd> | Decrease backlight by 5% |
+| <kbd>Esc</kbd> | Exit backlight mode |
 
 <br />
 
@@ -111,12 +113,12 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + equal | Enter volume mode |
-| equal | Increase volume by 5% |
-| minus | Decrease volume by 5% 
-| 0 | Toggle mute |
-| 9 | Toggle Microphone |
-| escape | Exit volume mode |
+| <kbd>SUPER</kbd> + <kbd>=</kbd> | Enter volume mode |
+| <kbd>=</kbd> | Increase volume by 5% |
+| <kbd>-</kbd> | Decrease volume by 5% 
+| <kbd>0</kbd> | Toggle mute |
+| <kbd>9</kbd>| Toggle Microphone |
+| <kbd>Esc</kbd> | Exit volume mode |
 
 <br />
 
@@ -124,10 +126,10 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + SHIFT + h | Resize left |
-| SUPER + SHIFT + l | Resize right |
-| SUPER + SHIFT + k | Resize up  |
-| SUPER + SHIFT + j | Resize down |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>H</kbd> | Resize left |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd> | Resize right |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>K</kbd> | Resize up  |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>J</kbd> | Resize down |
 
 <br />
 
@@ -135,10 +137,10 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + CTRL + h | Move focused window left |
-| SUPER + CTRL + l | Move focused window right |
-| SUPER + CTRL + k | Move focused window up |
-| SUPER + CTRL + j | Move focused window down |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>H</kbd> | Move focused window left |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>L</kbd> | Move focused window right |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>K</kbd> | Move focused window up |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>J</kbd> | Move focused window down |
 
 <br />
 
@@ -146,10 +148,10 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + left | Focus left |
-| SUPER + right |Focus right |
-| SUPER + up | Focus up |
-| SUPER + down | Focus down |
+| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-left-long"></i></kbd> | Focus left |
+| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-right-long"></i></kbd> | Focus right |
+| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-up-long"></i></kbd> | Focus up |
+| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-down-long"></i></kbd> | Focus down |
 
 <br />
 
@@ -157,8 +159,8 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + SHIFT + U | Move focused window to special workspace |
-| SUPER + U | Toggle special workspace |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>U</kbd> | Move focused window to special workspace |
+| <kbd>SUPER</kbd> + <kbd>U</kbd> | Toggle special workspace |
 
 <br />
 
@@ -166,17 +168,17 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + 1 | Move to workspace 1 |
-| SUPER + 2 | Move to workspace 2 |
-| SUPER + 3 | Move to workspace 3 |
-| SUPER + 4 | Move to workspace 4 |
-| SUPER + 5 | Move to workspace 5 |
-| SUPER + 6 | Move to workspace 6 |
-| SUPER + 7 | Move to workspace 7 |
-| SUPER + 8 | Move to workspace 8 |
-| SUPER + 9 | Move to workspace 9 |
-| SUPER + 0 | Move to workspace 10 |
-| SUPER + Grave | Move to first empty workspace |
+| <kbd>SUPER</kbd> + <kbd>1</kbd> | Move to workspace 1 |
+| <kbd>SUPER</kbd> + <kbd>2</kbd> | Move to workspace 2 |
+| <kbd>SUPER</kbd> + <kbd>3</kbd> | Move to workspace 3 |
+| <kbd>SUPER</kbd> + <kbd>4</kbd> | Move to workspace 4 |
+| <kbd>SUPER</kbd> + <kbd>5</kbd> | Move to workspace 5 |
+| <kbd>SUPER</kbd> + <kbd>6</kbd> | Move to workspace 6 |
+| <kbd>SUPER</kbd> + <kbd>7</kbd> | Move to workspace 7 |
+| <kbd>SUPER</kbd> + <kbd>8</kbd> | Move to workspace 8 |
+| <kbd>SUPER</kbd> + <kbd>9</kbd> | Move to workspace 9 |
+| <kbd>SUPER</kbd> + <kbd>0</kbd> | Move to workspace 10 |
+| <kbd>SUPER</kbd> + <kbd>`</kbd> | Move to first empty workspace |
 
 <br />
 
@@ -184,17 +186,17 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + SHIFT + 1 | Move focused window to workspace 1 |
-| SUPER + SHIFT + 2 | Move focused window to workspace 2 |
-| SUPER + SHIFT + 3 | Move focused window to workspace 3 |
-| SUPER + SHIFT + 4 | Move focused window to workspace 4 |
-| SUPER + SHIFT + 5 | Move focused window to workspace 5 |
-| SUPER + SHIFT + 6 | Move focused window to workspace 6 |
-| SUPER + SHIFT + 7 | Move focused window to workspace 7 |
-| SUPER + SHIFT + 8 | Move focused window to workspace 8 |
-| SUPER + SHIFT + 9 | Move focused window to workspace 9 |
-| SUPER + SHIFT + 0 | Move focused window to workspace 10 |
-| SUPER + SHIFT + Grave | Move focused window to empty workspace |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>1</kbd> | Move focused window to workspace 1 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>2</kbd> | Move focused window to workspace 2 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>3</kbd> | Move focused window to workspace 3 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>4</kbd> | Move focused window to workspace 4 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>5</kbd> | Move focused window to workspace 5 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>6</kbd> | Move focused window to workspace 6 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>7</kbd> | Move focused window to workspace 7 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>8</kbd> | Move focused window to workspace 8 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>9</kbd> | Move focused window to workspace 9 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd> | Move focused window to workspace 10 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>`</kbd> | Move focused window to empty workspace |
 
 * Use `movetoworkspace` if you do not want to silently move focused window
 
@@ -204,10 +206,10 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + Mouse wheel down | Move to previous workspace |
-| SUPER + Mouse wheel up | Move to next workspace |
-| SUPER + period | Move to previous workspace |
-| SUPER + comma | Move to next workspace |
+| <kbd>SUPER</kbd> + Mouse wheel down | Move to previous workspace |
+| <kbd>SUPER</kbd> + Mouse wheel up | Move to next workspace |
+| <kbd>SUPER</kbd> + <kbd>.</kbd> | Move to previous workspace |
+| <kbd>SUPER</kbd> + <kbd>,</kbd> | Move to next workspace |
 
 <br />
 
@@ -215,8 +217,8 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + LMB | Move window |
-| SUPER + RMB | Resize window |
+| <kbd>SUPER</kbd> + LMB | Move window |
+| <kbd>SUPER</kbd> + RMB | Resize window |
 
 <br />
 
@@ -224,8 +226,8 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + G | Toggle group |
-| SUPER + tab | Change to next window in group |
+| <kbd>SUPER</kbd> + <kbd>G</kbd> | Toggle group |
+| <kbd>SUPER</kbd> + <kbd>Tab</kbd> | Change to next window in group |
 
 <br />
 
@@ -233,12 +235,12 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| SUPER + CTRL + S | Listen to Lofi music stream |
-| SUPER + Print | Take screenshot now |
-| SUPER + Print | Take screenshot in 5 seconds |
-| SUPER + SHIFT + Print | Take screenshot in 10 seconds |
-| SUPER + CTRL + Print | Take screenshot of current focused window |
-| SUPER + CTRL + Print | Select area for a screenshot |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> | Listen to Lofi music stream |
+| <kbd>SUPER</kbd> + <kbd>Print</kbd> | Take screenshot now |
+| <kbd>SUPER</kbd> + <kbd>Print</kbd> | Take screenshot in 5 seconds |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Print</kbd> | Take screenshot in 10 seconds |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Print</kbd> | Take screenshot of current focused window |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Print</kbd> | Select area for a screenshot |
 
 <br />
 
