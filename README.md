@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 # Arch with Hyprland
 
 ![Screenshot_2022-11-24-18-27-54_19051](https://user-images.githubusercontent.com/10271030/203763303-5fa66fa9-4921-4095-b970-25446d6d7c9e.png)
@@ -90,11 +88,11 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| <kbd><i class="fas fa-volume-high"></i></kbd> | Increase volume by 5% |
-| <kbd><i class="fas fa-volume-low"></i></kbd> | Decrease volume by 5% |
-| <kbd><i class="fas fa-volume-mute"></i></kbd> | Toggle mute |
-| <kbd><i class="fas fa-sun"></i></kbd> | Increase brightness by 5% |
-| <kbd><i class="fas fa-moon"></i></kbd> | Decrease brightness by 5% |
+| <kbd>Volume Up</kbd> | Increase volume by 5% |
+| <kbd>Volume Down</kbd> | Decrease volume by 5% |
+| <kbd>Mute</kbd> | Toggle mute |
+| <kbd>Brightness Up</kbd> | Increase brightness by 5% |
+| <kbd>Brightness Down</kbd> | Decrease brightness by 5% |
 
 <br />
 
@@ -148,10 +146,10 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 | Keybind | Command |
 |-|-|
-| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-left-long"></i></kbd> | Focus left |
-| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-right-long"></i></kbd> | Focus right |
-| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-up-long"></i></kbd> | Focus up |
-| <kbd>SUPER</kbd> + <kbd><i class="fas fa-arrow-down-long"></i></kbd> | Focus down |
+| <kbd>SUPER</kbd> + <kbd>Left</kbd> | Focus left |
+| <kbd>SUPER</kbd> + <kbd>Right</kbd> | Focus right |
+| <kbd>SUPER</kbd> + <kbd>Up</kbd> | Focus up |
+| <kbd>SUPER</kbd> + <kbd>Down</kbd> | Focus down |
 
 <br />
 
