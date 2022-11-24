@@ -193,5 +193,5 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 
 # Special Thanks
 
-* [https://github.com/hyprwm/Hyprland] - For an amazing WM
-* [https://github.com/eldermf/bspwm-hyprland] - For the inspiration
+* https://github.com/hyprwm/Hyprland - For an amazing WM
+* https://github.com/eldermf/bspwm-hyprland - For the inspiration
