@@ -2,6 +2,10 @@
 
 See how the system looks with Hyrland:
 
+![Screenshot_2022-11-24-18-27-54_19051](https://user-images.githubusercontent.com/10271030/203763303-5fa66fa9-4921-4095-b970-25446d6d7c9e.png)
+
+![Screenshot_2022-11-24-18-25-48_2385](https://user-images.githubusercontent.com/10271030/203763318-d1ad8a5a-b845-4fa1-aa1a-5a99343fa06d.png)
+
 # Overview
 
 Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
@@ -186,3 +190,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + SHIFT + Print | Take screenshot in 10 seconds |
 | SUPER + CTRL + Print | Take screenshot of current focused window |
 | SUPER + CTRL + Print | Select area for a screenshot |
+
+# Special Thanks
+
+* [https://github.com/hyprwm/Hyprland] - For an amazing WM
+* [https://github.com/eldermf/bspwm-hyprland] - For the inspiration
