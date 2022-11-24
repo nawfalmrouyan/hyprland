@@ -1,10 +1,10 @@
 # Arch with Hyprland
 
-See how the system looks with Hyrland:
-
 ![Screenshot_2022-11-24-18-27-54_19051](https://user-images.githubusercontent.com/10271030/203763303-5fa66fa9-4921-4095-b970-25446d6d7c9e.png)
 
 ![Screenshot_2022-11-24-18-25-48_2385](https://user-images.githubusercontent.com/10271030/203763318-d1ad8a5a-b845-4fa1-aa1a-5a99343fa06d.png)
+
+<br />
 
 # Overview
 
@@ -21,16 +21,39 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
  | Terminal          | Kitty |
  | Web Browser       | Firefox |
 
+<br />
+
 # Installation
 
-  If you want to install this setup on ARCH Linux or on any other distro, follow the points below:
+If you want to install this setup on ARCH Linux or on any other distro, follow the points below:
 
-  1. Install the following programs on your computer: hyprland, swaybg, swayidle, swaylock, wlroots, wl-clipboard, waybar-hyprland-git, wofi, kitty, mako, grim, slurp, wf-recorder, yad, polkit-gnome, xorg-xwayland, guake.
-  1. After installing programs above,
-  1. Copy hypr directory to ~/.config/ : cp -r hypr ~/.config/
-  1. Reboot and login to your previously configured Hyprland WM.
+1. Install the following programs on your computer: 
+  - hyprland
+  - swaybg
+  - swayidle
+  - swaylock
+  - wlroots
+  - wl-clipboard
+  - waybar-hyprland-git
+  - wofi
+  - kitty
+  - mako
+  - grim
+  - slurp
+  - wf-recorder
+  - yad
+  - polkit-gnome
+  - xorg-xwayland
+  - guake
+2. After installing programs above,
+1. Copy hypr directory to ~/.config/ (`cp -r hypr ~/.config`)
+1. Start a Hyprland session (https://wiki.hyprland.org/Getting-Started/Quick-start/)
+
+<br />
 
 # Keybinds
+
+<br />
 
 ## General
 
@@ -59,6 +82,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + SHIFT + M | Set split ratio to -0.3 |
 | SUPER + Escape | Toggle Wlogout |
 
+<br />
+
 ## Special Keys
 
 | Keybind | Command |
@@ -69,6 +94,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | xf86monbrightnessup | Increase brightness by 5% |
 | xf86monbrightnessdown | Decrease brightness by 5% |
 
+<br />
+
 ## Backlight control
 
 | Keybind | Command |
@@ -77,6 +104,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | equal | Increase backlight by 5% |
 | minus | Decrease backlight by 5% |
 | escape | Exit backlight mode |
+
+<br />
 
 ## Volume control
 
@@ -89,7 +118,9 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | 9 | Toggle Microphone |
 | escape | Exit volume mode |
 
-## Resize
+<br />
+
+## Resize windows
 
 | Keybind | Command |
 |-|-|
@@ -98,7 +129,9 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + SHIFT + k | Resize up  |
 | SUPER + SHIFT + j | Resize down |
 
-## Move
+<br />
+
+## Move focused window
 
 | Keybind | Command |
 |-|-|
@@ -106,6 +139,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + CTRL + l | Move focused window right |
 | SUPER + CTRL + k | Move focused window up |
 | SUPER + CTRL + j | Move focused window down |
+
+<br />
 
 ## Focus
 
@@ -116,6 +151,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + up | Focus up |
 | SUPER + down | Focus down |
 
+<br />
+
 ## Special workspace
 
 | Keybind | Command |
@@ -123,7 +160,9 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + SHIFT + U | Move focused window to special workspace |
 | SUPER + U | Toggle special workspace |
 
-## Switch workspaces with SUPER + [0-9]
+<br />
+
+## Switch workspaces
 
 | Keybind | Command |
 |-|-|
@@ -138,6 +177,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + 9 | Move to workspace 9 |
 | SUPER + 0 | Move to workspace 10 |
 | SUPER + Grave | Move to first empty workspace |
+
+<br />
 
 ## Move active window to a workspace
 
@@ -157,6 +198,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 
 * Use `movetoworkspace` if you do not want to silently move focused window
 
+<br />
+
 ## Scroll through existing workspaces
 
 | Keybind | Command |
@@ -166,6 +209,8 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + period | Move to previous workspace |
 | SUPER + comma | Move to next workspace |
 
+<br />
+
 ## Move/resize windows with using mouse
 
 | Keybind | Command |
@@ -173,12 +218,16 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + LMB | Move window |
 | SUPER + RMB | Resize window |
 
+<br />
+
 ## Group - only available in Dwindle layout
 
 | Keybind | Command |
 |-|-|
 | SUPER + G | Toggle group |
 | SUPER + tab | Change to next window in group |
+
+<br />
 
 ## Script binds
 
@@ -191,7 +240,9 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | SUPER + CTRL + Print | Take screenshot of current focused window |
 | SUPER + CTRL + Print | Select area for a screenshot |
 
-# Special Thanks
+<br />
+
+# Special thanks
 
 * https://github.com/hyprwm/Hyprland - For an amazing WM
 * https://github.com/eldermf/bspwm-hyprland - For the inspiration
