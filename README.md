@@ -45,6 +45,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
   - polkit-gnome
   - xorg-xwayland
   - guake
+  - lf
 2. After installing programs above,
 1. Copy hypr directory to ~/.config/ (`cp -r hypr ~/.config`)
 1. Start a Hyprland session (https://wiki.hyprland.org/Getting-Started/Quick-start/)
@@ -66,7 +67,8 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 | <kbd>SUPER</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Default Profile) |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Profile 1) |
 | <kbd>SUPER</kbd> + <kbd>F</kbd> | Toggle fullscreen of focused window |
-| <kbd>SUPER</kbd> + <kbd>E</kbd> | Open Nautilus |
+| <kbd>SUPER</kbd> + <kbd>E</kbd> | Open lf - Terminal based file manager |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>E</kbd> | Open Nautilus |
 | <kbd>SUPER</kbd> + <kbd>V</kbd> | Toggle floating of focused window |
 | <kbd>SUPER</kbd> + <kbd>R</kbd> | Open application using wofi |
 | <kbd>SUPER</kbd> + <kbd>C</kbd> | Open application using bemenu |
