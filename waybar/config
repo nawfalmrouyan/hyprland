@@ -1,0 +1,17 @@
+{
+  "include": "~/.config/hypr/waybar/modules",
+  "name": "main-bar",
+  "id": "main-bar",
+  "layer": "top",
+  "mode": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "position": "bottom",
+  "spacing": 5,
+  "fixed-center": true,
+  "ipc": true,
+
+  "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
+  /* "modules-center": ["custom/dynamic_pill"], */
+  "modules-right": ["custom/updater", "backlight", "pulseaudio", "custom/weather", "network", "custom/vpn_check", "battery", "custom/cycle_wall", "tray", "clock", "custom/power"],
+}

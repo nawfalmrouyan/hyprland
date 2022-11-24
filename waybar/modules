@@ -1,0 +1,217 @@
+{
+  "backlight": {
+    "interval": 2,
+    "align": 0,
+    "rotate": 0,
+      "format": "{icon} {percent}%",
+      "format-icons": ["", "", "", ""],
+      "on-click": "",
+      "on-click-middle": "",
+      "on-click-right": "",
+      "on-update": "",
+      "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
+      "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
+      "smooth-scrolling-threshold": 1,
+    },
+	
+	"wlr/workspaces": {
+    "format": "{}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "ﭮ",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "﮼",
+      "focused": "",
+      "default": ""
+    }
+  },
+	
+  "battery": {
+		"interval": 60,
+		"align": 0,
+		"rotate": 0,
+		//"bat": "BAT1",
+		//"adapter": "ACAD",
+		"full-at": 100,
+		"design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-full": "{icon} Full",
+    //"format-good": "",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""],
+    "format-time": "{H}h {M}min",
+    "tooltip": true,
+    "on-click-right": "~/.config/hypr/scripts/glassmorphismToggle"
+  },
+
+  "clock": {
+  "interval": 60,
+  "align": 0,
+  "rotate": 0,
+    //"timezone": "America/New_York",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": " {:%d %b, %H:%M}",
+    "format-alt": " {:%a %b %d, %G}"
+  },
+
+  "cpu": {
+    // "interval": 5,
+    // "format": "  {usage}%",
+    "interval": 1,
+    "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+  },
+           
+  "custom/menu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "$HOME/.config/hypr/scripts/menu",
+  },
+
+  "custom/power": {
+    "format": " 襤 ",
+    "tooltip": false,
+    "on-click": "$HOME/.config/hypr/scripts/wlogout",
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "  {free}",
+  },
+
+  "memory": {
+    "interval": 10,
+    "format": "  {used:0.1f}G",
+  },
+
+  "mpd": {
+    "interval": 2,
+    "unknown-tag": "N/A",
+    "format": "{stateIcon} {artist} - {title}",
+    "format-disconnected": " Disconnected",
+    "format-paused": "{stateIcon} {artist} - {title}",
+    "format-stopped": "Stopped ",
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+    "on-click": "mpc toggle",
+    "on-click-middle": "mpc prev",
+    "on-click-right": "mpc next",
+    "on-update": "",
+    "on-scroll-up": "mpc seek +00:00:01",
+    "on-scroll-down": "mpc seek -00:00:01",
+    "smooth-scrolling-threshold": 1,
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ipaddr}/{cidr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "睊 Disconnected",
+    "format-disabled": "睊 Disabled",
+    "format-alt": " {bandwidthUpBits} |  {bandwidthDownBits}",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "on-click-right": "~/.local/bin/mmuvpn up cbj",
+  },
+
+  "custom/weather": {
+    "format": "{}",
+    "format-alt": "{alt}: {}",
+    "format-alt-click": "click-right",
+    "interval": 1800,
+    "return-type": "json",
+    "exec": "~/.config/hypr/scripts/weather.sh",
+    "exec-if": "ping wttr.in -c1"
+  },
+
+  "custom/updater":{
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) ]]",
+    "interval": 15,
+    "on-click": "kitty --class update -T update -e yay -Syu && notify-send 'The system has been updated' "
+  },
+
+  "custom/uptime":{
+    "format": " {}",
+    "exec": "$HOME/.local/bin/upt",
+    "interval": 45,
+  },
+
+  "custom/dynamic_pill": {
+    "return-type": "json",
+    "exec": "~/.config/hypr/scripts/tools/start_dyn",
+    "escape":true
+  },
+
+  "custom/cycle_wall":{
+    "format":"",
+    /* "exec": "~/.config/hypr/scripts/tools/expand wall", */
+    /* "on-click": "~/.config/hypr/scripts/tools/expand cycle" */
+    "on-click": "~/.config/hypr/scripts/changeWallpaper",
+  },
+
+  "custom/vpn_check":{
+    "format":" {}",
+    "exec": "~/.config/hypr/scripts/vpnCheck",
+    "interval": 2,
+    "on-click": "~/.local/bin/mmuvpn restart",
+    "on-click-right": "~/.local/bin/mmuvpn down",
+  },
+
+  "pulseaudio": {
+    /* "format": "{icon} {volume}% {format_source}", */
+    "format": "{icon} {volume}%",
+    "format-muted": " Mute",
+    "format-bluetooth": " {volume}% {format_source}",
+    "format-bluetooth-muted": " Mute",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5.0,
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
+    "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
+    "smooth-scrolling-threshold": 1,
+  },
+
+  "custom/cputemp":{
+    "format": "{}",
+    "exec": "~/.local/bin/cputemp",
+    "interval": 1,
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 6
+  }
+}
