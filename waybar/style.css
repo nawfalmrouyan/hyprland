@@ -28,7 +28,6 @@ window#waybar.hidden {
 #disk,
 #mode,
 #memory,
-#mpd,
 #tray,
 #pulseaudio,
 #workspaces,
@@ -94,26 +93,6 @@ window#waybar.hidden {
 }
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-}
-
-#mpd {
-	background-color: #94e2d5;
-}
-
-#mpd.disconnected {
-	background-color: #f38ba8;
-}
-
-#mpd.stopped {
-	background-color: #f5c2e7;
-}
-
-#mpd.playing {
-	background-color: #74c7ec;
-}
-
-#mpd.paused {
-  background: rgba(0,0,0,0);
 }
 
 #workspaces button {
