@@ -206,6 +206,26 @@ exec Hyprland
 
 | Keybind | Command |
 |-|-|
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>1</kbd> | Move focused window to workspace 1 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>2</kbd> | Move focused window to workspace 2 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>3</kbd> | Move focused window to workspace 3 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>4</kbd> | Move focused window to workspace 4 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>5</kbd> | Move focused window to workspace 5 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>6</kbd> | Move focused window to workspace 6 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>7</kbd> | Move focused window to workspace 7 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>8</kbd> | Move focused window to workspace 8 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>9</kbd> | Move focused window to workspace 9 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>0</kbd> | Move focused window to workspace 10 |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>`</kbd> | Move focused window to first empty workspace |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>[</kbd> | Move focused window to previous workspace |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>]</kbd> | Move focused window to next workspace |
+
+<br />
+
+## Silently move active window to a workspace
+
+| Keybind | Command |
+|-|-|
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>1</kbd> | Move focused window to workspace 1 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>2</kbd> | Move focused window to workspace 2 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>3</kbd> | Move focused window to workspace 3 |
@@ -217,8 +237,8 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>9</kbd> | Move focused window to workspace 9 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd> | Move focused window to workspace 10 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>`</kbd> | Move focused window to first empty workspace |
-
-* Use `movetoworkspace` if you do not want to silently move focused window
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>[</kbd> | Move focused window to previous workspace |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>]</kbd> | Move focused window to next workspace |
 
 <br />
 
