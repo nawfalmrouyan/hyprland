@@ -278,10 +278,10 @@ exec Hyprland
 | Keybind | Command |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> | Listen to Lofi music stream |
-| <kbd>SUPER</kbd> + <kbd>Print</kbd> | Take screenshot now |
+| <kbd>Print</kbd> | Take screenshot now |
 | <kbd>SUPER</kbd> + <kbd>Print</kbd> | Take screenshot in 5 seconds |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Print</kbd> | Take screenshot in 10 seconds |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Print</kbd> | Take screenshot of current focused window |
+| <kbd>SHIFT</kbd> + <kbd>Print</kbd> | Take screenshot in 10 seconds |
+| <kbd>CTRL</kbd> + <kbd>Print</kbd> | Take screenshot of current focused window |
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Print</kbd> | Select area for a screenshot |
 
 <br />
