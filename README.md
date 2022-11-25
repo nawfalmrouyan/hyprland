@@ -47,8 +47,8 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
   - xorg-xwayland
   - guake
   - lf
-2. After installing programs above,
-1. Copy hypr directory to ~/.config/ (`cp -r hypr ~/.config`)
+2. Clone the repo
+1. Copy all the files in the repo to ~/.config/ (`cd hyprland && cp -r * ~/.config`)
 1. Start a Hyprland session (https://wiki.hyprland.org/Getting-Started/Quick-start/)
 
 <br />
