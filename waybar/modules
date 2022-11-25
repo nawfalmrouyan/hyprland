@@ -61,13 +61,14 @@
   },
 
   "clock": {
-  "interval": 60,
-  "align": 0,
-  "rotate": 0,
+    "interval": 60,
+    "align": 0,
+    "rotate": 0,
     //"timezone": "America/New_York",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "format": " {:%d %b, %H:%M}",
-    "format-alt": " {:%a %b %d, %G}"
+    "format-alt": " {:%a %b %d, %G}",
+    "on-click-right": "~/.config/hypr/scripts/changeWallpaper",
   },
 
   "cpu": {
@@ -161,8 +162,7 @@
   "custom/cycle_wall":{
     "format":"",
     "on-click": "~/.config/hypr/scripts/changeWallpaper",
-    "tooltip": true,
-    "tooltip-format: "Change wallpaper",
+    "tooltip-format": "Change wallpaper",
   },
 
   "custom/vpn_check":{
