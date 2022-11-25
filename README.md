@@ -101,6 +101,8 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>M</kbd> | Set split ratio to 0.3 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>M</kbd> | Set split ratio to -0.3 |
 | <kbd>SUPER</kbd> + <kbd>Escape</kbd> | Toggle Wlogout |
+| <kbd>SUPER</kbd> + <kbd>Y</kbd> | Open cava float window |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd> | ToOpen ttyclock float window |
 
 <br />
 
