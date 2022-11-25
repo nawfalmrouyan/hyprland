@@ -17,7 +17,7 @@
 # bemenu_input.sh -e: Options to exit system. To use this option, run script as a sudo user.
 
 DMENU_FONT1="FuraSansCondensed Nerd Font 14"
-COLOR=( --nb "#1e1d2d" --tb "#282737" --tf "#83bae8" --hf "#83bae8" --hb "#282737" --nf "#96cdfb" --fb "#282737" )
+COLOR=( --tf "#83bae8" --tb "#3a3a3a" --nf "#b0b4bc" --nb "#3a3a3a" --af "#b0b4bc" --fb "#3a3a3a" --ff "#b0b4bc" --ab "#3a3a3a" --hb "#83bae8" --hf "#3a3a3a" )
 
 # If "BROWSER" unset globally, set locally.
 [ -n "$BROWSER" ] || BROWSER="firefox -new-window"
