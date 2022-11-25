@@ -34,6 +34,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
   - swaylock
   - wlroots
   - wl-clipboard
+  - wlogout
   - waybar-hyprland-git
   - wofi
   - kitty
