@@ -4,7 +4,7 @@
 
 THEME='Arc-Dark'
 ICONS='Adwaita'
-FONT='FuraSansCondensed Nerd Font 14'
+FONT='FuraSansCondensed Nerd Font 13'
 # CURSOR='simp1e'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'
