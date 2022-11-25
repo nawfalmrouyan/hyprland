@@ -158,17 +158,11 @@
     "interval": 45,
   },
 
-  "custom/dynamic_pill": {
-    "return-type": "json",
-    "exec": "~/.config/hypr/scripts/tools/start_dyn",
-    "escape":true
-  },
-
   "custom/cycle_wall":{
     "format":"",
-    /* "exec": "~/.config/hypr/scripts/tools/expand wall", */
-    /* "on-click": "~/.config/hypr/scripts/tools/expand cycle" */
     "on-click": "~/.config/hypr/scripts/changeWallpaper",
+    "tooltip": true,
+    "tooltip-format: "Change wallpaper",
   },
 
   "custom/vpn_check":{

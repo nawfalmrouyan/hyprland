@@ -12,6 +12,6 @@
   "ipc": true,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
-  /* "modules-center": ["custom/dynamic_pill"], */
+  /* "modules-center": ["mpd"], */
   "modules-right": ["custom/updater", "backlight", "pulseaudio", "custom/weather", "network", "custom/vpn_check", "battery", "custom/cycle_wall", "tray", "clock", "custom/power"],
 }
