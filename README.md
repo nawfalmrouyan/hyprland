@@ -48,8 +48,25 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
   - guake
   - lf
 2. Clone the repo
-1. Copy all the files in the repo to ~/.config/ (`cd hyprland && cp -r * ~/.config`)
-1. Start a Hyprland session (https://wiki.hyprland.org/Getting-Started/Quick-start/)
+3. Assuming you do not have Hyprland configured before, copy/move all the files in the repo to ~/.config/hypr.
+```bash
+git clone <this repository>
+cd hyprland
+mkdir -p ~/.config/hypr
+cp -r * ~/.config/hypr
+```
+4. You can start Hyprland using a simple launcher script below:
+```sh
+#!/bin/sh
+
+cd ~
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XCURSOR_SIZE=24
+
+exec Hyprland
+```
+5. You can refer [here](https://wiki.hyprland.org/Getting-Started/Quick-start/) for more info.
 
 <br />
 
