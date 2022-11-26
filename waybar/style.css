@@ -98,6 +98,7 @@ window#waybar.hidden {
 #workspaces button {
   background-color: #d9e0ee;
   color: #3A3B3C;
+  border-color: #3a3b3c;
 }
 
 #workspaces button.active {
