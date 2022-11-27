@@ -1,8 +1,8 @@
 # Arch with Hyprland
 
-![Screenshot_2022-11-24-18-27-54_19051](https://user-images.githubusercontent.com/10271030/203763303-5fa66fa9-4921-4095-b970-25446d6d7c9e.png)
+![Screenshot_2022-11-27-18-12-12_2927](https://user-images.githubusercontent.com/10271030/204130038-73f4e772-3bff-4714-a19a-a9b3b8790653.png)
 
-![Screenshot_2022-11-24-18-25-48_2385](https://user-images.githubusercontent.com/10271030/203763318-d1ad8a5a-b845-4fa1-aa1a-5a99343fa06d.png)
+![Screenshot_2022-11-27-18-16-35_27023](https://user-images.githubusercontent.com/10271030/204130041-02b7dd05-38f4-437f-8f0d-67ed362683ab.png)
 
 <br />
 
