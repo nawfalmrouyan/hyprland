@@ -120,6 +120,7 @@ window#waybar.hidden {
 
 #custom-power {
 	background-color: #f38ba8;
+  margin-right: 4px;
 }
 
 #custom-updater {

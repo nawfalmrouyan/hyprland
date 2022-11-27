@@ -6,10 +6,12 @@
   "mode": "dock",
   "exclusive": true,
   "passthrough": false,
-  "position": "top",
+  "position": "bottom",
   "spacing": 5,
   "fixed-center": true,
   "ipc": true,
+  "margin-left": 5,
+  "margin-right": 5,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
   "modules-right": ["custom/updater", "backlight", "pulseaudio", "custom/weather", "network", "custom/vpn_check", "battery", "tray", "clock", "custom/power"],
