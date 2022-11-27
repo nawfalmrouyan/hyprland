@@ -10,3 +10,4 @@ if [[ $(pidof swaybg) ]]; then
 fi
 
 swaybg -m fill -i ${DIR}/${RANDOMPICS}
+notify-send "Wallpaper changed..."
