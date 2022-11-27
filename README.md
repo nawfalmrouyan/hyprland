@@ -1,4 +1,4 @@
-# Arch with Hyprland
+# Hyprland on ArcoLinux ([Video](https://youtu.be/MXOsmXXafS8))
 
 ![Screenshot_2022-11-27-18-12-12_2927](https://user-images.githubusercontent.com/10271030/204130038-73f4e772-3bff-4714-a19a-a9b3b8790653.png)
 
@@ -12,7 +12,7 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 
  | Label | Application | 
  | -- | -- |
- | Operating System  | Arco Linux |
+ | Operating System  | ArcoLinux |
  | Window Manager    | Hyprland |
  | Status Bar        | Waybar-hyprland-git |
  | Launcher          | Wofi |
