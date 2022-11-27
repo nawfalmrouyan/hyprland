@@ -9,7 +9,7 @@ term=kitty
 
 ## Geometry
 width=600px
-height=350px
+height=400px
 location=0
 orientation=vertical
 halign=fill
