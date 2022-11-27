@@ -7,7 +7,7 @@
   "exclusive": true,
   "passthrough": false,
   "position": "bottom",
-  "spacing": 5,
+  "spacing": 2,
   "fixed-center": true,
   "ipc": true,
   "margin-left": 5,
