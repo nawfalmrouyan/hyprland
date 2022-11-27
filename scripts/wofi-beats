@@ -8,7 +8,7 @@ COLORS="$HOME/.config/hypr/wofi/colors"
 ## Wofi Command
 wofi_command="wofi --show dmenu \
 			--conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
-			--width=350 --height=360 \
+			--width=350 --height=380 \
 			--cache-file=/dev/null \
 			--hide-scroll --no-actions \
 			--define=matching=fuzzy"
@@ -26,7 +26,8 @@ menu(){
   printf "5. Radio Spinner\n"
   printf "6. SmoothChill\n"
   printf "7. Little Soul\n"
-  printf "8. Fasetya"
+  printf "8. Fasetya\n"
+  printf "9. Lofi Zone"
 }
 
 main() {
@@ -71,6 +72,11 @@ main() {
     8)
       notification ;
       mpv --shuffle --ytdl-raw-options="cookies=/tmp/cookies.txt" --vid=no https://www.youtube.com/playlist\?list\=PLusoefCj_Mkn6dRQMc3MxUGFHLeYT4y49
+      return
+      ;;
+    9)
+      notification ;
+      mpv --shuffle --ytdl-raw-options="cookies=/tmp/cookies.txt" --vid=no https://www.youtube.com/watch?v=GaW13eDQO6s
       return
       ;;
   esac
