@@ -3,7 +3,7 @@
     "interval": 2,
     "align": 0,
     "rotate": 0,
-      "format": "{icon} {percent}%",
+      "format": "{icon} {percent}",
       "format-icons": ["", "", "", ""],
       "on-click": "",
       "on-click-middle": "",
@@ -153,11 +153,11 @@
 
   "pulseaudio": {
     /* "format": "{icon} {volume}% {format_source}", */
-    "format": "{icon} {volume}%",
+    "format": "{icon} {volume}",
     "format-muted": " Mute",
     "format-bluetooth": " {volume}% {format_source}",
     "format-bluetooth-muted": " Mute",
-    "format-source": " {volume}%",
+    "format-source": " {volume}",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
