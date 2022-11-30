@@ -146,7 +146,7 @@
   },
 
   "custom/vpn_check":{
-    "format":" {}",
+    "format":"{}",
     "exec": "~/.config/hypr/scripts/vpnCheck",
     "interval": 2,
     "on-click": "~/.local/bin/mmuvpn restart",
