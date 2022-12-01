@@ -13,8 +13,8 @@
       "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
       "smooth-scrolling-threshold": 1,
     },
-	
-	"wlr/workspaces": {
+
+  "wlr/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "all-outputs": true,
@@ -36,15 +36,15 @@
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
   },
-	
+
   "battery": {
-		"interval": 60,
-		"align": 0,
-		"rotate": 0,
-		//"bat": "BAT1",
-		//"adapter": "ACAD",
-		"full-at": 100,
-		"design-capacity": false,
+    "interval": 60,
+    "align": 0,
+    "rotate": 0,
+    //"bat": "BAT1",
+    //"adapter": "ACAD",
+    "full-at": 100,
+    "design-capacity": false,
     "states": {
       "good": 95,
       "warning": 30,

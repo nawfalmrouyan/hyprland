@@ -7,11 +7,11 @@ COLORS="$HOME/.config/hypr/wofi/colors"
 
 ## Wofi Command
 wofi_command="wofi --show dmenu \
-			--conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
-			--width=350 --height=380 \
-			--cache-file=/dev/null \
-			--hide-scroll --no-actions \
-			--define=matching=fuzzy"
+      --conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
+      --width=350 --height=380 \
+      --cache-file=/dev/null \
+      --hide-scroll --no-actions \
+      --define=matching=fuzzy"
 
 
 notification(){

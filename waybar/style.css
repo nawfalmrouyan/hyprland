@@ -35,26 +35,26 @@ window#waybar.hidden {
 #custom-uptime,
 #custom-cputemp,
 #network {
-	border-radius: 4px;
-	margin: 4px 0px;
-	padding: 0px 4px;
+  border-radius: 4px;
+  margin: 4px 0px;
+  padding: 0px 4px;
   color: #3A3B3C;
   border: 2px solid #3a3b3c;
 }
 
 #workspaces {
-	border-radius: 4px;
-	margin: 4px 0px;
-	padding: 0px 4px;
+  border-radius: 4px;
+  margin: 4px 0px;
+  padding: 0px 4px;
   color: #3A3B3C;
 }
 
 #backlight {
-	background-color: #cba6f7;
+  background-color: #cba6f7;
 }
 
 #battery {
-	background-color: #f9e2af;
+  background-color: #f9e2af;
 }
 
 @keyframes blink {
@@ -64,7 +64,7 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-	background-color: #f38ba8;
+  background-color: #f38ba8;
     color: #f38ba8;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -74,23 +74,23 @@ window#waybar.hidden {
 }
 
 #clock {
-	background-color: #a6e3a1;
+  background-color: #a6e3a1;
 }
 
 #cpu {
-	background-color: #89dceb;
+  background-color: #89dceb;
 }
 
 #memory {
-	background-color: #eba0ac;
+  background-color: #eba0ac;
 }
 
 #disk {
-	background-color: #b4befe;
+  background-color: #b4befe;
 }
 
 #tray {
-	background-color: #b4befe;
+  background-color: #b4befe;
 }
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -113,53 +113,53 @@ window#waybar.hidden {
 }
 
 #custom-menu {
-	background-color: #f5c2e7;
+  background-color: #f5c2e7;
 }
 
 #custom-power {
-	background-color: #f38ba8;
+  background-color: #f38ba8;
   margin-right: 4px;
 }
 
 #custom-updater {
-	background-color: #e6ed7b;
+  background-color: #e6ed7b;
 }
 
 #custom-uptime {
-	background-color: #e6ed7b;
+  background-color: #e6ed7b;
 }
 
 #custom-weather {
-	background-color: #cba6f7;
+  background-color: #cba6f7;
 }
 
 #custom-cycle_wall {
-	background-color: #89dceb;
+  background-color: #89dceb;
 }
 
 #custom-vpn_check {
-	background-color: #a6e3a1;
+  background-color: #a6e3a1;
 }
 #custom-cputemp {
   background-color: #86b4fa;
 }
 
 #pulseaudio {
-	background-color: #fab387;
+  background-color: #fab387;
 }
 
 #pulseaudio.bluetooth {
-	background-color: #f5c2e7;
+  background-color: #f5c2e7;
 }
 #pulseaudio.muted {
-	background-color: #313244;
-	color: #cdd6f4;
+  background-color: #313244;
+  color: #cdd6f4;
 }
 
 #network {
-	background-color: #89b4fa;
+  background-color: #89b4fa;
 }
 #network.disconnected,#network.disabled {
-	background-color: #313244;
-	color: #cdd6f4;
+  background-color: #313244;
+  color: #cdd6f4;
 }

@@ -11,23 +11,23 @@
 
 /** ********** Main Window ********** **/
 window {
-	background-color: #1E1E2E;
+  background-color: #1E1E2E;
 }
 
 /** ********** Buttons ********** **/
 button {
-	background-color: #242434;
+  background-color: #242434;
     color: #FFFFFF;
-	border: 2px solid #282838;
-	border-radius: 20px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 35%;
+  border: 2px solid #282838;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
 }
 
 button:focus, button:active, button:hover {
-	background-color: #89B4FA;
-	outline-style: none;
+  background-color: #89B4FA;
+  outline-style: none;
 }
 
 /** ********** Icons ********** **/
