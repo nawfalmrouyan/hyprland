@@ -84,6 +84,7 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>W</kbd> | Open firefox in workspace 2 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Open WhatsApp in workspace 9 silently |
 | <kbd>SUPER</kbd> + <kbd>Q</kbd> | Kill focused window |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Q</kbd> | Exit Hyprland |
 | <kbd>SUPER</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Default Profile) |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Profile 1) |
 | <kbd>SUPER</kbd> + <kbd>F</kbd> | Toggle fullscreen of focused window |
