@@ -8,8 +8,8 @@
   "spacing": 2,
   "fixed-center": true,
   "ipc": true,
-  "margin-left": 5,
-  "margin-right": 5,
+  "margin-left": 3,
+  "margin-right": 3,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
   "modules-right": ["custom/updater", "backlight", "pulseaudio", "custom/weather", "network", "custom/vpn_check", "battery", "tray", "clock", "custom/power"],
