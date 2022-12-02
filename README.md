@@ -289,6 +289,19 @@ exec Hyprland
 
 <br />
 
+## Two Monitors
+
+ - When there are to monitors connected, workspaces 1-5 bind to monitor id 0 and workspaces 6-10 bind to monitor id 1
+
+| Keybind | Command |
+|-|-|
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
+| <kbd>SUPER</kbd> + <kbd>comma</kbd> | Focus on monitor id 0 |
+| <kbd>SUPER</kbd> + <kbd>period</kbd> | Focus on monitor id 1 |
+
+<br />
+
 # Special thanks
 
 * https://github.com/hyprwm/Hyprland - For an amazing WM
