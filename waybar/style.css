@@ -36,16 +36,16 @@ window#waybar.hidden {
 #custom-cputemp,
 #network {
   border-radius: 4px;
-  margin: 4px 0px;
   padding: 0px 4px;
+  margin-bottom: 4px;
   color: #3A3B3C;
   border: 2px solid #3a3b3c;
 }
 
 #workspaces {
   border-radius: 4px;
-  margin: 4px 0px;
-  padding: 0px 4px;
+  margin-bottom: 4px;
+  padding: 0;
   color: #3A3B3C;
 }
 
