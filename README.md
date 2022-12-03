@@ -50,6 +50,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
   - pamixer
   - xbacklight
   - bemenu
+  - hyprpicker
 2. Clone the repo
 3. Assuming you do not have Hyprland configured before, copy/move all the files in the repo to ~/.config/hypr.
 ```bash
@@ -108,6 +109,7 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>Escape</kbd> | Toggle Wlogout |
 | <kbd>SUPER</kbd> + <kbd>Y</kbd> | Open cava float window |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd> | Open ttyclock float window |
+| <kbd>SUPER</kbd> + <kbd>O</kbd> | Pick color in RGB format |
 
 <br />
 
