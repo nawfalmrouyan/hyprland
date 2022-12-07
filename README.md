@@ -110,6 +110,8 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>Y</kbd> | Open cava float window |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd> | Open ttyclock float window |
 | <kbd>SUPER</kbd> + <kbd>O</kbd> | Pick color in RGB format |
+| <kbd>SUPER</kbd> + <kbd>T</kbd> | Set night mode (flux) |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>T</kbd> | Reloads Hyprland config. Also used to reset nightmode |
 
 <br />
 
