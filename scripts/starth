@@ -4,7 +4,8 @@ cd ~ || exit
 
 export WLR_NO_HARDWARE_CURSORS=1
 export _JAVA_AWT_WM_NONREPARENTING=1
-export XCURSOR_SIZE=32
+export XCURSOR_SIZE=24
 export XDG_SESSION_TYPE=wayland
 
-LIBVA_DRIVER_NAME=nvidia GBM_BACKEND=nvidia-drm __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 Hyprland
+# LIBVA_DRIVER_NAME=nvidia GBM_BACKEND=nvidia-drm __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 Hyprland
+LIBVA_DRIVER_NAME=nvidia GBM_BACKEND=nvidia-drm __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only Hyprland
