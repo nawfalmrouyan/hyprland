@@ -82,7 +82,7 @@ exec Hyprland
 
 | Keybind | Command |
 |-|-|
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Return</kbd> | Open Kitty terminal |
+| <kbd>SUPER</kbd> + <kbd>Return</kbd> | Open Kitty terminal |
 | <kbd>SUPER</kbd> + <kbd>W</kbd> | Open firefox in workspace 2 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Open WhatsApp in workspace 9 silently |
 | <kbd>SUPER</kbd> + <kbd>Q</kbd> | Kill focused window |
@@ -98,7 +98,7 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>P</kbd> | Set focused window to pseudo | |
 | <kbd>SUPER</kbd> + <kbd>J</kbd> | Focus to next window |
 | <kbd>SUPER</kbd> + <kbd>K</kbd> | Focus to previous window |
-| <kbd>SUPER</kbd> + <kbd>Return | Swap current focused window with Master window |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Return | Swap current focused window with Master window |
 | <kbd>SUPER</kbd> + <kbd>I</kbd> | Add focused window to Master |
 | <kbd>SUPER</kbd> + <kbd>D</kbd> | Remove focused window from Master |
 | <kbd>SUPER</kbd> + <kbd>Backspace</kbd> | Toggle scratch terminal |
