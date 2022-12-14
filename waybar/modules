@@ -91,7 +91,8 @@
   "custom/power": {
     "format": " 襤 ",
     "tooltip": false,
-    "on-click": "$HOME/.config/hypr/scripts/wlogout",
+    /* "on-click": "$HOME/.config/hypr/scripts/wlogout", */
+    "on-click": "$HOME/.config/rofi/scripts/powermenu_t3",
   },
 
   "disk": {
