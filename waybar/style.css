@@ -113,6 +113,16 @@ window#waybar.hidden {
   color: #3A3B3C;
 }
 
+#workspaces button.urgent {
+  background-color: #f28fad;
+  color: #3A3B3C;
+}
+
+#workspaces button:hover {
+  background: #c4a7e7;
+  color: #3A3B3C;
+}
+
 #custom-menu {
   background-color: #f5c2e7;
 }
