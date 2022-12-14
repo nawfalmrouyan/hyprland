@@ -80,7 +80,7 @@ exec Hyprland
 
 ## General
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>Return</kbd> | Open Kitty terminal |
 | <kbd>SUPER</kbd> + <kbd>W</kbd> | Open firefox in workspace 2 |
@@ -116,7 +116,7 @@ exec Hyprland
 
 ## Special Keys
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>Volume Up</kbd> | Increase volume by 5% |
 | <kbd>Volume Down</kbd> | Decrease volume by 5% |
@@ -128,7 +128,7 @@ exec Hyprland
 
 ## Backlight control
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>=</kbd> | Enter backlight mode |
 | <kbd>=</kbd> | Increase backlight by 5% |
@@ -139,7 +139,7 @@ exec Hyprland
 
 ## Volume control
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>=</kbd> | Enter volume mode |
 | <kbd>=</kbd> | Increase volume by 5% |
@@ -152,7 +152,7 @@ exec Hyprland
 
 ## Resize windows
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>H</kbd> | Resize left |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd> | Resize right |
@@ -163,7 +163,7 @@ exec Hyprland
 
 ## Move focused window
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>H</kbd> | Move focused window left |
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>L</kbd> | Move focused window right |
@@ -174,7 +174,7 @@ exec Hyprland
 
 ## Focus
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>Left</kbd> | Focus left |
 | <kbd>SUPER</kbd> + <kbd>Right</kbd> | Focus right |
@@ -185,7 +185,7 @@ exec Hyprland
 
 ## Special workspace
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>U</kbd> | Move focused window to special workspace |
 | <kbd>SUPER</kbd> + <kbd>U</kbd> | Toggle special workspace |
@@ -194,7 +194,7 @@ exec Hyprland
 
 ## Switch workspaces
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>1</kbd> | Move to workspace 1 |
 | <kbd>SUPER</kbd> + <kbd>2</kbd> | Move to workspace 2 |
@@ -212,7 +212,7 @@ exec Hyprland
 
 ## Move active window to a workspace
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>1</kbd> | Move focused window to workspace 1 |
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>2</kbd> | Move focused window to workspace 2 |
@@ -232,7 +232,7 @@ exec Hyprland
 
 ## Silently move active window to a workspace
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>1</kbd> | Move focused window to workspace 1 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>2</kbd> | Move focused window to workspace 2 |
@@ -252,7 +252,7 @@ exec Hyprland
 
 ## Scroll through existing workspaces
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + Mouse wheel down | Move to previous workspace |
 | <kbd>SUPER</kbd> + Mouse wheel up | Move to next workspace |
@@ -263,7 +263,7 @@ exec Hyprland
 
 ## Move/resize windows with using mouse
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + LMB | Move window |
 | <kbd>SUPER</kbd> + RMB | Resize window |
@@ -272,7 +272,7 @@ exec Hyprland
 
 ## Group - only available in Dwindle layout
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>G</kbd> | Toggle group |
 | <kbd>SUPER</kbd> + <kbd>Tab</kbd> | Change to next window in group |
@@ -281,7 +281,7 @@ exec Hyprland
 
 ## Script binds
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>S</kbd> | Listen to Lofi music stream |
 | <kbd>Print</kbd> | Take screenshot now |
@@ -296,7 +296,7 @@ exec Hyprland
 
  - When there are to monitors connected, workspaces 1-5 bind to monitor id 0 and workspaces 6-10 bind to monitor id 1
 
-| Keybind | Command |
+| Keybind | Description |
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
