@@ -34,6 +34,7 @@ window#waybar.hidden {
 #custom-vpn_check,
 #custom-uptime,
 #custom-cputemp,
+#window,
 #network {
   border-radius: 4px;
   padding: 0px 4px;
@@ -154,6 +155,10 @@ window#waybar.hidden {
 #pulseaudio.muted {
   background-color: #313244;
   color: #cdd6f4;
+}
+
+#window {
+  background: #fab387;
 }
 
 #network {
