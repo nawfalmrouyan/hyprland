@@ -6,6 +6,8 @@ red='f38ba8' green='a6e3a1' yellow='f9e2af'
 blue='89b4fa' magenta='cba6f7' cyan='89dceb'
 alpha='00000000'
 
+IMAGE=$HOME/.config/hypr/bg/lock_dimblur.png
+
 # CMD
 swaylock -f \
   `# General` \
@@ -15,10 +17,10 @@ swaylock -f \
   --indicator-caps-lock \
   `# Appearance` \
   --color ${bg}E6 \
-  `#--image ${IMAGE} --scaling fill` \
+  --image ${IMAGE} --scaling fill \
   --font 'PragmataPro Nerd Font Mono' --font-size 30 \
   `# Backspace Key` \
-  --key-hl-color ${green} \
+  --key-hl-color ${blue} \
   --caps-lock-key-hl-color ${blue} \
   --bs-hl-color ${red} \
   --caps-lock-bs-hl-color ${red} \
@@ -29,7 +31,7 @@ swaylock -f \
   --inside-color ${alpha} \
   --inside-clear-color ${alpha} \
   --inside-caps-lock-color ${alpha} \
-  --inside-ver-color ${blue} \
+  --inside-ver-color ${magenta} \
   --inside-wrong-color ${red} \
   `# Layout Colors` \
   --layout-bg-color ${cyan} \
@@ -42,10 +44,10 @@ swaylock -f \
   --line-ver-color ${bg} \
   --line-wrong-color ${bg} \
   `# Ring Colors` \
-  --ring-color ${cyan} \
+  --ring-color ${magenta} \
   --ring-clear-color ${bg} \
-  --ring-caps-lock-color ${magenta} \
-  --ring-ver-color ${blue} \
+  --ring-caps-lock-color ${blue} \
+  --ring-ver-color ${magenta} \
   --ring-wrong-color ${red} \
   `# Separator Color` \
   --separator-color ${bg} \

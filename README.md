@@ -103,6 +103,7 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>D</kbd> | Remove focused window from Master |
 | <kbd>SUPER</kbd> + <kbd>Backspace</kbd> | Toggle scratch terminal |
 | <kbd>SUPER</kbd> + <kbd>L</kbd> | Toggle between Master and Dwindle layout |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>L</kbd> | Lock screen |
 | <kbd>SUPER</kbd> + <kbd>M</kbd> | Set split ratio to 0.3 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>M</kbd> | Set split ratio to -0.3 |
 | <kbd>SUPER</kbd> + <kbd>Escape</kbd> | Toggle Wlogout |
