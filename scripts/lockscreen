@@ -20,7 +20,7 @@ swaylock -f \
   --image ${IMAGE} --scaling fill \
   --font 'PragmataPro Nerd Font Mono' --font-size 30 \
   `# Backspace Key` \
-  --key-hl-color ${blue} \
+  --key-hl-color ${magenta} \
   --caps-lock-key-hl-color ${blue} \
   --bs-hl-color ${red} \
   --caps-lock-bs-hl-color ${red} \
@@ -31,8 +31,8 @@ swaylock -f \
   --inside-color ${alpha} \
   --inside-clear-color ${alpha} \
   --inside-caps-lock-color ${alpha} \
-  --inside-ver-color ${magenta} \
-  --inside-wrong-color ${red} \
+  --inside-ver-color ${red} \
+  --inside-wrong-color ${magenta} \
   `# Layout Colors` \
   --layout-bg-color ${cyan} \
   --layout-border-color ${cyan} \
@@ -44,11 +44,11 @@ swaylock -f \
   --line-ver-color ${bg} \
   --line-wrong-color ${bg} \
   `# Ring Colors` \
-  --ring-color ${magenta} \
+  --ring-color ${red} \
   --ring-clear-color ${bg} \
   --ring-caps-lock-color ${blue} \
-  --ring-ver-color ${magenta} \
-  --ring-wrong-color ${red} \
+  --ring-ver-color ${red} \
+  --ring-wrong-color ${magenta} \
   `# Separator Color` \
   --separator-color ${bg} \
   `# Text Colors` \
