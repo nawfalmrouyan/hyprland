@@ -1,4 +1,12 @@
-# Hyprland on ArcoLinux ([Video](https://youtu.be/MXOsmXXafS8))
+<h1 align="center">Hyprland on ArcoLinux</h1>
+
+<div align="center">
+<img src="https://img.shields.io/github/last-commit/nawfalmrouyan/hyprland?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
+<img src="https://img.shields.io/github/repo-size/nawfalmrouyan/hyprland?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
+<img src="https://img.shields.io/github/license/nawfalmrouyan/hyprland?style=for-the-badge&logo=powerpages&color=cba6f7&logoColor=D9E0EE&labelColor=302D41"/>
+</div>
+
+## 🌟 Preview ([Video](https://youtu.be/MXOsmXXafS8))
 
 ![Screenshot_2022-11-28-11-56-04_13076](https://user-images.githubusercontent.com/10271030/204191449-33690ced-76d5-48a3-b880-b77bfd3db1aa.png)
 
@@ -6,7 +14,7 @@
 
 <br />
 
-# Overview
+## Overview
 
 Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
 
@@ -23,7 +31,7 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 
 <br />
 
-# Installation
+## 🛠 Installation
 
 If you want to install this setup on ARCH Linux or on any other distro, follow the points below:
 
@@ -74,11 +82,11 @@ exec Hyprland
 
 <br />
 
-# Keybinds
+## Keybinds
 
 <br />
 
-## General
+### General
 
 | Keybind | Description |
 |-|-|
@@ -115,7 +123,7 @@ exec Hyprland
 
 <br />
 
-## Special Keys
+### Special Keys
 
 | Keybind | Description |
 |-|-|
@@ -127,7 +135,7 @@ exec Hyprland
 
 <br />
 
-## Backlight control
+### Backlight control
 
 | Keybind | Description |
 |-|-|
@@ -138,7 +146,7 @@ exec Hyprland
 
 <br />
 
-## Volume control
+### Volume control
 
 | Keybind | Description |
 |-|-|
@@ -151,7 +159,7 @@ exec Hyprland
 
 <br />
 
-## Resize windows
+### Resize windows
 
 | Keybind | Description |
 |-|-|
@@ -162,7 +170,7 @@ exec Hyprland
 
 <br />
 
-## Move focused window
+### Move focused window
 
 | Keybind | Description |
 |-|-|
@@ -173,7 +181,7 @@ exec Hyprland
 
 <br />
 
-## Focus
+### Focus
 
 | Keybind | Description |
 |-|-|
@@ -184,7 +192,7 @@ exec Hyprland
 
 <br />
 
-## Special workspace
+### Special workspace
 
 | Keybind | Description |
 |-|-|
@@ -193,7 +201,7 @@ exec Hyprland
 
 <br />
 
-## Switch workspaces
+### Switch workspaces
 
 | Keybind | Description |
 |-|-|
@@ -211,7 +219,7 @@ exec Hyprland
 
 <br />
 
-## Move active window to a workspace
+### Move active window to a workspace
 
 | Keybind | Description |
 |-|-|
@@ -231,7 +239,7 @@ exec Hyprland
 
 <br />
 
-## Silently move active window to a workspace
+### Silently move active window to a workspace
 
 | Keybind | Description |
 |-|-|
@@ -251,7 +259,7 @@ exec Hyprland
 
 <br />
 
-## Scroll through existing workspaces
+### Scroll through existing workspaces
 
 | Keybind | Description |
 |-|-|
@@ -262,7 +270,7 @@ exec Hyprland
 
 <br />
 
-## Move/resize windows with using mouse
+### Move/resize windows with using mouse
 
 | Keybind | Description |
 |-|-|
@@ -271,7 +279,7 @@ exec Hyprland
 
 <br />
 
-## Group - only available in Dwindle layout
+### Group - only available in Dwindle layout
 
 | Keybind | Description |
 |-|-|
@@ -280,7 +288,7 @@ exec Hyprland
 
 <br />
 
-## Script binds
+### Script binds
 
 | Keybind | Description |
 |-|-|
@@ -293,7 +301,7 @@ exec Hyprland
 
 <br />
 
-## Two Monitors
+### Two Monitors
 
  - When there are to monitors connected, workspaces 1-5 bind to monitor id 0 and workspaces 6-10 bind to monitor id 1
 
@@ -306,7 +314,7 @@ exec Hyprland
 
 <br />
 
-# Special thanks
+## Special thanks
 
 * https://github.com/hyprwm/Hyprland - For an amazing WM
 * https://github.com/eldermf/bspwm-hyprland - For the inspiration
