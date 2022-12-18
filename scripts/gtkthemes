@@ -2,10 +2,10 @@
 
 ## Set GTK Themes, Icons, Cursor and Fonts
 
-THEME='Arc-Dark'
+THEME='Catppuccin-Mocha-Standard-Mauve-Dark'
 ICONS='Adwaita'
 # FONT='Fira Sans Condensed 13'
-CURSOR='Premium'
+CURSOR='Adwaita'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'
 
