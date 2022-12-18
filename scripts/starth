@@ -2,10 +2,27 @@
 
 cd ~ || exit
 
-export WLR_NO_HARDWARE_CURSORS=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XCURSOR_SIZE=24
-export XDG_SESSION_TYPE=wayland
+export _JAVA_AWT_WM_NONREPARENTING="1";
+export __GL_GSYNC_ALLOWED="0";
+export __GL_VRR_ALLOWED="0";
+export DISABLE_QT5_COMPAT="0";
+export ANKI_WAYLAND="1";
+export DIRENV_LOG_FORMAT="";
+export WLR_DRM_NO_ATOMIC="1";
+export QT_AUTO_SCREEN_SCALE_FACTOR="1";
+export QT_QPA_PLATFORM="wayland;xcb";
+export GDK_BACKEND="wayland";
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1";
+export QT_QPA_PLATFORMTHEME="qt5ct";
+export QT_STYLE_OVERRIDE="kvantum";
+export MOZ_ENABLE_WAYLAND="1";
+export WLR_BACKEND="vulkan";
+export WLR_NO_HARDWARE_CURSORS="1";
+export XDG_SESSION_TYPE="wayland";
+export SDL_VIDEODRIVER="wayland";
+export CLUTTER_BACKEND="wayland";
+# export WLR_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0";
+export XCURSOR_SIZE="24";
 
 # LIBVA_DRIVER_NAME=nvidia GBM_BACKEND=nvidia-drm __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 Hyprland
 LIBVA_DRIVER_NAME=nvidia GBM_BACKEND=nvidia-drm __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only Hyprland
