@@ -103,23 +103,42 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>V</kbd> | Toggle floating of focused window |
 | <kbd>SUPER</kbd> + <kbd>R</kbd> | Open application using wofi |
 | <kbd>SUPER</kbd> + <kbd>C</kbd> | Open application using bemenu |
-| <kbd>SUPER</kbd> + <kbd>P</kbd> | Set focused window to pseudo | |
-| <kbd>SUPER</kbd> + <kbd>J</kbd> | Focus to next window |
-| <kbd>SUPER</kbd> + <kbd>K</kbd> | Focus to previous window |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Return | Swap current focused window with Master window |
-| <kbd>SUPER</kbd> + <kbd>I</kbd> | Add focused window to Master |
-| <kbd>SUPER</kbd> + <kbd>D</kbd> | Remove focused window from Master |
-| <kbd>SUPER</kbd> + <kbd>Backspace</kbd> | Toggle scratch terminal |
 | <kbd>SUPER</kbd> + <kbd>L</kbd> | Toggle between Master and Dwindle layout |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>L</kbd> | Lock screen |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>L</kbd> | Lock screen |
 | <kbd>SUPER</kbd> + <kbd>M</kbd> | Set split ratio to 0.3 |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>M</kbd> | Set split ratio to -0.3 |
 | <kbd>SUPER</kbd> + <kbd>Escape</kbd> | Toggle Wlogout |
 | <kbd>SUPER</kbd> + <kbd>Y</kbd> | Open cava float window |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd> | Open ttyclock float window |
-| <kbd>SUPER</kbd> + <kbd>O</kbd> | Pick color in RGB format |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>O</kbd> | Pick color in RGB format |
 | <kbd>SUPER</kbd> + <kbd>T</kbd> | Set night mode (flux) |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>T</kbd> | Reloads Hyprland config. Also used to reset nightmode |
+
+<br />
+
+### Master Layout
+
+| Keybind | Description |
+|-|-|
+| <kbd>SUPER</kbd> + <kbd>J</kbd> | Cycle to next window |
+| <kbd>SUPER</kbd> + <kbd>K</kbd> | Cycle to previous window |
+| <kbd>SUPER</kbd> + <kbd>I</kbd> | Add focused window to Master |
+| <kbd>SUPER</kbd> + <kbd>D</kbd> | Remove focused window from Master |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Return</kbd> | Swap current focused window with Master window |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>period</kbd> | Cycle to next master layout orientation |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>comma</kbd> | Cycle to previous master layout orientation |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Return</kbd> | Focus master window |
+
+<br />
+
+### Dwindle Layout
+
+| Keybind | Description |
+|-|-|
+| <kbd>SUPER</kbd> + <kbd>J</kbd> | Cycle to next window |
+| <kbd>SUPER</kbd> + <kbd>K</kbd> | Cycle to previous window |
+| <kbd>SUPER</kbd> + <kbd>P</kbd> | Set focused window to pseudo  |
+| <kbd>SUPER</kbd> + <kbd>O</kbd> | Toggle split window |
 
 <br />
 
