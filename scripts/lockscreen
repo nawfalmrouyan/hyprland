@@ -18,7 +18,7 @@ swaylock -fF \
   `# Appearance` \
   --color ${bg}E6 \
   --image ${IMAGE} --scaling fill \
-  --font 'PragmataPro Nerd Font Mono' --font-size 70 \
+  --font 'IosevkaLyteTerm' --font-size 70 \
   `# Backspace Key` \
   --key-hl-color ${magenta} \
   --caps-lock-key-hl-color ${blue} \
