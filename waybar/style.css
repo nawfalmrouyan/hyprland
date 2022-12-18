@@ -37,7 +37,7 @@ window#waybar.hidden {
 #custom-cputemp,
 #window,
 #network {
-  border-radius: 4px;
+  border-radius: 5px;
   padding: 0px 4px;
   margin-bottom: 4px;
   color: #3A3B3C;
@@ -45,7 +45,7 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  border-radius: 4px;
+  border-radius: 5px;
   margin-bottom: 4px;
   padding: 0;
   color: #3A3B3C;
@@ -106,7 +106,7 @@ window#waybar.hidden {
   color: #3A3B3C;
   border: 2px solid #3a3b3c;
   margin-left: 2px;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 #workspaces button.active {
