@@ -4,7 +4,7 @@
 
 THEME='Arc-Dark'
 ICONS='Adwaita'
-FONT='FuraSansCondensed Nerd Font 13'
+# FONT='Fira Sans Condensed 13'
 CURSOR='Premium'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'
@@ -13,7 +13,7 @@ apply_themes() {
   ${SCHEMA} gtk-theme "$THEME"
   ${SCHEMA} icon-theme "$ICONS"
   ${SCHEMA} cursor-theme "$CURSOR"
-  ${SCHEMA} font-name "$FONT"
+  # ${SCHEMA} font-name "$FONT"
 }
 
 apply_themes
