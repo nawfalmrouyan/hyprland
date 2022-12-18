@@ -7,6 +7,11 @@ case $LAYOUT in
   hyprctl keyword general:layout dwindle
   hyprctl keyword unbind SUPER,J
   hyprctl keyword unbind SUPER,K
+  hyprctl keyword unbind SUPER,I
+  hyprctl keyword unbind SUPER,D
+  hyprctl keyword unbind SUPERSHIFT,period
+  hyprctl keyword unbind SUPERSHIFT,comma
+  hyprctl keyword unbind SUPERCTRL,Return
   hyprctl keyword bind SUPER,J,cyclenext
   hyprctl keyword bind SUPER,K,cyclenext,prev
   hyprctl keyword bind SUPER,O,togglesplit
@@ -19,6 +24,11 @@ case $LAYOUT in
   hyprctl keyword unbind SUPER,O
   hyprctl keyword bind SUPER,J,layoutmsg,cyclenext
   hyprctl keyword bind SUPER,K,layoutmsg,cycleprev
+  hyprctl keyword bind SUPER,I,layoutmsg,addmaster
+  hyprctl keyword bind SUPER,D,layoutmsg,removemaster
+  hyprctl keyword bind SUPERSHIFT,period,layoutmsg,orientationnext
+  hyprctl keyword bind SUPERSHIFT,comma,layoutmsg,orientationprev
+  hyprctl keyword bind SUPERCTRL,Return,layoutmsg,focusmaster
   notify-send "Master Layout"
   ;;
 *) ;;
