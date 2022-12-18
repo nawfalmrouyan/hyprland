@@ -1,5 +1,5 @@
 {
-  "include": "modules",
+  "include": "./modules",
   "layer": "top",
   "exclusive": true,
   "passthrough": false,
