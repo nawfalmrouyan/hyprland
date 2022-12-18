@@ -9,7 +9,7 @@ alpha='00000000'
 IMAGE=$HOME/.config/hypr/bg/lock_dimblur.png
 
 # CMD
-swaylock -f \
+swaylock -fF \
   `# General` \
   --ignore-empty-password \
   --show-failed-attempts \
@@ -18,15 +18,15 @@ swaylock -f \
   `# Appearance` \
   --color ${bg}E6 \
   --image ${IMAGE} --scaling fill \
-  --font 'PragmataPro Nerd Font Mono' --font-size 30 \
+  --font 'PragmataPro Nerd Font Mono' --font-size 70 \
   `# Backspace Key` \
   --key-hl-color ${magenta} \
   --caps-lock-key-hl-color ${blue} \
   --bs-hl-color ${red} \
   --caps-lock-bs-hl-color ${red} \
   `# Indicator` \
-  --indicator-radius 120 \
-  --indicator-thickness 10 \
+  --indicator-radius 200 \
+  --indicator-thickness 20 \
   `# Inside Circle Colors` \
   --inside-color ${alpha} \
   --inside-clear-color ${alpha} \
@@ -57,4 +57,5 @@ swaylock -f \
   --text-caps-lock-color ${fg} \
   --text-ver-color ${bg} \
   --text-wrong-color ${bg} \
+  --datestr "%d.%m" \
   --clock --indicator
