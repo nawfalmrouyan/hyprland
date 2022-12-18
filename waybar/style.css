@@ -162,8 +162,7 @@ window#waybar.hidden {
   background-color: #f5c2e7;
 }
 #pulseaudio.muted {
-  background-color: #313244;
-  color: #cdd6f4;
+  background-color: #F38BA8;
 }
 
 #window {
