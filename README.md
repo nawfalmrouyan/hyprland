@@ -24,7 +24,7 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
  | Window Manager    | Hyprland |
  | Status Bar        | Waybar-hyprland-git |
  | Launcher          | Wofi |
- | Session Manager   | Wlogout |
+ | Session Manager   | archlinux-logout |
  | Notifications     | Mako |
  | Terminal          | Kitty |
  | Web Browser       | Firefox |
