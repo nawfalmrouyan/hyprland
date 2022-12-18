@@ -60,7 +60,8 @@
     "format-icons": ["", "", "", "", ""],
     "format-time": "{H}h {M}min",
     "tooltip": true,
-    "on-click-right": "~/.config/hypr/scripts/glassmorphismToggle"
+    "on-click-right": "~/.config/hypr/scripts/glassmorphismToggle",
+    "on-click-middle": "~/.config/hypr/scripts/swallowToggle"
   },
 
   "clock": {

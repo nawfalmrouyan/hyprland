@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SWALLOW=$(hyprctl -j getoption misc:enable_swallow | jq ".int")
+
+if [ "${SWALLOW}" == "1" ]; then
+  hyprctl keyword misc:enable_swallow 0
+  notify-send "No swallow"
+else
+  hyprctl keyword misc:enable_swallow 1
+  notify-send "Swallow"
+fi
