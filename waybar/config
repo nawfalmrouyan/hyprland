@@ -1,14 +1,13 @@
 {
-  "include": "./modules",
+  "include": "~/.config/hypr/waybar/modules",
   "layer": "top",
   "exclusive": true,
   "passthrough": false,
   "position": "bottom",
-  "spacing": 2,
   "fixed-center": true,
-  "ipc": true,
-  "margin-left": 3,
-  "margin-right": 3,
+  "spacing": 2,
+  "height": 37,
+  "gtk-layer-shell": true,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
   /* "modules-center": ["hyprland/window"], */

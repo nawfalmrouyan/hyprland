@@ -1,14 +1,13 @@
 * {
-    font-family: "Symbols Nerd Font", "FuraSansCondensed Nerd Font", "Roboto Condensed", sans-serif;
+    font-family: FuraSansCondensed Nerd Font, monospace;
     font-size: 14px;
-    /* color: #3A3B3C; */
+    border: none;
+    border-radius: 0;
+    min-height: 0;
 }
 
 window#waybar {
-  /* Transparent waybar. Make sure to comment out background-color: and border: */
-  background: rgba(0,0,0,0);
-  /* background-color: #1e1e2e; */
-  /* border: 2px solid #313244; */
+  background: transparent;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -75,7 +74,7 @@ window#waybar.hidden {
 }
 
 #clock {
-  background-color: #a6e3a1;
+  background-color: #fab387;
 }
 
 #cpu {
@@ -83,15 +82,15 @@ window#waybar.hidden {
 }
 
 #memory {
-  background-color: #eba0ac;
+  background-color: #89b4fa;
 }
 
 #disk {
-  background-color: #b4befe;
+  background-color: #cba6f7;
 }
 
 #tray {
-  background-color: #b4befe;
+  background-color: #f9e2af;
 }
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -101,7 +100,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  background-color: #d9e0ee;
+  background-color: #f9e2af;
   color: #3A3B3C;
   border: 2px solid #3a3b3c;
   margin-left: 2px;
@@ -109,7 +108,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-  background-color: rgb(249,226,175);
+  background-color: #fab387;
   color: #3A3B3C;
 }
 
@@ -141,7 +140,7 @@ window#waybar.hidden {
 }
 
 #custom-weather {
-  background-color: #cba6f7;
+  background-color: #94e2d5;
 }
 
 #custom-cycle_wall {
@@ -152,11 +151,11 @@ window#waybar.hidden {
   background-color: #a6e3a1;
 }
 #custom-cputemp {
-  background-color: #86b4fa;
+  background-color: #94e2d5;
 }
 
 #pulseaudio {
-  background-color: #fab387;
+  background-color: #89b4fa;
 }
 
 #pulseaudio.bluetooth {
@@ -172,7 +171,7 @@ window#waybar.hidden {
 }
 
 #network {
-  background-color: #89b4fa;
+  background-color: #a6e3a1;
 }
 #network.disconnected,#network.disabled {
   background-color: #313244;
