@@ -15,6 +15,7 @@ case $LAYOUT in
   hyprctl keyword bind SUPER,J,cyclenext
   hyprctl keyword bind SUPER,K,cyclenext,prev
   hyprctl keyword bind SUPER,O,togglesplit
+  hyprctl keyword bind SUPER,P,pseudo
   notify-send "Dwindle Layout"
   ;;
 "dwindle")
@@ -22,6 +23,7 @@ case $LAYOUT in
   hyprctl keyword unbind SUPER,J
   hyprctl keyword unbind SUPER,K
   hyprctl keyword unbind SUPER,O
+  hyprctl keyword unbind SUPER,P
   hyprctl keyword bind SUPER,J,layoutmsg,cyclenext
   hyprctl keyword bind SUPER,K,layoutmsg,cycleprev
   hyprctl keyword bind SUPER,I,layoutmsg,addmaster
