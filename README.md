@@ -8,7 +8,7 @@
 
 ## 🌟 Preview ([Video](https://youtu.be/MXOsmXXafS8))
 
-![Screenshot_2022-11-28-11-56-04_13076](https://user-images.githubusercontent.com/10271030/204191449-33690ced-76d5-48a3-b880-b77bfd3db1aa.png)
+![Screenshot_2022-12-19-13-13-42_31139](https://user-images.githubusercontent.com/10271030/208352714-e2b22e9f-2760-48e5-976f-6d6305cb3051.png)
 
 ![Screenshot_2022-11-28-12-01-05_4476](https://user-images.githubusercontent.com/10271030/204191455-acfa237b-8611-416f-9fb0-36037016d623.png)
 
