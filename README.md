@@ -28,6 +28,9 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
  | Notifications     | Mako |
  | Terminal          | Kitty |
  | Web Browser       | Firefox |
+ | Fonts             | Fira Sans Condensed |
+ |                   | Symbols Nerd Font |
+ |                   | IosevkaLyteTerm Nerd Font |
 
 <br />
 
@@ -53,7 +56,6 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
   - yad
   - polkit-gnome
   - xorg-xwayland
-  - guake
   - lf
   - pamixer
   - xbacklight
