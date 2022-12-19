@@ -10,7 +10,7 @@
 
 ![Screenshot_2022-12-19-13-13-42_31139](https://user-images.githubusercontent.com/10271030/208352714-e2b22e9f-2760-48e5-976f-6d6305cb3051.png)
 
-![Screenshot_2022-11-28-12-01-05_4476](https://user-images.githubusercontent.com/10271030/204191455-acfa237b-8611-416f-9fb0-36037016d623.png)
+![Screenshot_2022-12-19-13-27-10_8731](https://user-images.githubusercontent.com/10271030/208354086-d6aaf941-2108-421f-b56a-3128f7f0bfae.png)
 
 <br />
 
