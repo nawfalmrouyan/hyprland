@@ -151,6 +151,9 @@ exec Hyprland
 | <kbd>Mute</kbd> | Toggle mute |
 | <kbd>Brightness Up</kbd> | Increase brightness by 5% |
 | <kbd>Brightness Down</kbd> | Decrease brightness by 5% |
+| <kbd>Play</kbd> | Play/Pause media |
+| <kbd>Next</kbd> | Play next media in list |
+| <kbd>Previous</kbd> | Play previous media in list |
 
 <br />
 
