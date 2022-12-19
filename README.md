@@ -347,7 +347,7 @@ exec Hyprland
 | | Wheel Up | Increase volume by 5% |
 | | Wheel Down | Decrease volume by 5% |
 | Brightness | Wheel Up | Increase brightness by 5% |
-| | Wheel Down | Decrease volume by 5% |
+| | Wheel Down | Decrease brightness by 5% |
 | Network | Right | Execute script to connect to VPN (script not included) |
 | Clock | Right | Random wallpaper change |
 
