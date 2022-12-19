@@ -15,8 +15,8 @@
     },
 
   "wlr/workspaces": {
-    "format": "{icon}",
-    /* "format": "{}", */
+    /* "format": "<span font='13'>{icon}</span>", */
+    "format": "{}",
     "on-click": "activate",
     "all-outputs": true,
     "sort-by-number": true,
@@ -118,14 +118,22 @@
     "on-click-right": "~/.local/bin/mmuvpn up cbj",
   },
 
+  /* "custom/weather": { */
+  /*   "format": "{}", */
+  /*   "format-alt": "{alt}: {}", */
+  /*   "format-alt-click": "click-right", */
+  /*   "interval": 1800, */
+  /*   "return-type": "json", */
+  /*   "exec": "~/.config/hypr/scripts/weather.sh", */
+  /*   "exec-if": "ping wttr.in -c1" */
+  /* }, */
+
   "custom/weather": {
+    "tooltip": true,
     "format": "{}",
-    "format-alt": "{alt}: {}",
-    "format-alt-click": "click-right",
-    "interval": 1800,
+    "interval": 30,
+    "exec": "~/.config/hypr/scripts/wttr.py",
     "return-type": "json",
-    "exec": "~/.config/hypr/scripts/weather.sh",
-    "exec-if": "ping wttr.in -c1"
   },
 
   "custom/updater":{

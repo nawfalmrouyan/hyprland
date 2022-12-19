@@ -10,6 +10,6 @@
   "gtk-layer-shell": true,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
-  /* "modules-center": ["hyprland/window"], */
+  "modules-center": ["hyprland/window"],
   "modules-right": ["custom/updater", "backlight", "pulseaudio", "custom/weather", "network", "custom/vpn_check", "battery", "tray", "clock", "custom/power"],
 }
