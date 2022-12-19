@@ -19,7 +19,7 @@
 Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
 
  | Label | Application | 
- | -- | -- |
+ |:-:|:-:|
  | Operating System  | ArcoLinux |
  | Window Manager    | Hyprland |
  | Status Bar        | Waybar-hyprland-git |
@@ -333,6 +333,22 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
 | <kbd>SUPER</kbd> + <kbd>comma</kbd> | Focus on monitor id 0 |
 | <kbd>SUPER</kbd> + <kbd>period</kbd> | Focus on monitor id 1 |
+
+<br />
+
+### Waybar
+
+| Module | Mouse Click| Description |
+|:-:|:-:|-|
+| Battery | Right | Toggle glassy blur |
+| | Middle | Toggle swallow |
+| Updater | Left | Spawn kitty terminal and execute yay |
+| Volume | Left | Mute |
+| | Wheel Up | Increase volume by 5% |
+| | Wheel Down | Decrease volume by 5% |
+| Brightness | Wheel Up | Increase brightness by 5% |
+| | Wheel Down | Decrease volume by 5% |
+| Network | Right | Execute script to connect to VPN (script not included) |
 
 <br />
 
