@@ -6,56 +6,46 @@ red='f38ba8' green='a6e3a1' yellow='f9e2af'
 blue='89b4fa' magenta='cba6f7' cyan='89dceb'
 alpha='00000000'
 
-IMAGE=$HOME/.config/hypr/bg/lock_dimblur.png
-
-# CMD
-swaylock -fF \
-  `# General` \
+swaylock -fFS \
   --ignore-empty-password \
   --show-failed-attempts \
   --hide-keyboard-layout \
   --indicator-caps-lock \
-  `# Appearance` \
   --color ${bg}E6 \
-  --image ${IMAGE} --scaling fill \
   --font 'IosevkaLyteTerm' --font-size 70 \
-  `# Backspace Key` \
   --key-hl-color ${magenta} \
   --caps-lock-key-hl-color ${blue} \
   --bs-hl-color ${red} \
   --caps-lock-bs-hl-color ${red} \
-  `# Indicator` \
   --indicator-radius 200 \
   --indicator-thickness 20 \
-  `# Inside Circle Colors` \
   --inside-color ${alpha} \
   --inside-clear-color ${alpha} \
   --inside-caps-lock-color ${alpha} \
   --inside-ver-color ${red} \
   --inside-wrong-color ${magenta} \
-  `# Layout Colors` \
   --layout-bg-color ${cyan} \
   --layout-border-color ${cyan} \
   --layout-text-color ${bg} \
-  `# Line Colors` \
   --line-color ${bg} \
   --line-clear-color ${red} \
   --line-caps-lock-color ${bg} \
   --line-ver-color ${bg} \
   --line-wrong-color ${bg} \
-  `# Ring Colors` \
   --ring-color ${red} \
   --ring-clear-color ${bg} \
   --ring-caps-lock-color ${blue} \
   --ring-ver-color ${red} \
   --ring-wrong-color ${magenta} \
-  `# Separator Color` \
   --separator-color ${bg} \
-  `# Text Colors` \
   --text-color ${fg} \
   --text-clear-color ${fg} \
   --text-caps-lock-color ${fg} \
   --text-ver-color ${bg} \
   --text-wrong-color ${bg} \
-  --datestr "%d.%m" \
+  --timestr "%I:%M %p" \
+  --datestr "%d / %m / %y" \
+  --fade-in "0.2" \
+  --effect-blur "7x3" \
+  --effect-greyscale \
   --clock --indicator
