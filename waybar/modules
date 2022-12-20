@@ -131,7 +131,7 @@
   "custom/weather": {
     "tooltip": true,
     "format": "{}",
-    "interval": 30,
+    "interval": 1800,
     "exec": "~/.config/hypr/scripts/wttr.py",
     "return-type": "json",
   },
