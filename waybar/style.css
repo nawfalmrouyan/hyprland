@@ -105,7 +105,7 @@ window#waybar.hidden {
   background-color: #f9e2af;
   color: #3A3B3C;
   border: 2px solid #3a3b3c;
-  margin-left: 2px;
+  margin-left: 3px;
   border-radius: 5px;
 }
 
@@ -130,7 +130,7 @@ window#waybar.hidden {
 
 #custom-power {
   background-color: #f38ba8;
-  margin-right: 4px;
+  margin-right: 3px;
 }
 
 #custom-updater {
