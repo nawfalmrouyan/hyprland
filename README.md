@@ -42,7 +42,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
   - hyprland
   - swaybg
   - swayidle
-  - swaylock
+  - swaylock-effects
   - wlroots
   - wl-clipboard
   - wlogout
