@@ -1,23 +1,19 @@
-/* 
- * Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-*/
-
 /** ********** Fonts ********** **/
 * {
-    font-family: "Fira Sans Condensed", sans-serif;
-    font-size: 30px;
-    font-weight: bold;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 /** ********** Main Window ********** **/
 window {
-  background-color: #1E1E2E;
+  background-color: #1e1e2e;
 }
 
 /** ********** Buttons ********** **/
 button {
   background-color: #242434;
-    color: #FFFFFF;
+  color: #ffffff;
   border: 2px solid #282838;
   border-radius: 20px;
   background-repeat: no-repeat;
@@ -25,32 +21,37 @@ button {
   background-size: 35%;
 }
 
-button:focus, button:active, button:hover {
-  background-color: #89B4FA;
+button:focus,
+button:active,
+button:hover {
+  background-color: #89b4fa;
   outline-style: none;
 }
 
 /** ********** Icons ********** **/
 #lock {
-    background-image: image(url("icons/lock.png"), url("/usr/share/wlogout/icons/lock.png"));
+  background-image: image(url('icons/lock.png'), url('/usr/share/wlogout/icons/lock.png'));
 }
 
 #logout {
-    background-image: image(url("icons/logout.png"), url("/usr/share/wlogout/icons/logout.png"));
+  background-image: image(url('icons/logout.png'), url('/usr/share/wlogout/icons/logout.png'));
 }
 
 #suspend {
-    background-image: image(url("icons/suspend.png"), url("/usr/share/wlogout/icons/suspend.png"));
+  background-image: image(url('icons/suspend.png'), url('/usr/share/wlogout/icons/suspend.png'));
 }
 
 #hibernate {
-    background-image: image(url("icons/hibernate.png"), url("/usr/share/wlogout/icons/hibernate.png"));
+  background-image: image(
+    url('icons/hibernate.png'),
+    url('/usr/share/wlogout/icons/hibernate.png')
+  );
 }
 
 #shutdown {
-    background-image: image(url("icons/shutdown.png"), url("/usr/share/wlogout/icons/shutdown.png"));
+  background-image: image(url('icons/shutdown.png'), url('/usr/share/wlogout/icons/shutdown.png'));
 }
 
 #reboot {
-    background-image: image(url("icons/reboot.png"), url("/usr/share/wlogout/icons/reboot.png"));
+  background-image: image(url('icons/reboot.png'), url('/usr/share/wlogout/icons/reboot.png'));
 }

@@ -1,6 +1,6 @@
 * {
-    font-family: "Fira Sans Condensed";
-    font-size: 17px;
+  font-family: 'Fira Sans Condensed';
+  font-size: 17px;
 }
 
 #window {
@@ -24,9 +24,6 @@
   margin-top: 20px;
 }
 
-#inner-box {
-}
-
 #img {
   padding-right: 8px;
 }
@@ -48,12 +45,7 @@
   color: --wofi-color0;
 }
 
-#unselected {
-}
-
-#selected {
-}
-
-#input, #entry:selected {
+#input,
+#entry:selected {
   border-radius: 4px;
 }
