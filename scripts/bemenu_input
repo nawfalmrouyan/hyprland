@@ -16,8 +16,8 @@
 # bemenu_input.sh -w: Select WiFi network to connect.
 # bemenu_input.sh -e: Options to exit system. To use this option, run script as a sudo user.
 
-DMENU_FONT1="IosevkaLyteTerm"
-COLOR=( --tf "#A6E3A1" --tb "#3a3a3a" --nf "#b0b4bc" --nb "#3a3a3a" --af "#b0b4bc" --fb "#3a3a3a" --ff "#b0b4bc" --ab "#3a3a3a" --hb "#A6E3A1" --hf "#3a3a3a" )
+DMENU_FONT1="IosevkaLyteTerm 15"
+COLOR=( --tf "#cba6f7" --tb "#313244" --nf "#c6d0f5" --nb "#313244" --af "#c6d0f5" --fb "#313244" --ff "#c6d0f5" --af "#cba6f7" --ab "#313244" --hb "#cba6f7" --hf "#313244" )
 
 # If "BROWSER" unset globally, set locally.
 [ -n "$BROWSER" ] || BROWSER="firefox -new-window"
