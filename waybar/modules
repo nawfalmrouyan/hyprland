@@ -141,7 +141,7 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) ]]",
     "interval": 300,
-    "on-click": "kitty --class update -T update -o font_size=13 -e yay -Syu && notify-send 'The system has been updated' "
+    "on-click": "kitty --class update -T update -e yay -Syu && notify-send 'The system has been updated' "
   },
 
   "custom/uptime":{
