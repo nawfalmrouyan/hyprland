@@ -103,6 +103,7 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>E</kbd> | Open lf - Terminal based file manager |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>E</kbd> | Open Nautilus |
 | <kbd>SUPER</kbd> + <kbd>V</kbd> | Toggle floating of focused window |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>V</kbd> | Toggle floating on all windows |
 | <kbd>SUPER</kbd> + <kbd>R</kbd> | Open application using wofi |
 | <kbd>SUPER</kbd> + <kbd>C</kbd> | Open application using bemenu |
 | <kbd>SUPER</kbd> + <kbd>L</kbd> | Toggle between Master and Dwindle layout |
@@ -139,7 +140,8 @@ exec Hyprland
 |-|-|
 | <kbd>SUPER</kbd> + <kbd>J</kbd> | Cycle to next window |
 | <kbd>SUPER</kbd> + <kbd>K</kbd> | Cycle to previous window |
-| <kbd>SUPER</kbd> + <kbd>P</kbd> | Set focused window to pseudo  |
+| <kbd>SUPER</kbd> + <kbd>P</kbd> | Toggle pseudo on focused window |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd> | Toggle pseudo on all windows |
 | <kbd>SUPER</kbd> + <kbd>O</kbd> | Toggle split window |
 
 <br />
