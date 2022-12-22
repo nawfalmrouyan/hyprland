@@ -40,28 +40,28 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 1. Install the following programs on your computer:
 
-- hyprland
+- bemenu
+- grim
+- hyprland-nvidia-git
+- hyprpicker
+- kitty
+- lf
+- mako
+- pamixer
+- polkit-gnome
+- slurp
 - swaybg
 - swayidle
 - swaylock-effects
-- wlroots
-- wl-clipboard
-- wlogout
 - waybar-hyprland-git
-- wofi
-- kitty
-- mako
-- grim
-- slurp
 - wf-recorder
-- yad
-- polkit-gnome
-- xorg-xwayland
-- lf
-- pamixer
+- wl-clipboard
+- wlroots
+- wofi
 - xbacklight
-- bemenu
-- hyprpicker
+- xdg-desktop-portal-hyprland-git
+- xorg-xwayland
+- yad
 
 2. Clone the repo
 3. Assuming you do not have Hyprland configured before, copy/move all the files in the repo to `~/.config/hypr`.
