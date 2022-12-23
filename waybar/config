@@ -4,7 +4,7 @@
   "exclusive": true,
   "passthrough": false,
   "position": "bottom",
-  "fixed-center": true,
+  "fixed-center": false,
   "spacing": 2,
   "height": 37,
   "gtk-layer-shell": true,
