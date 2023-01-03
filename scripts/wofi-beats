@@ -15,7 +15,7 @@ wofi_command="wofi --show dmenu \
 
 
 notification(){
-  notify-send "Now Playing: Lofi Radio"
+  notify-send "Lofi Stream" "Now Playing: Lofi Radio"
 }
 
 menu(){
@@ -82,4 +82,4 @@ main() {
   esac
 }
 
-pkill -f http && notify-send "Lofi Radio stopped" || main
+pkill -f http && notify-send "Lofi Stream" "Lofi Radio stopped" || main

@@ -92,8 +92,8 @@
   "custom/power": {
     "format": " 襤 ",
     "tooltip": false,
-    /* "on-click": "$HOME/.config/hypr/scripts/wlogout", */
-    "on-click": "$HOME/.config/rofi/scripts/powermenu_t3",
+    "on-click": "archlinux-logout",
+    /* "on-click": "$HOME/.config/rofi/scripts/powermenu_t3", */
   },
 
   "disk": {
@@ -141,7 +141,7 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) ]]",
     "interval": 300,
-    "on-click": "kitty --class update -T update -e yay -Syu && notify-send 'The system has been updated' "
+    "on-click": "kitty --class update -T update -e yay -Syu && notify-send 'Kitty Terminal' 'The system has been updated' "
   },
 
   "custom/uptime":{

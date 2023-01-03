@@ -3,4 +3,4 @@
 COLOR=$(hyprpicker)
 
 echo ${COLOR} | wl-copy -n 
-notify-send ${COLOR}
+notify-send "Color Picker" ${COLOR}
