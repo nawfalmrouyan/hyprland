@@ -1,5 +1,8 @@
 #!/bin/sh
 
+PATH=$HOME/bin/gamadv-xtd3:$HOME/.local/bin:$PATH
+export PATH
+
 cd ~ || exit
 
 export WLR_NO_HARDWARE_CURSORS=1
