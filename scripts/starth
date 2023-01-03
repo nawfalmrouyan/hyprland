@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=$HOME/bin/gamadv-xtd3:$HOME/.local/bin:$PATH
+PATH=$HOME/bin/gamadv-xtd3:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 export PATH
 
 cd ~ || exit
