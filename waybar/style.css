@@ -7,9 +7,15 @@
 }
 
 window#waybar {
-  background: transparent;
+  /* background: transparent; */
+  /* background: #313244; */
+  /* border: 2px solid #43465a; */
+  border-radius: 5px;
   transition-property: background-color;
   transition-duration: 0.5s;
+  background: @theme_base_color;
+  border: 2px solid @unfocused_borders;
+  color: @theme_text_color;
 }
 
 window#waybar.hidden {
@@ -37,23 +43,25 @@ window#waybar.hidden {
   border-radius: 5px;
   padding: 0px 4px;
   margin-bottom: 4px;
+  margin-top: 4px;
   color: #313244;
-  border: 2px solid #313244;
+  /* border: 2px solid #313244; */
 }
 
 #workspaces {
   border-radius: 5px;
   margin-bottom: 4px;
+  margin-top: 4px;
   padding: 0;
   color: #313244;
 }
 
 #backlight {
-  background-color: #87b0f9;
+  color: #87b0f9;
 }
 
 #battery {
-  background-color: #a6e3a1;
+  color: #a6e3a1;
 }
 
 @keyframes blink {
@@ -73,23 +81,24 @@ window#waybar.hidden {
 }
 
 #clock {
-  background-color: #f9e2af;
+  color: #f9e2af;
 }
 
 #cpu {
-  background-color: #a6e3a1;
+  color: #a6e3a1;
 }
 
 #memory {
-  background-color: #89dceb;
+  color: #89dceb;
 }
 
 #disk {
-  background-color: #74c7ec;
+  color: #74c7ec;
 }
 
 #tray {
-  background-color: #fab387;
+  color: #fab387;
+  margin-right: 3px;
 }
 #tray > .passive {
   -gtk-icon-effect: dim;
@@ -99,16 +108,17 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  background-color: #f9e2af;
-  color: #313244;
-  border: 2px solid #313244;
+  /* background-color: #f9e2af; */
+  background: @theme_base_color;
+  color: @theme_text_color;
+  /* border: 2px solid @unfocused_borders; */
   margin-left: 3px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 #workspaces button.active {
-  background-color: #fab387;
-  color: #313244;
+  /* background-color: #fab387; */
+  color: @theme_text_color;
 }
 
 #workspaces button.urgent {
@@ -122,50 +132,51 @@ window#waybar.hidden {
 }
 
 #custom-menu {
-  background-color: #f5e0dc;
+  color: #f5e0dc;
 }
 
 #custom-power {
-  background-color: #f38ba8;
+  color: #f38ba8;
   margin-right: 3px;
 }
 
 #custom-updater {
-  background-color: #a6e3a1;
+  color: #a6e3a1;
 }
 
 #custom-uptime {
-  background-color: #87b0f9;
+  color: #87b0f9;
 }
 
 #custom-weather {
-  background-color: #b4befe;
+  color: #b4befe;
 }
 
 #custom-vpn_check {
-  background-color: #89dceb;
+  color: #89dceb;
 }
 #custom-cputemp {
-  background-color: #94e2d5;
+  color: #94e2d5;
 }
 
 #pulseaudio {
-  background-color: #74c7ec;
+  color: #74c7ec;
 }
 
 #pulseaudio.bluetooth {
-  background-color: #f5c2e7;
+  color: #f5c2e7;
 }
 #pulseaudio.muted {
-  background-color: #f38ba8;
+  color: #f38ba8;
 }
 
 #window {
-  background-image: linear-gradient(45deg, #87b0f9 0%, #b4befe 100%);
+  /* background: linear-gradient(45deg, #87b0f9 0%, #b4befe 100%); */
+  color: #7b819d;
 }
 
 #network {
-  background-color: #94e2d5;
+  color: #94e2d5;
 }
 #network.disconnected,
 #network.disabled {
