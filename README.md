@@ -96,30 +96,30 @@ exec Hyprland
 
 ### General
 
-| Keybind                                            | Description                                        |
-| -------------------------------------------------- | -------------------------------------------------- |
-| <kbd>SUPER</kbd> + <kbd>Return</kbd>               | Open Kitty terminal                                |
-| <kbd>SUPER</kbd> + <kbd>W</kbd>                    | Open firefox in workspace 2                        |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Open WhatsApp in workspace 9 silently              |
-| <kbd>SUPER</kbd> + <kbd>Q</kbd>                    | Kill focused window                                |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Q</kbd> | Exit Hyprland                                      |
-| <kbd>SUPER</kbd> + <kbd>A</kbd>                    | Open Microsoft Edge (Default Profile)              |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Profile 1)                    |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>F</kbd> | Toggle fullscreen of focused window                |
-| <kbd>SUPER</kbd> + <kbd>E</kbd>                    | Open lf - Terminal based file manager              |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>E</kbd> | Open Nautilus                                      |
-| <kbd>SUPER</kbd> + <kbd>V</kbd>                    | Toggle floating of focused window                  |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>V</kbd> | Toggle floating on all windows                     |
-| <kbd>SUPER</kbd> + <kbd>C</kbd>                    | Open application using wofi                        |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> | Open application using bemenu                      |
-| <kbd>SUPER</kbd> + <kbd>L</kbd>                    | Toggle between Master and Dwindle layout           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd> | Lock screen                                        |
-| <kbd>SUPER</kbd> + <kbd>M</kbd>                    | Set split ratio to 0.3                             |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>M</kbd> | Set split ratio to -0.3                            |
-| <kbd>SUPER</kbd> + <kbd>Escape</kbd>               | Toggle power menu (archlinux-logout)               |
-| <kbd>SUPER</kbd> + <kbd>Y</kbd>                    | Set night mode on (flux)                           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd> | Set night mode off                                 |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>O</kbd> | Color picker in RGB format                         |
+| Keybind                                            | Description                              |
+| -------------------------------------------------- | ---------------------------------------- |
+| <kbd>SUPER</kbd> + <kbd>Return</kbd>               | Open Kitty terminal                      |
+| <kbd>SUPER</kbd> + <kbd>W</kbd>                    | Open firefox in workspace 2              |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Open WhatsApp in workspace 9 silently    |
+| <kbd>SUPER</kbd> + <kbd>Q</kbd>                    | Kill focused window                      |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Q</kbd> | Exit Hyprland                            |
+| <kbd>SUPER</kbd> + <kbd>A</kbd>                    | Open Microsoft Edge (Default Profile)    |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>A</kbd> | Open Microsoft Edge (Profile 1)          |
+| <kbd>SUPER</kbd> + <kbd>F</kbd>                    | Toggle fullscreen of focused window      |
+| <kbd>SUPER</kbd> + <kbd>E</kbd>                    | Open lf - Terminal based file manager    |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>E</kbd> | Open Nautilus                            |
+| <kbd>SUPER</kbd> + <kbd>V</kbd>                    | Toggle floating of focused window        |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>V</kbd> | Toggle floating on all windows           |
+| <kbd>SUPER</kbd> + <kbd>C</kbd>                    | Open application using wofi              |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> | Open application using bemenu            |
+| <kbd>SUPER</kbd> + <kbd>L</kbd>                    | Toggle between Master and Dwindle layout |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd> | Lock screen                              |
+| <kbd>SUPER</kbd> + <kbd>M</kbd>                    | Set split ratio to 0.3                   |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>M</kbd> | Set split ratio to -0.3                  |
+| <kbd>SUPER</kbd> + <kbd>Escape</kbd>               | Toggle power menu (archlinux-logout)     |
+| <kbd>SUPER</kbd> + <kbd>Y</kbd>                    | Set night mode on (flux)                 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd> | Set night mode off                       |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>O</kbd> | Color picker in RGB format               |
 
 <br />
 
@@ -191,40 +191,40 @@ exec Hyprland
 
 ### Resize windows
 
-| Keybind                         | Description       |
-| ------------------------------- | ----------------- |
-| <kbd>SUPER</kbd> + <kbd>R</kbd> | Enter resize mode |
-| <kbd>Left</kbd> / <kbd>H</kbd>  | Resize left       |
-| <kbd>Right</kbd> / <kbd>L</kbd> | Resize right      |
-| <kbd>Up</kbd> / <kbd>K</kbd>    | Resize up         |
-| <kbd>Down</kbd> / <kbd>J</kbd>  | Resize down       |
-| <kbd>Esc</kbd>                  | Exit resize mode  |
+| Keybind                                            | Description       |
+| -------------------------------------------------- | ----------------- |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>R</kbd> | Enter resize mode |
+| <kbd>Left</kbd> / <kbd>H</kbd>                     | Resize left       |
+| <kbd>Right</kbd> / <kbd>L</kbd>                    | Resize right      |
+| <kbd>Up</kbd> / <kbd>K</kbd>                       | Resize up         |
+| <kbd>Down</kbd> / <kbd>J</kbd>                     | Resize down       |
+| <kbd>Esc</kbd>                                     | Exit resize mode  |
 
 <br />
 
 ### Move focused window
 
-| Keybind                         | Description      |
-| ------------------------------- | ---------------- |
-| <kbd>SUPER</kbd> + <kbd>M</kbd> | Enter move mode |
-| <kbd>Left</kbd> / <kbd>H</kbd>  | Move left       |
-| <kbd>Right</kbd> / <kbd>L</kbd> | Move right      |
-| <kbd>Up</kbd> / <kbd>K</kbd>    | Move up         |
-| <kbd>Down</kbd> / <kbd>J</kbd>  | Move down       |
-| <kbd>Esc</kbd>                  | Exit move mode  |
+| Keybind                                            | Description     |
+| -------------------------------------------------- | --------------- |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>M</kbd> | Enter move mode |
+| <kbd>Left</kbd> / <kbd>H</kbd>                     | Move left       |
+| <kbd>Right</kbd> / <kbd>L</kbd>                    | Move right      |
+| <kbd>Up</kbd> / <kbd>K</kbd>                       | Move up         |
+| <kbd>Down</kbd> / <kbd>J</kbd>                     | Move down       |
+| <kbd>Esc</kbd>                                     | Exit move mode  |
 
 <br />
 
 ### Focus
 
-| Keybind                         | Description      |
-| ------------------------------- | ---------------- |
-| <kbd>SUPER</kbd> + <kbd>F</kbd> | Enter focus mode |
-| <kbd>Left</kbd> / <kbd>H</kbd>  | Focus left       |
-| <kbd>Right</kbd> / <kbd>L</kbd> | Focus right      |
-| <kbd>Up</kbd> / <kbd>K</kbd>    | Focus up         |
-| <kbd>Down</kbd> / <kbd>J</kbd>  | Focus down       |
-| <kbd>Esc</kbd>                  | Exit focus mode  |
+| Keybind                                            | Description      |
+| -------------------------------------------------- | ---------------- |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>F</kbd> | Enter focus mode |
+| <kbd>Left</kbd> / <kbd>H</kbd>                     | Focus left       |
+| <kbd>Right</kbd> / <kbd>L</kbd>                    | Focus right      |
+| <kbd>Up</kbd> / <kbd>K</kbd>                       | Focus up         |
+| <kbd>Down</kbd> / <kbd>J</kbd>                     | Focus down       |
+| <kbd>Esc</kbd>                                     | Exit focus mode  |
 
 <br />
 
@@ -239,59 +239,59 @@ exec Hyprland
 
 ### Switch workspaces
 
-| Keybind                         | Description                   |
-| ------------------------------- | ----------------------------- |
-| <kbd>SUPER</kbd> + <kbd>1</kbd> | Move to workspace 1           |
-| <kbd>SUPER</kbd> + <kbd>2</kbd> | Move to workspace 2           |
-| <kbd>SUPER</kbd> + <kbd>3</kbd> | Move to workspace 3           |
-| <kbd>SUPER</kbd> + <kbd>4</kbd> | Move to workspace 4           |
-| <kbd>SUPER</kbd> + <kbd>5</kbd> | Move to workspace 5           |
-| <kbd>SUPER</kbd> + <kbd>6</kbd> | Move to workspace 6           |
-| <kbd>SUPER</kbd> + <kbd>7</kbd> | Move to workspace 7           |
-| <kbd>SUPER</kbd> + <kbd>8</kbd> | Move to workspace 8           |
-| <kbd>SUPER</kbd> + <kbd>9</kbd> | Move to workspace 9           |
-| <kbd>SUPER</kbd> + <kbd>0</kbd> | Move to workspace 10          |
-| <kbd>SUPER</kbd> + <kbd>`</kbd> | Move to first empty workspace |
+| Keybind                          | Description                   |
+| -------------------------------- | ----------------------------- |
+| <kbd>SUPER</kbd> + <kbd>1</kbd>  | Move to workspace 1           |
+| <kbd>SUPER</kbd> + <kbd>2</kbd>  | Move to workspace 2           |
+| <kbd>SUPER</kbd> + <kbd>3</kbd>  | Move to workspace 3           |
+| <kbd>SUPER</kbd> + <kbd>4</kbd>  | Move to workspace 4           |
+| <kbd>SUPER</kbd> + <kbd>5</kbd>  | Move to workspace 5           |
+| <kbd>SUPER</kbd> + <kbd>6</kbd>  | Move to workspace 6           |
+| <kbd>SUPER</kbd> + <kbd>7</kbd>  | Move to workspace 7           |
+| <kbd>SUPER</kbd> + <kbd>8</kbd>  | Move to workspace 8           |
+| <kbd>SUPER</kbd> + <kbd>9</kbd>  | Move to workspace 9           |
+| <kbd>SUPER</kbd> + <kbd>0</kbd>  | Move to workspace 10          |
+| <kbd>SUPER</kbd> + <kbd>\`</kbd> | Move to first empty workspace |
 
 <br />
 
 ### Move active window to a workspace
 
-| Keybind                                           | Description                                  |
-| ------------------------------------------------- | -------------------------------------------- |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>1</kbd> | Move focused window to workspace 1           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>2</kbd> | Move focused window to workspace 2           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>3</kbd> | Move focused window to workspace 3           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>4</kbd> | Move focused window to workspace 4           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>5</kbd> | Move focused window to workspace 5           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>6</kbd> | Move focused window to workspace 6           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>7</kbd> | Move focused window to workspace 7           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>8</kbd> | Move focused window to workspace 8           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>9</kbd> | Move focused window to workspace 9           |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>0</kbd> | Move focused window to workspace 10          |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>`</kbd> | Move focused window to first empty workspace |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>[</kbd> | Move focused window to previous workspace    |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>]</kbd> | Move focused window to next workspace        |
+| Keybind                                            | Description                                  |
+| -------------------------------------------------- | -------------------------------------------- |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>1</kbd>  | Move focused window to workspace 1           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>2</kbd>  | Move focused window to workspace 2           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>3</kbd>  | Move focused window to workspace 3           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>4</kbd>  | Move focused window to workspace 4           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>5</kbd>  | Move focused window to workspace 5           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>6</kbd>  | Move focused window to workspace 6           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>7</kbd>  | Move focused window to workspace 7           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>8</kbd>  | Move focused window to workspace 8           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>9</kbd>  | Move focused window to workspace 9           |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>0</kbd>  | Move focused window to workspace 10          |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>\`</kbd> | Move focused window to first empty workspace |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>[</kbd>  | Move focused window to previous workspace    |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>]</kbd>  | Move focused window to next workspace        |
 
 <br />
 
 ### Silently move active window to a workspace
 
-| Keybind                                            | Description                                  |
-| -------------------------------------------------- | -------------------------------------------- |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>1</kbd> | Move focused window to workspace 1           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>2</kbd> | Move focused window to workspace 2           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>3</kbd> | Move focused window to workspace 3           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>4</kbd> | Move focused window to workspace 4           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>5</kbd> | Move focused window to workspace 5           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>6</kbd> | Move focused window to workspace 6           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>7</kbd> | Move focused window to workspace 7           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>8</kbd> | Move focused window to workspace 8           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>9</kbd> | Move focused window to workspace 9           |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd> | Move focused window to workspace 10          |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>`</kbd> | Move focused window to first empty workspace |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>[</kbd> | Move focused window to previous workspace    |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>]</kbd> | Move focused window to next workspace        |
+| Keybind                                             | Description                                  |
+| --------------------------------------------------- | -------------------------------------------- |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>1</kbd>  | Move focused window to workspace 1           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>2</kbd>  | Move focused window to workspace 2           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>3</kbd>  | Move focused window to workspace 3           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>4</kbd>  | Move focused window to workspace 4           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>5</kbd>  | Move focused window to workspace 5           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>6</kbd>  | Move focused window to workspace 6           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>7</kbd>  | Move focused window to workspace 7           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>8</kbd>  | Move focused window to workspace 8           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>9</kbd>  | Move focused window to workspace 9           |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd>  | Move focused window to workspace 10          |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>\`</kbd> | Move focused window to first empty workspace |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>[</kbd>  | Move focused window to previous workspace    |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>]</kbd>  | Move focused window to next workspace        |
 
 <br />
 
