@@ -3,7 +3,7 @@
     "interval": 2,
     "align": 0,
     "rotate": 0,
-      "format": "<span font='14' rise='1000'>{icon}</span> {percent}",
+      "format": "<span font='13' rise='2000'>{icon}</span> {percent}",
       "format-icons": ["", "", "", ""],
       "on-click": "",
       "on-click-middle": "",
@@ -51,12 +51,12 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "<span font='14' rise='1000'>{icon}</span> {capacity}%",
-    "format-charging": "<span font='14' rise='1000'></span> {capacity}%",
-    "format-plugged": "<span font='13' rise='1000'></span> {capacity}%",
-    "format-full": "<span font='14' rise='1000'>{icon}</span> Full",
+    "format": "<span font='14' rise='2000'>{icon}</span> {capacity}%",
+    "format-charging": "<span font='14' rise='2000'></span> {capacity}%",
+    "format-plugged": "<span font='13' rise='2000'></span> {capacity}%",
+    "format-full": "<span font='14' rise='2000'>{icon}</span> Full",
     //"format-good": "",
-    "format-alt": "<span font='14' rise='1000'>{icon}</span> {time}",
+    "format-alt": "<span font='14' rise='2000'>{icon}</span> {time}",
     "format-icons": ["", "", "", "", ""],
     "format-time": "{H}h {M}min",
     "tooltip": true,
@@ -157,7 +157,7 @@
   },
 
   "custom/vpn_check":{
-    "format":"<span font='14' rise='1000'></span> {}",
+    "format":"<span font='13' rise='1000'></span> {}",
     "exec": "~/.config/hypr/scripts/vpnCheck",
     "interval": 2,
     "on-click": "~/.local/bin/mmuvpn restart",
@@ -196,7 +196,7 @@
   },
 
   "tray": {
-    "format": "<span rise='1000'{}</span>",
+    "format": "<span font='16' rise='3000'{}</span>",
     "icon-size": 16,
     "spacing": 6
   },
