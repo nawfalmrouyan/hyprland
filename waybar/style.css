@@ -52,8 +52,8 @@ window#waybar.hidden {
   border-radius: 5px;
   margin-bottom: 4px;
   margin-top: 4px;
-  padding: 0;
-  color: #313244;
+  padding: 3;
+  /* color: #313244; */
 }
 
 #backlight {
@@ -109,8 +109,8 @@ window#waybar.hidden {
 
 #workspaces button {
   /* background-color: #f9e2af; */
-  background: @theme_base_color;
-  color: @theme_text_color;
+  /* background: @theme_base_color; */
+  /* color: @theme_text_color; */
   /* border: 2px solid @unfocused_borders; */
   margin-left: 3px;
   /* border-radius: 5px; */
@@ -118,17 +118,18 @@ window#waybar.hidden {
 
 #workspaces button.active {
   /* background-color: #fab387; */
-  color: @theme_text_color;
+  color: #fab387;
 }
 
-#workspaces button.urgent {
-  background-color: #f38ba8;
-  color: #313244;
-}
+/* #workspaces button.urgent { */
+/*   background-color: #f38ba8; */
+/*   color: #313244; */
+/* } */
 
 #workspaces button:hover {
-  background: #f2cdcd;
-  color: #313244;
+  /* background: #f2cdcd; */
+  /* color: #313244; */
+  /* color: #f38ba8; */
 }
 
 #custom-menu {
@@ -172,7 +173,7 @@ window#waybar.hidden {
 
 #window {
   /* background: linear-gradient(45deg, #87b0f9 0%, #b4befe 100%); */
-  color: #7b819d;
+  color: @theme_text_color;
 }
 
 #network {
