@@ -30,9 +30,14 @@ layer=overlay
 anchor=bottom-right
 
 background-color=#1e1e2e
-text-color=#d9e0ee
-border-color=#313244
-progress-color=over #89b4fa
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+# background-color=#1e1e2e
+# text-color=#d9e0ee
+# border-color=#313244
+# progress-color=over #89b4fa
 
 [urgency=low]
 border-color=#313244
