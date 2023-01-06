@@ -176,6 +176,10 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>=</kbd> | Enter backlight mode     |
 | <kbd>=</kbd>                                       | Increase backlight by 5% |
 | <kbd>-</kbd>                                       | Decrease backlight by 5% |
+| <kbd>K</kbd>                                       | Increase backlight by 5% |
+| <kbd>J</kbd>                                       | Decrease backlight by 5% |
+| <kbd>Up</kbd>                                      | Increase backlight by 5% |
+| <kbd>Down</kbd>                                    | Decrease backlight by 5% |
 | <kbd>Esc</kbd>                                     | Exit backlight mode      |
 
 <br />
@@ -187,6 +191,10 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>=</kbd> | Enter volume mode     |
 | <kbd>=</kbd>                    | Increase volume by 5% |
 | <kbd>-</kbd>                    | Decrease volume by 5% |
+| <kbd>K</kbd>                    | Increase volume by 5% |
+| <kbd>J</kbd>                    | Decrease volume by 5% |
+| <kbd>Up</kbd>                   | Increase volume by 5% |
+| <kbd>Down</kbd>                 | Decrease volume by 5% |
 | <kbd>0</kbd>                    | Toggle mute           |
 | <kbd>9</kbd>                    | Toggle Microphone     |
 | <kbd>Esc</kbd>                  | Exit volume mode      |
