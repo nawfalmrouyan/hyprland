@@ -1,16 +1,20 @@
 <h1 align="center">Hyprland on ArcoLinux</h1>
 
+<h3 align=center>Note: Previous layout can be found on master branch</h3>
+
 <div align="center">
 <img src="https://img.shields.io/github/last-commit/nawfalmrouyan/hyprland?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
 <img src="https://img.shields.io/github/repo-size/nawfalmrouyan/hyprland?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
 <img src="https://img.shields.io/github/license/nawfalmrouyan/hyprland?style=for-the-badge&logo=powerpages&color=cba6f7&logoColor=D9E0EE&labelColor=302D41"/>
 </div>
 
-## 🌟 Preview ([Video](https://youtu.be/MXOsmXXafS8))
+## 🌟 Preview
 
-![Screenshot_2022-12-19-13-13-42_31139](https://user-images.githubusercontent.com/10271030/208352714-e2b22e9f-2760-48e5-976f-6d6305cb3051.png)
+![Screenshot_2023-01-06-11-08-04_26831](https://user-images.githubusercontent.com/10271030/210922347-4e51af53-ccd3-4467-8b7c-7c0935cca81e.png)
 
-![Screenshot_2022-12-19-13-27-10_8731](https://user-images.githubusercontent.com/10271030/208354086-d6aaf941-2108-421f-b56a-3128f7f0bfae.png)
+![Screenshot_2023-01-06-11-09-14_19981](https://user-images.githubusercontent.com/10271030/210922358-e51cef43-21a8-4e4c-9b90-14d431b43a28.png)
+
+![Screenshot_2023-01-06-11-09-21_21791](https://user-images.githubusercontent.com/10271030/210922370-9a046bdb-5373-41f0-97e9-5724a987b5c9.png)
 
 <br />
 
@@ -40,7 +44,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 1. Install the following programs on your computer:
 
-- bemenu
+- [anyrun](https://github.com/Kirottu/anyrun)
 - grim
 - hyprland-nvidia-git
 - hyprpicker
