@@ -52,7 +52,7 @@
       "critical": 15
     },
     "format": "<span font='14' rise='2000'>{icon}</span> {capacity}%",
-    "format-charging": "<span font='14' rise='2000'></span> {capacity}%",
+    "format-charging": "<span font='13' rise='2000'></span> {capacity}%",
     "format-plugged": "<span font='13' rise='2000'></span> {capacity}%",
     "format-full": "<span font='14' rise='2000'>{icon}</span> Full",
     //"format-good": "",
