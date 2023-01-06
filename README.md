@@ -230,10 +230,12 @@ exec Hyprland
 
 ### Special workspace
 
-| Keybind                                            | Description                              |
-| -------------------------------------------------- | ---------------------------------------- |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>U</kbd> | Move focused window to special workspace |
-| <kbd>SUPER</kbd> + <kbd>U</kbd>                    | Toggle special workspace                 |
+| Keybind                                                    | Description                                   |
+| ---------------------------------------------------------- | --------------------------------------------- |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>U</kbd>         | Move focused window to special workspace      |
+| <kbd>SUPER</kbd> + <kbd>U</kbd>                            | Toggle special workspace                      |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Backspace</kbd> | Move focused window to special:work workspace |
+| <kbd>SUPER</kbd> + <kbd>Backspace</kbd>                    | Toggle special:work workspace                 |
 
 <br />
 
