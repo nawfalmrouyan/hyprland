@@ -1,3 +1,4 @@
+@import "mocha.css";
 * {
   font-family: Symbols Nerd Font, IosevkaLyteTerm, monospace;
   font-size: 16px;
@@ -45,21 +46,21 @@ window#waybar.hidden {
 }
 
 #backlight {
-  color: #87b0f9;
+  color: @blue;
 }
 
 #battery {
-  color: #a6e3a1;
+  color: @green;
 }
 
 @keyframes blink {
   to {
-    color: #313244;
+    color: @surface0;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f38ba8;
+  background-color: @red;
   color: @theme_text_color;
   animation-name: blink;
   animation-duration: 0.5s;
@@ -69,23 +70,23 @@ window#waybar.hidden {
 }
 
 #clock {
-  color: #f9e2af;
+  color: @yellow;
 }
 
 #cpu {
-  color: #a6e3a1;
+  color: @green;
 }
 
 #memory {
-  color: #89dceb;
+  color: @sky;
 }
 
 #disk {
-  color: #74c7ec;
+  color: @sapphire;
 }
 
 #tray {
-  color: #fab387;
+  color: @peach;
   margin-right: 3px;
 }
 #tray > .passive {
@@ -101,57 +102,57 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-  color: #fab387;
+  color: @peach;
 }
 
 #custom-menu {
-  color: #f5e0dc;
+  color: @rosewater;
 }
 
 #custom-power {
-  color: #f38ba8;
+  color: @red;
   margin-right: 3px;
 }
 
 #custom-updater {
-  color: #a6e3a1;
+  color: @green;
 }
 
 #custom-uptime {
-  color: #87b0f9;
+  color: @blue;
 }
 
 #custom-weather {
-  color: #b4befe;
+  color: @lavender;
 }
 
 #custom-vpn_check {
-  color: #89dceb;
+  color: @sky;
 }
 #custom-cputemp {
-  color: #94e2d5;
+  color: @teal;
 }
 
 #pulseaudio {
-  color: #74c7ec;
+  color: @sapphire;
 }
 
 #pulseaudio.bluetooth {
-  color: #f5c2e7;
+  color: @pink;
 }
 #pulseaudio.muted {
-  color: #f38ba8;
+  color: @red;
 }
 
 #window {
-  color: #cba6f7;
+  color: @mauve;
 }
 
 #network {
-  color: #94e2d5;
+  color: @teal;
 }
 #network.disconnected,
 #network.disabled {
-  background-color: #313244;
-  color: #cdd6f4;
+  background-color: @surface0;
+  color: @text;
 }
