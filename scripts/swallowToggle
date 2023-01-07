@@ -5,7 +5,8 @@ SWALLOW=$(hyprctl -j getoption misc:enable_swallow | jq ".int")
 if [ "${SWALLOW}" == "1" ]; then
   hyprctl keyword misc:enable_swallow 0
   notify-send "No swallow"
+  notify-send -i "$HOME/.config/hypr/mako/icons/hyprland.png" "Swallow" "OFF"
 else
   hyprctl keyword misc:enable_swallow 1
-  notify-send "Swallow"
+  notify-send -i "$HOME/.config/hypr/mako/icons/hyprland.png" "Swallow" "ON"
 fi
