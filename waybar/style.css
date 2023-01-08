@@ -103,6 +103,8 @@ window#waybar.hidden {
 
 #workspaces button.active {
   color: @peach;
+  border-bottom: 2px solid @peach;
+  border-radius: 0px;
 }
 
 #custom-menu {
