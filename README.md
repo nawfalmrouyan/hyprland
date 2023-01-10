@@ -115,8 +115,9 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>E</kbd> | Open Nautilus                                 |
 | <kbd>SUPER</kbd> + <kbd>V</kbd>                    | Toggle floating of focused window             |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>V</kbd> | Toggle floating on all windows                |
-| <kbd>SUPER</kbd> + <kbd>C</kbd>                    | Open application using wofi                   |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> | Open application using bemenu                 |
+| <kbd>SUPER</kbd> + <kbd>C</kbd>                    | Open application using anyrun                 |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> | Open application using wofi                   |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>C</kbd>  | Open application using bemenu                 |
 | <kbd>SUPER</kbd> + <kbd>L</kbd>                    | Toggle between Master and Dwindle layout      |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd> | Lock screen                                   |
 | <kbd>SUPER</kbd> + <kbd>S</kbd>                    | Set split ratio to 0.3                        |
