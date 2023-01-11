@@ -1,6 +1,6 @@
 {
   "backlight": {
-    "interval": 2,
+    "interval": 30,
     "align": 0,
     "rotate": 0,
       "format": "<span font='13' rise='2000'>{icon}</span> {percent}",
@@ -78,7 +78,7 @@
   "cpu": {
     // "interval": 5,
     // "format": " {usage}%",
-    "interval": 1,
+    "interval": 2,
     "format": "<span font='13' rise='5000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='13' rise='2000'>{usage:>2}%</span> <span font='13' rise='4000'></span>",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
   },
@@ -147,7 +147,7 @@
   "custom/uptime":{
     "format": "<span font='14' rise='1000'></span> {}",
     "exec": "$HOME/.local/bin/upt",
-    "interval": 45,
+    "interval": 60,
   },
 
   "custom/cycle_wall":{
@@ -159,7 +159,7 @@
   "custom/vpn_check":{
     "format":"<span font='13' rise='1000'></span> {}",
     "exec": "~/.config/hypr/scripts/vpnCheck",
-    "interval": 2,
+    "interval": 120,
     "on-click": "~/.local/bin/mmuvpn restart",
     "on-click-right": "~/.local/bin/mmuvpn down",
   },
@@ -192,7 +192,7 @@
   "custom/cputemp":{
     "format": "<span font='13' rise='1000'></span> {}",
     "exec": "~/.local/bin/cputemp",
-    "interval": 1,
+    "interval": 15,
   },
 
   "tray": {
