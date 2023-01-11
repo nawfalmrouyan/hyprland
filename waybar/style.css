@@ -3,16 +3,16 @@
   font-family: Symbols Nerd Font, IosevkaLyteTerm, monospace;
   font-size: 16px;
   border: none;
-  border-radius: 0;
+  /* border-radius: 0; */
   min-height: 0;
 }
 
 window#waybar {
-  border-radius: 5px;
+  /* border-radius: 5px; */
   transition-property: background-color;
   transition-duration: 0.5s;
   background: @theme_base_color;
-  border: 2px solid @unfocused_borders;
+  border: 3px solid @unfocused_borders;
   color: @theme_text_color;
 }
 
@@ -98,7 +98,7 @@ window#waybar.hidden {
 
 #workspaces button {
   margin: 4px 0px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 #workspaces button.active {

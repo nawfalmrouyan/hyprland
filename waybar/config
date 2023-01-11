@@ -8,6 +8,7 @@
   "spacing": 2,
   "height": 37,
   "gtk-layer-shell": true,
+  "margin": 5,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
   "modules-center": ["hyprland/window"],
