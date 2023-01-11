@@ -24,3 +24,6 @@ ${SCRIPTSDIR}/statusbar &
 
 # Start mpd
 # exec mpd &
+
+# A hack to stop wifi from being rfkilled when lid switch
+sudo setkeycodes e057 240 e058 240
