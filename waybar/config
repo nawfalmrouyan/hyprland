@@ -5,10 +5,12 @@
   "passthrough": false,
   "position": "bottom",
   "fixed-center": false,
-  "spacing": 2,
-  "height": 37,
+  /* "spacing": 2, */
+  /* "height": 37, */
   "gtk-layer-shell": true,
-  "margin": 5,
+  "margin-left": 5,
+  "margin-right": 5,
+  "margin-bottom": 5,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
   "modules-center": ["hyprland/window"],

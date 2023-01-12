@@ -1,9 +1,9 @@
 @import "mocha.css";
 * {
   font-family: Symbols Nerd Font, IosevkaLyteTerm, monospace;
-  font-size: 16px;
+  font-size: 13px;
   border: none;
-  /* border-radius: 0; */
+  border-radius: 0;
   min-height: 0;
 }
 
@@ -42,7 +42,8 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  font-size: 12px;
+  font-size: 10px;
+  margin-left: 3px;
 }
 
 #backlight {
