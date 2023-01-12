@@ -115,9 +115,9 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>E</kbd> | Open Nautilus                                 |
 | <kbd>SUPER</kbd> + <kbd>V</kbd>                    | Toggle floating of focused window             |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>V</kbd> | Toggle floating on all windows                |
-| <kbd>SUPER</kbd> + <kbd>C</kbd>                    | Open application using anyrun                 |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> | Open application using wofi                   |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>C</kbd>  | Open application using bemenu                 |
+| <kbd>SUPER</kbd> + <kbd>R</kbd>                    | Open application using anyrun                 |
+| <kbd>SUPER</kbd> + <kbd>C</kbd>                    | Open application using wofi                   |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>C</kbd> | Open application using bemenu                 |
 | <kbd>SUPER</kbd> + <kbd>L</kbd>                    | Toggle between Master and Dwindle layout      |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd> | Lock screen                                   |
 | <kbd>SUPER</kbd> + <kbd>S</kbd>                    | Set split ratio to 0.3                        |
@@ -137,12 +137,19 @@ exec Hyprland
 | ------------------------------------------------------- | ---------------------------------------------- |
 | <kbd>SUPER</kbd> + <kbd>J</kbd>                         | Cycle to next window                           |
 | <kbd>SUPER</kbd> + <kbd>K</kbd>                         | Cycle to previous window                       |
-| <kbd>SUPER</kbd> + <kbd>I</kbd>                         | Add focused window to Master                   |
-| <kbd>SUPER</kbd> + <kbd>D</kbd>                         | Remove focused window from Master              |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Return</kbd> | Swap current focused window with Master window |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>period</kbd> | Cycle to next master layout orientation        |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>comma</kbd>  | Cycle to previous master layout orientation    |
 | <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Return</kbd>  | Focus master window                            |
+
+#### Submap
+
+| Keybind                         | Description                                       |
+| ------------------------------- | ------------------------------------------------- |
+| <kbd>SUPER</kbd> + <kbd>M</kbd> |                                                   |
+| <kbd>I</kbd>                    | Add focused window to Master and exit submap      |
+| <kbd>D</kbd>                    | Remove focused window from Master and exit submap |
+| <kbd>Esc</kbd>                  | Exit submap                                       |
 
 <br />
 
