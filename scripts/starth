@@ -14,8 +14,11 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM="wayland;xcb"
 export MOZ_DISABLE_RDD_SANDBOX=1
 export NVD_BACKEND=direct
-export LIBVA_DRIVER=nvidia
+export LIBVA_DRIVER_NAME=nvidia
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __VK_LAYER_NV_optimus=NVIDIA_only
+# export GBM_BACKEND=nvidia-drm
 
 exec Hyprland
 
