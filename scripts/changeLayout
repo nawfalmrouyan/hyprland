@@ -7,8 +7,8 @@ case $LAYOUT in
   hyprctl keyword general:layout dwindle
   hyprctl keyword unbind SUPER,J
   hyprctl keyword unbind SUPER,K
-  hyprctl keyword unbind SUPER,I
-  hyprctl keyword unbind SUPER,D
+  # hyprctl keyword unbind SUPER,I
+  # hyprctl keyword unbind SUPER,D
   hyprctl keyword unbind SUPERSHIFT,Return
   hyprctl keyword unbind SUPERSHIFT,period
   hyprctl keyword unbind SUPERSHIFT,comma
@@ -29,8 +29,8 @@ case $LAYOUT in
   hyprctl keyword unbind SUPERSHIFT,P
   hyprctl keyword bind SUPER,J,layoutmsg,cyclenext
   hyprctl keyword bind SUPER,K,layoutmsg,cycleprev
-  hyprctl keyword bind SUPER,I,layoutmsg,addmaster
-  hyprctl keyword bind SUPER,D,layoutmsg,removemaster
+  # hyprctl keyword bind SUPER,I,layoutmsg,addmaster
+  # hyprctl keyword bind SUPER,D,layoutmsg,removemaster
   hyprctl keyword bind SUPERSHIFT,Return,layoutmsg,swapwithmaster
   hyprctl keyword bind SUPERSHIFT,period,layoutmsg,orientationnext
   hyprctl keyword bind SUPERSHIFT,comma,layoutmsg,orientationprev
