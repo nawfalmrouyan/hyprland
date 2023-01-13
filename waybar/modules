@@ -54,7 +54,7 @@
     },
     "format": "<span font='13' rise='1000'>{icon}</span> {capacity}%",
     "format-charging": "<span font='12' rise='1000'></span>{capacity}%",
-    "format-plugged": "<span font='11' rise='1000'></span> {capacity}%",
+    "format-plugged": "<span font='11' rise='1300'></span> {capacity}%",
     "format-full": "<span font='13' rise='500'>{icon}</span> Full",
     //"format-good": "",
     "format-alt": "<span font='13' rise='1000'>{icon}</span> {time}",
