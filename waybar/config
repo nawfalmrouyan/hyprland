@@ -12,7 +12,7 @@
   "margin-right": 5,
   "margin-bottom": 5,
 
-  "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
+  "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "custom/uptime"],
   "modules-center": ["hyprland/window"],
   "modules-right": ["custom/weather", "backlight", "pulseaudio", "custom/vpn_check", "network", "custom/updater", "battery", "clock", "tray"],
 }
