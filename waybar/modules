@@ -137,9 +137,9 @@
   },
 
   "custom/updater":{
-    "format": "<span font='13' rise='1000'></span> {}",
-    "exec": "checkupdates | wc -l",
-    "exec-if": "[[ $(checkupdates | wc -l) ]]",
+    "format": "{}",
+    "exec": "$HOME/.config/hypr/scripts/checkUpdate",
+    "exec-if": "[[ $($HOME/.config/hypr/scripts/checkUpdate) ]]",
     "interval": 300,
     "on-click": "kitty --class update -T update -e yay -Syu && notify-send -i '/usr/share/icons/hicolor/256x256/apps/kitty.png' 'Kitty Terminal' 'The system has been updated' "
   },
