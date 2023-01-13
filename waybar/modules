@@ -3,7 +3,7 @@
     "interval": 30,
     "align": 0,
     "rotate": 0,
-      "format": "<span font='11' rise='1000'>{icon}</span> {percent}",
+      "format": "<span font='13' rise='1000'>{icon}</span> {percent}",
       "format-icons": ["", "", "", ""],
       "on-click": "",
       "on-click-middle": "",
@@ -15,7 +15,7 @@
     },
 
   "wlr/workspaces": {
-    /* "format": "<span font='11'>{icon}</span>", */
+    /* "format": "<span font='13'>{icon}</span>", */
     "format": "{}",
     "on-click": "activate",
     "all-outputs": true,
@@ -52,12 +52,12 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "<span font='11' rise='2000'>{icon}</span> {capacity}%",
-    "format-charging": "<span font='10' rise='1000'></span>{capacity}%",
+    "format": "<span font='13' rise='1000'>{icon}</span> {capacity}%",
+    "format-charging": "<span font='12' rise='1000'></span>{capacity}%",
     "format-plugged": "<span font='11' rise='1000'></span> {capacity}%",
-    "format-full": "<span font='11' rise='2000'>{icon}</span> Full",
+    "format-full": "<span font='13' rise='500'>{icon}</span> Full",
     //"format-good": "",
-    "format-alt": "<span font='11' rise='2000'>{icon}</span> {time}",
+    "format-alt": "<span font='13' rise='1000'>{icon}</span> {time}",
     "format-icons": ["", "", "", "", ""],
     "format-time": "{H}h {M}min",
     "tooltip": true,
@@ -71,8 +71,8 @@
     "rotate": 0,
     //"timezone": "America/New_York",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "<span font='11' rise='1000'></span> {:%d %b, %H:%M}",
-    "format-alt": "<span font='11' rise='1000'></span> {:%a %b %d, %G}",
+    "format": "<span font='13' rise='1000'></span> {:%d %b, %H:%M}",
+    "format-alt": "<span font='13' rise='1000'></span> {:%a %b %d, %G}",
     "on-click-right": "~/.config/hypr/scripts/changeWallpaper",
   },
 
@@ -80,18 +80,19 @@
     // "interval": 5,
     // "format": " {usage}%",
     "interval": 2,
-    "format": "<span font='11' rise='4500'>{icon0}{icon1}{icon2}{icon3}</span> <span rise='2000'>{usage:>2}%</span> <span font='10' rise='3000'></span>",
+    /* "format": "<span font='13' rise='4500'>{icon0}{icon1}{icon2}{icon3}</span> {usage:>2}% <span font='12' rise='3000'></span>", */
+    "format": "<span font='13' rise='4500'>{icon0}{icon1}{icon2}{icon3}</span> <span font='13'rise='1000'>{usage:>2}%</span>",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
   },
            
   "custom/menu": {
-    "format": "<span font='11' rise='1000'></span>",
+    "format": "<span font='13' rise='1000'></span>",
     "tooltip": false,
     "on-click": "$HOME/.config/hypr/scripts/menu",
   },
 
   "custom/power": {
-    "format": " <span font='11' rise='1000'>襤</span> ",
+    "format": " <span font='13' rise='1000'>襤</span> ",
     "tooltip": false,
     "on-click": "archlinux-logout",
     /* "on-click": "$HOME/.config/rofi/scripts/powermenu_t3", */
@@ -99,23 +100,23 @@
 
   "disk": {
     "interval": 30,
-    "format": "<span font='11'></span> {free}",
+    "format": "<span font='13'></span> {free}",
   },
 
   "memory": {
     "interval": 10,
-    "format": "<span font='11'></span> {used:0.1f}G",
+    "format": "<span font='13'></span> {used:0.1f}G",
   },
 
   "network": {
     "interval": 5,
-    "format-wifi": "<span font='11' rise='1000'></span> {essid}",
-    "format-ethernet": "<span font='11' rise='1000'></span> {ipaddr}/{cidr}",
-    "format-linked": "<span font='11' rise='1000'></span> {ifname} (No IP)",
-    "format-disconnected": "<span font='11' rise='1000'>睊</span> Disconnected",
-    "format-disabled": "<span font='11' rise='1000'>睊</span> Disabled",
-    "format-alt": "<span font='11' rise='1000'></span> {bandwidthUpBits} | <span font='11' rise='1000'></span> {bandwidthDownBits}",
-    "tooltip-format": "<span font='11' rise='1000'></span> {ifname} via {gwaddr}",
+    "format-wifi": "<span font='13' rise='2000'></span> {essid}",
+    "format-ethernet": "<span font='13' rise='1000'></span> {ipaddr}/{cidr}",
+    "format-linked": "<span font='13' rise='1000'></span> {ifname} (No IP)",
+    "format-disconnected": "<span font='13' rise='1000'>睊</span> Disconnected",
+    "format-disabled": "<span font='13' rise='1000'>睊</span> Disabled",
+    "format-alt": "<span font='13' rise='1000'></span> {bandwidthUpBits} | <span font='13' rise='1000'></span> {bandwidthDownBits}",
+    "tooltip-format": "<span font='13' rise='1000'></span> {ifname} via {gwaddr}",
     "on-click-right": "~/.local/bin/mmuvpn up cbj",
   },
 
@@ -138,7 +139,7 @@
   },
 
   "custom/updater":{
-    "format": "<span font='11' rise='1000'></span> {}",
+    "format": "<span font='13' rise='1000'></span> {}",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) ]]",
     "interval": 300,
@@ -146,7 +147,7 @@
   },
 
   "custom/uptime":{
-    "format": "<span font='11' rise='1000'></span> {}",
+    "format": "<span font='13' rise='1000'></span> {}",
     "exec": "$HOME/.local/bin/upt",
     "interval": 60,
   },
@@ -158,7 +159,7 @@
   },
 
   "custom/vpn_check":{
-    "format":"<span font='11' rise='1000'></span> {}",
+    "format":"<span font='13' rise='1000'></span> {}",
     "exec": "~/.config/hypr/scripts/vpnCheck",
     "interval": 120,
     "on-click": "~/.local/bin/mmuvpn restart",
@@ -167,12 +168,12 @@
 
   "pulseaudio": {
     /* "format": "{icon} {volume}% {format_source}", */
-    "format": "<span font='11' rise='1000'>{icon}</span> {volume}",
-    "format-muted": "<span font='11' rise='1000'></span> Mute",
-    "format-bluetooth": "<span font='11' rise='1000'></span> {volume}% {format_source}",
-    "format-bluetooth-muted": "<span font='11' rise='1000'></span> Mute",
-    "format-source": "<span font='11' rise='1000'></span> {volume}",
-    "format-source-muted": "<span font='11' rise='1000'></span>",
+    "format": "<span font='13' rise='1000'>{icon}</span> {volume}",
+    "format-muted": "<span font='13' rise='1000'></span> Mute",
+    "format-bluetooth": "<span font='13' rise='1000'></span> {volume}% {format_source}",
+    "format-bluetooth-muted": "<span font='13' rise='1000'></span> Mute",
+    "format-source": "<span font='13' rise='1000'></span> {volume}",
+    "format-source-muted": "<span font='13' rise='1000'></span>",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -191,7 +192,7 @@
   },
 
   "custom/cputemp":{
-    "format": "<span font='10' rise='1000'></span> {}",
+    "format": "<span font='12' rise='1000'></span> {}",
     "exec": "~/.local/bin/cputemp",
     "interval": 15,
   },
