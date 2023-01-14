@@ -11,13 +11,40 @@ window#waybar {
   /* border-radius: 5px; */
   transition-property: background-color;
   transition-duration: 0.5s;
+  background: @transparent;
+  /* background: shade(alpha(@borders, 0.9), 1.25); */
+  /* background: @theme_base_color; */
+  /* border: 3px solid @surface2; */
+  /* color: @theme_text_color; */
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
+}
+
+#waybar.empty #window {
+    background: none;
+}
+
+.modules-left {
+  background: @theme_base_color;
+  border: 3px solid @surface2;
+  color: @theme_text_color;
+  padding-right: 3px;
+}
+
+.modules-center {
   background: @theme_base_color;
   border: 3px solid @surface2;
   color: @theme_text_color;
 }
 
-window#waybar.hidden {
-  opacity: 0.5;
+.modules-right {
+  background: @theme_base_color;
+  border: 3px solid @surface2;
+  color: @theme_text_color;
+  padding-bottom: 3px;
+  padding-right: 3px;
 }
 
 #backlight,
@@ -72,6 +99,7 @@ window#waybar.hidden {
 
 #clock {
   color: @yellow;
+  border-bottom: 3px solid @yellow;
 }
 
 #cpu {

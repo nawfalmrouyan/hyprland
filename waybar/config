@@ -5,7 +5,7 @@
   "passthrough": false,
   "position": "bottom",
   "fixed-center": false,
-  /* "spacing": 2, */
+  "spacing": 5,
   /* "height": 37, */
   "gtk-layer-shell": true,
   "margin-left": 5,

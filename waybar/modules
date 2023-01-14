@@ -4,7 +4,6 @@
     "align": 0,
     "rotate": 0,
       "format": "<span font='13' rise='1000'>{icon}</span>",
-      "tooltip-format": "{percent}",
       "format-icons": ["", "", "", ""],
       "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
       "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
