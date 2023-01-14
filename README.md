@@ -326,8 +326,8 @@ exec Hyprland
 | ----------------------------------- | -------------------------- |
 | <kbd>SUPER</kbd> + Mouse wheel down | Move to previous workspace |
 | <kbd>SUPER</kbd> + Mouse wheel up   | Move to next workspace     |
-| <kbd>SUPER</kbd> + <kbd>.</kbd>     | Move to previous workspace |
-| <kbd>SUPER</kbd> + <kbd>,</kbd>     | Move to next workspace     |
+| <kbd>SUPER</kbd> + <kbd>[</kbd>     | Move to previous workspace |
+| <kbd>SUPER</kbd> + <kbd>]</kbd>     | Move to next workspace     |
 
 <br />
 
@@ -370,6 +370,8 @@ exec Hyprland
 | ------------------------------------------------------------------------ | -------------------------------- |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>Left</kbd> | Swap workspaces between monitors |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>Right</kbd> | Swap workspaces between monitors |
 | <kbd>SUPER</kbd> + <kbd>comma</kbd>                                      | Focus on monitor id 0            |
 | <kbd>SUPER</kbd> + <kbd>period</kbd>                                     | Focus on monitor id 1            |
 
