@@ -37,16 +37,18 @@ window#waybar.hidden {
   background: @theme_base_color;
   border: 3px solid @surface2;
   color: @theme_text_color;
+  margin: 0px 5px;
 }
 
 .modules-right {
   background: @theme_base_color;
   border: 3px solid @surface2;
   color: @theme_text_color;
-  padding-bottom: 3px;
+  /* padding-bottom: 3px; */
   padding-right: 3px;
 }
 
+#idle_inhibitor,
 #backlight,
 #battery,
 #clock,
@@ -73,12 +75,20 @@ window#waybar.hidden {
   margin-left: 3px;
 }
 
+#idle_inhibitor {
+  margin-left: 5px;
+  color: @lavender;
+  /* border-bottom: 3px solid @lavender; */
+}
+
 #backlight {
   color: @blue;
+  /* border-bottom: 3px solid @blue; */
 }
 
 #battery {
   color: @green;
+  /* border-bottom: 3px solid @green; */
 }
 
 @keyframes blink {
@@ -99,24 +109,28 @@ window#waybar.hidden {
 
 #clock {
   color: @yellow;
-  border-bottom: 3px solid @yellow;
+  /* border-bottom: 3px solid @yellow; */
 }
 
 #cpu {
   color: @green;
+  /* border-bottom: 3px solid @green; */
 }
 
 #memory {
   color: @sky;
+  /* border-bottom: 3px solid @sky; */
 }
 
 #disk {
   color: @sapphire;
+  /* border-bottom: 3px solid @sapphire; */
 }
 
 #tray {
   color: @peach;
   margin-right: 3px;
+    /* border-bottom: 3px solid @peach; */
 }
 #tray > .passive {
   -gtk-icon-effect: dim;
@@ -126,13 +140,13 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  margin: 4px 0px;
+  /* margin: 4px 0px; */
   /* border-radius: 5px; */
 }
 
 #workspaces button.active {
   color: @peach;
-  border-bottom: 3px solid @peach;
+  /* border-bottom: 3px solid @peach; */
   border-radius: 0px;
 }
 
@@ -143,29 +157,36 @@ window#waybar.hidden {
 #custom-power {
   color: @red;
   margin-right: 3px;
+  /* border-bottom: 3px solid @red; */
 }
 
 #custom-updater {
-  color: @green;
+  color: @red;
+  /* border-bottom: 3px solid @green; */
 }
 
 #custom-uptime {
   color: @blue;
+  /* border-bottom: 3px solid @blue; */
 }
 
 #custom-weather {
   color: @lavender;
+  /* border-bottom: 3px solid @lavender; */
 }
 
 #custom-vpn_check {
   color: @sky;
+  /* border-bottom: 3px solid @sky; */
 }
 #custom-cputemp {
   color: @teal;
+  /* border-bottom: 3px solid @teal; */
 }
 
 #pulseaudio {
   color: @sapphire;
+  /* border-bottom: 3px solid @sapphire; */
 }
 
 #pulseaudio.bluetooth {
@@ -181,9 +202,11 @@ window#waybar.hidden {
 
 #network {
   color: @teal;
+  /* border-bottom: 3px solid @teal; */
 }
 #network.disconnected,
 #network.disabled {
   background-color: @surface0;
   color: @text;
+  /* border-bottom: 3px solid @text; */
 }

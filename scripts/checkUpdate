@@ -5,5 +5,5 @@ UPDATE=$(checkupdates | wc -l)
 if [ ${UPDATE} -lt 1 ]; then
   echo ""
 else
-  echo "<span font='13' color='#f38ba8' rise='1000'></span> ${UPDATE}"
+  echo "<span font='13' rise='1000'></span> ${UPDATE}"
 fi

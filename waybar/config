@@ -8,11 +8,12 @@
   "spacing": 5,
   /* "height": 37, */
   "gtk-layer-shell": true,
-  "margin-left": 5,
-  "margin-right": 5,
-  "margin-bottom": 5,
+  /* "margin-left": 5, */
+  /* "margin-right": 5, */
+  /* "margin-bottom": 5, */
+  "margin": 5,
 
   "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "custom/uptime"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/weather", "backlight", "pulseaudio", "custom/vpn_check", "network", "custom/updater", "battery", "clock", "tray"],
+  "modules-right": [ "idle_inhibitor", "backlight", "pulseaudio", "custom/vpn_check", "network", "custom/updater", "battery", "clock", "tray"],
 }
