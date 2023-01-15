@@ -3,7 +3,7 @@
     "interval": 30,
     "align": 0,
     "rotate": 0,
-      "format": "<span font='13' rise='1000'>{icon}</span>",
+      "format": "<span font='13' rise='1000'>{icon}</span> {percent}",
       "format-icons": ["", "", "", ""],
       "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
       "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
@@ -11,26 +11,10 @@
     },
 
   "wlr/workspaces": {
-    /* "format": "<span font='13'>{icon}</span>", */
     "format": "{}",
     "on-click": "activate",
     "all-outputs": true,
-    /* "active-only": true, */
     "sort-by-number": true,
-    "format-icons": {
-      "1": "١",
-      "2": "٢",
-      "3": "٣",
-      "4": "٤",
-      "5": "٥",
-      "6": "٦",
-      "7": "٧",
-      "8": "٨",
-      "9": "٩",
-      "10": "١٠",
-      "focused": "",
-      "default": ""
-    },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
   },
@@ -39,8 +23,6 @@
     "interval": 60,
     "align": 0,
     "rotate": 0,
-    //"bat": "BAT1",
-    //"adapter": "ACAD",
     "full-at": 100,
     "design-capacity": false,
     "states": {
@@ -52,12 +34,10 @@
     "format-charging": "<span font='12' rise='1000'></span>{capacity}",
     "format-plugged": "<span font='11' rise='1300'></span> {capacity}",
     "format-full": "<span font='13' rise='500'>{icon}</span>",
-    //"format-good": "",
     "format-alt": "<span font='13' rise='1000'>{icon}</span> {time}",
     "format-icons": ["", "", "", "", ""],
     "format-time": "{H}h {M}min",
     "tooltip": true,
-    /* "on-click-right": "~/.config/hypr/scripts/glassmorphismToggle", */
     "on-click-middle": "~/.config/hypr/scripts/swallowToggle"
   },
 
@@ -65,23 +45,19 @@
     "interval": 60,
     "align": 0,
     "rotate": 0,
-    //"timezone": "America/New_York",
+    "format": "{:%d %b <span rise='2000'>⁙</span> %I:%M %p}",
+    "format-alt": "{:%A <span rise='2000'>⁙</span> %d %B %Y <span rise='2000'>⁙</span> %I:%M %p}",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    /* "format": "<span font='13' rise='1000'></span> {:%d %b, %H:%M}", */
-    "format": "<span font='13' rise='1000'></span> {:%H:%M}",
-    "format-alt": "<span font='13' rise='1000'></span> {:%a %b %d, %G}",
     "on-click-right": "~/.config/hypr/scripts/changeWallpaper",
   },
 
   "cpu": {
-    // "interval": 5,
-    // "format": " {usage}%",
     "interval": 2,
-    /* "format": "<span font='13' rise='4500'>{icon0}{icon1}{icon2}{icon3}</span> {usage:>2}% <span font='12' rise='3000'></span>", */
-    "format": "<span font='13' rise='4500'>{icon0}{icon1}{icon2}{icon3}</span> <span font='13'rise='1000'>{usage:>2}%</span>",
+    "format": "<span font='13' rise='1000'></span> <span font='13'>{usage}%</span>",
+    "format-alt": "<span font='10' rise='4000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='13'rise='1000'>{usage:>2}%</span>",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
   },
-           
+
   "custom/menu": {
     "format": "<span font='13' rise='1000'></span>",
     "tooltip": false,
@@ -89,10 +65,9 @@
   },
 
   "custom/power": {
-    "format": " <span font='13' rise='1000'>襤</span> ",
+    "format": "<span font='15' rise='1000'>襤</span>",
     "tooltip": false,
     "on-click": "archlinux-logout",
-    /* "on-click": "$HOME/.config/rofi/scripts/powermenu_t3", */
   },
 
   "disk": {
@@ -117,16 +92,6 @@
     "on-click-right": "~/.local/bin/mmuvpn up cbj",
   },
 
-  /* "custom/weather": { */
-  /*   "format": "{}", */
-  /*   "format-alt": "{alt}: {}", */
-  /*   "format-alt-click": "click-right", */
-  /*   "interval": 1800, */
-  /*   "return-type": "json", */
-  /*   "exec": "~/.config/hypr/scripts/weather.sh", */
-  /*   "exec-if": "ping wttr.in -c1" */
-  /* }, */
-
   "custom/weather": {
     "tooltip": true,
     "format": "{}",
@@ -140,7 +105,7 @@
     "exec": "$HOME/.config/hypr/scripts/checkUpdate",
     "exec-if": "[[ $($HOME/.config/hypr/scripts/checkUpdate) ]]",
     "interval": 300,
-    "on-click": "kitty --class update -T update -e yay -Syu && notify-send -i '/usr/share/icons/hicolor/256x256/apps/kitty.png' 'Kitty Terminal' 'The system has been updated' "
+    "on-click": "kitty --class update -T update -e yay -Syu && notify-send -i '/usr/share/icons/hicolor/256x256/apps/kitty.png' 'Kitty Terminal' 'Nice!!!' "
   },
 
   "custom/uptime":{
@@ -164,8 +129,7 @@
   },
 
   "pulseaudio": {
-    /* "format": "{icon} {volume}% {format_source}", */
-    "format": "<span font='13' rise='1000'>{icon}</span>",
+    "format": "<span font='13' rise='1000'>{icon}</span> {volume}",
     "tooltip-format": "{volume}",
     "format-muted": "<span font='13' rise='1000'></span>",
     "format-bluetooth": "<span font='13' rise='1000'></span> {volume} {format_source}",
@@ -190,19 +154,19 @@
   },
 
   "custom/cputemp":{
-    "format": "<span font='12' rise='1000'></span> {}",
-    "exec": "~/.local/bin/cputemp",
+    "format": "<span font='12' rise='2000'></span> {}",
+    "exec": "~/.config/hypr/scripts/cputemp",
     "interval": 15,
   },
 
   "tray": {
-    "format": "<span rise='3000'{}</span>",
+    "format": "<span rise='3000'>{}</span>",
     "icon-size": 16,
     "spacing": 6
   },
 
   "hyprland/window": {
-    "format": "{}"
+    "format": "<span rise='2000'>⁙</span> {} <span rise='2000'>⁙</span>"
   },
 
   "idle_inhibitor": {
