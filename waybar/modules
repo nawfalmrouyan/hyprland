@@ -72,17 +72,19 @@
 
   "disk": {
     "interval": 30,
-    "format": "<span font='13'></span> {free}",
+    "format": "<span font='13'></span> {percentage_used}%",
+    "format-alt": "<span font='13'></span> {free}",
   },
 
   "memory": {
     "interval": 10,
-    "format": "<span font='13' rise='1000'></span> {used:0.1f}G",
+    "format": "<span font='13' rise='1000'></span> {}%",
+    "format-alt": "<span font='13' rise='1000'></span> {used:0.1f}G",
   },
 
   "network": {
     "interval": 5,
-    "format-wifi": "<span font='13' rise='2000'></span>",
+    "format-wifi": "<span font='13' rise='2000'></span> {signalStrength}%",
     "format-ethernet": "<span font='13' rise='1000'></span> {ipaddr}/{cidr}",
     "format-linked": "<span font='13' rise='1000'></span> {ifname} (No IP)",
     "format-disconnected": "<span font='13' rise='1000'>睊</span> Disconnected",
@@ -95,7 +97,7 @@
   "custom/weather": {
     "tooltip": true,
     "format": "{}",
-    "interval": 1800,
+    "interval": 300,
     "exec": "~/.config/hypr/scripts/wttr.py",
     "return-type": "json",
   },
@@ -147,7 +149,8 @@
     },
     "scroll-step": 5.0,
     "on-click": "pamixer -t",
-    "on-click-right": "pavucontrol",
+    "on-click-right": "kitty --class update -T update -e pulsemixer",
+    "on-click-middle": "pavucontrol",
     "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
     "smooth-scrolling-threshold": 1,
@@ -160,9 +163,7 @@
   },
 
   "tray": {
-    "format": "<span rise='3000'>{}</span>",
-    "icon-size": 16,
-    "spacing": 6
+    "spacing": 10
   },
 
   "hyprland/window": {

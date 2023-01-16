@@ -9,7 +9,7 @@
   "gtk-layer-shell": true,
   "margin": 5,
 
-  "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "custom/uptime"],
+  "modules-left": ["wlr/workspaces", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["backlight", "pulseaudio", "custom/vpn_check", "network", "battery", "custom/updater", "tray", "clock"],
+  "modules-right": ["custom/weather", "backlight", "pulseaudio", "custom/vpn_check", "network", "battery", "custom/updater", "tray", "clock"],
 }
