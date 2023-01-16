@@ -48,10 +48,10 @@ toggle_mute() {
 
 # Toggle Mic
 toggle_mic() {
-  if [ "$(pamixer --source 66 --get-mute)" == "false" ]; then
-    pamixer -m --source 66 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone-mute.png" "Microphone Switched OFF"
-  elif [ "$(pamixer --source 66 --get-mute)" == "true" ]; then
-    pamixer -u --source 66 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone.png" "Microphone Switched ON"
+  if [ "$(pamixer --source 65 --get-mute)" == "false" ]; then
+    pamixer -m --source 65 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone-mute.png" "Microphone Switched OFF"
+  elif [ "$(pamixer --source 65 --get-mute)" == "true" ]; then
+    pamixer -u --source 65 && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone.png" "Microphone Switched ON"
   fi
 }
 
