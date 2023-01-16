@@ -1,0 +1,52 @@
+;;                               Configuration for most TKL keyboards
+;;                       use this if you need numeric keypad in some scenarios
+;;                   binded as numpad keys (not just numerics) for alt-codes input
+
+(defcfg
+  ;; ** For Linux **
+  ;; input  (device-file "/dev/input/by-id/usb-HOLTEK_USB-HID_Keyboard-event-kbd") ;; Change this line for your device
+  input  (device-file "/dev/input/by-id/usb-Milsky_87EC-XRGB_CA2018120002-event-kbd")
+  output (uinput-sink "KMonad output")
+
+  ;; ** For Windows **
+  ;; input  (low-level-hook)
+  ;; output (send-event-sink)
+
+  ;; ** For MacOS **
+  ;; input  (iokit-name "my-keyboard-product-string")
+  ;; output (kext)
+
+  fallthrough true
+  allow-cmd true
+)
+
+(defsrc
+  esc     f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12            prnt    slck    pause
+  grv     1    2    3    4    5    6    7    8    9    0    -    =    bspc      ins     home    pgup
+  tab     q    w    e    r    t    y    u    i    o    p    [    ]    \         del     end     pgdn
+  caps    a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft      z    x    c    v    b    n    m    ,    .    /    rsft                      up
+  lctl    lmet lalt           spc            ralt cmp rctl                          left    down    right
+)
+ 
+(defalias
+  nm2 (layer-toggle numbers) ;; Bind 'nm2' to numbers under left hand layer for fast input
+)
+
+(deflayer qwerty
+  esc     f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12            prnt    slck    pause
+  grv     1    2    3    4    5    6    7    8    9    0    -    =    bspc      ins     home    pgup
+  tab     q    w    e    r    t    y    u    i    o    p    [    ]    \         del     end     pgdn
+  @nm2    a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft      z    x    c    v    b    n    m    ,    .    /    rsft                      up
+  lctl    lmet lalt           spc            ralt caps rctl                    left    down    right
+)
+
+(deflayer numbers
+  _       _    _    _    _    _    _    _    _    _    _    _    _              _    _    _
+  _       7    8    9    _    _    _    _    _    _    _    _    _    _         _    _    _
+  _       4    5    6    _    _    _    _    _    _    _    _    _    _         _    _    _
+  -       1    2    3    _    _  left down  up  right  _    _    _
+  _         0    _    _    _    _    _    _    _    _    _    _                      _
+  _       _    _                 _              _   _   _                       _    _    _
+)
