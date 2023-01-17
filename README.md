@@ -22,19 +22,19 @@
 
 Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
 
-|      Label       |        Application        |
-| :--------------: | :-----------------------: |
-| Operating System |         ArcoLinux         |
-|  Window Manager  |         Hyprland          |
-|    Status Bar    |    Waybar-hyprland-git    |
-|     Launcher     |           Wofi            |
-| Session Manager  |     archlinux-logout      |
-|  Notifications   |           Mako            |
-|     Terminal     |           Kitty           |
-|   Web Browser    |          Firefox          |
-|      Fonts       |    Fira Sans Condensed    |
-|                  |     Symbols Nerd Font     |
-|                  | IosevkaLyteTerm Nerd Font |
+|      Label       |     Application     |
+| :--------------: | :-----------------: |
+| Operating System |      ArcoLinux      |
+|  Window Manager  |      Hyprland       |
+|    Status Bar    | Waybar-hyprland-git |
+|     Launcher     |        Wofi         |
+| Session Manager  |  archlinux-logout   |
+|  Notifications   |        Mako         |
+|     Terminal     |        Kitty        |
+|   Web Browser    |       Firefox       |
+|      Fonts       | Fira Sans Condensed |
+|                  |  Symbols Nerd Font  |
+|                  |   Iosevka Medium    |
 
 <br />
 
@@ -84,13 +84,28 @@ cp -r * ~/.config/hypr
 
 cd ~
 
-export _JAVA_AWT_WM_NONREPARENTING=1
+# Log WLR errors and logs to the hyprland log. Recommended
+export HYPRLAND_LOG_WLR=1
+
+# Tell XWayland to use a cursor theme
+export XCURSOR_THEME=Bibata-Modern-Classic
+
+# Set a cursor size
 export XCURSOR_SIZE=24
+
+# Example IME Support: fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
 
 exec Hyprland
 ```
 
-5. You can refer [here](https://wiki.hyprland.org/Getting-Started/Quick-start/) for more info.
+5. My launcher script [here](https://github.com/nawfalmrouyan/hyprland/blob/lazy/scripts/starth).
+
+6. You can refer [here](https://wiki.hyprland.org/Getting-Started/Quick-start/) for more info.
 
 <br />
 
@@ -370,7 +385,7 @@ exec Hyprland
 | ------------------------------------------------------------------------ | -------------------------------- |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>comma</kbd> | Swap workspaces between monitors |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>Left</kbd> | Swap workspaces between monitors |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>Left</kbd>  | Swap workspaces between monitors |
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>CTRL</kbd> + <kbd>Right</kbd> | Swap workspaces between monitors |
 | <kbd>SUPER</kbd> + <kbd>comma</kbd>                                      | Focus on monitor id 0            |
 | <kbd>SUPER</kbd> + <kbd>period</kbd>                                     | Focus on monitor id 1            |
