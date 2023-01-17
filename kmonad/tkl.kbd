@@ -63,9 +63,9 @@
 (deflayer extend
   _       _    _    _    _    _    _    _    _    _    _    _    _              _    _    _
   _       _    _    _    _    _    _    _    _    _    _    _    _    _         _    _    _
-  _       _    _    _    _    _    _    _    _    _ playpause _  _    _         _    _    _
-  _       _    _    _    _    _    previoussong vold volu nextsong    _    _    _
-  _         _    _    _    _    _    _    mute _ _    _    _                        _
+  _       _    C-w    C-e    C-r    C-t    _    _    _    _ playpause _  _    _         _    _    _
+  _       C-a    _    _    _    _    previoussong vold volu nextsong    _    _    _
+  _         C-z    _    C-c    C-v    C-b    _    mute _ _    _    _                        _
   _       _    _                 _                _   _   _                      _ _ _
 )
 
