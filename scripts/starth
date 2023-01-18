@@ -8,6 +8,7 @@ cd ~ || exit
 export HYPRLAND_LOG_WLR=1
 export WLR_NO_HARDWARE_CURSORS=1
 export _JAVA_AWT_WM_NONREPARENTING=1
+export XCURSOR_THEME=Catppuccin-Mocha-Mauve-Cursor
 export XCURSOR_SIZE=24
 export XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORMTHEME=qt5ct
