@@ -42,9 +42,9 @@
 (deflayer vi
   _       _    _    _    _    _    _    _    _    _    _    _    @kpad             _     @gam _
   _       _    _    _    _    _    _    _    _    _    _    _    _    M-bspc       _     _    _
-  _       _   _    end   M-S-r _   M-y  M-u  esc  _    prnt _    _    M-\\         M-del _    _
+  _       _   M-w   end  M-S-r _   M-y  M-u  esc  _    prnt _    _    M-\\         M-del _    _
   _     home   _   M-S-d M-S-f _   left down up   right _   _    M-ret
-  _         _    _    _    _    _    _    M-S-m    M-,    M-.    _    _                  _
+  _         _    _    M-c _    _    _    M-S-m    M-,    M-.    _    _                  _
   _       _    _                 _              _   _   _                          _     _    _
 )
 
