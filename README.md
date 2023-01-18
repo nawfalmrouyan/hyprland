@@ -10,11 +10,18 @@
 
 ## 🌟 Preview
 
-![Screenshot_2023-01-06-11-08-04_26831](https://user-images.githubusercontent.com/10271030/210922347-4e51af53-ccd3-4467-8b7c-7c0935cca81e.png)
+![Screenshot_2023-01-18-10-05-20_8586](https://user-images.githubusercontent.com/10271030/213065845-67bbaa4d-f7e0-4ac1-a255-20c3d12d41e9.png)
 
-![Screenshot_2023-01-06-11-09-14_19981](https://user-images.githubusercontent.com/10271030/210922358-e51cef43-21a8-4e4c-9b90-14d431b43a28.png)
+![Screenshot_2023-01-18-10-08-06_12668](https://user-images.githubusercontent.com/10271030/213066077-e5393dd9-cfa1-444e-ba0d-22eed71c9092.png)
 
-![Screenshot_2023-01-06-11-09-21_21791](https://user-images.githubusercontent.com/10271030/210922370-9a046bdb-5373-41f0-97e9-5724a987b5c9.png)
+![Screenshot_2023-01-18-10-08-23_90](https://user-images.githubusercontent.com/10271030/213066130-6fa4c8a6-aa8c-4c52-98a4-9d477b082140.png)
+
+<br />
+
+## Videos
+
+- https://www.youtube.com/watch?v=Ojfbjth-c84
+- https://www.youtube.com/watch?v=MXOsmXXafS8
 
 <br />
 
@@ -396,8 +403,7 @@ exec Hyprland
 
 |   Module   | Mouse Click | Description                                            |
 | :--------: | :---------: | ------------------------------------------------------ |
-|  Battery   |    Right    | Toggle glassy blur                                     |
-|            |   Middle    | Toggle swallow                                         |
+|  Battery   |   Middle    | Toggle swallow                                         |
 |  Updater   |    Left     | Spawn kitty terminal and execute yay                   |
 |   Volume   |    Left     | Mute                                                   |
 |            |  Wheel Up   | Increase volume by 5%                                  |
