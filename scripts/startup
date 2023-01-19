@@ -28,3 +28,7 @@ ${SCRIPTSDIR}/statusbar &
 # A hack to stop wifi from being rfkilled when lid switch
 sudo setkeycodes e057 240 e058 240
 kmonad $HOME/.config/hypr/kmonad/tkl.kbd &
+
+
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock EXEC:"${SCRIPTSDIR}/shellevents ${SCRIPTSDIR}/submaps.sh",nofork &
+${SCRIPTSDIR}/handleMonitorConnect.sh &
