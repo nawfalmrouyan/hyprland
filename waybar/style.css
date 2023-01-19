@@ -25,11 +25,12 @@ window#waybar.hidden {
 
 .modules-left, .modules-center, .modules-right {
   background: @theme_base_color;
-  border: 3px solid @surface2;
+  border: 3px solid @overlay0;
   padding: 0px 5px;
 }
 
 .modules-center {
+  border: 3px solid @mauve;
   margin: 0px 5px;
 }
 
