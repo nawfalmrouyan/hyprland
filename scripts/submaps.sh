@@ -7,29 +7,22 @@
 
 CURRENT_SUBMAP="${CURRENT_SUBMAP:=}"
 
-resize_enter='keyword decoration:dim_inactive 1;keyword general:col.active_border 0xFFe7691e'
-resize_exit='keyword decoration:dim_inactive 0;keyword general:col.active_border 0xffcba6f7 0xff89b4fa 45deg'
+# resize='keyword decoration:dim_inactive 1;keyword general:col.active_border 0xFFe7691e'
+enter='keyword decoration:dim_inactive 1;keyword general:col.active_border 0xffeba0ac'
+exit='keyword decoration:dim_inactive 0;keyword general:col.active_border 0xffcba6f7 0xff89b4fa 45deg'
 
 event_submap() {
   printf >&2 '%s\n' "$SUBMAPNAME"
   case "$SUBMAPNAME" in
-  "resize")
+  "resize"|"move"|"focus")
     CURRENT_SUBMAP='resize'
-    hyprctl --batch "$resize_enter"
-    ;;
-  "move")
-    CURRENT_SUBMAP='resize'
-    hyprctl --batch "$resize_enter"
+    hyprctl --batch "$enter"
     ;;
   *)
     case "$CURRENT_SUBMAP" in
-    "resize")
+    "resize"|"move"|"focus")
       CURRENT_SUBMAP=''
-      hyprctl --batch "$resize_exit"
-      ;;
-    "move")
-      CURRENT_SUBMAP=''
-      hyprctl --batch "$resize_exit"
+      hyprctl --batch "$exit"
       ;;
     esac
     ;;
