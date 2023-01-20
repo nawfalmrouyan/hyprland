@@ -1,7 +1,7 @@
 @import "mocha.css";
 * {
   font-family: Symbols Nerd Font, Iosevka Medium, monospace;
-  font-size: 17px;
+  font-size: 15px;
   border: none;
   border-radius: 0;
   min-height: 0;
@@ -30,7 +30,7 @@ window#waybar.hidden {
 }
 
 .modules-center {
-  border: 3px solid @mauve;
+  /* border: 3px solid @lavender; */
   margin: 0px 5px;
 }
 
@@ -51,6 +51,7 @@ window#waybar.hidden {
 #custom-vpn_check,
 #custom-uptime,
 #custom-cputemp,
+#custom-waybar-mpris,
 #window,
 #network {
   padding: 0px 4px;
@@ -153,6 +154,10 @@ window#waybar.hidden {
 
 #window {
   color: @mauve;
+}
+
+#custom-waybar-mpris {
+  color:@lavender;
 }
 
 #network {
