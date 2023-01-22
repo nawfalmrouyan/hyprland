@@ -29,6 +29,7 @@
   def (tap-macro @notifyQwerty (layer-switch qwerty))
   kpad (tap-macro @notifyNumpad (layer-switch numpad))
   edit (tap-macro C-x C-e)
+  copyq (cmd-button "rofi-copyq")
 )
 
 (deflayer qwerty
@@ -43,7 +44,7 @@
 (deflayer vi
   _       _    _    _    _    _    _    _    _    _    _    _    @kpad             _     @gam _
   _       _    _    _    _    _    _    _    _    _    _    _    _    M-bspc       _     _    _
-  _       _   M-w   end  M-S-r _   M-y  M-u  esc  _    prnt _    _    M-\\         M-del _    _
+  _    @copyq  M-w  end  M-S-r _   M-y  M-u  esc  _    prnt _    _    M-\\         M-del _    _
   _     home   _   M-S-d M-S-f _   left down up   right _   _    M-ret
   _         _    @edit    M-c _    _    _    M-S-m    M-,    M-.    _    _                  _
   _       _    _                 _              _   _   _                          _     _    _
