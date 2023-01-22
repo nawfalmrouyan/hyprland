@@ -58,7 +58,7 @@ window#waybar.hidden {
 }
 
 #idle_inhibitor {
-  color: @lavender;
+  color: @pink;
 }
 
 #backlight {
@@ -131,7 +131,7 @@ window#waybar.hidden {
 }
 
 #custom-weather {
-  color: @peach;
+  color: @lavender;
 }
 
 #custom-vpn_check {
