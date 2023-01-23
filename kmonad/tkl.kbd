@@ -29,7 +29,7 @@
   def (tap-macro @notifyQwerty (layer-switch qwerty))
   kpad (tap-macro @notifyNumpad (layer-switch numpad))
   edit (tap-macro C-x C-e)
-  copyq (cmd-button "rofi-copyq")
+  copyq (cmd-button "copyq toggle")
 )
 
 (deflayer qwerty
