@@ -31,4 +31,3 @@ kmonad $HOME/.config/hypr/kmonad/tkl.kbd &
 
 
 socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock EXEC:"${SCRIPTSDIR}/shellevents ${SCRIPTSDIR}/submaps.sh",nofork &
-${SCRIPTSDIR}/handleMonitorConnect.sh &
