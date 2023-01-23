@@ -174,7 +174,7 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
+      "activated": "<span color='#f38ba8'></span>",
       "deactivated": ""
     },
     /* "timeout": 30.5 */

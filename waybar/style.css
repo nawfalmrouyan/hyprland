@@ -58,7 +58,7 @@ window#waybar.hidden {
 }
 
 #idle_inhibitor {
-  color: @pink;
+  color: @blue;
 }
 
 #backlight {
