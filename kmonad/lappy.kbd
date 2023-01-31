@@ -40,8 +40,8 @@
 )
 
 (deflayer vi
-  _       _    _    _    _    _    _    _    _    _    _    _    _                 _     @gam _
-  _       _    _    _    _    _    _    _    _    _    _    _    _    M-bspc       _     _    _    _  _  _  _
+  _       _    _    _    _    _    _    _    _    _    _    _    _                 _     _    _
+  _       _    _    _    _    _    _    _    _    _    _    _    _    M-bspc       _     @gam    _    _  _  _  _
   _    @copyq  M-w  end  M-S-r _   M-y  M-u  esc  _    prnt _    _    M-\\         M-del _    _    _  _  _  _
   _     home   _   M-S-d M-S-f _   left down up   right _   _    M-ret                             _  _  _
   _         _    @edit    M-c _    _    _    M-S-m    M-,    M-.    _    _                  _      _  _  _  _
@@ -58,8 +58,8 @@
 )
 
 (deflayer game
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        prnt @def pause
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup   nlck kp/  kp*  kp-
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        prnt slck pause
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  @def pgup   nlck kp/  kp*  kp-
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn   kp7  kp8  kp9  kp+
   caps a    s    d    f    g    h    j    k    l    ;    '    ret                         kp4  kp5  kp6
   lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up          kp1  kp2  kp3  kprt
