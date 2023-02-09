@@ -112,7 +112,7 @@
 
   "custom/uptime":{
     "format": "<span font='11' rise='500'></span> {}",
-    "exec": "$HOME/.local/bin/upt",
+    "exec": "$HOME/.config/hypr/scripts/upt",
     "interval": 60,
   },
 
