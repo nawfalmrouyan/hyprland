@@ -263,14 +263,15 @@ exec Hyprland
 
 ### Focus
 
-| Keybind                                            | Description      |
-| -------------------------------------------------- | ---------------- |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>F</kbd> | Enter focus mode |
-| <kbd>Left</kbd> / <kbd>H</kbd>                     | Focus left       |
-| <kbd>Right</kbd> / <kbd>L</kbd>                    | Focus right      |
-| <kbd>Up</kbd> / <kbd>K</kbd>                       | Focus up         |
-| <kbd>Down</kbd> / <kbd>J</kbd>                     | Focus down       |
-| <kbd>Esc</kbd>                                     | Exit focus mode  |
+| Keybind                                            | Description                                       |
+| -------------------------------------------------- | ------------------------------------------------- |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>F</kbd> | Enter focus mode                                  |
+| <kbd>Left</kbd> / <kbd>H</kbd>                     | Focus left                                        |
+| <kbd>Right</kbd> / <kbd>L</kbd>                    | Focus right                                       |
+| <kbd>Up</kbd> / <kbd>K</kbd>                       | Focus up                                          |
+| <kbd>Down</kbd> / <kbd>J</kbd>                     | Focus down                                        |
+| <kbd>Esc</kbd>                                     | Exit focus mode                                   |
+| <kbd>Ctrl</kbd> + <kbd>Tab</kbd>                   | Focus between current and previous focused window |
 
 <br />
 
