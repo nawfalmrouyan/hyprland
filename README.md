@@ -364,7 +364,7 @@ exec Hyprland
 
 <br />
 
-### Group - only available in Dwindle layout
+### Group Windows
 
 | Keybind                                            | Description                                                  |
 | -------------------------------------------------- | ------------------------------------------------------------ |
