@@ -366,10 +366,18 @@ exec Hyprland
 
 ### Group - only available in Dwindle layout
 
-| Keybind                           | Description                    |
-| --------------------------------- | ------------------------------ |
-| <kbd>SUPER</kbd> + <kbd>G</kbd>   | Toggle group                   |
-| <kbd>SUPER</kbd> + <kbd>Tab</kbd> | Change to next window in group |
+| Keybind                                            | Description                                                  |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| <kbd>SUPER</kbd> + <kbd>G</kbd>                    | Toggle group                                                 |
+| <kbd>SUPER</kbd> + <kbd>Tab</kbd>                  | Change to next window in group                               |
+| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>G</kbd>  | Move window out of group                                     |
+| <kbd>SUPER</kbd> + <kbd>ALT</kbd> + <kbd>G</kbd>   | Lock group                                                   |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>G</kbd> | Toggle move focus window into group submap                   |
+| <kbd>J</kbd>                                       | Move focused window down into group and escape group submap  |
+| <kbd>K</kbd>                                       | Move focused window up into group and escape group submap    |
+| <kbd>L</kbd>                                       | Move focused window right into group and escape group submap |
+| <kbd>H</kbd>                                       | Move focused window left into group and escape group submap  |
+| <kbd>Escape</kbd>                                  | Escape group submap                                          |
 
 <br />
 
