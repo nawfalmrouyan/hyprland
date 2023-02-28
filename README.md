@@ -271,7 +271,7 @@ exec Hyprland
 | <kbd>Up</kbd> / <kbd>K</kbd>                       | Focus up                                          |
 | <kbd>Down</kbd> / <kbd>J</kbd>                     | Focus down                                        |
 | <kbd>Esc</kbd>                                     | Exit focus mode                                   |
-| <kbd>Alt</kbd> + <kbd>Tab</kbd>                   | Focus between current and previous focused window |
+| <kbd>Alt</kbd> + <kbd>Tab</kbd>                    | Focus between current and previous focused window |
 
 <br />
 
