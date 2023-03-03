@@ -357,10 +357,11 @@ exec Hyprland
 
 ### Move/resize windows with using mouse
 
-| Keybind                | Description   |
-| ---------------------- | ------------- |
-| <kbd>SUPER</kbd> + LMB | Move window   |
-| <kbd>SUPER</kbd> + RMB | Resize window |
+| Keybind                | Description     |
+| ---------------------- | --------------- |
+| <kbd>SUPER</kbd> + LMB | Move window     |
+| <kbd>SUPER</kbd> + RMB | Resize window   |
+| <kbd>SUPER</kbd> + RMM | Toggle floating |
 
 <br />
 
