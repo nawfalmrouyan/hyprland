@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SWALLOW=$(hyprctl -j getoption misc:enable_swallow | jq ".int")
+SWALLOW=$(hyprctl -j getoption misc:enable_swallow | jaq ".int")
 
 if [ "${SWALLOW}" == "1" ]; then
   hyprctl keyword misc:enable_swallow 0

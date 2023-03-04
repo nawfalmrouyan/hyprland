@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BLUR_PASSES=$(hyprctl -j getoption decoration:blur_passes | jq ".int")
+BLUR_PASSES=$(hyprctl -j getoption decoration:blur_passes | jaq ".int")
 
 if [ "${BLUR_PASSES}" == "3" ]; then
   hyprctl keyword decoration:blur_size 3

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LAYOUT=$(hyprctl -j getoption general:layout | jq '.str' | sed 's/"//g')
+LAYOUT=$(hyprctl -j getoption general:layout | jaq '.str' | sed 's/"//g')
 
 case $LAYOUT in
 "master")
