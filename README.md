@@ -74,6 +74,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 - xorg-xwayland
 - yad
 - rofi-lbonn-wayland
+- jaq
 
 2. Clone the repo
 3. Assuming you do not have Hyprland configured before, copy/move all the files in the repo to `~/.config/hypr`.
