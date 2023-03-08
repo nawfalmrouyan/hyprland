@@ -26,6 +26,5 @@ export WLR_BACKEND=vulkan
 export GBM_BACKEND=nvidia-drm
 export GDK_BACKEND="wayland,x11"
 
-exec Hyprland
-
-# LIBVA_DRIVER_NAME=nvidia GBM_BACKEND=nvidia-drm __GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only Hyprland
+# exec Hyprland
+exec Hyprland &> /tmp/hyprland-$(date +%Y-%m-%d-%H-%M-%S).log
