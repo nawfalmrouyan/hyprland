@@ -27,4 +27,4 @@ export WLR_BACKEND=vulkan
 export GDK_BACKEND="wayland,x11"
 
 # exec Hyprland
-exec Hyprland &> /tmp/hyprland-$(date +%Y-%m-%d-%H-%M-%S).log
+exec Hyprland &> /tmp/hyprland-$(date +%Y%m%d%H%M%S).log
