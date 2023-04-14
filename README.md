@@ -387,14 +387,15 @@ exec Hyprland
 
 ### Script binds
 
-| Keybind                                               | Description                               |
-| ----------------------------------------------------- | ----------------------------------------- |
-| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd>    | Listen to Lofi music stream               |
-| <kbd>Print</kbd>                                      | Take screenshot now                       |
-| <kbd>SUPER</kbd> + <kbd>Print</kbd>                   | Take screenshot in 5 seconds              |
-| <kbd>SHIFT</kbd> + <kbd>Print</kbd>                   | Take screenshot in 10 seconds             |
-| <kbd>CTRL</kbd> + <kbd>Print</kbd>                    | Take screenshot of current focused window |
-| <kbd>SUPER</kbd> + <kbd>CTRL</kbd> + <kbd>Print</kbd> | Select area for a screenshot              |
+| Keybind                                            | Description                                 |
+| -------------------------------------------------- | ------------------------------------------- |
+| <kbd>Print</kbd>                                   | Toggle screen capture                       |
+| <kbd>1</kbd>                                       | Take screenshot of all screens              |
+| <kbd>2</kbd>                                       | Take a screenshot of current screen         |
+| <kbd>3</kbd>                                       | Take a screenshot of current focused window |
+| <kbd>4</kbd>                                       | Take a screenshot of an area                |
+| <kbd>Escape</kbd>                                  | Escape screenshot submap                    |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>Y</kbd> | Listen to Lofi music stream                 |
 
 <br />
 
