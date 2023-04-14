@@ -152,6 +152,8 @@ exec Hyprland
 | <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>O</kbd> | Color picker in RGB format                    |
 | <kbd>SUPER</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>   | Focus the first matched kitty window          |
 | <kbd>SUPER</kbd> + <kbd>Y</kbd>                    | Open Youtube-Music in special:trash workspace |
+| <kbd>SUPER</kbd> + <kbd>B</kbd>                    | Toggle (show/hide) waybar                     |
+| <kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd> | Reload waybar                                 |
 
 <br />
 
