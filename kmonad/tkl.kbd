@@ -46,7 +46,7 @@
   _       _    _    _    _    _    _    _    _    _    _    _    _    M-bspc       _     _    _
   _    @copyq  M-w  end  M-S-r _   M-y  M-u  esc  _    prnt _    _    M-\\         M-del _    _
   _     home   _   M-S-d M-S-f M-S-g left down up   right _   _    M-ret
-  _         _    @edit    M-c _    _    _    M-S-m    M-,    M-.    _    _                  _
+  _         _    @edit    M-c _    M-b    _    M-S-m    M-,    M-.    _    _                  _
   _       _    _                 _              _   _   _                          _     _    _
 )
 
