@@ -5,7 +5,7 @@
 ##  - `slurp`: to select an area
 ##  - `hyprctl`: to read properties of current window
 ##  - `wl-copy`: clipboard utility
-##  - `jaq`: json utility to parse hyprctl output
+##  - `jq`: json utility to parse hyprctl output
 ##  - `notify-send`: to show notifications
 ## Those are needed to be installed, if unsure, run `grimblast check`
 ##
@@ -131,25 +131,25 @@ if [ "$ACTION" = "check" ] ; then
   check slurp
   check hyprctl
   check wl-copy
-  check jaq
+  check jq
   check notify-send
   exit
 elif [ "$SUBJECT" = "active" ] ; then
   FOCUSED=$(hyprctl activewindow -j)
-  GEOM=$(echo "$FOCUSED" | jaq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
-  APP_ID=$(echo "$FOCUSED" | jaq -r '.class')
+  GEOM=$(echo "$FOCUSED" | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
+  APP_ID=$(echo "$FOCUSED" | jq -r '.class')
   WHAT="$APP_ID window"
 elif [ "$SUBJECT" = "screen" ] ; then
   GEOM=""
   WHAT="Screen"
 elif [ "$SUBJECT" = "output" ] ; then
   GEOM=""
-  OUTPUT=$(hyprctl monitors -j | jaq -r '.[] | select(.focused == true)' | jaq -r '.name')
+  OUTPUT=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true)' | jq -r '.name')
   WHAT="$OUTPUT"
 elif [ "$SUBJECT" = "area" ] ; then
-  WORKSPACES="$(hyprctl monitors -j | jaq -r 'map(.activeWorkspace.id)')"
-  WINDOWS="$(hyprctl clients -j | jaq -r --argjson workspaces "$WORKSPACES" 'map(select([.workspace.id] | inside($workspaces)))' )"
-  GEOM=$(echo "$WINDOWS" | jaq -r '.[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
+  WORKSPACES="$(hyprctl monitors -j | jq -r 'map(.activeWorkspace.id)')"
+  WINDOWS="$(hyprctl clients -j | jq -r --argjson workspaces "$WORKSPACES" 'map(select([.workspace.id] | inside($workspaces)))' )"
+  GEOM=$(echo "$WINDOWS" | jq -r '.[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
   # Check if user exited slurp without selecting the area
   if [ -z "$GEOM" ]; then
    exit 1
