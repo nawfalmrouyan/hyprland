@@ -53,6 +53,7 @@ window#waybar.hidden {
 #custom-cputemp,
 #custom-waybar-mpris,
 #window,
+#submap,
 #network {
   padding: 0px 4px;
 }
@@ -106,6 +107,11 @@ window#waybar.hidden {
 }
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
+}
+
+#workspaces button.persistent {
+  color: @surface1;
+  border-radius: 0px;
 }
 
 #workspaces button.active {

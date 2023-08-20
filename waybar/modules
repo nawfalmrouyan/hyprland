@@ -10,11 +10,21 @@
       "smooth-scrolling-threshold": 1,
     },
 
-  "wlr/workspaces": {
+  "hyprland/submap": {
+    "format": "✌️ {}",
+    "max-length": 8,
+    "tooltip": false
+  },
+    
+  "hyprland/workspaces": {
     "format": "{}",
     "on-click": "activate",
-    "all-outputs": false,
+    "active-only": false,
+    "show-special": true,
     "sort-by-number": true,
+    "persistent_workspaces": {
+      "*": 10,
+    },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
   },
