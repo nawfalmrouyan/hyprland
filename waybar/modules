@@ -20,7 +20,7 @@
     "format": "{}",
     "on-click": "activate",
     "active-only": false,
-    "show-special": true,
+    "show-special": false,
     "sort-by-number": true,
     "persistent_workspaces": {
       "*": 10,
