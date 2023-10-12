@@ -63,7 +63,7 @@
   },
 
   "cpu": {
-    "interval": 2,
+    "interval": 5,
     "format": "<span font='11' rise='500'></span> <span font='11'>{usage}%</span>",
     "format-alt": "<span font='10' rise='4000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='11'rise='1000'>{usage:>2}%</span>",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
