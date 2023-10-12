@@ -2,7 +2,8 @@ window {
     font-family: Iosevka Medium;
     font-size: 14pt;
     color: #cdd6f4; /* text */
-    background-color: rgba(30, 30, 46, 0.5);
+    /* background-color: rgba(30, 30, 46, 0.5); */
+    background-color: #1e1e2e;
 }
 
 button {
