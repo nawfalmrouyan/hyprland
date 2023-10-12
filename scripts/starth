@@ -6,22 +6,22 @@ export PATH
 cd ~ || exit
 
 # export HYPRLAND_LOG_WLR=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XCURSOR_THEME=Catppuccin-Mocha-Mauve-Cursor
-export XCURSOR_SIZE=24
-export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_QPA_PLATFORM="wayland;xcb"
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_WAYLAND_DISABLE_WINDOWDEORATION=1
-export MOZ_DISABLE_RDD_SANDBOX=1
-export EGL_PLATFORM=wayland
-export MOZ_X11_EGL=1
-export MOZ_ENABLE_WAYLAND=1
-export NVD_BACKEND=direct
+# export _JAVA_AWT_WM_NONREPARENTING=1
+# export XCURSOR_THEME=Catppuccin-Mocha-Mauve-Cursor
+# export XCURSOR_SIZE=24
+# export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_QPA_PLATFORM="wayland;xcb"
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+# export MOZ_DISABLE_RDD_SANDBOX=1
+# export EGL_PLATFORM=wayland
+# export MOZ_X11_EGL=1
+# export MOZ_ENABLE_WAYLAND=1
+# export NVD_BACKEND=direct
 # export __NV_PRIME_RENDER_OFFLOAD=1
 # export __VK_LAYER_NV_optimus=NVIDIA_only
 # export WLR_BACKEND=vulkan
-export GDK_BACKEND="wayland,x11"
+# export GDK_BACKEND="wayland,x11"
 
 # exec Hyprland
 exec Hyprland &> /tmp/hyprland-$(date +%Y%m%d%H%M%S).log
