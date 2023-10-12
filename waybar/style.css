@@ -3,16 +3,19 @@
   font-family: Symbols Nerd Font, Iosevka Medium, monospace;
   font-size: 15px;
   border: none;
-  border-radius: 0;
+  border-radius: 5px;
   min-height: 0;
+  margin: 1px;
 }
 
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
-  background: none;
-  padding: 0;
-  margin: 0;
+  background: @theme_base_color;
+  border: 3px solid @overlay0;
+  border-radius: 5px;
+  /* padding: 5px; */
+  /* margin: 0; */
 }
 
 window#waybar.hidden {
@@ -23,16 +26,17 @@ window#waybar.hidden {
   background: none;
 }
 
-.modules-left, .modules-center, .modules-right {
-  background: @theme_base_color;
-  border: 3px solid @overlay0;
-  padding: 0px 5px;
-}
+/* .modules-left, .modules-center, .modules-right { */
+/*   background: @theme_base_color; */
+/*   border: 3px solid @overlay0; */
+/*   padding: 0px 5px; */
+/*   border-radius: 5; */
+/* } */
 
-.modules-center {
+/* .modules-center { */
   /* border: 3px solid @lavender; */
-  margin: 0px 5px;
-}
+  /* margin: 0px 5px; */
+/* } */
 
 #idle_inhibitor,
 #backlight,
