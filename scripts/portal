@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 1
+sleep 2
 systemctl --user stop xdg-desktop-portal-gtk
 systemctl --user stop xdg-desktop-portal-hyprland
 systemctl --user stop xdg-desktop-portal
