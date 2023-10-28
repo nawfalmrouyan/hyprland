@@ -5,6 +5,7 @@ bg='1e1e2e' bgl='313244' fg='d9e0ee'
 red='f38ba8' green='a6e3a1' yellow='f9e2af'
 blue='89b4fa' magenta='cba6f7' cyan='89dceb'
 alpha='00000000'
+image='~/.config/hypr/bg/calvin2.jpeg'
 
 swaylock -fFS \
   --ignore-empty-password \
@@ -12,7 +13,7 @@ swaylock -fFS \
   --hide-keyboard-layout \
   --indicator-caps-lock \
   --color ${bg}E6 \
-  --font 'IosevkaLyteTerm' --font-size 70 \
+  --font 'Calvin and Hobbes' --font-size 70 \
   --key-hl-color ${magenta} \
   --caps-lock-key-hl-color ${blue} \
   --bs-hl-color ${red} \
