@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "~/.config/hypr/scripts/lockscreen",
+    "action" : "swaylock -C ~/.config/hypr/scripts/calvin",
     "text" : "Lock",
     "keybind" : "l"
 }

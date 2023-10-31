@@ -26,7 +26,7 @@ elif [[ "$1" == '--hibernate' ]]; then
     exit
     fi
 elif [[ "$1" == '--lock' ]]; then
-  ~/.config/hypr/scripts/lockscreen
+  ~/.config/hypr/scripts/calvin
 elif [[ "$1" == '--suspend' ]]; then
   cdialog
   if [[ "$?" == 0 ]]; then
