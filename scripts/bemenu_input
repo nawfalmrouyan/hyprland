@@ -16,7 +16,7 @@
 # bemenu_input.sh -w: Select WiFi network to connect.
 # bemenu_input.sh -e: Options to exit system. To use this option, run script as a sudo user.
 
-DMENU_FONT1="IosevkaLyteTerm 15"
+DMENU_FONT1="Iosevka Medium 15"
 COLOR=( --tf "#cba6f7" --tb "#313244" --nf "#c6d0f5" --nb "#313244" --af "#c6d0f5" --fb "#313244" --ff "#c6d0f5" --af "#cba6f7" --ab "#313244" --hb "#cba6f7" --hf "#313244" )
 
 # If "BROWSER" unset globally, set locally.
