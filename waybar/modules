@@ -41,11 +41,11 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "<span font='10' rise='1000'>{icon}</span>{capacity}",
-    "format-charging": "<span font='10' rise='1000'>󰂄</span>{capacity}",
+    "format": "<span font='10' rise='2000'>{icon}</span>{capacity}",
+    "format-charging": "<span font='10' rise='2000'>󰂄</span>{capacity}",
     "format-plugged": "<span font='11' rise='1300'>󱐥</span>{capacity}",
-    "format-full": "<span font='10' rise='500'>{icon}</span>",
-    "format-alt": "<span font='10' rise='1000'>{icon}</span>{time}",
+    "format-full": "<span font='10' rise='2000'>{icon}</span>",
+    "format-alt": "<span font='10' rise='2000'>{icon}</span>{time}",
     "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
     "format-time": "{H}h {M}min",
     "tooltip": true,
@@ -64,7 +64,7 @@
 
   "cpu": {
     "interval": 5,
-    "format": "<span rise='1500'> </span><span font='11'>{usage}%</span>",
+    "format": "<span font='11' rise='1500'> </span><span font='11'>{usage}%</span>",
     "format-alt": "<span font='11' rise='4000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='11'rise='1000'>{usage:>2}%</span>",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
   },
@@ -83,8 +83,8 @@
 
   "disk": {
     "interval": 30,
-    "format": "<span font='11' rise='1500'> </span>{percentage_used}%",
-    "format-alt": "<span font='11' rise='1500'> </span>{free}",
+    "format": "<span font='10' rise='1500'> </span>{percentage_used}%",
+    "format-alt": "<span font='10' rise='1500'> </span>{free}",
   },
 
   "memory": {
