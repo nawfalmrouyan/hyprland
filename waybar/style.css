@@ -59,7 +59,7 @@ window#waybar.hidden {
 #window,
 #submap,
 #network {
-  padding: 0px 4px;
+  padding: 0px 2px;
 }
 
 #idle_inhibitor {
