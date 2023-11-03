@@ -1,7 +1,5 @@
 <h1 align="center">Hyprland on ArcoLinux</h1>
 
-<h3 align=center>Note: Previous layout can be found on master branch</h3>
-
 <div align="center">
 <img src="https://img.shields.io/github/last-commit/nawfalmrouyan/hyprland?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
 <img src="https://img.shields.io/github/repo-size/nawfalmrouyan/hyprland?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
@@ -10,11 +8,11 @@
 
 ## 🌟 Preview
 
-![Screenshot_2023-01-18-10-05-20_8586](https://user-images.githubusercontent.com/10271030/213065845-67bbaa4d-f7e0-4ac1-a255-20c3d12d41e9.png)
+![image](https://github.com/nawfalmrouyan/hyprland/assets/10271030/4f717b48-5e15-4d80-8dd1-81d85daf8960)
 
-![Screenshot_2023-01-18-10-08-06_12668](https://user-images.githubusercontent.com/10271030/213066077-e5393dd9-cfa1-444e-ba0d-22eed71c9092.png)
+![image](https://github.com/nawfalmrouyan/hyprland/assets/10271030/3ef708ff-b88b-414c-a8e5-d4b234831e2c)
 
-![Screenshot_2023-01-18-10-08-23_90](https://user-images.githubusercontent.com/10271030/213066130-6fa4c8a6-aa8c-4c52-98a4-9d477b082140.png)
+![image](https://github.com/nawfalmrouyan/hyprland/assets/10271030/2c8d7ccb-0daf-4186-96b5-5e0bae1457cc)
 
 <br />
 
@@ -118,7 +116,7 @@ exec Hyprland
 
 <br />
 
-## Keybinds
+## Keybinds (Not updated. Please refer to [config](https://github.com/nawfalmrouyan/hyprland/blob/lazy/hyprland.conf) file)
 
 <br />
 
