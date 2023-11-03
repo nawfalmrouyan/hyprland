@@ -67,8 +67,8 @@
     "interval": 60,
     "align": 0,
     "rotate": 0,
-    "format": "{:%d %b <span rise='1000'>⁙</span> %I:%M %p} ",
-    "format-alt": "{:%A <span rise='1000'>⁙</span> %d %B %Y <span rise='1000'>⁙</span> %I:%M %p} ",
+    "format": "{:%d %b <span rise='1000'>⁙</span> %I:%M %p}",
+    "format-alt": "{:%A <span rise='1000'>⁙</span> %d %B %Y <span rise='1000'>⁙</span> %I:%M %p}",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-right": "~/.config/hypr/scripts/changeWallpaper",
   },
@@ -87,9 +87,9 @@
   },
 
   "custom/power": {
-    "format": "<span font='10' rise='1000'> </span>",
+    "format": "<span font='10' rise='4000'> </span>",
     "tooltip": false,
-    "on-click": "archlinux-logout",
+    "on-click": "~/.config/hypr/scripts/wleave.sh",
   },
 
   "disk": {
