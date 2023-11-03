@@ -27,7 +27,7 @@
   gam (tap-macro @notifyGame (layer-switch game))
   def (tap-macro @notifyQwerty (layer-switch qwerty))
   edit (tap-macro C-x C-e)
-  copyq (cmd-button "rofi-copy")
+  copyq (cmd-button "alacritty --class update -T update -e /home/opal/.local/bin/clip-hist")
 )
 
 (deflayer qwerty
