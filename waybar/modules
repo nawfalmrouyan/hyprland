@@ -3,7 +3,7 @@
     "interval": 30,
     "align": 0,
     "rotate": 0,
-      "format": "<span font='11' rise='1500'>{icon}</span>{percent}",
+      "format": "<span font='10' rise='1500'>{icon}</span>{percent}",
       "format-icons": ["󰃞 ", "󰃝 ", "󰃟 ", "󰃠 "],
       "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
       "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
@@ -11,7 +11,7 @@
     },
 
   "hyprland/submap": {
-    "format": "✌️ {}",
+    "format": "<span font='10' rise='1500'>󰘲 </span>{}",
     "max-length": 30,
     "tooltip": false
   },
@@ -43,7 +43,7 @@
     },
     "format": "<span font='10' rise='2000'>{icon}</span>{capacity}",
     "format-charging": "<span font='10' rise='2000'>󰂄</span>{capacity}",
-    "format-plugged": "<span font='11' rise='1300'>󱐥</span>{capacity}",
+    "format-plugged": "<span font='10' rise='1300'>󱐥</span>{capacity}",
     "format-full": "<span font='10' rise='2000'>{icon}</span>",
     "format-alt": "<span font='10' rise='2000'>{icon}</span>{time}",
     "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
@@ -64,8 +64,8 @@
 
   "cpu": {
     "interval": 5,
-    "format": "<span font='11' rise='1500'> </span><span font='11'>{usage}%</span>",
-    "format-alt": "<span font='11' rise='4000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='11'rise='1000'>{usage:>2}%</span>",
+    "format": "<span font='10' rise='1500'> </span><span font='11'>{usage}%</span>",
+    "format-alt": "<span font='10' rise='4000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='11'rise='1000'>{usage:>2}%</span>",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
   },
 
@@ -76,7 +76,7 @@
   },
 
   "custom/power": {
-    "format": "<span font='11' rise='1000'> </span>",
+    "format": "<span font='10' rise='1000'> </span>",
     "tooltip": false,
     "on-click": "archlinux-logout",
   },
@@ -95,13 +95,13 @@
 
   "network": {
     "interval": 5,
-    "format-wifi": "<span font='11' rise='2000'>󰖩 </span>{signalStrength}%",
+    "format-wifi": "<span font='10' rise='2000'>󰖩 </span>{signalStrength}%",
     "format-ethernet": "<span font='10' rise='1000'>󰈀 </span>{ipaddr}/{cidr}",
     "format-linked": "<span font='10' rise='1000'>󰈀 </span>{ifname} (No IP)",
-    "format-disconnected": "<span font='11' rise='1000'>󱚵 </span>Disconnected",
-    "format-disabled": "<span font='11' rise='1000'>󰖪 </span>Disabled",
-    "format-alt": "<span font='11' rise='1000'> </span>{bandwidthUpBits} | <span font='13' rise='1000'> </span>{bandwidthDownBits}",
-    "tooltip-format": "<span font='11' rise='1000'> </span>{ifname} {essid} via {gwaddr}",
+    "format-disconnected": "<span font='10' rise='1000'>󱚵 </span>Disconnected",
+    "format-disabled": "<span font='10' rise='1000'>󰖪 </span>Disabled",
+    "format-alt": "<span font='11' rise='1000'> </span>{bandwidthUpBits} | <span font='11' rise='1000'> </span>{bandwidthDownBits}",
+    "tooltip-format": "<span font='10' rise='1000'> </span>{ifname} {essid} via {gwaddr}",
     "on-click-right": "~/.local/bin/mmuvpn up cbj",
   },
 
@@ -134,7 +134,7 @@
   },
 
   "custom/vpn_check":{
-    "format":"<span font='11' rise='1000'>󱇲 </span> {}",
+    "format":"<span font='10' rise='1000'>󱇲 </span>{}",
     "exec": "~/.config/hypr/scripts/vpnCheck",
     "interval": 120,
     "on-click": "~/.local/bin/mmuvpn restart",
