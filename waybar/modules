@@ -185,8 +185,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "<span color='#f38ba8'>󰛐 </span>",
-      "deactivated": "󰛑 "
+      "activated": "<span font='10' color='#f38ba8'>󰛐 </span>",
+      "deactivated": "<span font='10'>󰛑 </span>"
     },
     /* "timeout": 30.5 */
   },
