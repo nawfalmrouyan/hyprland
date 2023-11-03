@@ -43,7 +43,7 @@
     },
     "format": "<span font='10' rise='2000'>{icon}</span>{capacity}",
     "format-charging": "<span font='10' rise='2000'>󰂄</span>{capacity}",
-    "format-plugged": "<span font='10' rise='1300'>󱐥</span>{capacity}",
+    "format-plugged": "<span font='10' rise='2000'>󱐥</span>{capacity}",
     "format-full": "<span font='10' rise='2000'>{icon}</span>",
     "format-alt": "<span font='10' rise='2000'>{icon}</span>{time}",
     "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
