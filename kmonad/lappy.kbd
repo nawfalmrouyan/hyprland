@@ -27,7 +27,7 @@
   gam (tap-macro @notifyGame (layer-switch game))
   def (tap-macro @notifyQwerty (layer-switch qwerty))
   edit (tap-macro C-x C-e)
-  copyq (cmd-button "copyq toggle")
+  copyq (cmd-button "rofi-copy")
 )
 
 (deflayer qwerty
