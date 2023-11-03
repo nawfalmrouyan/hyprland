@@ -26,8 +26,9 @@
       "4": "󱃶 ",
       "5": "󰊻 ",
       "urgent": " ",
-      "active": " ",
-      "default": " "
+      //"active": " ",
+      //"default": " "
+      "default": " ",
     },
     "all-outputs": false,
     "active-only": false,
