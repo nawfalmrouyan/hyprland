@@ -88,6 +88,7 @@ window#waybar.hidden {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  box-shadow: inset 0 -3px transparent;
 }
 
 #clock {
@@ -113,6 +114,18 @@ window#waybar.hidden {
   -gtk-icon-effect: highlight;
 }
 
+#workspaces button {
+  border-radius: 5px;
+  margin: 3px;
+  padding: 3px;
+}
+
+#workspaces button:hover {
+ border-radius: 5px;
+ color: @overlay0;
+ background-color: @surface0;
+}
+
 #workspaces button.persistent {
   color: @surface1;
   border-radius: 0px;
@@ -120,6 +133,11 @@ window#waybar.hidden {
 
 #workspaces button.active {
   color: @peach;
+  border-radius: 0px;
+}
+
+#workspaces button.urgent {
+  color: @red;
   border-radius: 0px;
 }
 

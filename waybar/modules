@@ -3,11 +3,12 @@
     "interval": 30,
     "align": 0,
     "rotate": 0,
-      "format": "<span font='10' rise='1500'>{icon}</span>{percent}",
-      "format-icons": ["󰃞 ", "󰃝 ", "󰃟 ", "󰃠 "],
-      "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
-      "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
-      "smooth-scrolling-threshold": 1,
+    "tooltip-format": "{percent}",
+    "format": "<span font='10' rise='1500'>{icon}</span>{percent}",
+    "format-icons": ["󰃞 ", "󰃝 ", "󰃟 ", "󰃠 "],
+    "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
+    "smooth-scrolling-threshold": 1,
     },
 
   "hyprland/submap": {
@@ -52,11 +53,11 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "<span font='10' rise='3300'>{icon}</span>{capacity}",
-    "format-charging": "<span font='10' rise='3300'>󰂄</span>{capacity}",
+    "format": "<span font='10' rise='2000'>{icon}</span>{capacity}",
+    "format-charging": "<span font='10' rise='2000'>󰂄</span>{capacity}",
     "format-plugged": "<span font='10' rise='2000'>󱐥</span>{capacity}",
-    "format-full": "<span font='10' rise='3300'>{icon}</span>",
-    "format-alt": "<span font='10' rise='3300'>{icon}</span>{time}",
+    "format-full": "<span font='10' rise='2000'>{icon}</span>",
+    "format-alt": "<span font='10' rise='2000'>{icon}</span>{time}",
     "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
     "format-time": "{H}h {M}min",
     "tooltip": true,
@@ -190,7 +191,8 @@
   },
 
   "hyprland/window": {
-    "format": "<span rise='1000'>⁙</span> {} <span rise='1000'>⁙</span>"
+    "format": "<span rise='1000'>⁙</span> {} <span rise='1000'>⁙</span>",
+    "separate-outputs": true
   },
 
   "idle_inhibitor": {
