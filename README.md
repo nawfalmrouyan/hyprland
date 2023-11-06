@@ -12,7 +12,8 @@
 
 ![image](https://github.com/nawfalmrouyan/hyprland/assets/10271030/3ef708ff-b88b-414c-a8e5-d4b234831e2c)
 
-![image](https://github.com/nawfalmrouyan/hyprland/assets/10271030/2c8d7ccb-0daf-4186-96b5-5e0bae1457cc)
+![image](https://github.com/nawfalmrouyan/hyprland/assets/10271030/e88392e0-eda2-4ae8-af32-532be897aa8f)
+
 
 <br />
 
