@@ -6,8 +6,7 @@ STYLE="$HOME/.config/hypr/wofi/style.css"
 COLORS="$HOME/.config/hypr/wofi/colors"
 
 ## Wofi Command
-wofi_command="wofi --show dmenu \
-      --conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
+wofi_command="rofi -dmenu \
       --width=350 --height=380 \
       --cache-file=/dev/null \
       --hide-scroll --no-actions \
