@@ -164,7 +164,7 @@
     "format-source": "<span font='11' rise='1000'>󰍬</span>{volume}",
     "format-source-muted": "<span font='11' rise='1000'>󰍭 </span>",
     "format-icons": {
-      "headphone": "󰋋 ",
+      "headphone": "󰋎 ",
       "hands-free": "",
       "headset": "󰋎 ",
       "phone": "󰏲 ",
