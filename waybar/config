@@ -9,8 +9,8 @@
   "gtk-layer-shell": true,
   "margin": 5,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/submap", "cpu", "custom/cputemp", "memory", "disk", "custom/uptime", "custom/waybar-mpris"],
+  "modules-left": ["hyprland/workspaces", "hyprland/submap", "cpu", "custom/cputemp", "memory", "disk", "custom/waybar-mpris"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/weather", "idle_inhibitor", "backlight", "wireplumber", "custom/vpn_check", "network", "battery", "custom/updater", "tray", "clock", "custom/power"],
+  "modules-right": ["custom/uptime", "backlight", "wireplumber", "custom/vpn_check", "network", "battery", "custom/updater", "tray", "clock", "custom/power"],
 
 }
