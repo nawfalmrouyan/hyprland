@@ -155,7 +155,7 @@
     "on-click-right": "~/.local/bin/mmuvpn down",
   },
 
-  "pulseaudio": {
+  "wireplumber": {
     "format": "<span font='10' rise='2000'>{icon}</span>{volume}",
     "tooltip-format": "{volume}",
     "format-muted": "<span font='11' rise='1000'>󰝟 </span>",
