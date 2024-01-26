@@ -3,7 +3,7 @@
   font-family: Symbols Nerd Font Mono, Iosevka Medium;
   font-size: 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   min-height: 0;
   margin: 1px;
 }
@@ -13,7 +13,7 @@ window#waybar {
   transition-duration: 0.5s;
   background: @theme_base_color;
   border: 3px solid @overlay0;
-  border-radius: 5px;
+  border-radius: 0px;
   /* padding: 5px; */
   /* margin: 0; */
 }
@@ -115,13 +115,13 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  border-radius: 5px;
+  border-radius: 0px;
   margin: 3px;
   padding: 3px;
 }
 
 #workspaces button:hover {
- border-radius: 5px;
+ border-radius: 0px;
  color: @overlay0;
  background-color: @surface0;
 }
