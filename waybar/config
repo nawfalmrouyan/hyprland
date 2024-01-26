@@ -3,7 +3,7 @@
   "layer": "top",
   "exclusive": true,
   "passthrough": false,
-  "position": "bottom",
+  "position": "top",
   "fixed-center": false,
   "spacing": 3,
   "gtk-layer-shell": true,
