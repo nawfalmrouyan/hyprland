@@ -141,6 +141,11 @@ window#waybar.hidden {
   border-radius: 0px;
 }
 
+#workspaces button:not(.empty):not(.active) {
+  color: @mauve;
+  border-radius: 0px;
+}
+
 #custom-menu {
   color: @rosewater;
 }
