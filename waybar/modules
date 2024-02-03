@@ -116,7 +116,8 @@
     "format-disabled": "<span font='10' rise='1000'>󰖪 </span>Disabled",
     "format-alt": "<span font='11' rise='1000'> </span>{bandwidthUpBits} | <span font='11' rise='1000'> </span>{bandwidthDownBits}",
     "tooltip-format": "<span font='10' rise='1000'> </span>{ifname} {essid} via {gwaddr}",
-    "on-click-right": "~/.local/bin/mmuvpn up cbj",
+    "on-click-middle": "~/.local/bin/mmuvpn up cbj",
+    "on-click-right": "kitty --class update -T update -1 -e nmtui",
   },
 
   "custom/weather": {
