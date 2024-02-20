@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## Files
-CONFIG="$HOME/.config/hypr/wofi/config"
-STYLE="$HOME/.config/hypr/wofi/style.css"
-COLORS="$HOME/.config/hypr/wofi/colors"
+# CONFIG="$HOME/.config/hypr/wofi/config"
+# STYLE="$HOME/.config/hypr/wofi/style.css"
+# COLORS="$HOME/.config/hypr/wofi/colors"
 
 ## Wofi Command
 wofi_command="rofi -dmenu \
