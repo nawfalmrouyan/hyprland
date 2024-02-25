@@ -11,6 +11,6 @@
 
   "modules-left": ["hyprland/workspaces", "hyprland/submap", "cpu", "custom/cputemp", "memory", "disk", "custom/waybar-mpris"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["custom/uptime", "backlight", "wireplumber", "custom/vpn_check", "network", "battery", "custom/updater", "tray", "clock", "custom/power"],
+  "modules-right": ["idle_inhibitor", "custom/uptime", "backlight", "wireplumber", "custom/vpn_check", "network", "battery", "custom/updater", "tray", "clock", "custom/power"],
 
 }
