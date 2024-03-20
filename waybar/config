@@ -7,7 +7,7 @@
   "fixed-center": false,
   "spacing": 3,
   "gtk-layer-shell": true,
-  "margin": 5,
+  "margin": 3,
 
   "modules-left": ["hyprland/workspaces", "hyprland/submap", "cpu", "custom/cputemp", "memory", "disk", "custom/waybar-mpris"],
   "modules-center": ["hyprland/window"],
