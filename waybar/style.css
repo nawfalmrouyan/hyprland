@@ -47,7 +47,7 @@ window#waybar.hidden {
 #mode,
 #memory,
 #tray,
-#wireplumber,
+#pulseaudio,
 #custom-menu,
 #custom-power,
 #custom-weather,
@@ -174,14 +174,14 @@ window#waybar.hidden {
   color: @teal;
 }
 
-#wireplumber {
+#pulseaudio {
   color: @sapphire;
 }
 
-#wireplumber.bluetooth {
+#pulseaudio.bluetooth {
   color: @pink;
 }
-#wireplumber.muted {
+#pulseaudio.muted {
   color: @red;
 }
 
