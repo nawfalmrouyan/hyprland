@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DIR=$HOME/.config/hypr/bg
+PICS=($(ls ${DIR}))
+
+RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
+
+hyprctl hyprpaper preload "${DIR}/${RANDOMPICS}"
+hyprctl hyprpaper wallpaper ",${DIR}/${RANDOMPICS}"
+notify-send -i ${DIR}/${RANDOMPICS} "Wallpaper Changed" ${RANDOMPICS}
+hyprctl hyprpaper unload unused

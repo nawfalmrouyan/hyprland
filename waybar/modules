@@ -73,7 +73,7 @@
     "format": "{:%d %b <span rise='1000'>⁙</span> %I:%M %p}",
     "format-alt": "{:%A <span rise='1000'>⁙</span> %d %B %Y <span rise='1000'>⁙</span> %I:%M %p}",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click-right": "~/.config/hypr/scripts/changeWallpaper",
+    "on-click-right": "~/.config/hypr/scripts/changeHyprpaper",
   },
 
   "cpu": {
@@ -144,7 +144,7 @@
 
   "custom/cycle_wall":{
     "format":"",
-    "on-click": "~/.config/hypr/scripts/changeWallpaper",
+    "on-click": "~/.config/hypr/scripts/changeHyprpaper",
     "tooltip-format": "Change wallpaper",
   },
 
