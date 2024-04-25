@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SCRIPTSDIR=$HOME/.config/hypr/scripts
 DIR=$HOME/.config/hypr/bg
 PICS=($(ls ${DIR}))
 
@@ -9,3 +10,5 @@ hyprctl hyprpaper preload "${DIR}/${RANDOMPICS}"
 hyprctl hyprpaper wallpaper ",${DIR}/${RANDOMPICS}"
 notify-send -i ${DIR}/${RANDOMPICS} "Wallpaper Changed" ${RANDOMPICS}
 hyprctl hyprpaper unload unused
+
+$SCRIPTSDIR/generateLockscreenWallpaper.sh "${DIR}/${RANDOMPICS}"
