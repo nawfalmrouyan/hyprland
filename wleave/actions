@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cdialog () {
+cdialog() {
   yad --title='Confirm?' --borders=15 --center --fixed --undecorated --button=Yes:0 --button=No:1 --text="Are you sure?" --text-align=center
 }
 
@@ -8,23 +8,23 @@ if [[ "$1" == '--shutdown' ]]; then
   cdialog
   if [[ "$?" == 0 ]]; then
     systemctl poweroff
-    else
+  else
     exit
-    fi
+  fi
 elif [[ "$1" == '--reboot' ]]; then
   cdialog
   if [[ "$?" == 0 ]]; then
     systemctl reboot
-    else
+  else
     exit
-    fi
+  fi
 elif [[ "$1" == '--hibernate' ]]; then
   cdialog
   if [[ "$?" == 0 ]]; then
     systemctl hibernate
-    else
+  else
     exit
-    fi
+  fi
 elif [[ "$1" == '--lock' ]]; then
   hyprlock
 elif [[ "$1" == '--suspend' ]]; then
@@ -34,14 +34,14 @@ elif [[ "$1" == '--suspend' ]]; then
     pamixer -m
     ~/.config/hypr/scripts/lockscreen
     systemctl suspend
-    else
+  else
     exit
-    fi
+  fi
 elif [[ "$1" == '--logout' ]]; then
   cdialog
   if [[ "$?" == 0 ]]; then
     kill -9 -1
-    else
+  else
     exit
-    fi
+  fi
 fi
