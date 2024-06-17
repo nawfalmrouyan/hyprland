@@ -35,9 +35,10 @@
     },
     "all-outputs": false,
     "active-only": false,
-    "show-special": false,
+    "show-special": true,
+    "special-visible-only": true,
     "sort-by-number": true,
-    "persistent_workspaces": {
+    "persistent-workspaces": {
       "*": 7,
     },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
