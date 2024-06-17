@@ -29,7 +29,6 @@
   def (tap-macro @notifyQwerty (layer-switch qwerty))
   kpad (tap-macro @notifyNumpad (layer-switch numpad))
   edit (tap-macro C-x C-e)
-  copyq (cmd-button "copyq toggle")
 )
 
 (deflayer qwerty
@@ -42,12 +41,12 @@
 )
 
 (deflayer vi
-  M-esc       _    _    _    _    _    _    _    _    _    _    _    @kpad             _     @gam _
-  M-grv       M-1  M-2  M-3  M-4  M-5  M-6  M-7  M-8  M-9  M-0  _    _    M-bspc       _     _    _
-  M-tab    @copyq  M-w  end  M-S-r _   M-y  M-u  esc  M-o  M-p  _    _    M-\\         M-del _    _
-  caps     home   M-s  M-S-d M-S-f M-S-g left down up right _  _    M-ret
-  M-lsft      M-z  @edit  M-c M-v M-b M-n  M-S-m M-, M-.    _  _                            _
-  M-lctl      _    _                 _              _   _   _                          _     _    _
+  M-esc       _    _    _    _    _    _    _    _    _    _    _      @kpad               _     @gam    _
+  M-grv     M-1  M-2  M-3  M-4  M-5  M-6  M-7  M-8  M-9  M-0  M--    M-=    M-bspc   _     _ _    _  _  _  _
+  M-tab    A-q  M-w  end  M-S-r M-A-ret M-y  M-u  M-i M-o M-p  M-[  M-]    M-\\     M-del _    _    _  _  _  _
+  caps     home   M-s  M-S-d M-S-f M-S-g left down up   right _   _    M-ret                           _  _  _
+  M-lsft      M-z @edit M-c C-S-d M-b M-n M-S-m M-, M-.  _    _                             _          _  _  _  _
+  M-lctl       _    _                 _              _      _                          _    _    _     _  _
 )
 
 (deflayer extend
