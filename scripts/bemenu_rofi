@@ -17,68 +17,68 @@ notification() {
 }
 
 menu() {
-  printf "0. Dictionary\n"
-  printf "1. Search Man Pages\n"
-  printf "2. Google Search\n"
-  printf "3. Open Git Repository\n"
-  printf "4. Terminal\n"
-  printf "5. Run...\n"
-  printf "6. Kill Process\n"
-  printf "7. Focus Mode\n"
-  printf "8. Wifi Connect\n"
-  printf "9. Exit System\n"
+  printf "d. Dictionary\n"
+  printf "m. Search Man Pages\n"
+  printf "g. Google Search\n"
+  printf "r. Open Git Repository\n"
+  printf "f. Terminal\n"
+  printf "l. Run...\n"
+  printf "k. Kill Process\n"
+  printf "t. Focus Mode\n"
+  printf "w. Wifi Connect\n"
+  printf "e. Exit System\n"
 }
 
 main() {
   choice=$(menu | ${wofi_command} | cut -d. -f1)
 
   case $choice in
-  0)
+  d)
     notification "Search dictionary"
     bemenu_input -d
     return
     ;;
-  1)
+  m)
     notification "Search man pages"
     bemenu_input -m
     return
     ;;
-  2)
+  g)
     notification "Google search"
     bemenu_input -g
     return
     ;;
-  3)
+  r)
     notification "Open git repo"
     bemenu_input -r
     return
     ;;
-  4)
+  f)
     notification "Open terminal"
-    bemenu_input -t
+    bemenu_input -f
     return
     ;;
-  5)
+  l)
     notification "Run..."
     bemenu_input -l
     return
     ;;
-  6)
+  k)
     notification "Kill process"
     bemenu_input -k
     return
     ;;
-  7)
+  t)
     notification "Focus mode"
     bemenu_input -t
     return
     ;;
-  8)
+  w)
     notification "Connect to wifi"
     bemenu_input -w
     return
     ;;
-  9)
+  e)
     notification "Kill process"
     bemenu_input -e
     return
