@@ -6,7 +6,7 @@ SQUARE=square.png
 DIR=$HOME/.config/hypr/bg
 
 #convert to PNG
-convert $1 $DIR/$CACHE
+magick $1 $DIR/$CACHE
 
 # blur wallpaper
 magick $DIR/$CACHE -blur "50x30" $DIR/$BLURRED
