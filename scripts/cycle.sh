@@ -18,7 +18,7 @@ fi
 
 case "$1" in
 menu)
-	index=$(printf "%s\n" "${ARR[@]}" | cut -f2 | rofi -dmenu)
+	index=$(printf "%s\n" "${ARR[@]}" | cut -f2 | rofi -dmenu -format i)
 	if [ -z "$index" ]; then
 		exit 1
 	fi
