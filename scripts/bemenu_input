@@ -2,20 +2,6 @@
 
 # If environmental variable `TERMINAL' is not set, then default terminal used: URxvt.
 
-# Usage
-# bemenu_input.sh -d: Do a dictionary search using bemenu.
-# dmneu_input.sh -m: Search for a man page.
-# dmneu_input.sh -g: Do a google search in firefox.
-# dmneu_input.sh -r: Open a git repo stored in `$HOME'.
-# bemenu_input.sh -f: Open a terminal is a directory. Similar to fuzzy
-#                    finder through bemenu but for directory instead of files.
-# bemenu_input.sh -l: Normal application launcher using bemenu. Runs
-#                    basic `bemenu-run' command.
-# bemneu_input.sh -k: Kill a process.
-# bemneu_input.sh -t: Set a timer To turn off notifications (Focus mode).
-# bemenu_input.sh -w: Select WiFi network to connect.
-# bemenu_input.sh -e: Options to exit system. To use this option, run script as a sudo user.
-
 DMENU_FONT1="Pragmasevka 15"
 COLOR=( --tf "#cba6f7" --tb "#313244" --nf "#c6d0f5" --nb "#313244" --af "#c6d0f5" --fb "#313244" --ff "#c6d0f5" --af "#cba6f7" --ab "#313244" --hb "#cba6f7" --hf "#313244" )
 
@@ -27,20 +13,20 @@ case $1 in
 
 # Help
 -h)
-  echo "bemenu_input -d: Do a dictionary search using bemenu."
-  echo "bemenu_input -m: Search for a man page."
-  echo "bemenu_input -g: Do a google search in firefox."
-  echo "bemenu_input -r: Open a git repo stored in $HOME."
-  echo "bemenu_input -f: Open a terminal is a directory. Similar to fuzzy finder through bemenu but for directory instead of files."
-  echo "bemenu_input -l: Normal application launcher using bemenu. Runs basic bemenu-run command."
-  echo "bemenu_input -k: Kill a process."
-  echo "bemenu_input -t: Set a timer To turn off notifications (Focus mode)."
-  echo "bemenu_input -w: Select WiFi network to connect."
-  echo "bemenu_input -e: Options to exit system. To use this option, run script as a sudo user."
+  echo " 1: Do a dictionary search using bemenu."
+  echo " 2: Search for a man page."
+  echo " 3: Do a google search in firefox."
+  echo " 4: Open a git repo stored in $HOME."
+  echo " 5: Open a terminal is a directory. Similar to fuzzy finder through bemenu but for directory instead of files."
+  echo " 6: Normal application launcher using bemenu. Runs basic bemenu-run command."
+  echo " 7: Kill a process."
+  echo " 8: Set a timer To turn off notifications (Focus mode)."
+  echo " 9: Select WiFi network to connect."
+  echo "10: Options to exit system. To use this option, run script as a sudo user."
   ;;
 
 # Search dictionary.
--d)
+1)
   WORD=$(cat /usr/share/dict/words | bemenu "${COLOR[@]}" -i -l 20 -p "Find meaning of:" --fn "$DMENU_FONT1")
   if [ -n "$WORD" ]; then
     $TERMINAL --name dropdown_dictionary -e sh -c "dict ${WORD} |less"
@@ -48,7 +34,7 @@ case $1 in
   ;;
 
 # Open terminal in a directory.
--f)
+5)
   DIR="$(fd . $HOME --type d 2>/dev/null | sed s:/home/$USER:~: |
     bemenu "${COLOR[@]}" -i -l 20 -p "Go to directory:" --fn "$DMENU_FONT1")"
 
@@ -64,12 +50,12 @@ case $1 in
   ;;
 
 # Basic `bemenu-run' to launch applications/run commands.
--l)
+6)
   bemenu-run "${COLOR[@]}" -p "Run command:" --fn "$DMENU_FONT1"
   ;;
 
 # Search google or open a URL.
--g)
+3)
   SEARCHURL='https://www.google.com/search?q='
   GOTOURL='https://'
   # QUERY=$(echo '' | bemenu "${COLOR[@]}" -p "Search / Go to:" --fn "-xos4-terminus-medium-r-*-*-14-*")
@@ -82,7 +68,7 @@ case $1 in
   ;;
 
 # Open terminal in a git repo.
--r)
+4)
   mkdir -p $HOME/.tmp
   [ -e $HOME/.tmp/gitfiles ] || find $HOME/ -regex .*/\.git$ -type d 2>/dev/null >$HOME/.tmp/gitfiles
   REPOS="$(cat $HOME/.tmp/gitfiles | xargs dirname | sed s:/home/$USER:~: | bemenu "${COLOR[@]}" -i -l 20 -p 'Select git repo to open' --fn "$DMENU_FONT1")"
@@ -95,7 +81,7 @@ case $1 in
   ;;
 
 # Manual page.
--m)
+6)
   # Store list of all available man pages in a file.
   apropos . | sort >/tmp/manlist.txt
 
@@ -116,7 +102,7 @@ case $1 in
   ;;
 
 # Kill a process listed in ps aux
--k)
+7)
   # Substitute one or more blank spaces with a |.
   QUERY="$(ps aux | bemenu "${COLOR[@]}" -i -l 20 -p 'Kill who?' | sed -E 's/ +/|/g')"
   if [ -n "$QUERY" ]; then
@@ -133,7 +119,7 @@ case $1 in
   ;;
 
 # Stop notifications for specified time in minutes.
--t)
+8)
   TIMER=$(echo -n "" | bemenu "${COLOR[@]}" -p 'Minutes to stop notifications:' --fn "$DMENU_FONT1")
   if [ -n "$TIMER" ]; then
     # Enter 0 to resume notifications.
@@ -152,7 +138,7 @@ case $1 in
   fi
   ;;
 # Search for WiFi networks and connect to selected one.
--w)
+9)
   notify-send -t 1500 "Searcing for WiFi networks.."
   WIFICURRENT="$(nmcli dev wifi | sed -n 's/^* *\([^ ]*\).*/\1/p')"
   echo "Current network is $WIFICURRENT"
@@ -172,7 +158,7 @@ case $1 in
   ;;
 
 # Turn off system.
--e)
+10)
   OPTION=$(printf "Lock\nHibernate\nPower off\nRestart\nLogout\n" | bemenu "${COLOR[@]}" -i --fn "$DMENU_FONT1" -p 'Select option')
   echo $OPTION
   if [ -n "$OPTION" ]; then
@@ -209,16 +195,16 @@ case $1 in
   ;;
 
 *)
-  echo "bemenu_input.sh -d: Do a dictionary search using bemenu."
-  echo "dmneu_input.sh -m: Search for a man page."
-  echo "dmneu_input.sh -g: Do a google search in firefox."
-  echo "dmneu_input.sh -r: Open a git repo stored in $HOME."
-  echo "bemenu_input.sh -f: Open a terminal is a directory. Similar to fuzzy finder through bemenu but for directory instead of files."
-  echo "bemenu_input.sh -l: Normal application launcher using bemenu. Runs basic bemenu-run command."
-  echo "dmneu_input.sh -k: Kill a process."
-  echo "dmneu_input.sh -t: Set a timer To turn off notifications (Focus mode)."
-  echo "bemenu_input.sh -w: Select WiFi network to connect."
-  echo "bemenu_input.sh -e: Options to exit system. To use this option, run script as a sudo user."
+  echo " 1: Do a dictionary search using bemenu."
+  echo " 2: Search for a man page."
+  echo " 3: Do a google search in firefox."
+  echo " 4: Open a git repo stored in $HOME."
+  echo " 5: Open a terminal is a directory. Similar to fuzzy finder through bemenu but for directory instead of files."
+  echo " 6: Normal application launcher using bemenu. Runs basic bemenu-run command."
+  echo " 7: Kill a process."
+  echo " 8: Set a timer To turn off notifications (Focus mode)."
+  echo " 9: Select WiFi network to connect."
+  echo "10: Options to exit system. To use this option, run script as a sudo user."
   ;;
 
 esac
