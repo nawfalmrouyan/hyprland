@@ -81,7 +81,7 @@ case $1 in
   ;;
 
 # Manual page.
-6)
+2)
   # Store list of all available man pages in a file.
   apropos . | sort >/tmp/manlist.txt
 
