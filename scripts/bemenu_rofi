@@ -30,59 +30,7 @@ menu() {
 
 main() {
 	choice=$(menu | ${wofi_command})
-
-	case $choice in
-	1)
-		notification "Search dictionary"
-		bemenu_input 1
-		return
-		;;
-	2)
-		notification "Search man pages"
-		bemenu_input 2
-		return
-		;;
-	3)
-		notification "Google search"
-		bemenu_input 3
-		return
-		;;
-	4)
-		notification "Open git repo"
-		bemenu_input 4
-		return
-		;;
-	5)
-		notification "Open terminal"
-		bemenu_input 5
-		return
-		;;
-	6)
-		notification "Run..."
-		bemenu_input 6
-		return
-		;;
-	7)
-		notification "Kill process"
-		bemenu_input 7
-		return
-		;;
-	8)
-		notification "Focus mode"
-		bemenu_input 8
-		return
-		;;
-	9)
-		notification "Connect to wifi"
-		bemenu_input 9
-		return
-		;;
-	10)
-		notification "Exit system"
-		bemenu_input 10
-		return
-		;;
-	esac
+	bemenu_input $choice
 }
 
 main
