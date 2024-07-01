@@ -3,7 +3,7 @@
 # If environmental variable `TERMINAL' is not set, then default terminal used: URxvt.
 
 DMENU_FONT1="Pragmasevka 15"
-COLOR=( --tf "#cba6f7" --tb "#313244" --nf "#c6d0f5" --nb "#313244" --af "#c6d0f5" --fb "#313244" --ff "#c6d0f5" --af "#cba6f7" --ab "#313244" --hb "#cba6f7" --hf "#313244" )
+export BEMENU_OPTS='--fb "#1e1e2e" --ff "#cdd6f4" --nb "#1e1e2e" --nf "#cdd6f4" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#f38ba8" --hf "#f9e2af" --af "#cdd6f4" --ab "#1e1e2e"'
 
 # If "BROWSER" unset globally, set locally.
 [ -n "$BROWSER" ] || BROWSER="firefox -new-window"
@@ -27,7 +27,7 @@ case $1 in
 
 # Search dictionary.
 1)
-  WORD=$(cat /usr/share/dict/words | bemenu "${COLOR[@]}" -i -l 20 -p "Find meaning of:" --fn "$DMENU_FONT1")
+  WORD=$(cat /usr/share/dict/words | bemenu -i -l 20 -p "Find meaning of:" --fn "$DMENU_FONT1")
   if [ -n "$WORD" ]; then
     $TERMINAL --name dropdown_dictionary -e sh -c "dict ${WORD} |less"
   fi
@@ -36,7 +36,7 @@ case $1 in
 # Open terminal in a directory.
 5)
   DIR="$(fd . $HOME --type d 2>/dev/null | sed s:/home/$USER:~: |
-    bemenu "${COLOR[@]}" -i -l 20 -p "Go to directory:" --fn "$DMENU_FONT1")"
+    bemenu -i -l 20 -p "Go to directory:" --fn "$DMENU_FONT1")"
 
   if [ "$DIR" = "~/" ]; then
     cd $HOME && $TERMINAL &
@@ -51,15 +51,15 @@ case $1 in
 
 # Basic `bemenu-run' to launch applications/run commands.
 6)
-  bemenu-run "${COLOR[@]}" -p "Run command:" --fn "$DMENU_FONT1"
+  bemenu-run -p "Run command:" --fn "$DMENU_FONT1"
   ;;
 
 # Search google or open a URL.
 3)
   SEARCHURL='https://www.google.com/search?q='
   GOTOURL='https://'
-  # QUERY=$(echo '' | bemenu "${COLOR[@]}" -p "Search / Go to:" --fn "-xos4-terminus-medium-r-*-*-14-*")
-  QUERY=$(echo '' | bemenu "${COLOR[@]}" -p "Search / Go to:" --fn "$DMENU_FONT1")
+  # QUERY=$(echo '' | bemenu -p "Search / Go to:" --fn "-xos4-terminus-medium-r-*-*-14-*")
+  QUERY=$(echo '' | bemenu -p "Search / Go to:" --fn "$DMENU_FONT1")
   if [ -n "$QUERY" ]; then
     (echo $QUERY | grep ' ' >/dev/null && $BROWSER "${SEARCHURL}${QUERY}" && echo case 1) ||
       (echo $QUERY | grep '\.' >/dev/null && $BROWSER "${GOTOURL}${QUERY}" && echo case 2) ||
@@ -71,7 +71,7 @@ case $1 in
 4)
   mkdir -p $HOME/.tmp
   [ -e $HOME/.tmp/gitfiles ] || find $HOME/ -regex .*/\.git$ -type d 2>/dev/null >$HOME/.tmp/gitfiles
-  REPOS="$(cat $HOME/.tmp/gitfiles | xargs dirname | sed s:/home/$USER:~: | bemenu "${COLOR[@]}" -i -l 20 -p 'Select git repo to open' --fn "$DMENU_FONT1")"
+  REPOS="$(cat $HOME/.tmp/gitfiles | xargs dirname | sed s:/home/$USER:~: | bemenu -i -l 20 -p 'Select git repo to open' --fn "$DMENU_FONT1")"
 
   # Cut the '~/' part from the `REPOS'.
   REPOS="$(echo $REPOS | cut -d '/' -f2-)"
@@ -93,7 +93,7 @@ case $1 in
   # can become `man 7 signal'. This will search 7th man page of signal
   # instead of default which is 2nd.
 
-  WORD="$(cat /tmp/manlist.txt | bemenu "${COLOR[@]}" -i -l 20 -p "Manual page for:" --fn "$DMENU_FONT1" | sed 's/\(.*\) (\([0-9]*\)).*/\2 \1/')"
+  WORD="$(cat /tmp/manlist.txt | bemenu -i -l 20 -p "Manual page for:" --fn "$DMENU_FONT1" | sed 's/\(.*\) (\([0-9]*\)).*/\2 \1/')"
   if [ -n "$WORD" ]; then
     echo "Showing result for \"man $WORD\""
     $TERMINAL --name dropdown_manual -e sh -c "man ${WORD} || figlet -c 'No manual entry for \"${WORD}\"' |less" >/dev/null
@@ -104,7 +104,7 @@ case $1 in
 # Kill a process listed in ps aux
 7)
   # Substitute one or more blank spaces with a |.
-  QUERY="$(ps aux | bemenu "${COLOR[@]}" -i -l 20 -p 'Kill who?' | sed -E 's/ +/|/g')"
+  QUERY="$(ps aux | bemenu -i -l 20 -p 'Kill who?' | sed -E 's/ +/|/g')"
   if [ -n "$QUERY" ]; then
     # If owner is different, don't be evil.
     ME=$(whoami)
@@ -120,7 +120,7 @@ case $1 in
 
 # Stop notifications for specified time in minutes.
 8)
-  TIMER=$(echo -n "" | bemenu "${COLOR[@]}" -p 'Minutes to stop notifications:' --fn "$DMENU_FONT1")
+  TIMER=$(echo -n "" | bemenu -p 'Minutes to stop notifications:' --fn "$DMENU_FONT1")
   if [ -n "$TIMER" ]; then
     # Enter 0 to resume notifications.
     if [ 0 -eq $TIMER ]; then
@@ -143,7 +143,7 @@ case $1 in
   WIFICURRENT="$(nmcli dev wifi | sed -n 's/^* *\([^ ]*\).*/\1/p')"
   echo "Current network is $WIFICURRENT"
 
-  WIFISELECT=$(nmcli dev wifi | bemenu "${COLOR[@]}" -i --fn "$DMENU_FONT1" -l 20 -p 'Select WiFi network to connect')
+  WIFISELECT=$(nmcli dev wifi | bemenu -i --fn "$DMENU_FONT1" -l 20 -p 'Select WiFi network to connect')
   if [ -n "$WIFISELECT" ]; then
     WIFIBSSID=$(echo $WIFISELECT | sed -n 's/^.*\([A-Fa-f0-9:]\{17\}\).*/\1/p')
 
@@ -159,7 +159,7 @@ case $1 in
 
 # Turn off system.
 10)
-  OPTION=$(printf "Lock\nHibernate\nPower off\nRestart\nLogout\n" | bemenu "${COLOR[@]}" -i --fn "$DMENU_FONT1" -p 'Select option')
+  OPTION=$(printf "Lock\nHibernate\nPower off\nRestart\nLogout\n" | bemenu -i --fn "$DMENU_FONT1" -p 'Select option')
   echo $OPTION
   if [ -n "$OPTION" ]; then
     case $OPTION in
