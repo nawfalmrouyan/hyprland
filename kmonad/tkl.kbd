@@ -29,6 +29,9 @@
   def (tap-macro @notifyQwerty (layer-switch qwerty))
   kpad (tap-macro @notifyNumpad (layer-switch numpad))
   edit (tap-macro C-x C-e)
+  lhome (tap-next-release home lalt)
+  rend (tap-next-release end ralt)
+  tbar (tap-next-release (cmd-button "killall -SIGUSR1 waybar") rctl)
 )
 
 (deflayer qwerty
@@ -36,8 +39,8 @@
   grv     1    2    3    4    5    6    7    8    9    0    -    =    bspc      ins     home    pgup
   @tabm   q    w    e    r    t    y    u    i    o    p    [    ]    \         del     end     pgdn
   @cec    a    s    d    f    g    h    j    k    l    ;    '    @retc
-  lsft    z    x    c    v    b    n    m    ,    .    /    rsft                      up
-  @cext    lmet lalt           @mov           ralt @rmcap rctl                   left    down    right
+  lctrl    z    x    c    v    b    n    m    ,    .    /    rctrl                      up
+  @cext    lmet @lhome           @mov           @rend @rmcap @tbar                   left    down    right
 )
 
 (deflayer vi
