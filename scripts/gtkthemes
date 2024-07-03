@@ -5,7 +5,7 @@
 THEME='Catppuccin-Mocha-Standard-Mauve-Dark'
 # ICONS='Qualia-purple-dark'
 # FONT='Fira Sans Condensed 13'
-CURSOR='Catppuccin-Mocha-Mauve-Cursors'
+CURSOR='Catppuccin-Mauve-Cursors'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'
 
