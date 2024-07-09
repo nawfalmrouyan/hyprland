@@ -8,15 +8,15 @@
   border: none;
   border-radius: 0px;
   min-height: 0;
-  margin: 1px;
+  /* margin: 1px; */
 }
 
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
   background: @theme_base_color;
-  border: 3px solid @overlay0;
-  border-radius: 0px;
+  /* border: 3px solid @overlay0; */
+  /* border-radius: 0px; */
   /* padding: 5px; */
   /* margin: 0; */
 }
