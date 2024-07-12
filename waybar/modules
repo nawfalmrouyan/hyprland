@@ -36,8 +36,8 @@
     },
     "all-outputs": false,
     "active-only": false,
-    "show-special": true,
-    "special-visible-only": true,
+    //"show-special": true,
+    //"special-visible-only": true,
     "sort-by-number": true,
     "persistent-workspaces": {
       "*": 8,
