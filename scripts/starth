@@ -6,4 +6,4 @@ export PATH
 cd ~ || exit
 
 # exec Hyprland
-exec Hyprland &> /tmp/hyprland-$(date +%Y%m%d%H%M%S).log
+AQ_TRACE=1 HYPRLAND_TRACE=1 Hyprland
