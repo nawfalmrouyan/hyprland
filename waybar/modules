@@ -99,14 +99,14 @@
 
   "disk": {
     "interval": 30,
-    "format": "<span font='10' rise='1500'> </span>{percentage_used}%",
-    "format-alt": "<span font='10' rise='1500'> </span>{free}",
+    "format": "<span font='10' rise='1500'> </span>{free}",
+    "format-alt": "<span font='10' rise='1500'> </span>{percentage_free}%",
   },
 
   "memory": {
     "interval": 10,
-    "format": "<span font='10' rise='1500'> </span>{}%",
-    "format-alt": "<span font='10' rise='1500'> </span>{used:0.1f}G",
+    "format": "<span font='10' rise='1500'> </span>{used:0.1f}G",
+    "format-alt": "<span font='10' rise='1500'> </span>{}%",
   },
 
   "network": {
