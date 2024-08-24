@@ -10,7 +10,7 @@ if [ "$HYPRGAMEMODE" = 1 ]; then
         keyword general:border_size 0;\
         keyword decoration:rounding 0"
         notify-send -u low "Hyprland" "Game Mode ENABLED"
-        exit
+else
+        hyprctl reload
+        notify-send -u low "Hyprland" "Game Mode DISABLED"
 fi
-hyprctl reload
-notify-send -u low "Hyprland" "Game Mode DISABLED"
