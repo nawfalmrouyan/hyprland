@@ -1,8 +1,8 @@
-@import 'mocha.css';
+@import "mocha.css";
 
 * {
   font-family:
-    Symbols Nerd Font Mono,
+    Symbols Nerd Font,
     Pragmasevka;
   font-size: 15px;
   border: none;
