@@ -1,7 +1,17 @@
 #!/bin/bash
 
 if [ $(ip a s | grep tun0 | grep inet | awk '{print $2;}' | cut -d . -f2 | tr -d '\n' | wc -c) -eq 3 ]; then
-  echo "CBJ"
+  stat="CBJ"
 elif [ $(ip a s | grep tun0 | grep inet | awk '{print $2;}' | cut -d . -f2 | tr -d '\n' | wc -c) -eq 1 ]; then
-  echo "MLK"
+  stat="MLK"
+fi
+
+echo -n "$stat"
+
+proxy=$(sshoot list | grep \* | awk '{print $2}')
+
+if [ "$proxy" != "" ]; then
+  echo "|$proxy"
+else
+  echo ""
 fi
