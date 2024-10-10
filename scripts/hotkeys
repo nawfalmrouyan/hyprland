@@ -1,6 +1,0 @@
-#!/bin/bash
-
-pkill swhks
-sudo pkill swhkd
-
-swhks & pkexec swhkd
