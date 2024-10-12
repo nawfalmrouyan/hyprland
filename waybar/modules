@@ -58,9 +58,9 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "<span font='10' rise='2000'>{icon}</span>{capacity}",
-    "format-charging": "<span font='10' rise='2000'>󰂄</span>{capacity}",
-    "format-plugged": "<span font='10' rise='2000'>󱐥</span>{capacity}",
+    "format": "<span font='10' rise='2000'>{icon}</span> {capacity}",
+    "format-charging": "<span font='10' rise='2000'>󰂄</span> {capacity}",
+    "format-plugged": "<span font='10' rise='2000'>󱐥</span> {capacity}",
     "format-full": "<span font='10' rise='2000'>{icon}</span>",
     "format-alt": "<span font='10' rise='2000'>{icon}</span>{time}",
     "format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
