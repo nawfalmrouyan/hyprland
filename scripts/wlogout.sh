@@ -4,14 +4,8 @@ LAYOUT="$HOME/.config/hypr/wlogout/layout"
 STYLE="$HOME/.config/hypr/wlogout/style.css"
 
 if [[ ! $(pidof wlogout) ]]; then
-  wlogout --layout ${LAYOUT} --css ${STYLE} \
-    --buttons-per-row 5 \
-    --column-spacing 50 \
-    --row-spacing 50 \
-    --margin-top 390 \
-    --margin-bottom 390 \
-    --margin-left 150 \
-    --margin-right 150
+  # wleave -l ${LAYOUT} -C ${STYLE} -b 5 -B 400 -T 400 -p layer-shell -k
+  wlogout -p layer-shell --layout ${LAYOUT} --css ${STYLE} --buttons-per-row 5 --margin-top 400 --margin-bottom 400
 else
   pkill wlogout
 fi
