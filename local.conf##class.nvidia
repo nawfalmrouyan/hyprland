@@ -1,0 +1,25 @@
+env = NVD_GPU,0
+env = MO_DISABLE_RDD_SANDBOX,1
+env = MOZ_DRM_DEVICE,/dev/dri/renderD129
+env = NVD_BACKEND,direct
+
+render {
+  explicit_sync = 1
+  explicit_sync_kms = 0 #disable for now due to nvidia bug causing leaks
+  direct_scanout = true
+}
+
+opengl {
+  nvidia_anti_flicker = false
+#  force_introspection = 1
+}
+
+cursor {
+  allow_dumb_copy = true
+  no_break_fs_vrr = true
+}
+
+$prime = "LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1 "
+bind = $mainMod, W, exec, $prime $browser
+
+workspace = 2, on-created-empty:$prime $browser

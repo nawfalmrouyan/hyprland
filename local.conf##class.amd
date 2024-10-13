@@ -1,0 +1,6 @@
+bind = $mainMod, W, exec, $browser
+
+bindl = , xf86calculator, exec, rofi -show calc
+bindl = , xf86favourites, exec, remmina
+
+workspace = 2, on-created-empty:$browser
