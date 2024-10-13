@@ -33,15 +33,23 @@ sleep 3
 # close all client windows
 # required for graceful exit since many apps aren't good SIGNAL citizens
 HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
-hyprctl --batch "$HYPRCMDS" >>/tmp/hypr/hyprexitwithgrace.log 2>&1
+hyprctl --batch "$HYPRCMDS" >>/tmp/hyprexitwithgrace.log 2>&1
 
 notify-send "power controls" "Closing Applications..."
 
 sleep 2
 
+if [[ $(pidof xwaylandbridge) ]]; then
+  pkill -9 xwaylandvideobridge
+fi
+
+# if [[ $(pidof tmux) ]]; then
+#   pkill -9 tmux
+# fi
+
 COUNT=$(hyprctl clients | grep "class:" | wc -l)
 if [ "$COUNT" -eq "0" ]; then
-  # notify-send "power controls" "Closed Applications."
+  notify-send "power controls" "Closed Applications."
   hyprctl dispatch exit
   return
 else
