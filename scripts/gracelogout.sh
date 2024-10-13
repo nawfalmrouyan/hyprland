@@ -9,50 +9,48 @@
 # If there are apps that can't be closed without losing data, then the power operation
 # is cancelled and a notification about the cause of the cancellation is sent.
 
-BRAVE=$(hyprctl clients | grep "class: brave-browser" | wc -l)
-CHROMIUM=$(hyprctl clients | grep "class: brave-browser" | wc -l)
-FIREFOX=$(hyprctl clients | grep "class: firefox" | wc -l)
-ZEN=$(hyprctl clients | grep "class: zen-browser" | wc -l)
+# BRAVE=$(hyprctl clients | grep "class: brave-browser" | wc -l)
+# CHROMIUM=$(hyprctl clients | grep "class: brave-browser" | wc -l)
+# FIREFOX=$(hyprctl clients | grep "class: firefox" | wc -l)
+ZEN=$(hyprctl clients | grep "class: zen-alpha" | wc -l)
 
-if [ "$BRAVE" -gt "1" ]; then
-  notify-send "power controls" "Brave multiple windows open"
-  exit 1
-elif [ "$CHROMIUM" -gt "1" ]; then
-  notify-send "power controls" "Chromium multiple windows open"
-  exit 1
-elif [ "$FIREFOX" -gt "1" ]; then
-  notify-send "power controls" "Firefox multiple windows open"
-  exit 1
-elif [ "$ZEN" -gt "1" ]; then
-  notify-send "power controls" "Zen multiple windows open"
+# if [ "$BRAVE" -gt "1" ]; then
+#   notify-send "Shutting down" "Brave multiple windows open"
+#   exit 1
+# elif [ "$CHROMIUM" -gt "1" ]; then
+#   notify-send "Shutting down" "Chromium multiple windows open"
+#   exit 1
+# elif [ "$FIREFOX" -gt "1" ]; then
+#   notify-send "Shutting down" "Firefox multiple windows open"
+#   exit 1
+if [ "$ZEN" -gt "1" ]; then
+  notify-send "Shutting down" "Zen multiple windows open"
   exit 1
 fi
 
-sleep 3
+sleep 2
+
+TMUX=$(tmux list-sessions 2>/dev/null | wc -l)
+if [ "$TMUX" -ne "0" ]; then
+  notify-send "Shutting down" "Closing tmux sessions..."
+  pkill -9 tmux
+fi
 
 # close all client windows
 # required for graceful exit since many apps aren't good SIGNAL citizens
 HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
 hyprctl --batch "$HYPRCMDS" >>/tmp/hyprexitwithgrace.log 2>&1
 
-notify-send "power controls" "Closing Applications..."
+notify-send "Shutting down" "Closing Applications..."
 
 sleep 2
 
-if [[ $(pidof xwaylandbridge) ]]; then
-  pkill -9 xwaylandvideobridge
-fi
-
-# if [[ $(pidof tmux) ]]; then
-#   pkill -9 tmux
-# fi
-
 COUNT=$(hyprctl clients | grep "class:" | wc -l)
 if [ "$COUNT" -eq "0" ]; then
-  notify-send "power controls" "Closed Applications."
+  notify-send "Shutting down" "Closed Applications."
   hyprctl dispatch exit
   return
 else
-  notify-send "power controls" "Some apps didn't close. Not shutting down."
+  notify-send "Shutting down" "Some apps didn't close. Not shutting down."
   exit 1
 fi
