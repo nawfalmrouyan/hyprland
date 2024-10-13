@@ -13,7 +13,7 @@ function close_applications() {
   ZEN=$(hyprctl clients | grep "class: zen-alpha" | wc -l)
 
   if [ "$ZEN" -gt "1" ]; then
-    notify-send "Shutting down" "Zen multiple windows open"
+    notify-send "Grace Killing Processes" "Zen multiple windows open"
     exit 1
   fi
 
@@ -21,7 +21,7 @@ function close_applications() {
 
   TMUX=$(tmux list-sessions 2>/dev/null | wc -l)
   if [ "$TMUX" -ne "0" ]; then
-    notify-send "Shutting down" "Closing tmux sessions..."
+    notify-send "Grace Killing Processes" "Closing tmux sessions..."
     pkill -9 tmux
   fi
 
@@ -30,16 +30,16 @@ function close_applications() {
   HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
   hyprctl --batch "$HYPRCMDS" >>/tmp/hyprexitwithgrace.log 2>&1
 
-  notify-send "Shutting down" "Closing Applications..."
+  notify-send "Grace Killing Processes" "Closing Applications..."
 
   sleep 2
 
   COUNT=$(hyprctl clients | grep "class:" | wc -l)
   if [ "$COUNT" -eq "0" ]; then
-    notify-send "Shutting down" "Closed Applications."
+    notify-send "Grace Killing Processes" "Closed Applications."
     return
   else
-    notify-send "Shutting down" "Some apps didn't close. Not shutting down."
+    notify-send "Grace Killing Processes" "Some apps didn't close. Not shutting down."
     exit 1
   fi
 }
@@ -48,13 +48,13 @@ close_applications
 
 case $1 in
 logout)
-  hyprctl dispatch exit
+  eval hyprctl dispatch exit
   ;;
 reboot)
-  systemctl reboot
+  eval systemctl reboot
   ;;
 shutdown)
-  systemctl shutdown
+  eval systemctl poweroff
   ;;
 *) ;;
 esac
