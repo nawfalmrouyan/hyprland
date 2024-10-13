@@ -41,7 +41,8 @@ elif [[ "$1" == '--logout' ]]; then
   cdialog
   if [[ "$?" == 0 ]]; then
     # kill -9 -1
-    hyprctl dispatch exit 1
+    # hyprctl dispatch exit
+    ~/.config/hypr/scripts/gracelogout.sh
   else
     exit
   fi

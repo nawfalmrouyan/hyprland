@@ -18,13 +18,13 @@
 }
 {
     "label" : "logout",
-    "action" : "hyprctl dispatch exit 0",
+    "action" : "~/.config/hypr/scripts/gracelogout.sh",
     "text" : "Logout",
     "keybind" : "e"
 }
 {
     "label" : "suspend",
-    "action" : "systemctl suspend",
+    "action" : "hyprlock && systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
