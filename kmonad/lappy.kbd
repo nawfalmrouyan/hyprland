@@ -31,7 +31,7 @@
   #pdown (tap-next-release pgdn rsft)
   lhome (tap-next-release home lalt)
   rend (tap-next-release end ralt)
-  tbar (tap-next-release (cmd-button "killall -SIGUSR1 waybar") rctl)
+  tbar (tap-next-release (cmd-button "ags -t bar-0") rctl)
 )
 
 (deflayer qwerty

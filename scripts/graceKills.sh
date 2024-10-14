@@ -48,13 +48,13 @@ close_applications
 
 case $1 in
 logout)
-  eval hyprctl dispatch exit
+  hyprctl dispatch exit
   ;;
 reboot)
-  eval systemctl reboot
+  systemctl reboot
   ;;
 shutdown)
-  eval systemctl poweroff
+  systemctl poweroff
   ;;
 *) ;;
 esac
