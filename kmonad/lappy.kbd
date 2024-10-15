@@ -40,7 +40,7 @@
   @tabm   q    w    e    r    t    y    u    i    o    p    [    ]    \         del     end   pgdn   kp7  kp8  kp9  kp+
   @cec    a    s    d    f    g    h    j    k    l    ;    '    @retc                               kp4  kp5  kp6
   lsft    z    x    c    v    b    n    m    ,    .    /    rsft                        up           kp1  kp2  kp3  kprt
-  @cext    lmet @lhome           @mov           @rend  @tbar                        left    down  right  kp0  kp.
+  @cext    lmet lalt           @mov           ralt  @tbar                        left    down  right  kp0  kp.
 )
 
 (deflayer vi
