@@ -17,7 +17,7 @@
     "keybind" : "s"
 }
 {
-    "label" : "Kills",
+    "label" : "logout",
     "action" : "~/.config/hypr/scripts/graceKills.sh logout",
     "text" : "Logout",
     "keybind" : "e"
