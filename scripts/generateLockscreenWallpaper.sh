@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 CACHE=cache.png
-BLURRED=blurred.png
+# BLURRED=blurred.png
 SQUARE=square.png
 PROFILE=profile.png
 DIR=$HOME/.config/hypr/bg
@@ -10,7 +10,7 @@ DIR=$HOME/.config/hypr/bg
 magick $1 $DIR/$CACHE
 
 # blur wallpaper
-magick $DIR/$CACHE -blur "50x30" $DIR/$BLURRED
+# magick $DIR/$CACHE -blur "50x30" $DIR/$BLURRED
 
 # square wallpaper
 # magick $DIR/$PROFILE -gravity center -extent 1:1 $DIR/$SQUARE
