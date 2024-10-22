@@ -13,12 +13,12 @@ magick $1 $DIR/$CACHE
 # magick $DIR/$CACHE -blur "50x30" $DIR/$BLURRED
 
 # square wallpaper
-# magick $DIR/$PROFILE -gravity center -extent 1:1 $DIR/$SQUARE
+magick $DIR/$PROFILE -gravity center -extent 1:1 $DIR/$SQUARE
 
-magick $DIR/$PROFILE \
-  \( -clone 0 -alpha extract -threshold 0 \) \
-  \( -clone 1 -blur 10x65000 -threshold 0 \) \
-  \( -clone 2 -fill grey -opaque grey \) \
-  \( -clone 3 -clone 0 -clone 1 -alpha off -compose over -composite \) \
-  -delete 0,1,3 +swap -alpha off -compose copy_opacity -composite \
-  $DIR/$SQUARE
+# magick $DIR/$PROFILE \
+#   \( -clone 0 -alpha extract -threshold 0 \) \
+#   \( -clone 1 -blur 10x65000 -threshold 0 \) \
+#   \( -clone 2 -fill grey -opaque grey \) \
+#   \( -clone 3 -clone 0 -clone 1 -alpha off -compose over -composite \) \
+#   -delete 0,1,3 +swap -alpha off -compose copy_opacity -composite \
+#   $DIR/$SQUARE
