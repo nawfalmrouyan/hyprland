@@ -1,5 +1,5 @@
 env = NVD_GPU,0
-env = MO_DISABLE_RDD_SANDBOX,1
+env = MOZ_DISABLE_RDD_SANDBOX,1
 env = MOZ_DRM_DEVICE,/dev/dri/renderD129
 env = NVD_BACKEND,direct
 
