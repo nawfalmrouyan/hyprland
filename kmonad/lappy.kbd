@@ -16,6 +16,14 @@
 )
  
 (defalias
+  ha (tap-next-release a lmet)
+  hs (tap-next-release s lalt)
+  hd (tap-next-release d lsft)
+  hf (tap-next-release f lctl)
+  hj (tap-next-release j rctl)
+  hk (tap-next-release k rsft)
+  hl (tap-next-release l ralt)
+  h; (tap-next-release ; rmet)
   cec (tap-next-release esc lctl)
   mov (tap-next-release spc (layer-toggle vi))
   cext (layer-toggle extend)
@@ -38,7 +46,7 @@
   esc     f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12            prnt    slck  pause
   grv     1    2    3    4    5    6    7    8    9    0    -    =    bspc      ins     home  pgup   nlck kp/  kp*  kp-
   @tabm   q    w    e    r    t    y    u    i    o    p    [    ]    \         del     end   pgdn   kp7  kp8  kp9  kp+
-  @cec    a    s    d    f    g    h    j    k    l    ;    '    @retc                               kp4  kp5  kp6
+  @cec    @ha  @hs  @hd  @hf  g    h    @hj  @hk  @hl  @h;  '    @retc                               kp4  kp5  kp6
   lsft    z    x    c    v    b    n    m    ,    .    /    rsft                        up           kp1  kp2  kp3  kprt
   @cext    lmet lalt           @mov           ralt  @tbar                        left    down  right  kp0  kp.
 )
