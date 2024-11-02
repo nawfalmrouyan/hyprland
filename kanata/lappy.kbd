@@ -9,7 +9,7 @@
 )
 
 (defsrc
-  home
+  esc home
   grv  1 2 3 4 5 6 7 8 9 0 min eql bspc
   tab q w e r t y u i o p [ ] \
   caps a s d f g h j k l scln ' ret
@@ -33,7 +33,7 @@
 )
 
 (deflayer base
-  home
+  esc home
   grv 1 2 3 4 5 6 7 8 9 0 min eql bspc
   tab q w e r t y u i o p [ ] \
   @cec @ha @hs @hd @hf g h @hj @hk @hl @hscln ' ret
@@ -42,7 +42,7 @@
 )
 
 (deflayer game
-  @base
+  esc @base
   grv  1 2 3 4 5 6 7 8 9 0 min eql bspc
   tab q w e r t y u i o p [ ] \
   caps a s d f g h j k l scln ' ret
@@ -51,7 +51,7 @@
  )
 
 (deflayer vi
-  @game
+  M-esc @game
   M-grv M-1 M-2 M-3 M-4 M-5 M-6 M-7 M-8 M-9 M-0 M-min M-eql M-bspc
   M-tab A-q M-w M-e M-S-r M-A-ret M-y M-u M-i M-o M-p M-[ M-] M-\
   caps M-a A-s M-S-d M-S-f M-S-g lft down up rght M-scln M-' M-ret
