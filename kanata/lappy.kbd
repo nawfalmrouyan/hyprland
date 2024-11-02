@@ -1,0 +1,59 @@
+(defcfg
+  process-unmapped-keys yes
+  log-layer-changes yes
+)
+
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defsrc
+  hme
+  grv  1 2 3 4 5 6 7 8 9 0 - = bspc
+  ltab q w e r t y u i o p [ ] \
+  caps a s d f g h j k l ; ' ret
+  lsft z x c v b n m , . / rsft
+  lctl lalt spc ralt rctl
+)
+
+(defalias
+  game (layer-toggle game)
+  base (layer-toggle base)
+  cec (tap-hold-press $tap-time $hold-time esc lctl)
+  hspc (tap-hold $tap-time $hold-time spc (layer-toggle vi))
+  ha (tap-hold $tap-time $hold-time a lmet)
+  hs (tap-hold $tap-time $hold-time s lalt)
+  hd (tap-hold $tap-time $hold-time d lsft)
+  hf (tap-hold $tap-time $hold-time f lctl)
+  hj (tap-hold $tap-time $hold-time j lctl)
+  hk (tap-hold $tap-time $hold-time k lsft)
+  hl (tap-hold $tap-time $hold-time l lalt)
+  h; (tap-hold $tap-time $hold-time ; lmet)
+)
+
+(deflayer base
+  hme
+  grv 1 2 3 4 5 6 7 8 9 0 - = bspc
+  ltab q w e r t y u i o p [ ] \
+  @cec @ha @hs @hd @hf g h @hj @hk @hl @h; ' ret
+  lctl lalt @hspc ralt rctl
+)
+
+(deflayer game
+  @base
+  grv  1 2 3 4 5 6 7 8 9 0 - = bspc
+  ltab q w e r t y u i o p [ ] \
+  caps a s d f g h j k l ; ' ret
+  lsft z x c v b n m , . / rsft
+  lctl lalt spc ralt rctl
+ )
+
+(deflayer vi
+  @game
+  M-grv M-1 M-2 M-3 M-4 M-5 M-6 M-7 M-8 M-9 M-0 M-- M-= M-bspc
+  M-ltab A-q M-w M-e M-S-r M-A-ret M-y M-u M-i M-o M-p M-[ M-] M-\
+  caps M-a A-s M-S-d M-S-f M-S-g left down up right M-; M-' M-ret
+  M-lsft M-z M-x M-c C-S-d M-b M-n M-S-m M-, M-. M-/ M-rsft
+  M-lctl M-lalt - - -
+)
