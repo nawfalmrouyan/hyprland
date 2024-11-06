@@ -22,6 +22,7 @@
   base (layer-switch base)
   cec (tap-hold-press $tap-time $hold-time esc lctl)
   hspc (tap-hold $tap-time $hold-time spc (layer-toggle vi))
+  htab (tap-hold $tap-time $hold-time tab lmet)
   ha (tap-hold $tap-time $hold-time a lmet)
   hs (tap-hold $tap-time $hold-time s lalt)
   hd (tap-hold $tap-time $hold-time d lsft)
@@ -35,8 +36,8 @@
 (deflayer base
   esc home
   grv 1 2 3 4 5 6 7 8 9 0 min eql bspc
-  tab q w e r t y u i o p [ ] \
-  @cec @ha @hs @hd @hf g h @hj @hk @hl @hscln ' ret
+  @htab q w e r t y u i o p [ ] \
+  @cec a @hs @hd @hf g h @hj @hk @hl @hscln ' ret
   lsft z x c v b n m comm . / rsft
   lctl lalt @hspc ralt rctl
 )
