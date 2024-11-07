@@ -25,6 +25,12 @@ function close_applications() {
     pkill -9 tmux
   fi
 
+  ZELLIJ=$(zellij list-sessions 2>/dev/null | wc -l)
+  if [ "$ZELLIJ" -ne "0" ]; then
+    notify-send "Grace Killing Processes" "Closing zellij sessions..."
+    pkill -9 zellij
+  fi
+
   # close all client windows
   # required for graceful exit since many apps aren't good SIGNAL citizens
   HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
