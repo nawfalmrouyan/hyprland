@@ -36,13 +36,13 @@ function close_applications() {
   HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
   hyprctl --batch "$HYPRCMDS" >>/tmp/hyprexitwithgrace.log 2>&1
 
-  notify-send "Grace Killing Processes" "Closing Applications..."
+  # notify-send "Grace Killing Processes" "Closing Applications..."
 
   sleep 2
 
   COUNT=$(hyprctl clients | grep "class:" | wc -l)
   if [ "$COUNT" -eq "0" ]; then
-    notify-send "Grace Killing Processes" "Closed Applications."
+    # notify-send "Grace Killing Processes" "Closed Applications."
     return
   else
     notify-send "Grace Killing Processes" "Some apps didn't close. Not shutting down."
