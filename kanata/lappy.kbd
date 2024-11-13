@@ -54,8 +54,8 @@
 (deflayer vi
   M-esc @game
   M-grv M-1 M-2 M-3 M-4 M-5 M-6 M-7 M-8 M-9 M-0 M-min M-eql M-bspc
-  M-tab A-q M-w M-e M-S-r M-A-ret M-y M-u M-i M-o M-p M-[ M-] M-\
-  caps M-a A-s M-S-d M-S-f M-S-g lft down up rght M-scln M-' M-ret
+  M-tab A-q M-w end M-S-r M-A-ret M-y M-u M-i M-o M-p M-[ M-] M-\
+  caps home A-s M-S-d M-S-f M-S-g lft down up rght M-scln M-' M-ret
   M-lsft M-z M-x M-c C-S-d M-b M-n M-S-m M-comm M-. M-/ M-rsft
   M-lctl M-lalt - - -
 )
