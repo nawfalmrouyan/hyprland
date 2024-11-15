@@ -18,7 +18,7 @@ opengl {
 }
 
 cursor {
-  allow_dumb_copy = true
+  use_cpu_buffer = true
   no_break_fs_vrr = true
 }
 
