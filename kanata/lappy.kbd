@@ -57,5 +57,5 @@
   M-tab A-q M-w end M-S-r M-A-ret M-y M-u M-i M-o M-p M-[ M-] M-\
   caps home A-s M-S-d M-S-f M-S-g lft down up rght M-scln M-' M-ret
   M-lsft M-z M-x M-c C-S-d M-b M-n M-S-m M-comm M-. M-/ M-rsft
-  M-lctl M-lalt - - -
+  M-lctl M-lalt - - @game
 )
