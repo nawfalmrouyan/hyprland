@@ -4,7 +4,11 @@ SCRIPTSDIR=$HOME/.config/hypr/scripts
 DIR=$HOME/.config/hypr/bg
 PICS=($(ls ${DIR}))
 
-RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
+if [ $# -eq 1 ]; then
+  RANDOMPICS=$1
+else
+  RANDOMPICS=${PICS[$RANDOM % ${#PICS[@]}]}
+fi
 
 hyprctl hyprpaper preload "${DIR}/${RANDOMPICS}"
 hyprctl hyprpaper wallpaper ",${DIR}/${RANDOMPICS}"
