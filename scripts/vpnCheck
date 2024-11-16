@@ -8,10 +8,10 @@ fi
 
 echo -n "$stat"
 
-proxy=$(sshoot list | grep \* | awk '{print $2}')
-
-if [ "$proxy" != "" ]; then
-  echo "|$proxy"
-else
-  echo ""
-fi
+# proxy=$(sshoot list | grep \* | awk '{print $2}')
+#
+# if [ "$proxy" != "" ]; then
+#   echo "|$proxy"
+# else
+#   echo ""
+# fi
