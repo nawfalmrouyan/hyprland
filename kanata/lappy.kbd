@@ -37,7 +37,7 @@
   esc home
   grv 1 2 3 4 5 6 7 8 9 0 min eql bspc
   @htab q w e r t y u i o p [ ] \
-  @cec @ha @hs @hd @hf g h @hj @hk @hl @hscln ' ret
+  @cec a s d f g h j k l scln ' ret
   lsft z x c v b n m comm . / rsft
   lctl lalt @hspc ralt rctl
 )
