@@ -10,7 +10,7 @@
     grey: #6c7086;
 
     width: 800;
-    font: "Pragmasevka 14";
+    font: "Pragmasevka Nerd Font 14";
 }
 
 element-text, element-icon , mode-switcher {

@@ -1,9 +1,9 @@
 configuration{
     modi: "run,drun,window,calc,emoji,ssh";
     modes: [run,drun,window,calc,combi,emoji,ssh];
-    icon-theme: "qualia-purple-dark";
+    icon-theme: "Adwaita-purple";
     show-icons: true;
-    terminal: "kitty";
+    terminal: "uwsm app -- kitty -e";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
