@@ -97,12 +97,22 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 git clone --depth=1 https://github.com/nawfalmrouyan/hyprland.git ~/.config/hypr
 ```
 
-3. You can start Hyprland using the command below:
+3. You can start Hyprland from TTY using the command below:
 
 ```sh
 uwsm start hyprland.desktop
 ```
-Note: You can refer [here](https://wiki.hyprland.org/Useful-Utilities/Systemd-start/) for more info.
+You can refer [here](https://wiki.hyprland.org/Useful-Utilities/Systemd-start/) for more info.
+
+If you start Hyprland using a Login Manager (eg. GDM, SDDM, etc), choose to start using `Hyprland (uwsm managed)` 
+
+4. Install Hyprland Plugins
+
+- https://github.com/hyprwm/hyprland-plugins
+- https://github.com/shezdy/hyprsplit
+- https://github.com/KZDKM/Hyprspace
+
+Refer [here](https://wiki.hyprland.org/Plugins/Using-Plugins/) on how to install plugins.
 
 ## Special thanks
 
