@@ -9,7 +9,7 @@
 )
 
 (defsrc
-  esc home
+  esc home del
   grv  1 2 3 4 5 6 7 8 9 0 min eql bspc
   tab q w e r t y u i o p [ ] \
   caps a s d f g h j k l scln ' ret
@@ -21,6 +21,7 @@
   game (layer-switch game)
   base (layer-switch base)
   cec (tap-hold-press $tap-time $hold-time esc lctl)
+  rec (tap-hold-press $tap-time $hold-time ret lctl)
   hspc (tap-hold $tap-time $hold-time spc (layer-toggle vi))
   htab (tap-hold $tap-time $hold-time tab lmet)
   ha (tap-hold $tap-time $hold-time a lmet)
@@ -34,16 +35,16 @@
 )
 
 (deflayer base
-  esc home
+  esc home del
   grv 1 2 3 4 5 6 7 8 9 0 min eql bspc
   @htab q w e r t y u i o p [ ] \
-  @cec a s d f g h j k l scln ' ret
+  @cec a s d f g h j k l scln ' @rec
   lsft z x c v b n m comm . / rsft
   lctl lalt @hspc ralt rctl
 )
 
 (deflayer game
-  esc @base
+  esc @base del
   grv  1 2 3 4 5 6 7 8 9 0 min eql bspc
   tab q w e r t y u i o p [ ] \
   caps a s d f g h j k l scln ' ret
@@ -52,7 +53,7 @@
  )
 
 (deflayer vi
-  M-esc @game
+  M-esc @game M-del
   M-grv M-1 M-2 M-3 M-4 M-5 M-6 M-7 M-8 M-9 M-0 M-min M-eql M-bspc
   M-tab A-q M-w end M-S-r M-A-ret M-y M-u M-i M-o M-p M-[ M-] M-\
   caps home A-s M-S-d M-S-f M-S-g lft down up rght M-scln M-' M-ret
