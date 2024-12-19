@@ -45,74 +45,75 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 1. Install the following programs on your computer:
 
-- hyprland-git
-- hyprcursor-git
-- hypridle-git
-- hyprlock-git
-- xdg-desktop-hyprland-portal-git
-- hyprutils-git
-- hyprgraphics-git
-- hyprwayland-scanner-git
-- hyprland-protocols-git
-- hyprpicker-git
-- hyprland-qtutils-git
-- hyprpaper-git
-- aylurs-gtk-shell
-- hyprpanel (astal branch)
-- kitty
-- zen-browser-avx2-bin
-- grim
-- slurp
-- fuzzel
-- rofi-wayland
-- rofi-emoji-git
-- rofi-calc-git
-- rofi-pass
-- wtype
-- wl-clipboard
-- catppuccin-cursors-mocha
-- catppuccin-gtk-theme-mocha
-- noto-fonts
-- noto-fonts-cjk
-- ttf-nerd-fonts-symbols
-- ttf-nerd-fonts-symbols-mono
-- ttf-nerd-fonts-symbols-common
-- imagemagick
-- hyprsunset-git
-- brightnessctl
-- wlogout
-- playerctl
-- pamixer
-- libqalculate
-- clipse
-- uwsm
-- kanata-bin
-- libinput-gestures
-- polkit-gnome
-- socat
+   - hyprland-git
+   - hyprcursor-git
+   - hypridle-git
+   - hyprlock-git
+   - xdg-desktop-hyprland-portal-git
+   - hyprutils-git
+   - hyprgraphics-git
+   - hyprwayland-scanner-git
+   - hyprland-protocols-git
+   - hyprpicker-git
+   - hyprland-qtutils-git
+   - hyprpaper-git
+   - aylurs-gtk-shell
+   - hyprpanel (astal branch)
+   - kitty
+   - zen-browser-avx2-bin
+   - grim
+   - slurp
+   - fuzzel
+   - rofi-wayland
+   - rofi-emoji-git
+   - rofi-calc-git
+   - rofi-pass
+   - wtype
+   - wl-clipboard
+   - catppuccin-cursors-mocha
+   - catppuccin-gtk-theme-mocha
+   - noto-fonts
+   - noto-fonts-cjk
+   - ttf-nerd-fonts-symbols
+   - ttf-nerd-fonts-symbols-mono
+   - ttf-nerd-fonts-symbols-common
+   - imagemagick
+   - hyprsunset-git
+   - brightnessctl
+   - wlogout
+   - playerctl
+   - pamixer
+   - libqalculate
+   - clipse
+   - uwsm
+   - kanata-bin
+   - libinput-gestures
+   - polkit-gnome
+   - socat
 
 2. Clone the repo. Assuming you do not have Hyprland configured before, copy/move all the files in the repo to `~/.config/hypr`.
 
-```bash
-git clone --depth=1 https://github.com/nawfalmrouyan/hyprland.git ~/.config/hypr
-```
+   ```bash
+   git clone --depth=1 https://github.com/nawfalmrouyan/hyprland.git ~/.config/hypr
+   ```
 
 3. You can start Hyprland from TTY using the command below:
 
-```sh
-uwsm start hyprland.desktop
-```
-You can refer [here](https://wiki.hyprland.org/Useful-Utilities/Systemd-start/) for more info.
+   ```sh
+   uwsm start hyprland.desktop
+   ```
 
-If you start Hyprland using a Login Manager (eg. GDM, SDDM, etc), choose to start using `Hyprland (uwsm managed)` 
+   You can refer [here](https://wiki.hyprland.org/Useful-Utilities/Systemd-start/) for more info.
+
+   If you start Hyprland using a Login Manager (eg. GDM, SDDM, etc), choose to start using `Hyprland (uwsm managed)` 
 
 4. Install Hyprland Plugins
 
-- https://github.com/hyprwm/hyprland-plugins
-- https://github.com/shezdy/hyprsplit
-- https://github.com/KZDKM/Hyprspace
+   - https://github.com/hyprwm/hyprland-plugins
+   - https://github.com/shezdy/hyprsplit
+   - https://github.com/KZDKM/Hyprspace
 
-Refer [here](https://wiki.hyprland.org/Plugins/Using-Plugins/) on how to install plugins.
+   Refer [here](https://wiki.hyprland.org/Plugins/Using-Plugins/) on how to install plugins.
 
 ## Special thanks
 
