@@ -109,9 +109,8 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 4. Install Hyprland Plugins
 
-   - https://github.com/hyprwm/hyprland-plugins
-   - https://github.com/shezdy/hyprsplit
-   - https://github.com/KZDKM/Hyprspace
+   - [hyprsplit](https://github.com/shezdy/hyprsplit)
+   - [hyprtasking](https://github.com/raybbian/hyprtasking)
 
    Refer [here](https://wiki.hyprland.org/Plugins/Using-Plugins/) on how to install plugins.
 
