@@ -27,17 +27,17 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 
 |      Label       |     Application     |
 | :--------------: | :-----------------: |
-| Operating System |      ArcoLinux      |
+| Operating System |      Arch Linux      |
 |  Window Manager  |      Hyprland       |
-|    Status Bar    | hyprpanel |
+|    Status Bar    | [hyprpanel](https://hyprpanel.com) |
 |     Launcher     |        fuzzel        |
 | Session Manager  |  wlogout   |
 |  Notifications   |        ags         |
 |     Terminal     |        Kitty        |
-|   Web Browser    |       Zen       |
+|   Web Browser    |       [Zen](https://zen-browser.app)       |
 |      Fonts       | Fira Sans Condensed |
 |                  |  Symbols Nerd Font  |
-|                  |   Pragmasevka Nerd Font    |
+|                  |   [Pragmasevka Nerd Font](https://github.com/nawfalmrouyan/pragmasevka)    |
 
 ## 🛠 Installation
 
@@ -60,7 +60,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
    - aylurs-gtk-shell
    - hyprpanel (astal branch)
    - kitty
-   - zen-browser-avx2-bin
+   - zen-browser-bin
    - grim
    - slurp
    - fuzzel
@@ -89,7 +89,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
    - kanata-bin
    - libinput-gestures
    - polkit-gnome
-   - socat
+   - wlr-xrandr
 
 2. Clone the repo. Assuming you do not have Hyprland configured before, copy/move all the files in the repo to `~/.config/hypr`.
 
