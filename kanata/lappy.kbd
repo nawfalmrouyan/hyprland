@@ -17,6 +17,13 @@
   lctl lalt spc ralt rctl
 )
 
+(deftemplate charmod (char mod)
+  (switch
+    ((key-timing 3 less-than 430)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
+)
+
 (defalias
   game (layer-switch game)
   base (layer-switch base)
@@ -24,21 +31,23 @@
   rec (tap-hold-press $tap-time $hold-time ret lctl)
   hspc (tap-hold $tap-time $hold-time spc (layer-toggle vi))
   htab (tap-hold $tap-time $hold-time tab lmet)
-  ha (tap-hold $tap-time $hold-time a lmet)
-  hs (tap-hold $tap-time $hold-time s lalt)
-  hd (tap-hold $tap-time $hold-time d lsft)
-  hf (tap-hold $tap-time $hold-time f lctl)
-  hj (tap-hold $tap-time $hold-time j lctl)
-  hk (tap-hold $tap-time $hold-time k lsft)
-  hl (tap-hold $tap-time $hold-time l lalt)
-  hscln (tap-hold $tap-time $hold-time scln lmet)
 )
 
 (deflayer base
   esc home del
   grv 1 2 3 4 5 6 7 8 9 0 min eql bspc
   @htab q w e r t y u i o p [ ] \
-  @cec a s d f g h j k l scln ' @rec
+  @cec
+  (t! charmod a lmet)
+  (t! charmod s lalt)
+  (t! charmod d lsft)
+  (t! charmod f lctl)
+  g h
+  (t! charmod j rctl)
+  (t! charmod k rsft)
+  (t! charmod l ralt)
+  (t! charmod scln rmet)
+  ' @rec
   lsft z x c v b n m comm . / rsft
   lctl lalt @hspc ralt rctl
 )
