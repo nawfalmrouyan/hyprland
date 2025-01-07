@@ -7,10 +7,9 @@
 </div>
 
 ## 🌟 Preview
+![image](https://github.com/user-attachments/assets/362dcc0d-d4ea-4967-9f94-6541a83190fb)
 
-![image](https://github.com/user-attachments/assets/b9a82e1a-5756-4f1e-98b0-509d0df3a890)
-
-![image](https://github.com/user-attachments/assets/c4718ab5-9108-44c2-b326-26c3154091f2)
+![image](https://github.com/user-attachments/assets/6cf67aa8-2069-4f3d-9cf8-56e6894f8c08)
 
 ![image](https://github.com/user-attachments/assets/e0435737-88ed-4f20-acb2-88708c67c460)
 
@@ -30,7 +29,7 @@ Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sa
 | Operating System |      Arch Linux      |
 |  Window Manager  |      Hyprland       |
 |    Status Bar    | [hyprpanel](https://hyprpanel.com) |
-|     Launcher     |        fuzzel        |
+|     Launcher     |        rofi-wayland        |
 | Session Manager  |  wlogout   |
 |  Notifications   |        ags         |
 |     Terminal     |        Kitty        |
@@ -63,7 +62,6 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
    - zen-browser-bin
    - grim
    - slurp
-   - fuzzel
    - rofi-wayland
    - rofi-emoji-git
    - rofi-calc-git
