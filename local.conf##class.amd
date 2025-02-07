@@ -6,5 +6,6 @@ bindl = , xf86pickupphone, exec, hyprctl dispatch togglespecialworkspace whatsap
 bindl = , xf86hangupphone, exec, hyprctl dispatch togglespecialworkspace trash
 
 workspace = 2, on-created-empty:$browser
+workspace = 11, on-created-empty:$browser
 
 # vim: set ft=hyprlang :
