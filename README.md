@@ -107,7 +107,7 @@ If you want to install this setup on ARCH Linux or on any other distro, follow t
 
 4. Install Hyprland Plugins
 
-   - [hyprsplit](https://github.com/shezdy/hyprsplit)
+   - [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces)
    - [hyprtasking](https://github.com/raybbian/hyprtasking)
 
    Refer [here](https://wiki.hyprland.org/Plugins/Using-Plugins/) on how to install plugins.
