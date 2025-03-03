@@ -1,0 +1,30 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defsrc
+  a s d f j k l scln
+)
+
+(deftemplate charmod (char mod)
+  (switch
+    ((key-timing 3 less-than 430)) $char break
+    () (tap-hold-release-timeout 200 500 $char $mod $char) break
+  )
+)
+
+(deflayer base
+  (t! charmod a lalt)
+  (t! charmod s lmet)
+  (t! charmod d lsft)
+  (t! charmod f lctl)
+  (t! charmod j rctl)
+  (t! charmod k rsft)
+  (t! charmod l rmet)
+  (t! charmod scln ralt)
+)
