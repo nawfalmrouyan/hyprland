@@ -72,10 +72,10 @@ if [ "$ACTION" != "save" ] && [ "$ACTION" != "copy" ] && [ "$ACTION" != "copysav
 fi
 
 notify() {
-  if [ $FILE = "" ]; then
+  if [ "$FILE" = "" ]; then
     notify-send -t 3000 -a grimblast "$@"
   else
-    notify-send -t 3000 -i $FILE -a grimblast "$@"
+    notify-send -t 3000 -i "$FILE" -a grimblast "$@"
   fi
 }
 notifyOk() {
@@ -84,7 +84,7 @@ notifyOk() {
   TITLE=${2:-"Screenshot"}
   MESSAGE=${1:-"OK"}
   REST=${@:3}
-  notify "$TITLE" "$MESSAGE" $REST
+  notify "$TITLE" "$MESSAGE" "$REST"
 }
 notifyError() {
   if [ $NOTIFY = "yes" ]; then
