@@ -6,19 +6,19 @@
 }
 {
     "label" : "reboot",
-    "action" : "systemctl reboot",
+    "action" : "~/.config/hypr/scripts/graceKills.sh reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
 {
     "label" : "shutdown",
-    "action" : "systemctl poweroff",
+    "action" : "~/.config/hypr/scripts/graceKills.sh shutdown",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 {
     "label" : "logout",
-    "action" : "hyprctl dispatch exit,
+    "action" : "~/.config/hypr/scripts/graceKills.sh logout",
     "text" : "Logout",
     "keybind" : "e"
 }

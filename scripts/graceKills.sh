@@ -10,7 +10,7 @@
 # is cancelled and a notification about the cause of the cancellation is sent.
 
 function close_applications() {
-  ZEN=$(hyprctl clients | grep "class: zen-alpha" | wc -l)
+  ZEN=$(hyprctl clients | grep "class: zen" | wc -l)
 
   if [ "$ZEN" -gt "1" ]; then
     notify-send "Grace Killing Processes" "Zen multiple windows open"
