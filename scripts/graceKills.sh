@@ -11,9 +11,9 @@
 
 function close_applications() {
   ZEN=$(hyprctl clients | grep "class: zen" | wc -l)
-
-  if [ "$ZEN" -gt "1" ]; then
-    notify-send "Grace Killing Processes" "Zen multiple windows open"
+  if [ "$ZEN" -gt "0" ]; then
+    DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "Grace Killing Processes" "Zen multiple windows open"
+    pkill -9 zen-bin
     exit 1
   fi
 
@@ -21,15 +21,20 @@ function close_applications() {
 
   TMUX=$(tmux list-sessions 2>/dev/null | wc -l)
   if [ "$TMUX" -ne "0" ]; then
-    notify-send "Grace Killing Processes" "Closing tmux sessions..."
+    DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "Grace Killing Processes" "Closing tmux sessions..."
     pkill -9 tmux
   fi
 
-  ZELLIJ=$(zellij list-sessions 2>/dev/null | wc -l)
-  if [ "$ZELLIJ" -ne "0" ]; then
-    notify-send "Grace Killing Processes" "Closing zellij sessions..."
-    pkill -9 zellij
+  if [[ $(pidof openconnect) ]]; then
+    ~/.local/bin/mmuvpn down
+    DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "Grace Killing Processes" "Closing mmuvpn sessions..."
   fi
+
+  # ZELLIJ=$(zellij list-sessions 2>/dev/null | wc -l)
+  # if [ "$ZELLIJ" -ne "0" ]; then
+  #   notify-send "Grace Killing Processes" "Closing zellij sessions..."
+  #   pkill -9 zellij
+  # fi
 
   # close all client windows
   # required for graceful exit since many apps aren't good SIGNAL citizens
@@ -45,7 +50,7 @@ function close_applications() {
     # notify-send "Grace Killing Processes" "Closed Applications."
     return
   else
-    notify-send "Grace Killing Processes" "Some apps didn't close. Not shutting down."
+    DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "Grace Killing Processes" "Some apps didn't close. Not shutting down."
     exit 1
   fi
 }
