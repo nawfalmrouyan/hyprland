@@ -18,7 +18,7 @@
 }
 {
     "label" : "logout",
-    "action" : "~/.config/hypr/scripts/graceKills.sh logout",
+    "action" : "uwsm stop",
     "text" : "Logout",
     "keybind" : "e"
 }
