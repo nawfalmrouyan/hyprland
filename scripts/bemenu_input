@@ -2,7 +2,7 @@
 
 # If environmental variable `TERMINAL' is not set, then default terminal used: URxvt.
 
-DMENU_FONT1="Pragmasevka 15"
+DMENU_FONT1="PragmataPro Mono Liga 15"
 export BEMENU_OPTS='--fb "#1e1e2e" --ff "#cdd6f4" --nb "#1e1e2e" --nf "#cdd6f4" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#f38ba8" --hf "#f9e2af" --af "#cdd6f4" --ab "#1e1e2e"'
 
 # If "BROWSER" unset globally, set locally.
@@ -35,17 +35,17 @@ case $1 in
 
 # Open terminal in a directory.
 5)
-  DIR="$(fd . $HOME --type d 2>/dev/null | sed s:/home/$USER:~: |
+  DIR="$(fd . "$HOME" --type d 2>/dev/null | sed s:/home/"$USER":~: |
     bemenu -i -l 20 -p "Go to directory:" --fn "$DMENU_FONT1")"
 
   if [ "$DIR" = "~/" ]; then
-    cd $HOME && $TERMINAL &
+    cd "$HOME" && $TERMINAL &
   else
     # Cut the '~/' part from the `DIR'.
-    DIR="$(echo $DIR | cut -d '/' -f2-)"
+    DIR="$(echo "$DIR" | cut -d '/' -f2-)"
 
     # If user selected any directory then open `$TERMINAL' in that directory.
-    [ "$DIR" = "" ] || { cd $HOME/$DIR && $TERMINAL; } &
+    [ "$DIR" = "" ] || { cd "$HOME"/"$DIR" && $TERMINAL; } &
   fi
   ;;
 
@@ -61,23 +61,23 @@ case $1 in
   # QUERY=$(echo '' | bemenu -p "Search / Go to:" --fn "-xos4-terminus-medium-r-*-*-14-*")
   QUERY=$(echo '' | bemenu -p "Search / Go to:" --fn "$DMENU_FONT1")
   if [ -n "$QUERY" ]; then
-    (echo $QUERY | grep ' ' >/dev/null && $BROWSER "${SEARCHURL}${QUERY}" && echo case 1) ||
-      (echo $QUERY | grep '\.' >/dev/null && $BROWSER "${GOTOURL}${QUERY}" && echo case 2) ||
+    (echo "$QUERY" | grep ' ' >/dev/null && $BROWSER "${SEARCHURL}${QUERY}" && echo case 1) ||
+      (echo "$QUERY" | grep '\.' >/dev/null && $BROWSER "${GOTOURL}${QUERY}" && echo case 2) ||
       ($BROWSER "${SEARCHURL}${QUERY}" && echo case 3)
   fi
   ;;
 
 # Open terminal in a git repo.
 4)
-  mkdir -p $HOME/.tmp
-  [ -e $HOME/.tmp/gitfiles ] || find $HOME/ -regex .*/\.git$ -type d 2>/dev/null >$HOME/.tmp/gitfiles
-  REPOS="$(cat $HOME/.tmp/gitfiles | xargs dirname | sed s:/home/$USER:~: | bemenu -i -l 20 -p 'Select git repo to open' --fn "$DMENU_FONT1")"
+  mkdir -p "$HOME"/.tmp
+  [ -e "$HOME"/.tmp/gitfiles ] || find "$HOME"/ -regex .*/\.git$ -type d 2>/dev/null >"$HOME"/.tmp/gitfiles
+  REPOS="$(cat "$HOME"/.tmp/gitfiles | xargs dirname | sed s:/home/"$USER":~: | bemenu -i -l 20 -p 'Select git repo to open' --fn "$DMENU_FONT1")"
 
   # Cut the '~/' part from the `REPOS'.
-  REPOS="$(echo $REPOS | cut -d '/' -f2-)"
+  REPOS="$(echo "$REPOS" | cut -d '/' -f2-)"
 
   # If user selected any repo then open `$TERMINAL' in that repo.
-  [ "$REPOS" = "" ] || { cd $HOME/$REPOS && $TERMINAL; } &
+  [ "$REPOS" = "" ] || { cd "$HOME"/"$REPOS" && $TERMINAL; } &
   ;;
 
 # Manual page.
@@ -108,12 +108,12 @@ case $1 in
   if [ -n "$QUERY" ]; then
     # If owner is different, don't be evil.
     ME=$(whoami)
-    echo $QUERY | grep -q "^$ME" || { notify-send "[!] Only processes owned by \"$ME\" can be killed." && return 1; }
+    echo "$QUERY" | grep -q "^$ME" || { notify-send "[!] Only processes owned by \"$ME\" can be killed." && return 1; }
     # echo $QUERY
-    KILLPID="$(echo $QUERY | cut -d "|" -f 2)"
-    KILLEDNAME="$(echo $QUERY | cut -d '|' -f11- | sed 's/|/ /g')"
-    kill $KILLPID &&
-      { echo Killed \"$KILLEDNAME\" && notify-send "Killed \"$KILLEDNAME\""; } ||
+    KILLPID="$(echo "$QUERY" | cut -d "|" -f 2)"
+    KILLEDNAME="$(echo "$QUERY" | cut -d '|' -f11- | sed 's/|/ /g')"
+    kill "$KILLPID" &&
+      { echo Killed \""$KILLEDNAME"\" && notify-send "Killed \"$KILLEDNAME\""; } ||
       { echo "Unable to kill process $KILLPID" && notify-send "Unable to kill process $KILLPID"; }
   fi
   ;;
@@ -123,7 +123,7 @@ case $1 in
   TIMER=$(echo -n "" | bemenu -p 'Minutes to stop notifications:' --fn "$DMENU_FONT1")
   if [ -n "$TIMER" ]; then
     # Enter 0 to resume notifications.
-    if [ 0 -eq $TIMER ]; then
+    if [ 0 -eq "$TIMER" ]; then
       notify-send "DUNST_COMMAND_RESUME"
       notify-send "Notifications resumed."
       return 0
@@ -145,12 +145,12 @@ case $1 in
 
   WIFISELECT=$(nmcli dev wifi | bemenu -i --fn "$DMENU_FONT1" -l 20 -p 'Select WiFi network to connect')
   if [ -n "$WIFISELECT" ]; then
-    WIFIBSSID=$(echo $WIFISELECT | sed -n 's/^.*\([A-Fa-f0-9:]\{17\}\).*/\1/p')
+    WIFIBSSID=$(echo "$WIFISELECT" | sed -n 's/^.*\([A-Fa-f0-9:]\{17\}\).*/\1/p')
 
     echo "Connecting to $WIFIBSSID"
 
     if [ "$WIFICURRENT" != "$WIFIBSSID" ]; then
-      nmcli d wifi connect $WIFIBSSID
+      nmcli d wifi connect "$WIFIBSSID"
     else
       echo "Already connected to this network."
     fi
@@ -160,7 +160,7 @@ case $1 in
 # Turn off system.
 10)
   OPTION=$(printf "Lock\nHibernate\nPower off\nRestart\nLogout\n" | bemenu -i --fn "$DMENU_FONT1" -p 'Select option')
-  echo $OPTION
+  echo "$OPTION"
   if [ -n "$OPTION" ]; then
     case $OPTION in
     "Logout")
