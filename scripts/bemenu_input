@@ -51,7 +51,7 @@ case $1 in
 
 # Basic `bemenu-run' to launch applications/run commands.
 6)
-  bemenu-run -p "Run command:" --fn "$DMENU_FONT1"
+  bemenu-run -b -p "Run command:" --fn "$DMENU_FONT1"
   ;;
 
 # Search google or open a URL.
