@@ -42,7 +42,8 @@ done < <(echo "$windows" | awk -F'\\[HE>\\]' '{
     }
 }')
 
-selection=$(echo -e "$result" | fuzzel -d --config ~/.config/hypr/fuzzel/fuzzel.ini)
+# selection=$(echo -e "$result" | fuzzel -d --config ~/.config/hypr/fuzzel/fuzzel.ini)
+selection=$(echo -e "$result" | rofi -dmenu)
 
 if [[ $selection == *"screen"* ]]; then
   monitor=$(echo "$selection" | cut -f1)
