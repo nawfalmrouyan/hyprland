@@ -1,6 +1,8 @@
 (defcfg
   process-unmapped-keys yes
-  log-layer-changes yes
+  log-layer-changes no
+  danger-enable-cmd yes
+  concurrent-tap-hold yes
 )
 
 (defvar
@@ -51,6 +53,7 @@ mralt (tap-hold $tap-time $hold-time scln ralt)
 ;;   mdot (tap-hold-release $tap-time $hold-time . (layer-while-held wlkbptr))
 ;; )
 
+
 (deflayer base
   esc home del
   grv 1 2 3 4 5 6 7 8 9 0 min eql bspc
@@ -82,7 +85,7 @@ mralt (tap-hold $tap-time $hold-time scln ralt)
 (deflayer vi
   M-esc @game M-del
   M-grv M-1 M-2 M-3 M-4 M-5 M-6 M-7 M-8 M-9 M-0 M-min M-eql M-bspc
-  M-tab A-q M-w end M-S-r M-C-ret M-y M-u M-i M-o M-p M-[ M-] M-\
+  M-tab M-q M-w end M-S-r M-C-ret M-y M-u M-i M-o M-p M-[ M-] M-\
   caps home A-s M-S-d M-S-f M-S-g lft down up rght M-scln M-' M-ret
   M-lsft M-z M-x M-c C-S-d M-b M-n M-S-m M-comm M-. M-/ M-rsft
   M-lctl M-lalt - - @game
@@ -96,3 +99,7 @@ mralt (tap-hold $tap-time $hold-time scln ralt)
 ;;   XX XX XX XX XX XX XX XX XX XX XX XX
 ;;   XX XX XX XX XX
 ;; )
+
+(defchordsv2
+ (j k l) C-\ $chord-time first-release () ;; tmux prefix
+ ) 
