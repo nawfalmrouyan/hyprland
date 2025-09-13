@@ -4,8 +4,9 @@
 )
 
 (defvar
-  tap-time 200
-  hold-time 200
+  tap-time 300
+  hold-time 300
+  chord-time 60
 )
 
 (defsrc
@@ -24,6 +25,18 @@
   )
 )
 
+;; home row mods
+(defalias
+mlalt (tap-hold $tap-time $hold-time a lalt)
+mlmet (tap-hold $tap-time $hold-time s lmet)
+mlsft (tap-hold $tap-time $hold-time d lsft)
+mlctl (tap-hold $tap-time $hold-time f lctl)
+mrctl (tap-hold $tap-time $hold-time j rctl)
+mrsft (tap-hold $tap-time $hold-time k rsft)
+mrmet (tap-hold $tap-time $hold-time l rmet)
+mralt (tap-hold $tap-time $hold-time scln ralt)
+)
+
 (defalias
   game (layer-switch game)
   base (layer-switch base)
@@ -33,20 +46,25 @@
   htab (tap-hold $tap-time $hold-time tab lmet)
 )
 
+;; sub layers
+;; (defalias
+;;   mdot (tap-hold-release $tap-time $hold-time . (layer-while-held wlkbptr))
+;; )
+
 (deflayer base
   esc home del
   grv 1 2 3 4 5 6 7 8 9 0 min eql bspc
   @htab q w e r t y u i o p [ ] \
   @cec
-  (t! charmod a lalt)
-  (t! charmod s lmet)
-  (t! charmod d lsft)
-  (t! charmod f lctl)
-  g h
-  (t! charmod j rctl)
-  (t! charmod k rsft)
-  (t! charmod l rmet)
-  (t! charmod scln ralt)
+  ;; (t! charmod a lalt)
+  ;; (t! charmod s lmet)
+  ;; (t! charmod d lsft)
+  ;; (t! charmod f lctl)
+  @mlalt @mlmet @mlsft @mlctl g h @mrctl @mrsft @mrmet @mralt
+  ;; (t! charmod j rctl)
+  ;; (t! charmod k rsft)
+  ;; (t! charmod l rmet)
+  ;; (t! charmod scln ralt)
   ' @rec
   lsft z x c v b n m comm . / rsft
   lctl lalt @hspc ralt rctl
@@ -69,3 +87,12 @@
   M-lsft M-z M-x M-c C-S-d M-b M-n M-S-m M-comm M-. M-/ M-rsft
   M-lctl M-lalt - - @game
 )
+
+;; (deflayer wlkbptr
+;;   XX XX XX
+;;   XX XX XX XX XX XX XX XX XX XX XX XX XX XX
+;;   XX XX XX XX XX XX XX XX XX XX XX XX XX XX
+;;   XX XX XX XX XX XX XX XX XX XX XX XX XX
+;;   XX XX XX XX XX XX XX XX XX XX XX XX
+;;   XX XX XX XX XX
+;; )
