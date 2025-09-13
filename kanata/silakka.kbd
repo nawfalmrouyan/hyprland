@@ -1,5 +1,8 @@
 (defcfg
   process-unmapped-keys yes
+  log-layer-changes no
+  danger-enable-cmd yes
+  concurrent-tap-hold yes
 )
 
 (defvar
@@ -10,13 +13,6 @@
 
 (defsrc
   a s d f j k l scln
-)
-
-(deftemplate charmod (char mod)
-  (switch
-    ((key-timing 3 less-than 430)) $char break
-    () (tap-hold-release-timeout 200 500 $char $mod $char) break
-  )
 )
 
 ;; home row mods
@@ -35,13 +31,7 @@ mralt (tap-hold $tap-time $hold-time scln ralt)
   @mlalt @mlmet @mlsft @mlctl g h @mrctl @mrsft @mrmet @mralt
 )
 
-;; (deflayer base
-;;   (t! charmod a lalt)
-;;   (t! charmod s lmet)
-;;   (t! charmod d lsft)
-;;   (t! charmod f lctl)
-;;   (t! charmod j rctl)
-;;   (t! charmod k rsft)
-;;   (t! charmod l rmet)
-;;   (t! charmod scln ralt)
-;; )
+(defchordsv2
+  (spc j k) C-\ $chord-time first-release () ;; tmux prefix
+  (spc d f) (cmd hyprctl dispatch exec vicinae) $chord-time first-release () ;; vicinae
+)

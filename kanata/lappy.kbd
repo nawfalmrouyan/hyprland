@@ -96,6 +96,6 @@ htab (tap-hold $tap-time $hold-time tab lmet)
 ;; )
 
 (defchordsv2
- (j k l) C-\ $chord-time first-release () ;; tmux prefix
- (s d f) (cmd hyprctl dispatch exec vicinae) $chord-time first-release () ;; vicinae
+ (spc j k) C-\ $chord-time first-release () ;; tmux prefix
+ (spc d f) (cmd hyprctl dispatch exec vicinae) $chord-time first-release () ;; vicinae
  ) 
