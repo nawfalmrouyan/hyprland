@@ -3,8 +3,9 @@
 )
 
 (defvar
-  tap-time 200
-  hold-time 200
+  tap-time 300
+  hold-time 300
+  chords-time 60
 )
 
 (defsrc
@@ -18,13 +19,29 @@
   )
 )
 
-(deflayer base
-  (t! charmod a lalt)
-  (t! charmod s lmet)
-  (t! charmod d lsft)
-  (t! charmod f lctl)
-  (t! charmod j rctl)
-  (t! charmod k rsft)
-  (t! charmod l rmet)
-  (t! charmod scln ralt)
+;; home row mods
+(defalias
+mlalt (tap-hold $tap-time $hold-time a lalt)
+mlmet (tap-hold $tap-time $hold-time s lmet)
+mlsft (tap-hold $tap-time $hold-time d lsft)
+mlctl (tap-hold $tap-time $hold-time f lctl)
+mrctl (tap-hold $tap-time $hold-time j rctl)
+mrsft (tap-hold $tap-time $hold-time k rsft)
+mrmet (tap-hold $tap-time $hold-time l rmet)
+mralt (tap-hold $tap-time $hold-time scln ralt)
 )
+
+(deflayer base
+  @mlalt @mlmet @mlsft @mlctl g h @mrctl @mrsft @mrmet @mralt
+)
+
+;; (deflayer base
+;;   (t! charmod a lalt)
+;;   (t! charmod s lmet)
+;;   (t! charmod d lsft)
+;;   (t! charmod f lctl)
+;;   (t! charmod j rctl)
+;;   (t! charmod k rsft)
+;;   (t! charmod l rmet)
+;;   (t! charmod scln ralt)
+;; )
