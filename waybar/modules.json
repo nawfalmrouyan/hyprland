@@ -16,9 +16,9 @@
     },
     "modules": [
       "idle_inhibitor",
+      "custom/updater",
       "custom/weather",
       "custom/vpn_check",
-      "custom/updater",
       "custom/uptime"
     ]
   },

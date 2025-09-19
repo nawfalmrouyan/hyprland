@@ -2,8 +2,8 @@
 
 UPDATE=$(checkupdates | wc -l)
 
-if [ ${UPDATE} -lt 1 ]; then
+if [ "${UPDATE}" -lt 1 ]; then
   echo ""
 else
-  echo "<span font='10' rise='1500'>󱑣 </span>${UPDATE}"
+  echo "<span rise='500'>󱑣 </span>${UPDATE}"
 fi
