@@ -1,0 +1,311 @@
+{
+  "group/time": {
+    "orientation": "horizontal",
+    "modules": [
+      "tray",
+      "clock",
+      "custom/power"
+    ]
+  },
+  "group/misc": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-misc",
+      "transition-right-to-left": false
+    },
+    "modules": [
+      "idle_inhibitor",
+      "custom/weather",
+      "custom/vpn_check",
+      "custom/updater",
+      "custom/uptime"
+    ]
+  },
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "custom/cputemp",
+      "memory",
+      "disk"
+    ]
+  },
+  "group/devices": {
+    "orientation": "horizontal",
+    "modules": [
+      "network",
+      "bluetooth",
+      "wireplumber",
+      "backlight",
+      "battery"
+    ]
+  },
+  "backlight": {
+    "interval": 30,
+    "align": 0,
+    "rotate": 0,
+    "tooltip-format": "{percent}",
+    "format": "<span rise='500'>{icon}</span>{percent}",
+    "format-icons": [
+      "󰃞 ",
+      "󰃝 ",
+      "󰃟 ",
+      "󰃠 "
+    ],
+    "on-scroll-up": "~/.config/hypr/scripts/brightness --inc",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness --dec",
+    "smooth-scrolling-threshold": 1
+  },
+  "hyprland/submap": {
+    "format": "<span rise='500'>󰌌 </span>{}",
+    "max-length": 30,
+    "tooltip": false,
+    "always-on": true
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "1",
+      "11": "2",
+      "12": "3",
+      "13": "4",
+      "14": "5",
+      "15": "6",
+      "16": "7",
+      "17": "8",
+      "18": "9"
+    },
+    "all-outputs": true,
+    "active-only": false,
+    "sort-by-number": true,
+    "show-special": false,
+    "persistent-only": true,
+    "persistent-workspaces": {
+      "*": 9
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "battery": {
+    "interval": 60,
+    "align": 0,
+    "rotate": 0,
+    "full-at": 100,
+    "design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span rise='500'>{icon}</span> {capacity}",
+    "format-charging": "<span rise='500'>󰂄</span> {capacity}",
+    "format-plugged": "<span rise='500'>󱐥</span> {capacity}",
+    "format-full": "<span rise='500'>{icon}</span>",
+    "format-alt": "<span rise='500'>{icon}</span>{time}",
+    "format-icons": [
+      "󰁻",
+      "󰁽",
+      "󰁿",
+      "󰂁",
+      "󰁹"
+    ],
+    "format-time": "{H}h {M}min",
+    "tooltip": true,
+    "on-click-middle": "~/.config/hypr/scripts/swallowToggle"
+  },
+  "clock": {
+    "interval": 60,
+    "align": 0,
+    "rotate": 0,
+    "format": "{:%d %b <span rise='1000'>⁙</span> %I:%M %p}",
+    "format-alt": "{:%A <span rise='1000'>⁙</span> %d %B %Y <span rise='1000'>⁙</span> %I:%M %p}",
+    "timezone": "Asia/Kuala_Lumpur",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "on-click-right": "~/.config/hypr/scripts/changeHyprpaper"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "<span font='10' rise='500'> </span>{usage}%",
+    "format-alt": "<span font='10' rise='4000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='11'rise='1000'>{usage:>2}%</span>",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
+  },
+  "custom/menu": {
+    "format": "<span rise='500'>󰍜 </span>",
+    "tooltip": false,
+    "on-click": "$HOME/.config/hypr/scripts/menu"
+  },
+  "custom/power": {
+    "format": "<span rise='500'> </span>",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/wlogout.sh"
+  },
+  "disk": {
+    "interval": 30,
+    "format": "<span rise='500'>󰋊 </span>{percentage_used}%",
+    "format-alt": "<span rise='500'>󰋊 </span>{free}"
+  },
+  "memory": {
+    "interval": 10,
+    "format": "<span rise='500'> </span>{used:0.1f}G",
+    "format-alt": "<span rise='500'> </span>{}%"
+  },
+  "network": {
+    "interval": 5,
+    "format-wifi": "<span rise='500'>󰖩 </span>{signalStrength}%",
+    "format-ethernet": "<span rise='500'>󰈀 </span>",
+    "format-linked": "<span rise='500'>󰈀 </span>{ifname} (No IP)",
+    "format-disconnected": "<span rise='500'>󱚵 </span>Disconnected",
+    "format-disabled": "<span rise='500'>󰖪 </span>Disabled",
+    //"format-alt": "<span rise='500'> </span>{bandwidthUpBits} | <span rise='500'> </span>{bandwidthDownBits}",
+    "tooltip-format": "<span rise='500'> </span>{ifname} {essid} via {gwaddr}",
+    "on-click-middle": "~/.local/bin/mmuvpnc up cbj",
+    "on-click": "nmgui",
+    "on-click-right": "hyprctl dispatch togglespecialworkspace whatsapp"
+  },
+  "custom/weather": {
+    "tooltip": true,
+    "format": "{}",
+    "interval": 300,
+    "exec": "~/.config/hypr/scripts/wttr.py",
+    "return-type": "json"
+  },
+  "custom/updater": {
+    "format": "{}",
+    "exec": "$HOME/.config/hypr/scripts/checkUpdate",
+    "exec-if": "[[ $($HOME/.config/hypr/scripts/checkUpdate) ]]",
+    "interval": 300,
+    "on-click": "kitty --class update -T update -e yay -Syu && notify-send -i '/usr/share/icons/hicolor/256x256/apps/kitty.png' 'Kitty Terminal' 'Nice!!!' "
+  },
+  "custom/uptime": {
+    "format": "<span rise='500'> </span>{}",
+    "exec": "$HOME/.config/hypr/scripts/upt",
+    "interval": 60
+  },
+  "custom/cycle_wall": {
+    "format": "",
+    "on-click": "~/.config/hypr/scripts/changeHyprpaper",
+    "tooltip-format": "Change wallpaper"
+  },
+  "custom/vpn_check": {
+    "format": "<span rise='500'>󱇲 </span>{}",
+    "exec": "~/.config/hypr/scripts/vpnCheck",
+    "interval": 120,
+    "on-click": "~/.local/bin/mmuvpn restart",
+    "on-click-right": "~/.local/bin/mmuvpn down"
+  },
+  "wireplumber": {
+    "format": "<span rise='500'>{icon}</span>{volume}",
+    "tooltip-format": "{volume}",
+    "format-muted": "<span rise='500'>󰝟 </span>",
+    "format-bluetooth": "<span rise='500'>󰂰 </span>󰥰 {volume}{format_source}",
+    "format-bluetooth-muted": "<span rise='500'>󰂲 </span>Mute",
+    "format-source": "<span rise='500'>󰍬</span>{volume}",
+    "format-source-muted": "<span rise='500'>󰍭 </span>",
+    "format-icons": {
+      "headphone": "󰋎 ",
+      "hands-free": "",
+      "headset": "󰋎 ",
+      "phone": "󰏲 ",
+      "portable": "󰏲 ",
+      "car": " ",
+      "default": [
+        "",
+        " ",
+        " "
+      ]
+    },
+    "scroll-step": 5.0,
+    "on-click": "pamixer -t",
+    "on-click-right": "kitty --class update -T update -e pulsemixer",
+    "on-click-middle": "pavucontrol",
+    "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
+    "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
+    "smooth-scrolling-threshold": 1
+  },
+  "custom/cputemp": {
+    "format": "<span rise='500'></span>{}",
+    "exec": "~/.config/hypr/scripts/cputemp",
+    "interval": 15
+  },
+  "tray": {
+    "icon-size": {},
+    "spacing": 5
+  },
+  "hyprland/window": {
+    "format": "<span rise='500'>⁙</span> {} <span rise='500'>⁙</span>",
+    "separate-outputs": true
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "<span color='#f38ba8'>󰒲 </span>",
+      "deactivated": "<span font='10'>󰒳 </span>"
+    }
+  },
+  "custom/waybar-mpris": {
+    "return-type": "json",
+    "exec": "waybar-mpris --position --autofocus --order 'SYMBOL:POSITION' --separator string '⁙'",
+    "on-click": "waybar-mpris --send toggle",
+    "on-click-right": "waybar-mpris --send player-next",
+    "on-scroll-up": "waybar-mpris --send next",
+    "on-scroll-down": "waybar-mpris --send prev",
+    "escape": true
+  },
+  "custom/appmenu": {
+    "format": "<span rise='500'>󰍜 </span>",
+    "on-click": "~/.config/nwg-panel/nwg_menu_launcher.sh",
+    "on-click-right": "vicinae",
+    "tooltip": false
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "custom/right_slant": {
+    "format": "🭡 ",
+    "tooltip": false
+  },
+  "custom/left_slant": {
+    "format": "🭅",
+    "tooltip": false
+  }
+}

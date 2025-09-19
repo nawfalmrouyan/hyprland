@@ -1,16 +1,45 @@
 {
-  "include": "~/.config/hypr/waybar/modules",
   "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "height": 30,
+  "margin-top": 0,
+  "margin-bottom": 2,
   "exclusive": true,
   "passthrough": false,
-  "position": "top",
-  "fixed-center": false,
-  "spacing": 3,
   "gtk-layer-shell": true,
-  //"margin": 3,
+  "reload_style_on_change": true,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/submap", "cpu", "custom/cputemp", "memory", "disk", "custom/waybar-mpris"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["idle_inhibitor", "custom/uptime", "backlight", "wireplumber", "custom/vpn_check", "network", "battery", "custom/updater", "tray", "clock", "custom/power"],
+  "include": "~/.config/hypr/waybar/modules.json",
 
+  "modules-left": [
+    "custom/appmenu",
+    "group/r-apps",
+    "group/l-workspaces",
+    "hyprland/workspaces",
+    "group/r-workspaces",
+    "group/l-system",
+    "group/system",
+    "group/r-system"
+  ],
+
+  "modules-center": [
+    "group/l-window",
+    "hyprland/window",
+    "group/r-window",
+  ],
+
+  "modules-right": [
+    "group/l-submap",
+    "hyprland/submap",
+    "group/r-submap",
+    "group/l-misc",
+    "group/misc",
+    "group/r-misc",
+    "group/l-devices",
+    "group/devices",
+    "group/r-devices",
+    "group/l-time",
+    "group/time"
+  ]
 }

@@ -1,45 +1,96 @@
 @import "mocha.css";
 
+@define-color foreground @text;
+@define-color background @base;
+/* waybar area/group colors */
+@define-color apps rgba(0, 0, 0, 0.6);
+@define-color workspaces rgba(0, 0, 0, 0.4);
+@define-color system rgba(0, 0, 0, 0.6);
+@define-color window rgba(0, 0, 0, 0.4);
+@define-color submap rgba(0, 0, 0, 0.6);
+@define-color misc rgba(0, 0, 0, 0.4);
+@define-color devices rgba(0, 0, 0, 0.6);
+@define-color time rgba(0, 0, 0, 0.4);
+/* workspace text colors */
+@define-color workspace_fg @foreground;
+@define-color active_workspace_fg rgba(0, 0, 0, 1);
+@define-color use_workspace_fg @peach;
+/* workspace button-background colors */
+@define-color workspace_bg rgba(0, 0, 0, 0.6);
+@define-color active_workspace_bg @mauve;
+/* text colors */
+@define-color cpu_fg @red;
+@define-color cputemp_fg @peach;
+@define-color memory_fg @yellow;
+@define-color disk_fg @pink;
+@define-color window_fg @mauve;
+@define-color submap_fg @teal;
+@define-color idle_inhibitor_fg @sky;
+@define-color uptime_fg @rosewater;
+@define-color weather_fg @mauve;
+@define-color vpn_check_fg @flamingo;
+@define-color network_fg @green;
+@define-color bluetooth_fg @blue;
+@define-color wireplumber_fg @lavender;
+@define-color updater_fg @yellow;
+@define-color backlight_fg @peach;
+@define-color battery_fg @yellow;
+@define-color clock_fg @pink;
+
 * {
-  font-family:
-    Symbols Nerd Font,
-    Pragmasevka;
+  font-family: "Symbols Nerd Font", "PragmataProLiga Nerd Font";
   font-size: 15px;
-  border: none;
-  border-radius: 0px;
-  min-height: 0;
-  /* margin: 1px; */
+  font-weight: bold;
+  min-height: 16px;
 }
 
 window#waybar {
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  background: @theme_base_color;
-  /* border: 3px solid @overlay0; */
-  /* border-radius: 0px; */
-  /* padding: 5px; */
-  /* margin: 0; */
+  color: @foreground;
+  background: transparent;
 }
 
-window#waybar.hidden {
-  opacity: 0.5;
+tooltip {
+  color: @foreground;
+  background: @background;
+  border-radius: 7px;
+  border-width: 0px;
 }
 
-#waybar.empty #window {
-  background: none;
+#workspaces {
+  padding: 3px 3px;
 }
 
-/* .modules-left, .modules-center, .modules-right { */
-/*   background: @theme_base_color; */
-/*   border: 3px solid @overlay0; */
-/*   padding: 0px 5px; */
-/*   border-radius: 5; */
-/* } */
+#workspaces button:hover {
+}
 
-/* .modules-center { */
-/* border: 3px solid @lavender; */
-/* margin: 0px 5px; */
-/* } */
+#workspaces button.active {
+  color: @active_workspace_fg;
+  background: @active_workspace_bg;
+  border: none;
+  padding: 1px 1px;
+  margin: 1px 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button {
+  color: @workspace_fg;
+  background: @workspace_bg;
+  padding: 1px 1px;
+  margin: 1px 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:not(.empty):not(.active) {
+  color: @use_workspace_fg;
+  padding: 1px 1px;
+  margin: 1px 1px;
+}
+
+#clock {
+  color: @clock_fg;
+  padding: 2px 10px 0px 10px;
+  opacity: 1;
+}
 
 #idle_inhibitor,
 #backlight,
@@ -51,7 +102,6 @@ window#waybar.hidden {
 #memory,
 #tray,
 #wireplumber,
-#custom-menu,
 #custom-power,
 #custom-weather,
 #custom-updater,
@@ -61,53 +111,179 @@ window#waybar.hidden {
 #custom-waybar-mpris,
 #window,
 #submap,
+#bluetooth,
 #network {
-  padding: 0px 2px;
+  padding: 0px 5px;
 }
 
+#l-apps, #r-apps, #l-workspaces, #r-workspaces, #l-system, #r-system, #l-window, #r-window, #l-submap, #r-submap, #l-misc, #r-misc, #l-devices, #r-devices, #l-time, #r-time {
+  background: transparent;
+  min-height: 0px;
+}
+
+#l-apps {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @apps;
+  margin-left: 0px;
+}
+
+#r-apps {
+  border-left: 15px solid @apps;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#custom-appmenu {
+  background: @apps;
+  font-size: 19px;
+  padding-left: 7px;
+  padding-right: 5px;
+}
+
+#l-workspaces {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @workspaces;
+  margin-left: 0px;
+}
+
+#r-workspaces {
+  border-left: 15px solid @workspaces;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#workspaces {
+  background: @workspaces;
+}
+
+#l-system {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @system;
+  margin-left: 0px;
+}
+
+#r-system {
+  border-left: 15px solid @system;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#system {
+  background: @system;
+}
+
+#l-window {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @window;
+  margin-left: 0px;
+}
+
+#r-window {
+  border-left: 15px solid @window;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#window {
+  background: @window;
+  color: @window_fg;
+}
+
+#l-submap {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @submap;
+  margin-left: 0px;
+}
+
+#r-submap {
+  border-left: 15px solid @submap;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#submap {
+  background: @submap;
+  color: @submap_fg;
+}
+
+#l-misc {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @misc;
+  margin-left: 0px;
+}
+
+#r-misc {
+  border-left: 15px solid @misc;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#misc {
+  background: @misc;
+}
+
+#l-devices {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @devices;
+  margin-left: 0px;
+}
+
+#r-devices {
+  border-left: 15px solid @devices;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#devices {
+  background: @devices;
+}
+
+
+#l-time {
+  border-left: 15px solid transparent;
+  border-bottom: 30px solid @time;
+  margin-left: 0px;
+}
+
+#r-time {
+  border-left: 15px solid @time;
+  border-bottom: 30px solid transparent;
+  margin-right: 0px;
+}
+
+#time {
+  background: @time;
+}
+
+
+
+
 #idle_inhibitor {
-  color: @blue;
+  color: @idle_inhibitor_fg;
 }
 
 #backlight {
-  color: @blue;
+  color: @backlight_fg;
 }
 
 #battery {
-  color: @green;
-}
-
-@keyframes blink {
-  to {
-    color: @surface0;
-  }
-}
-
-#battery.critical:not(.charging) {
-  background-color: @red;
-  color: @theme_text_color;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  box-shadow: inset 0 -3px transparent;
-}
-
-#clock {
-  color: @yellow;
+  color: @battery_fg;
 }
 
 #cpu {
-  color: @green;
+  color: @cpu_fg;
 }
 
 #memory {
-  color: @sky;
+  color: @memory_fg;
 }
 
 #disk {
-  color: @sapphire;
+  color: @disk_fg;
+}
+
+#custom-cputemp {
+  color: @cputemp_fg;
 }
 
 #tray > .passive {
@@ -118,69 +294,29 @@ window#waybar.hidden {
   -gtk-icon-effect: highlight;
 }
 
-#workspaces button {
-  border-radius: 0px;
-  margin: 3px;
-  padding: 3px;
-}
-
-#workspaces button:hover {
-  border-radius: 0px;
-  color: @overlay0;
-  background-color: @surface0;
-}
-
-#workspaces button.persistent {
-  color: @surface1;
-  border-radius: 0px;
-}
-
-#workspaces button.active {
-  color: @peach;
-  border-radius: 0px;
-}
-
-#workspaces button.urgent {
-  color: @red;
-  border-radius: 0px;
-}
-
-#workspaces button:not(.empty):not(.active) {
-  color: @mauve;
-  border-radius: 0px;
-}
-
-#custom-menu {
-  color: @rosewater;
-}
-
 #custom-power {
   color: @red;
   margin-right: 3px;
 }
 
 #custom-updater {
-  color: @red;
+  color: @updater_fg;
 }
 
 #custom-uptime {
-  color: @blue;
+  color: @uptime_fg;
 }
 
 #custom-weather {
-  color: @lavender;
+  color: @weather_fg;
 }
 
 #custom-vpn_check {
-  color: @sky;
-}
-
-#custom-cputemp {
-  color: @teal;
+  color: @vpn_check_fg;
 }
 
 #wireplumber {
-  color: @sapphire;
+  color: @wireplumber_fg;
 }
 
 #wireplumber.bluetooth {
@@ -191,16 +327,16 @@ window#waybar.hidden {
   color: @red;
 }
 
-#window {
-  color: @mauve;
-}
-
 #custom-waybar-mpris {
   color: @lavender;
 }
 
 #network {
-  color: @teal;
+  color: @network_fg;;
+}
+
+#bluetooth {
+  color: @bluetooth_fg;
 }
 
 #network.disconnected,

@@ -1,58 +1,68 @@
-max-history=100
 sort=-time
-
-# BINDING OPTIONS
-on-button-left=dismiss
-on-button-middle=none
-on-button-right=dismiss-all
-on-touch=dismiss
-on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
-
-# STYLE OPTIONS
-font=Pragmasevka
-width=300
-height=100
-margin=10
-padding=15
-border-size=2
-border-radius=5
-icons=1
-max-icon-size=48
-icon-location=left
-markup=1
-actions=1
-history=1
-text-alignment=left
-default-timeout=5000
-ignore-timeout=0
-max-visible=5
 layer=overlay
-anchor=bottom-right
+history=1
+max-history=50
+max-visible=-1
 
-background-color=#1e1e2e
-text-color=#cdd6f4
-border-color=#89b4fa
-progress-color=over #313244
+on-button-right=exec makoctl dismiss -a
+# on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
-# background-color=#1e1e2e
-# text-color=#d9e0ee
-# border-color=#313244
-# progress-color=over #89b4fa
+anchor=top-right
+width=400
+height=300
+padding=8
+margin=10
+background-color=#0B0D2B80
+border-color=#4E7286
+border-size=1
+border-radius=0
+
+font=PragmataProLiga Nerd Font 12
+text-color=#E5CFC1
+text-alignment=left
+markup=1
+format=<b>%s</b>\n%b\n\n <small>Von %a</small>
+
+icons=1
+icon-location=left
+max-icon-size=64
+
+default-timeout=10000
+ignore-timeout=1
+
+[mode=do-not-disturb]
+invisible=1
+default-timeout=0
 
 [urgency=low]
-border-color=#313244
-default-timeout=2000
+border-color=#4E7286
+background-color=#0B0D2B
 
 [urgency=normal]
-border-color=#313244
-default-timeout=5000
+border-color=#4E7286
+background-color=#0B0D2B
 
 [urgency=high]
-border-color=#f38ba8
-text-color=#f38ba8
+border-color=#4E7286
+background-color=#0B0D2B
 default-timeout=0
 
 [category=mpd]
-border-color=#f9e2af
 default-timeout=2000
 group-by=category
+
+[summary~=Volume:]
+anchor=center
+width=300
+border-size=0
+font=PragmataProLiga Nerd Font 20
+text-alignment=left
+format=<b>%s</b>\n%b
+
+[summary~=Helligkeit:]
+anchor=center
+width=300
+border-size=0
+font=PragmataProLiga Nerd Font 20
+text-alignment=left
+format=<b>%s</b>\n%b

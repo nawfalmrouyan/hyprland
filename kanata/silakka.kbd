@@ -28,10 +28,10 @@ mralt (tap-hold $tap-time $hold-time scln ralt)
 )
 
 (deflayer base
-  @mlalt @mlmet @mlsft @mlctl g h @mrctl @mrsft @mrmet @mralt
+  @mlalt @mlmet @mlsft @mlctl @mrctl @mrsft @mrmet @mralt
 )
 
 (defchordsv2
-  (spc j k) C-\ $chord-time first-release () ;; tmux prefix
-  (spc d f) (cmd hyprctl dispatch exec vicinae) $chord-time first-release () ;; vicinae
+  (spc j k) C-\ $chords-time first-release () ;; tmux prefix
+  (spc d f) (cmd hyprctl dispatch exec vicinae) $chords-time first-release () ;; vicinae
 )
