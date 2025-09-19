@@ -30,13 +30,8 @@
   ],
 
   "modules-right": [
-    "group/l-submap",
-    "hyprland/submap",
-    "group/r-submap",
     "group/l-misc",
     "group/misc",
-    "group/r-misc",
-    "group/l-devices",
     "group/devices",
     "group/r-devices",
     "group/l-time",

@@ -202,13 +202,12 @@ tooltip {
 }
 
 #submap {
-  background: @submap;
   color: @submap_fg;
 }
 
 #l-misc {
   border-left: 15px solid transparent;
-  border-bottom: 30px solid @misc;
+  border-bottom: 30px solid @system;
   margin-left: 0px;
 }
 
@@ -219,7 +218,7 @@ tooltip {
 }
 
 #misc {
-  background: @misc;
+  background: @system;
 }
 
 #l-devices {

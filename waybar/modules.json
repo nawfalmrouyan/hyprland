@@ -2,6 +2,7 @@
   "group/time": {
     "orientation": "horizontal",
     "modules": [
+      "idle_inhibitor",
       "tray",
       "clock",
       "custom/power"
@@ -15,9 +16,9 @@
       "transition-right-to-left": false
     },
     "modules": [
-      "idle_inhibitor",
-      "custom/updater",
+      "hyprland/submap",
       "custom/weather",
+      "custom/updater",
       "custom/vpn_check",
       "custom/uptime"
     ]
@@ -127,8 +128,9 @@
     "interval": 60,
     "align": 0,
     "rotate": 0,
-    "format": "{:%d %b <span rise='1000'>⁙</span> %I:%M %p}",
-    "format-alt": "{:%A <span rise='1000'>⁙</span> %d %B %Y <span rise='1000'>⁙</span> %I:%M %p}",
+    // "format": "{:%d %b <span rise='500'>⁙</span> %I:%M %p}",
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%A <span rise='500'>⁙</span> %d %B %Y <span rise='500'>⁙</span> %I:%M %p}",
     "timezone": "Asia/Kuala_Lumpur",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
