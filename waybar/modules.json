@@ -17,6 +17,7 @@
     },
     "modules": [
       "hyprland/submap",
+      "power-profiles-daemon",
       "custom/weather",
       "custom/updater",
       "custom/vpn_check",
@@ -262,7 +263,7 @@
     "interval": 15
   },
   "tray": {
-    "icon-size": {},
+    "icon-size": 13,
     "spacing": 5
   },
   "hyprland/window": {
@@ -299,5 +300,16 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}{profile}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": " ",
+      "performance": " ",
+      "balanced": " ",
+      "power-saver": " "
+    }
   }
 }
