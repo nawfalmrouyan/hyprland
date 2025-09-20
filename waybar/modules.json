@@ -244,15 +244,15 @@
       "portable": "󰏲 ",
       "car": " ",
       "default": [
-        "",
+        " ",
         " ",
         " "
       ]
     },
     "scroll-step": 5.0,
     "on-click": "pamixer -t",
-    "on-click-right": "kitty --class update -T update -e pulsemixer",
-    "on-click-middle": "pavucontrol",
+    "on-click-right": "hyprctl dispatch togglespecialworkspace pulsemixer",
+    "on-click-middle": "hyprctl dispatch togglespecialworkspace trash",
     "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
     "smooth-scrolling-threshold": 1
