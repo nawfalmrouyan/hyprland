@@ -177,7 +177,8 @@
   "disk": {
     "interval": 30,
     "format": "<span rise='500'>󰋊 </span>{percentage_used}%",
-    "format-alt": "<span rise='500'>󰋊 </span>{free}"
+    "format-alt": "<span rise='500'>󰋊 </span>{free}",
+    "on-click-right": "nemo"
   },
   "memory": {
     "interval": 10,

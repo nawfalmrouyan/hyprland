@@ -24,6 +24,7 @@
 @define-color memory_fg @yellow;
 @define-color disk_fg @pink;
 @define-color window_fg @mauve;
+@define-color scroller-mode_fg @mauve;
 @define-color submap_fg @teal;
 @define-color idle_inhibitor_fg @sky;
 @define-color uptime_fg @rosewater;
@@ -38,7 +39,7 @@
 @define-color clock_fg @pink;
 
 * {
-  font-family: "Symbols Nerd Font", "PragmataProLiga Nerd Font";
+  font-family: "Symbols Nerd Font Mono", "PragmataPro Mono Liga";
   font-size: 13px;
   font-weight: bold;
   min-height: 16px;
@@ -343,4 +344,9 @@ tooltip {
 #network.disabled {
   background-color: @surface0;
   color: @text;
+}
+
+#custom-scroller-mode {
+  color: @scroller-mode_fg;
+  margin-right: 3px;
 }
