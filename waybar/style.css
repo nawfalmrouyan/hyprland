@@ -24,7 +24,7 @@
 @define-color memory_fg @yellow;
 @define-color disk_fg @pink;
 @define-color window_fg @mauve;
-@define-color scroller-mode_fg @mauve;
+@define-color hyprscroller_fg @mauve;
 @define-color submap_fg @teal;
 @define-color idle_inhibitor_fg @sky;
 @define-color uptime_fg @rosewater;
@@ -113,7 +113,7 @@ tooltip {
 #window,
 #submap,
 #bluetooth,
-#custom-scroller-mode,
+#custom-hyprscroller,
 #network {
   padding: 0px 5px;
 }
@@ -346,7 +346,7 @@ tooltip {
   color: @text;
 }
 
-#custom-scroller-mode {
-  color: @scroller-mode_fg;
+#custom-hyprscroller {
+  color: @hyprscroller_fg;
   margin-right: 3px;
 }

@@ -30,7 +30,7 @@
   ],
 
   "modules-right": [
-    "custom/scroller-mode",
+    "custom/hyprscroller",
     "group/l-misc",
     "group/misc",
     "group/devices",

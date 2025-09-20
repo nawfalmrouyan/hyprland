@@ -313,12 +313,12 @@
       "power-saver": " "
     }
   },
-  "custom/scroller-mode": {
-    "exec": "~/.config/hypr/scripts/scroller_mode_reader.sh",
+  "custom/hyprscroller": {
+    "exec": "cat /tmp/hyprscroller-mode",
     "return-type": "json",
     "interval": "once",
     "signal": 8,
-    "on-click": "hyprctl dispatch submap reset && pkill -SIGRTMIN+8 waybar",
+    "on-click": "bash $HOME/.config/hypr/plugins/scrollertoggle.sh",
     "format": "{icon}",
     "format-icons": [
       "",
