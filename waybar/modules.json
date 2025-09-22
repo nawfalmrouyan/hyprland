@@ -18,7 +18,7 @@
     "modules": [
       "hyprland/submap",
       "power-profiles-daemon",
-      "custom/weather",
+      //"custom/weather",
       "custom/updater",
       "custom/vpn_check",
       "custom/uptime"
@@ -62,7 +62,7 @@
     "format": "<span rise='500'>󰌌 </span>{}",
     "max-length": 30,
     "tooltip": false,
-    "always-on": true
+    "always-on": false
   },
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -213,7 +213,8 @@
     "on-click": "hyprctl dispatch togglespecialworkspace update"
   },
   "custom/uptime": {
-    "format": "<span rise='500'> </span>{}",
+    //"format": "<span rise='500'> </span>{}",
+    "format": "{}",
     "exec": "$HOME/.config/hypr/scripts/upt",
     "interval": 60
   },
