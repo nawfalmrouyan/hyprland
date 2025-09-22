@@ -12,11 +12,12 @@
 )
 
 (defsrc
-  a s d f j k l scln
+  tab a s d f j k l scln
 )
 
 ;; home row mods
 (defalias
+mtab (tap-hold $tap-time $hold-time tab lmet)
 mlalt (tap-hold $tap-time $hold-time a lalt)
 mlmet (tap-hold $tap-time $hold-time s lmet)
 mlsft (tap-hold $tap-time $hold-time d lsft)
@@ -28,7 +29,7 @@ mralt (tap-hold $tap-time $hold-time scln ralt)
 )
 
 (deflayer base
-  @mlalt @mlmet @mlsft @mlctl @mrctl @mrsft @mrmet @mralt
+  @mtab @mlalt @mlmet @mlsft @mlctl @mrctl @mrsft @mrmet @mralt
 )
 
 (defchordsv2
