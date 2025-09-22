@@ -39,9 +39,10 @@
 @define-color clock_fg @pink;
 
 * {
-  font-family: "Symbols Nerd Font Mono", "PragmataPro Mono Liga";
+  /* font-family: "JetBrainsMono NFP Medium,Symbols Nerd Font Mono", "PragmataPro Mono Liga"; */
+  font-family: "PragmataPro Mono Liga", "JetBrainsMono NFP Medium";
   font-size: 13px;
-  font-weight: bold;
+  /* font-weight: bold; */
   min-height: 16px;
 }
 

@@ -47,7 +47,7 @@
     "align": 0,
     "rotate": 0,
     "tooltip-format": "{percent}",
-    "format": "<span rise='500'>{icon}</span>{percent}",
+    "format": "{icon}{percent}",
     "format-icons": [
       "󰃞 ",
       "󰃝 ",
@@ -59,7 +59,7 @@
     "smooth-scrolling-threshold": 1
   },
   "hyprland/submap": {
-    "format": "<span rise='500'>󰌌 </span>{}",
+    "format": "󰌌 {}",
     "max-length": 30,
     "tooltip": false,
     "always-on": false
@@ -109,11 +109,11 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "<span rise='500'>{icon}</span> {capacity}",
-    "format-charging": "<span rise='500'>󰂄</span> {capacity}",
-    "format-plugged": "<span rise='500'>󱐥</span> {capacity}",
-    "format-full": "<span rise='500'>{icon}</span>",
-    "format-alt": "<span rise='500'>{icon}</span>{time}",
+    "format": "{icon} {capacity}",
+    "format-charging": "󰂄 {capacity}",
+    "format-plugged": "󱐥 {capacity}",
+    "format-full": "{icon}",
+    "format-alt": "{icon}{time}",
     "format-icons": [
       "󰁻",
       "󰁽",
@@ -129,9 +129,9 @@
     "interval": 60,
     "align": 0,
     "rotate": 0,
-    // "format": "{:%d %b <span rise='500'>⁙</span> %I:%M %p}",
+    // "format": "{:%d %b ⁙ %I:%M %p}",
     "format": "{:%I:%M %p}",
-    "format-alt": "{:%A <span rise='500'>⁙</span> %d %B %Y <span rise='500'>⁙</span> %I:%M %p}",
+    "format-alt": "{:%A ⁙ %d %B %Y ⁙ %I:%M %p}",
     "timezone": "Asia/Kuala_Lumpur",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -151,8 +151,8 @@
   },
   "cpu": {
     "interval": 5,
-    "format": "<span font='10' rise='500'> </span>{usage}%",
-    "format-alt": "<span font='10' rise='4000'>{icon0}{icon1}{icon2}{icon3}</span> <span font='11'rise='1000'>{usage:>2}%</span>",
+    "format": " {usage}%",
+    "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}%",
     "format-icons": [
       "▁",
       "▂",
@@ -165,35 +165,35 @@
     ]
   },
   "custom/menu": {
-    "format": "<span rise='500'>󰍜 </span>",
+    "format": "󰍜 ",
     "tooltip": false,
     "on-click": "$HOME/.config/hypr/scripts/menu"
   },
   "custom/power": {
-    "format": "<span rise='500'> </span>",
+    "format": " ",
     "tooltip": false,
     "on-click": "~/.config/hypr/scripts/wlogout.sh"
   },
   "disk": {
     "interval": 30,
-    "format": "<span rise='500'>󰋊 </span>{percentage_used}%",
-    "format-alt": "<span rise='500'>󰋊 </span>{free}",
+    "format": "󰋊 {percentage_used}%",
+    "format-alt": "󰋊 {free}",
     "on-click-right": "nemo"
   },
   "memory": {
     "interval": 10,
-    "format": "<span rise='500'> </span>{used:0.1f}G",
-    "format-alt": "<span rise='500'> </span>{}%"
+    "format": " {used:0.1f}G",
+    "format-alt": " {}%"
   },
   "network": {
     "interval": 5,
-    "format-wifi": "<span rise='500'>󰖩 </span>",
-    "format-ethernet": "<span rise='500'>󰈀 </span>",
-    "format-linked": "<span rise='500'>󰈀 </span>{ifname} (No IP)",
-    "format-disconnected": "<span rise='500'>󱚵 </span>Disconnected",
-    "format-disabled": "<span rise='500'>󰖪 </span>Disabled",
-    //"format-alt": "<span rise='500'> </span>{bandwidthUpBits} | <span rise='500'> </span>{bandwidthDownBits}",
-    "tooltip-format": "<span rise='500'> </span>{ifname} {essid} via {gwaddr} ({signalStrength}%)",
+    "format-wifi": "󰖩 ",
+    "format-ethernet": "󰈀 ",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󱚵  Disconnected",
+    "format-disabled": "󰖪 Disabled",
+    //"format-alt": " {bandwidthUpBits} |  {bandwidthDownBits}",
+    "tooltip-format": " {ifname} {essid} via {gwaddr} ({signalStrength}%)",
     "on-click-middle": "~/.local/bin/mmuvpnc up cbj",
     "on-click": "nmgui",
     "on-click-right": "hyprctl dispatch togglespecialworkspace whatsapp"
@@ -213,7 +213,7 @@
     "on-click": "hyprctl dispatch togglespecialworkspace update"
   },
   "custom/uptime": {
-    //"format": "<span rise='500'> </span>{}",
+    //"format": " {}",
     "format": "{}",
     "exec": "$HOME/.config/hypr/scripts/upt",
     "interval": 60
@@ -224,20 +224,20 @@
     "tooltip-format": "Change wallpaper"
   },
   "custom/vpn_check": {
-    "format": "<span rise='500'>󱇲 </span>{}",
+    "format": "󱇲 {}",
     "exec": "~/.config/hypr/scripts/vpnCheck",
     "interval": 120,
     "on-click": "~/.local/bin/mmuvpn restart",
     "on-click-right": "~/.local/bin/mmuvpn down"
   },
   "wireplumber": {
-    "format": "<span rise='500'>{icon}</span>{volume}",
+    "format": "{icon}{volume}",
     "tooltip-format": "{volume}",
-    "format-muted": "<span rise='500'>󰝟 </span>",
-    "format-bluetooth": "<span rise='500'>󰂰 </span>󰥰 {volume}{format_source}",
-    "format-bluetooth-muted": "<span rise='500'>󰂲 </span>Mute",
-    "format-source": "<span rise='500'>󰍬</span>{volume}",
-    "format-source-muted": "<span rise='500'>󰍭 </span>",
+    "format-muted": "󰝟 ",
+    "format-bluetooth": "󰂰 󰥰 {volume}{format_source}",
+    "format-bluetooth-muted": "󰂲 Mute",
+    "format-source": "󰍬{volume}",
+    "format-source-muted": "󰍭 ",
     "format-icons": {
       "headphone": "󰋎 ",
       "hands-free": "",
@@ -260,7 +260,7 @@
     "smooth-scrolling-threshold": 1
   },
   "custom/cputemp": {
-    "format": "<span rise='500'> </span>{}",
+    "format": " {}",
     "exec": "~/.config/hypr/scripts/cputemp",
     "interval": 15
   },
@@ -269,14 +269,14 @@
     "spacing": 5
   },
   "hyprland/window": {
-    "format": "<span rise='500'>⁙</span> {} <span rise='500'>⁙</span>",
+    "format": "⁙ {} ⁙",
     "separate-outputs": true
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "<span color='#f38ba8'>󰒲 </span>",
-      "deactivated": "<span font='10'>󰒳 </span>"
+      "deactivated": "󰒳 "
     }
   },
   "custom/waybar-mpris": {
@@ -289,7 +289,7 @@
     "escape": true
   },
   "custom/appmenu": {
-    "format": "<span rise='500'>󰍜 </span>",
+    "format": "󰍜 ",
     "on-click": "~/.config/nwg-panel/nwg_menu_launcher.sh",
     "on-click-right": "vicinae",
     "tooltip": false
