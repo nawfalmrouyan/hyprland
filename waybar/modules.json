@@ -289,7 +289,7 @@
     "escape": true
   },
   "custom/appmenu": {
-    "format": "󰍜 ",
+    "format": " ",
     "on-click": "~/.config/nwg-panel/nwg_menu_launcher.sh",
     "on-click-right": "vicinae",
     "tooltip": false
@@ -319,11 +319,11 @@
     "return-type": "json",
     "interval": "once",
     "signal": 8,
-    "on-click": "bash $HOME/.config/hypr/plugins/scrollertoggle.sh",
+    "on-click": "bash $HOME/.config/hypr/scripts/scroller_toggle.sh",
     "format": "{icon}",
     "format-icons": [
-      "",
-      ""
+      " ",
+      " "
     ]
   }
 }
