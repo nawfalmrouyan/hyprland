@@ -1,11 +1,8 @@
-bind = $mainMod, W, exec, $browser
-
 bindl = , xf86calculator, exec, rofi -show calc
 bindl = , xf86favourites, exec, remmina
 bindl = , xf86pickupphone, exec, hyprctl dispatch togglespecialworkspace whatsapp
 bindl = , xf86hangupphone, exec, hyprctl dispatch togglespecialworkspace trash
 
-# workspace = 11, on-created-empty:$browser
 bind = $mainMod, W, exec, $browser
 bind = $mainMod SHIFT, A, exec, [workspace 2 silent] app2unit --  microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland --profile-directory="Profile 2"
 bind = $mainMod ALT, A, exec, [workspace 2 silent] app2unit --  microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland --profile-directory="Profile 1"
