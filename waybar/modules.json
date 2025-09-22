@@ -2,7 +2,6 @@
   "group/time": {
     "orientation": "horizontal",
     "modules": [
-      "idle_inhibitor",
       "tray",
       "clock",
       "custom/power"
@@ -16,7 +15,7 @@
       "transition-right-to-left": false
     },
     "modules": [
-      "hyprland/submap",
+      "idle_inhibitor",
       "power-profiles-daemon",
       //"custom/weather",
       "custom/updater",
@@ -36,6 +35,7 @@
   "group/devices": {
     "orientation": "horizontal",
     "modules": [
+      "hyprland/submap",
       "network",
       "wireplumber",
       "backlight",
