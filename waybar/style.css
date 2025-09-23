@@ -48,7 +48,7 @@
 
 window#waybar {
   color: @foreground;
-  background: transparent;
+  background: @surface0;
 }
 
 tooltip {
