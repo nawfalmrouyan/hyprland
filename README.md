@@ -1,4 +1,6 @@
-<h1 align="center">Hyprland on ArcoLinux</h1>
+I am currently using [Hyprscroller](https://github.com/cpiber/hyprscroller) and changed to [hyprscroller branch](https://github.com/nawfalmrouyan/hyprland/tree/hyprscroller)
+
+<h1 align="center">Hyprland on ArchLinux</h1>
 
 <div align="center">
 <img src="https://img.shields.io/github/last-commit/nawfalmrouyan/hyprland?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
