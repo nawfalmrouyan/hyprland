@@ -177,6 +177,11 @@ tooltip {
   background: @system;
 }
 
+#windowcount {
+  color: @windowcount_fg;
+  margin-right: 3px;
+}
+
 #l-window {
   border-left: 15px solid transparent;
   border-bottom: 30px solid @window;
@@ -187,6 +192,15 @@ tooltip {
   border-left: 15px solid @window;
   border-bottom: 30px solid transparent;
   margin-right: 0px;
+}
+
+#custom-hyprscroller {
+  color: @hyprscroller_fg;
+  margin-right: 3px;
+}
+
+#idle_inhibitor {
+  color: @idle_inhibitor_fg;
 }
 
 #window {
@@ -259,12 +273,6 @@ tooltip {
   background: @time;
 }
 
-
-
-
-#idle_inhibitor {
-  color: @idle_inhibitor_fg;
-}
 
 #backlight {
   color: @backlight_fg;
@@ -347,14 +355,4 @@ tooltip {
 #network.disabled {
   background-color: @surface0;
   color: @text;
-}
-
-#custom-hyprscroller {
-  color: @hyprscroller_fg;
-  margin-right: 3px;
-}
-
-#windowcount {
-  color: @windowcount_fg;
-  margin-right: 3px;
 }
