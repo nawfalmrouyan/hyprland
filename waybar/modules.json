@@ -275,8 +275,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "<span color='#f38ba8'>󰒲 </span>",
-      "deactivated": "󰒳 "
+      "activated": "<span color='#f38ba8'>󰒳 </span>",
+      "deactivated": "󰒲 "
     }
   },
   "custom/waybar-mpris": {
