@@ -71,16 +71,16 @@
       "1": "1",
       "2": "2",
       "3": "3",
-      "4": "4",
-      "5": "1",
-      "6": "2",
-      "7": "3",
-      "8": "4",
+      "4": "1",
+      "5": "2",
+      "6": "3"
+      //"7": "3",
+      //"8": "4",
       //"9": "9",
       //"10": "1",
       //"11": "2",
       //"12": "3",
-      //"13": "4"
+      //"13": "4",
       //"14": "5",
       //"15": "6",
       //"16": "7",
@@ -93,7 +93,7 @@
     "show-special": false,
     "persistent-only": true,
     "persistent-workspaces": {
-      "*": 4
+      "*": 3
     },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
@@ -322,8 +322,15 @@
     "on-click": "bash $HOME/.config/hypr/scripts/scroller_toggle.sh",
     "format": "{icon}",
     "format-icons": [
-      " ",
-      " "
+      "",
+      ""
     ]
+  },
+  "hyprland/windowcount": {
+    "format": "[{}]",
+    "format-empty": "[]",
+    "separate-outputs": true,
+    "on-click": "hyprctl dispatch scroller:toggleoverview",
+    "on-click-right": "hyprctl dispatch scroller:jump"
   }
 }

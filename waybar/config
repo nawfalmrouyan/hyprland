@@ -20,7 +20,8 @@
     "group/r-workspaces",
     "group/l-system",
     "group/system",
-    "group/r-system"
+    "group/r-system",
+    "hyprland/windowcount"
   ],
 
   "modules-center": [

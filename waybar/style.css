@@ -23,6 +23,7 @@
 @define-color cputemp_fg @peach;
 @define-color memory_fg @yellow;
 @define-color disk_fg @pink;
+@define-color windowcount_fg @mauve;
 @define-color window_fg @mauve;
 @define-color hyprscroller_fg @mauve;
 @define-color submap_fg @teal;
@@ -115,6 +116,7 @@ tooltip {
 #submap,
 #bluetooth,
 #custom-hyprscroller,
+#windowcount,
 #network {
   padding: 0px 5px;
 }
@@ -349,5 +351,10 @@ tooltip {
 
 #custom-hyprscroller {
   color: @hyprscroller_fg;
+  margin-right: 3px;
+}
+
+#windowcount {
+  color: @windowcount_fg;
   margin-right: 3px;
 }
