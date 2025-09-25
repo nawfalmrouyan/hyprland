@@ -179,7 +179,6 @@ tooltip {
 
 #windowcount {
   color: @windowcount_fg;
-  margin-right: 3px;
 }
 
 #l-window {
@@ -194,6 +193,11 @@ tooltip {
   margin-right: 0px;
 }
 
+#window {
+  background: @window;
+  color: @window_fg;
+}
+
 #custom-hyprscroller {
   color: @hyprscroller_fg;
   margin-right: 3px;
@@ -201,11 +205,6 @@ tooltip {
 
 #idle_inhibitor {
   color: @idle_inhibitor_fg;
-}
-
-#window {
-  background: @window;
-  color: @window_fg;
 }
 
 #l-submap {
