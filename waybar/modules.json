@@ -270,7 +270,9 @@
   },
   "hyprland/window": {
     "format": "⁙ {} ⁙",
-    "separate-outputs": true
+    "separate-outputs": true,
+    "on-click": "hyprctl dispatch exec /home/opal/.config/hypr/scripts/cycle.sh next",
+    "on-click-right": "hyprctl dispatch exec /home/opal/.config/hypr/scripts/cycleSpecial.sh next"
   },
   "idle_inhibitor": {
     "format": "{icon}",
