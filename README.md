@@ -7,110 +7,13 @@
 </div>
 
 ## 🌟 Preview
-![image](https://github.com/user-attachments/assets/362dcc0d-d4ea-4967-9f94-6541a83190fb)
-
-![image](https://github.com/user-attachments/assets/6cf67aa8-2069-4f3d-9cf8-56e6894f8c08)
-
-![image](https://github.com/user-attachments/assets/e0435737-88ed-4f20-acb2-88708c67c460)
-
-![image](https://github.com/user-attachments/assets/1899348c-fdda-4baa-a4d0-d7e72fa8b0ab)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b452db6-27eb-4c3b-af9e-3ce847beca21" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f6064cb7-e13c-46bb-9dcb-1adda72cac24" />
 
 ## Videos (old)
 
 - https://www.youtube.com/watch?v=Ojfbjth-c84
 - https://www.youtube.com/watch?v=MXOsmXXafS8
-
-## Overview
-
-Hyprland is a dynamic tiling Wayland compositor based on wlroots that doesn't sacrifice on its looks.
-
-|      Label       |     Application     |
-| :--------------: | :-----------------: |
-| Operating System |      Arch Linux      |
-|  Window Manager  |      Hyprland       |
-|    Status Bar    | [hyprpanel](https://hyprpanel.com) |
-|     Launcher     |        rofi-wayland        |
-| Session Manager  |  wlogout   |
-|  Notifications   |        ags         |
-|     Terminal     |        Kitty        |
-|   Web Browser    |       [Zen](https://zen-browser.app)       |
-|      Fonts       | Fira Sans Condensed |
-|                  |  Symbols Nerd Font  |
-|                  |   [Pragmasevka Nerd Font](https://github.com/nawfalmrouyan/pragmasevka)    |
-
-## 🛠 Installation
-
-If you want to install this setup on ARCH Linux or on any other distro, follow the points below:
-
-1. Install the following programs on your computer:
-
-   - hyprland-git
-   - hyprcursor-git
-   - hypridle-git
-   - hyprlock-git
-   - xdg-desktop-hyprland-portal-git
-   - hyprutils-git
-   - hyprgraphics-git
-   - hyprwayland-scanner-git
-   - hyprland-protocols-git
-   - hyprpicker-git
-   - hyprland-qtutils-git
-   - hyprpaper-git
-   - aylurs-gtk-shell
-   - hyprpanel (astal branch)
-   - kitty
-   - zen-browser-bin
-   - grim
-   - slurp
-   - rofi-wayland
-   - rofi-emoji-git
-   - rofi-calc-git
-   - rofi-pass
-   - wtype
-   - wl-clipboard
-   - catppuccin-cursors-mocha
-   - catppuccin-gtk-theme-mocha
-   - noto-fonts
-   - noto-fonts-cjk
-   - ttf-nerd-fonts-symbols
-   - ttf-nerd-fonts-symbols-mono
-   - ttf-nerd-fonts-symbols-common
-   - imagemagick
-   - hyprsunset-git
-   - brightnessctl
-   - wlogout
-   - playerctl
-   - pamixer
-   - libqalculate
-   - clipse
-   - uwsm
-   - kanata-bin
-   - libinput-gestures
-   - polkit-gnome
-   - wlr-xrandr
-
-2. Clone the repo. Assuming you do not have Hyprland configured before, copy/move all the files in the repo to `~/.config/hypr`.
-
-   ```bash
-   git clone --depth=1 https://github.com/nawfalmrouyan/hyprland.git ~/.config/hypr
-   ```
-
-3. You can start Hyprland from TTY using the command below:
-
-   ```sh
-   uwsm start hyprland.desktop
-   ```
-
-   You can refer [here](https://wiki.hyprland.org/Useful-Utilities/Systemd-start/) for more info.
-
-   If you start Hyprland using a Login Manager (eg. GDM, SDDM, etc), choose to start using `Hyprland (uwsm managed)` 
-
-4. Install Hyprland Plugins
-
-   - [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces)
-   - [hyprtasking](https://github.com/raybbian/hyprtasking)
-
-   Refer [here](https://wiki.hyprland.org/Plugins/Using-Plugins/) on how to install plugins.
 
 ## Special thanks
 
