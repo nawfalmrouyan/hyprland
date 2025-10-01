@@ -97,7 +97,7 @@ htab (tap-hold $tap-time $hold-time tab lmet)
 
 (defchordsv2
  (spc j k) C-\ $chord-time first-release () ;; tmux prefix
- (spc d f) (cmd hyprctl dispatch exec vicinae) $chord-time first-release () ;; vicinae
+ (spc d f) (cmd hyprctl dispatch exec USE_LAYER_SHELL=0 vicinae) $chord-time first-release () ;; vicinae
  (w e) A-C-q $chord-time first-release () ;; zen previous workspace
  (i o) A-C-e $chord-time first-release () ;; zen next workspace
  (d f) A-C-s $chord-time first-release () ;; zen toggle floating side bar
