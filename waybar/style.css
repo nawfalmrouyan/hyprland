@@ -60,7 +60,7 @@ tooltip {
 }
 
 #workspaces {
-  padding: 3px 3px;
+  /* padding: 3px 3px; */
 }
 
 #workspaces button:hover {
@@ -70,23 +70,23 @@ tooltip {
   color: @active_workspace_fg;
   background: @active_workspace_bg;
   border: none;
-  padding: 1px 3px;
-  margin: 1px 3px;
+  padding: 1px 1px;
+  margin: 1px 1px;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button {
   color: @workspace_fg;
   background: @workspace_bg;
-  padding: 1px 3px;
-  margin: 1px 3px;
+  padding: 1px 1px;
+  margin: 1px 1px;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:not(.empty):not(.active) {
   color: @use_workspace_fg;
-  padding: 1px 3px;
-  margin: 1px 3px;
+  padding: 1px 1px;
+  margin: 1px 1px;
 }
 
 #clock {
