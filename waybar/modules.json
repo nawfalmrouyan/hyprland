@@ -147,8 +147,8 @@
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
     },
-    "on-click": "swaync-client -t",
-    "on-click-right": "~/.config/hypr/scripts/changeHyprpaper"
+    "on-click-right": "swaync-client -t",
+    "on-click-middle": "~/.config/hypr/scripts/changeHyprpaper"
   },
   "cpu": {
     "interval": 5,
