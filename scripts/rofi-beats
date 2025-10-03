@@ -1,10 +1,11 @@
 #!/bin/bash
 
-rofi_command="rofi -c ~/.config/hypr/rofi/config.rasi -dmenu \
-      --width=350 --height=380 \
-      --cache-file=/dev/null \
-      --hide-scroll --no-actions \
-      --define=matching=fuzzy"
+rofi_command="vicinae dmenu"
+# rofi_command="rofi -c ~/.config/hypr/rofi/config.rasi -dmenu \
+#       --width=350 --height=380 \
+#       --cache-file=/dev/null \
+#       --hide-scroll --no-actions \
+#       --define=matching=fuzzy"
 
 notification() {
   notify-send "Lofi Stream" "Now Playing: Lofi Radio"
@@ -28,47 +29,47 @@ main() {
   case $choice in
   1)
     notification
-    uwsm app -- mpv "https://play.streamafrica.net/lofiradio"
+    mpv "https://play.streamafrica.net/lofiradio"
     return
     ;;
   2)
     notification
-    uwsm app -- mpv "http://stream.zeno.fm/fyn8eh3h5f8uv"
+    mpv "http://stream.zeno.fm/fyn8eh3h5f8uv"
     return
     ;;
   3)
     notification
-    uwsm app -- mpv "http://stream.zeno.fm/f3wvbbqmdg8uv"
+    mpv "http://stream.zeno.fm/f3wvbbqmdg8uv"
     return
     ;;
   4)
     notification
-    uwsm app -- mpv "http://stream.zeno.fm/0r0xa792kwzuv"
+    mpv "http://stream.zeno.fm/0r0xa792kwzuv"
     return
     ;;
   5)
     notification
-    uwsm app -- mpv "https://live.radiospinner.com/lofi-hip-hop-64"
+    mpv "https://live.radiospinner.com/lofi-hip-hop-64"
     return
     ;;
   6)
     notification
-    uwsm app -- mpv "https://media-ssl.musicradio.com/SmoothChill"
+    mpv "https://media-ssl.musicradio.com/SmoothChill"
     return
     ;;
   7)
     notification
-    uwsm app -- mpv --vid=no "https://www.youtube.com/watch?v=NiOxSuEJaTI"
+    mpv --vid=no "https://www.youtube.com/watch?v=NiOxSuEJaTI"
     return
     ;;
   8)
     notification
-    uwsm app -- mpv --shuffle --ytdl-raw-options="cookies=/tmp/cookies.txt" --vid=no https://www.youtube.com/playlist\?list\=PLusoefCj_Mkn6dRQMc3MxUGFHLeYT4y49
+    mpv --shuffle --ytdl-raw-options="cookies=/tmp/cookies.txt" --vid=no https://www.youtube.com/playlist\?list\=PLusoefCj_Mkn6dRQMc3MxUGFHLeYT4y49
     return
     ;;
   9)
     notification
-    uwsm app -- mpv --shuffle --ytdl-raw-options="cookies=/tmp/cookies.txt" --vid=no https://www.youtube.com/watch?v=GaW13eDQO6s
+    mpv --shuffle --ytdl-raw-options="cookies=/tmp/cookies.txt" --vid=no https://www.youtube.com/watch?v=GaW13eDQO6s
     return
     ;;
   esac
