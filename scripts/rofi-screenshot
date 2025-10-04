@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+scriptsDir="$HOME/.config/hypr/scripts"
+rofi_command="vicinae dmenu"
+
+menu() {
+  printf "1. Screen now\n"
+  printf "2. Screen in five seconds\n"
+  printf "3. Screen in ten seconds\n"
+  printf "4. Window\n"
+  printf "5. Area\n"
+  printf "6. Output\n"
+}
+
+main() {
+  choice=$(menu | ${rofi_command} | cut -d. -f1)
+
+  case $choice in
+  1)
+    "${scriptsDir}"/screenshot --now
+    return
+    ;;
+  2)
+    "${scriptsDir}"/screenshot --in5
+    return
+    ;;
+  3)
+    "${scriptsDir}"/screenshot --in10
+    return
+    ;;
+  4)
+    "${scriptsDir}"/screenshot --win
+    return
+    ;;
+  5)
+    "${scriptsDir}"/screenshot --area
+    return
+    ;;
+  6)
+    sleep 1
+    "${scriptsDir}"/grimblast -n copysave output
+    return
+    ;;
+  esac
+}
+
+echo "${choice}"
+main
