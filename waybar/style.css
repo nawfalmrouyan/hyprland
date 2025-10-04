@@ -38,6 +38,7 @@
 @define-color backlight_fg @peach;
 @define-color battery_fg @yellow;
 @define-color clock_fg @pink;
+@define-color notification_fg @peach;
 
 * {
   /* font-family: "JetBrainsMono NFP Medium,Symbols Nerd Font Mono", "PragmataPro Mono Liga"; */
@@ -117,6 +118,7 @@ tooltip {
 #bluetooth,
 #custom-hyprscroller,
 #windowcount,
+#custom-notification,
 #network {
   padding: 0px 5px;
 }
@@ -348,6 +350,10 @@ tooltip {
 
 #bluetooth {
   color: @bluetooth_fg;
+}
+
+#custom-notification {
+  color: @notification_fg;
 }
 
 #network.disconnected,

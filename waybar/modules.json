@@ -4,6 +4,7 @@
     "modules": [
       "tray",
       "clock",
+      "custom/notification",
       "custom/power"
     ]
   },
@@ -17,7 +18,6 @@
     "modules": [
       "idle_inhibitor",
       "power-profiles-daemon",
-      //"custom/weather",
       "custom/updater",
       "custom/vpn_check",
       "custom/uptime"
@@ -335,5 +335,25 @@
     "separate-outputs": true,
     "on-click": "hyprctl dispatch scroller:toggleoverview",
     "on-click-right": "hyprctl dispatch scroller:jump"
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{} {icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "",
+      "dnd-notification": " ",
+      "dnd-none": "󰂛",
+      "inhibited-notification": " ",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": " ",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
   }
 }
