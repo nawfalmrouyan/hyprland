@@ -1,4 +1,4 @@
-bindl = , xf86calculator, exec, rofi -show calc
+bindl = , xf86calculator, exec, vicinae vicinae://extensions/vicinae/calculator/history
 bindl = , xf86favourites, exec, remmina
 bindl = , xf86pickupphone, exec, hyprctl dispatch togglespecialworkspace whatsapp
 bindl = , xf86hangupphone, exec, hyprctl dispatch togglespecialworkspace trash
