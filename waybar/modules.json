@@ -37,8 +37,8 @@
     "modules": [
       "hyprland/submap",
       "network",
-      //"wireplumber",
-      //"backlight",
+      "wireplumber",
+      "backlight",
       "battery"
     ]
   },
