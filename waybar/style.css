@@ -145,6 +145,7 @@ tooltip {
   font-size: 19px;
   padding-left: 7px;
   padding-right: 5px;
+  color: @blue;
 }
 
 #l-workspaces {
