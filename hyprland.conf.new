@@ -1,0 +1,738 @@
+# Environment when not using uwsm
+env = _JAVA_AWT_WM_NONREPARENTING,1
+env = XCURSOR_SIZE,24
+env = QT_QPA_PLATFORMTHEME,qt6ct
+env = QT_QPA_PLATFORMTHEME_QT6,qt6ct
+env = QT_QPA_PLATFORM,wayland
+env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+env = MOZ_ENABLE_WAYLAND,1
+env = GDK_BACKEND,wayland,x11,*
+env = PATH,$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:$confDir/scripts:$PATH
+env = GAMEMODERUNEXEC,env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only
+env = ELECTRON_OZONE_PLATFORM_HINT,auto
+env = HYPRCURSOR_THEME,catppuccin-mocha-mauve-cursors
+env = HYPRCURSOR_SIZE,24
+env = HYPRLAND_NO_CRASHREPORTER,1
+env = XDG_CURRENT_DESKTOP,Hyprland
+env = XDG_SESSION_TYPE,wayland
+env = XDG_SESSION_DESKTOP,Hyprland
+
+# Variables
+$mainMod = SUPER
+$localBin = $HOME/.local/bin
+$scriptsDir = $confDir/scripts
+$confDir = $HOME/.config/hypr
+$term = kitty
+$term2 = ghostty
+$menu = vicinae
+# $powermenu = $scriptsDir/powermenu
+$volume = $scriptsDir/volume
+$backlight = /bin/brightnessctl
+$screenshot = $scriptsDir/screenshot
+$lock = hyprlock
+$logout = $scriptsDir/wlogout.sh
+$colorpicker = $scriptsDir/colorpicker
+$rofi_beats = $scriptsDir/rofi-beats
+$files = nemo
+$browser = zen-browser
+$music = youtube-music
+$music2 = spotube
+$mail = /opt/outlook-for-linux/outlook-for-linux
+
+monitorv2 {
+  output = HDMI-A-1
+  mode = 1920x1080
+  position = 0x0
+  scale = 1
+  bitdepth = 8
+}
+
+monitorv2 {
+  output = eDP-1
+  mode = 1920x1080
+  position = 1920x0
+  scale = 1
+  bitdepth = 8
+}
+
+# monitor = , preferred, auto, 1
+
+workspace = 1, monitor:eDP-1, default:true
+workspace = 2, monitor:eDP-1, default:true
+workspace = 3, monitor:eDP-1, default:true
+workspace = 4, monitor:HDMI-A-1, default:true
+workspace = 5, monitor:HDMI-A-1, default:true
+workspace = 6, monitor:HDMI-A-1, default:true
+
+source = $confDir/mocha.conf
+
+input {
+  kb_layout = us
+  kb_variant = altgr-intl
+  kb_options = compose:menu,level3:ralt_switch
+
+  special_fallthrough = true
+
+  follow_mouse = 1
+  numlock_by_default = true
+
+  touchpad {
+    natural_scroll = true
+    tap-to-click = true
+    drag_lock = true
+    disable_while_typing = true
+  }
+}
+
+misc {
+  disable_hyprland_logo = true
+  disable_splash_rendering = true
+  mouse_move_enables_dpms = true
+  key_press_enables_dpms = true
+  enable_swallow = true
+  swallow_regex = kitty|com.mitchellh.ghostty
+  swallow_exception_regex = ^(noswallow)$
+  focus_on_activate = true
+  allow_session_lock_restore = true
+  # vfr = true
+  # vrr = 3
+  font_family = PragmataPro Liga
+}
+
+cursor {
+  hide_on_touch = true
+  hide_on_key_press = true
+  persistent_warps = true
+  warp_on_change_workspace = 1
+  warp_on_toggle_special = 1
+  default_monitor = eDP-1
+}
+
+binds {
+  workspace_back_and_forth = true
+  allow_pin_fullscreen = true
+  # workspace_center_on = 0
+  movefocus_cycles_fullscreen = true
+  movefocus_cycles_groupfirst = true
+}
+
+ecosystem {
+  no_update_news = true
+  no_donation_nag = true
+}
+
+debug {
+  disable_logs = true
+}
+
+general {
+  gaps_in = 0
+  gaps_out = 0
+  border_size = 0
+  resize_on_border = true
+  col.active_border = $mauve $blue 45deg
+  col.inactive_border = $overlay0
+  gaps_workspaces = 5
+  float_gaps = 0
+
+  layout = scroller
+  allow_tearing = true
+
+  snap {
+    enabled = true
+    respect_gaps = true
+    border_overlap = false
+    window_gap = 5
+    monitor_gap = 5
+  }
+}
+
+group {
+  col.border_active = $mauve $blue 45deg
+  col.border_inactive = $overlay0
+  col.border_locked_inactive = $red
+  col.border_locked_active = $peach
+
+  groupbar {
+    font_family = PragmataPro Liga
+    font_size = 15
+    gradients = false
+    col.active = $base
+    col.inactive = $overlay0
+    col.locked_inactive = $red
+    col.locked_active = $peach
+  }
+}
+
+decoration {
+  rounding = 0
+  dim_special = 0.3
+  active_opacity = 1.0
+  # inactive_opacity = 0.9
+  fullscreen_opacity = 1.0
+
+  blur {
+    size = 1
+    passes = 5
+    vibrancy = 0.1696
+    new_optimizations = true
+    popups = true
+    # ignore_opacity = true
+    # special = true
+  }
+
+  shadow {
+    enabled = true
+    range = 11
+    render_power = 2
+    # color = rgba(1a1a1aee)
+    color = $mauve
+  }
+
+  # dim_inactive = true
+  dim_strength = 0.7
+  dim_special = 0.5
+  dim_around = 0.5
+}
+
+render {
+  new_render_scheduling = true
+}
+
+animations {
+  enabled = true
+  workspace_wraparound = true
+
+  # Beziers
+  bezier = simple, 0.16, 1, 0.3, 1
+  bezier = smooth, 0.25, 0.1, 0.35, 0.15
+  bezier = smoothOut, 0.36, 0, 0.66, -0.56
+  bezier = smoothIn, 0.25, 1, 0.5, 1
+  bezier = linear, 0.0, 0.0, 1.0, 1.0
+  bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+  bezier = overshot, 0.05, 0.9, 0.1, 1.1
+  bezier = cubic, 0.54, 0.22, 0.07, 0.74
+  bezier = overshotCircle, 0.175, 0.885, 0.32, 1.275
+  bezier = md3_standard, 0.2, 0.0, 0, 1.0
+  bezier = bounce, 1, 1.6, 0.1, 0.85
+  bezier = decel, 0.05, 0.7, 0.1, 1
+  bezier = quick, 0.15, 0, 0.1,1
+
+# Layers
+  animation = layers, 1, 3, bounce, fade
+  animation = layersIn, 1, 3.5, smoothIn, fade
+  animation = layersOut, 1, 3.5, smoothOut, fade
+# Zoom
+  animation = zoomFactor, 1, 7, quick
+# Windows
+  animation = windows, 1, 2, md3_standard, slide 90%
+  animation = windowsIn, 1, 3, smoothIn, popin 90%
+  animation = windowsOut, 1, 7, smoothOut, popin 90%
+  animation = windowsMove, 1, 6, md3_standard, slide 90%
+# Border
+  animation = border, 1, 10, overshot
+  animation = borderangle, 1, 100, linear, loop
+# Workspaces
+  animation = workspaces, 1, 3, bounce, slidefade 90%
+  animation = workspacesIn, 1, 3, bounce, slidefade 90%
+  animation = workspacesOut, 1, 7, bounce, slidefade 90%
+  animation = specialWorkspace, 1, 3, bounce, slidefadevert 90%
+# Fade animations
+  animation = fade, 1, 5, smooth                          # General fade animation
+  animation = fadeIn, 1, 4, smooth                        # Smooth fade-in for windows
+  animation = fadeOut, 1, 4, smooth                       # Smooth fade-out for windows
+  animation = fadeSwitch, 1, 3, smooth                    # Quick fade for active window switch
+  animation = fadeShadow, 1, 3, smooth                    # Smooth shadow fade
+  animation = fadeDim, 1, 4, smooth                       # Smooth dimming of inactive windows
+  animation = fadeLayers, 1, 4, smooth                    # Layer fade
+  animation = fadePopups, 1, 3, smooth                    # Quick fade for popups
+  animation = fadeDpms, 1, 5, smooth                      # Smooth fade for DPMS toggle
+}
+
+master {
+  new_status = slave
+  mfact = 0.5
+  special_scale_factor = 0.9
+  allow_small_split = true
+  new_on_active = after
+}
+
+# gestures {
+  # workspace_swipe_cancel_ratio = 0.15
+# }
+
+layerrule = blur, logout_dialog
+layerrule = blur, rofi
+layerrule = dimaround, rofi
+layerrule = blur, vicinae
+layerrule = animation popin, vicinae
+layerrule = dimaround, vicinae
+layerrule = blur, ghostty-quick-terminal
+layerrule = animation slidefadevert 90%, ghostty-quick-terminal
+
+# whatsapp rules
+windowrule {
+  name = whatsapp-rules
+  match:initial_class whatsappweb-nativefier-d40211
+  float
+  center
+  size = 1600 960
+  workspace special:whatsapp silent
+}
+
+# telegram rules
+windowrule = match:class org.telegram.desktop, float, size 1600 960, center, workspace special:whatsapp silent
+
+# youtube music rules
+windowrule = match:class com.github.th_ch.youtube_music, float, size 1600 960, center, workspace special:trash silent
+
+# spotube rules
+windowrule = match:class spotube, float, size 1600 960, center, workspace special:spotube silent
+
+# showmethekey rules
+windowrule = move 1511 919, float, noborder, opacity 1.0 override 1.0 override, noblur, nofocus, noanim, noshadow, matcch:class showmethekey-gtk
+
+# grouping rules
+windowrule = group, match:class whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music
+windowrule = group override barred, match:class (kitty|zen)
+
+# misc rules
+windowrule = center, match:title LibreOffice
+windowrule = float, center, match:class hyprland-share-picker|yad|nm-connection-editor|pavucontrol|Rofi|feh|Gimp|qt5ct
+windowrule = tile, match:class jamesdsp|ONLYOFFICE
+windowrule = float, match:title .*Network Manager.*
+
+# wlogout rules
+windowrule = float, move 0 0, size 100% 100%, noanim, match:class wlogout
+
+# Apache Directory Studio rules
+windowrule = float, center, match:class ApacheDirectoryStudio
+
+windowrule = bordercolor $mauve $red, match:floating
+windowrule = bordercolor $lavender $mauve, match:fullscreen
+windowrule = opacity 0.8 0.8, match:pin
+# windowrule = group barred, match:floating
+
+# steam/games rules
+windowrule = workspace special:steam, match:class steam, match:title (Sign in to Steam)
+windowrule = float, center, size 1600 960, workspace special:steam silent, match:class steam, match:title Steam
+windowrule = workspace special:steam, match:class steam, match:title ^(Steam)$
+windowrule = fullscreen, content game, match:class Torchlight2.bin.x86_64, match:title (Torchlight II v.1.25.5.4)
+
+# teams rules
+windowrule = idle_inhibit focus, match:class teams-for-linux
+
+# zen rules
+windowrule = float, match:title Picture-in-Picture
+windowrule = maxsize 800 800, match:class zen
+
+# noscreenshare rules
+windowrule = noscreenshare, match:class whatsappweb-nativefier-d40211
+windowrule = noscreenshare, match:class org.telegram.desktop
+windowrule = noscreenshare, match:class spotube
+windowrule = noscreenshare, match:class com.github.th_ch.youtube_music
+windowrule = noscreenshare, match:class steam, match:title Steam
+
+windowrule = float, size 900 750, center, match:class waypaper|qt6ct|qt5ct
+
+# https://github.com/shvedes/dotfiles/blob/9dbf2b3942083eec261a695e4c2430c694d343a1/src/.config/hypr/include/rules.conf#L137
+# GNOME polkit
+windowrule = dimaround, noshadow, match:class gcr-prompter
+
+# File pickers and same stuff
+windowrule = float, size 1345 720, center, match:title (Open folder.*)
+windowrule = float, size 1345 720, center, match:title (Open [Ff]iles)
+windowrule = float, center, match:title (Open|Publish as PDF or XPS|^Settings - .*|^Warning:.*)
+windowrule = float, center, match:class com.gabm.satty
+windowrule = float, size 1345 720, center, match:title ([Ff]ile Upload)
+windowrule = float, size 1345 720, center, match:title (Enter name of file to save to.*)
+windowrule = float, size 1345 720, center, match:class (soffice|Save Image|Save As|xdg-desktop-portal-gtk)
+windowrule = float, size 1345 720, center, match:title (blob.*)
+windowrule = animation slide, stayfocused, float, size 60% 50%, move 380 35, match:initial_class (blueman-manager)
+windowrule = animation slide, stayfocused, float, size 60% 50%, move 380 35, match:initial_class (com.network.manager)
+windowrule = animation popin, stayfocused, float, center, dimaround, match:initial_class vicinae
+
+# xwaylandvideobridge
+windowrule = opacity 0.0 override 0.0 override, noanim, nofocus, noinitialfocus, workspace special:junks silent, match:class xwaylandvideobridge
+
+# waybar yay update click, cava
+windowrule = animation slide, float, size 60% 50%, move 380 35, match:class update, match:title update
+
+# ttyclock
+windowrule = float, size 33% 27%, center, match:class clock, match:title clock
+
+# firefox textern
+# ["kitty", "--class", "kitty", "--title", "textern", "-e", "/home/opal/.local/bin/av", "+call cursor(%l,%c)"]
+windowrule = animation slide, float, pin, size 60% 50%, center, match:class kitty, match:title textern
+
+# neovim anywhere
+windowrule = animation slide, float, pin, size 60% 50%, center, match:class nvim-hypr-anywhere
+
+# terminal scratchpad
+windowrule = animation slide, float, size 75% 65%, move 240 375, match:class kitty, match:title scratch
+
+# no focus markdown preview
+windowrule = nofocus, match:title ^(Peek preview)$
+
+# tearing
+# windowrule = content game, immediate, fullscreen,title:^(Grim Dawn)
+windowrule = match:content game, immediate, match:title ^(Grim Dawn)
+
+# bind = $mainMod, T, exec, $term2 +new-window -e sesh connect stuff
+bind = $mainMod, T, exec, $term -e sesh connect stuff
+bind = $mainMod, Q, killactive,
+bind = $mainMod SHIFT, Q, exit,
+bind = $mainMod, A, exec,  /opt/outlook-for-linux/outlook-for-linux --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer
+# bind = $mainMod, A, exec,  /opt/outlook-for-linux/outlook-for-linux
+bind = $mainMod, F, fullscreen
+bind = $mainMod SHIFT, E, exec, $files
+bind = $mainMod, V, togglefloating,
+bind = $mainMod SHIFT, L, exec, $lock
+bind = $mainMod, Escape, exec, $logout
+# bind = $mainMod SHIFT, V, exec, hyprctl dispatch pseudo
+
+# mainly used when using master layout
+# bind = $mainMod SHIFT, J, layoutmsg, rollnext
+# bind = $mainMod SHIFT, K, layoutmsg, rollprev
+# bind = $mainMod, J, cyclenext
+# bind = $mainMod, K, cyclenext, prev
+# bind = $mainMod SHIFT, Return, layoutmsg, swapwithmaster
+# bind = $mainMod, bracketright, layoutmsg, orientationnext
+# bind = $mainMod, bracketleft, layoutmsg, orientationprev
+# bind = $mainMod CTRL, comma, layoutmsg, focusmaster
+
+# rofi/vicinae/bemenu, etc
+# bind = $mainMod, O, exec, rofi -show drun -run-command 'app2unit --fuzzel-compat -- {cmd}' -run-shell-command 'app2unit --fuzzel-compat -- $term -e {cmd}'
+# bind = $mainMod, C, exec, pkill rofi || rofi -config $confDir/rofi/config.rasi -show drun
+# bindr = $mainMod, Y, exec, pkill rofi ||  $rofi_beats
+# bind = ALT, Tab, exec,  rofi -c $confDir/rofi/config.rasi -show window
+bind = $mainMod, 0, exec, ROFI_PASS_CONFIG="$confDir/rofi-pass/config" rofi-pass
+bind = $mainMod, Y, exec, vicinae vicinae://extensions/vicinae/file/search
+bind = $mainMod SHIFT, Y, exec, $scriptsDir/rofi-beats
+bind = ALT, Tab, exec, vicinae vicinae://extensions/vicinae/wm/switch-windows
+bind = $mainMod, E, exec, vicinae vicinae://extensions/vicinae/vicinae/search-emojis
+bind = $mainMod, I, exec, vicinae vicinae://extensions/vicinae/clipboard/history
+bind = $mainMod SHIFT, P, exec, $scriptsDir/powerprofiles.sh
+bindr = $mainMod SHIFT, C, exec, pkill bemenu ||  $scriptsDir/bemenu_input 6
+
+# swaync-client toggle
+bind = $mainMod SHIFT, N, exec, swaync-client -t
+
+# compose text using nvim
+bind = $mainMod, N, exec, $localBin/nvim-hypr-anywhere.sh
+
+# bind = $mainMod, Grave, exec, hyprctl dispatch focuscurrentorlast
+
+# binds to cycle through windows
+# bind = $mainMod, Tab, cyclenext,
+# bind = $mainMod, Tab, bringactivetotop,
+# bind = $mainMod, N, exec, $scriptsDir/cycle.sh next
+# bind = $mainMod SHIFT, N, exec, $scriptsDir/cycleSpecial.sh next
+
+# binds to move window up/down
+# bind = $mainMod, D, exec, hyprctl dispatch movewindow d
+# bind = $mainMod SHIFT, D, exec, hyprctl dispatch movewindow u
+
+# bind = $mainMod, B, exec, ags -i hyprpanel toggle bar-1; ags -i hyprpanel toggle bar-0
+bind = $mainMod, B, exec, killall -SIGUSR1 waybar || waybar
+bind = $mainMod SHIFT, B, exec, $scriptsDir/gamemode.sh
+
+# Master layout specific
+# bind = $mainMod, M, submap, masterlayout
+# submap = masterlayout
+# bind = , I, layoutmsg, addmaster
+# bind = , I, submap, reset
+# bind = , D, layoutmsg, removemaster
+# bind = , D, submap, reset
+# bind = , escape, submap, reset
+# submap = reset
+
+# Night mode (blue filter)
+# bind = $mainMod, T, exec, hyprctl keyword decoration:screen_shader $scriptsDir/flux.glsl
+# bind = $mainMod SHIFT, T, exec, hyprctl keyword decoration:screen_shader "[[EMPTY]]"
+
+# Global keybinds
+bind = CTRL, Grave, global, :CTRL+grave
+
+# hyprmarker
+bind = $mainMod, Z, exec, pkill -SIGUSR1 wayscriber
+
+# voxd
+bind = $mainMod SHIFT, Z, exec, bash -c 'voxd --trigger-record'
+
+# toggle group
+bind = $mainMod, G, exec, if [ $(hyprctl activewindow | rg 'grouped:' | rg -v 'Window' | tr -dc ',' | wc -c) -gt '0' ]; then hyprctl dispatch lockactivegroup toggle; else hyprctl dispatch togglegroup; fi
+bind = $mainMod, Tab, changegroupactive
+bind = $mainMod CTRL, G, moveoutofgroup
+bind = $mainMod SHIFT, G, submap, group
+submap = group, reset
+bind = , J, moveintogroup, d
+bind = , K, moveintogroup, u
+bind = , L, moveintogroup, r
+bind = , H, moveintogroup, l
+bind = , escape, submap, reset
+submap = reset
+
+# Screenshots
+bind = , Print, exec, $scriptsDir/rofi-screenshot
+# bind = , Print, submap, screenshot
+# submap = screenshot, reset
+# bind = , 1, exec,  $scriptsDir/grimblast -n copysave screen
+# bind = , 2, exec,  $scriptsDir/grimblast -n copysave output
+# bind = , 3, exec,  $scriptsDir/grimblast -n copysave active
+# bind = , 4, exec,  $scriptsDir/grimblast -n copysave area
+# bind = , escape, submap, reset
+# submap = reset
+# bind = SHIFT, Print, exec,  $scriptsDir/grimblast -n copy output
+
+# Special Keys
+bindl = , xf86audioraisevolume, exec,  $volume --inc
+bindl = , xf86audiolowervolume, exec,  $volume --dec
+bindl = , xf86audiomute, exec,  $volume --toggle
+bindl = , xf86monbrightnessup, exec,  $backlight s +5%
+bindl = , xf86monbrightnessdown, exec,  $backlight s 5%-
+bindl = , xf86audioplay, exec,  playerctl play-pause
+bindl = , xf86audionext, exec,  playerctl next
+bindl = , xf86audioprev, exec,  playerctl previous
+
+# Backlight control
+# bind = $mainMod SHIFT, equal, submap, backlight
+# submap = backlight
+# bind = , equal, exec, $backlight s +5%
+# bind = , minus, exec, $backlight s 5%-
+# bind = , K, exec, $backlight s +5%
+# bind = , J, exec, $backlight s 5%-
+# bind = , up, exec, $backlight s +5%
+# bind = , down, exec, $backlight s 5%-
+# bind = , escape, submap, reset
+# submap = reset
+
+# Volume control
+# bind = $mainMod, equal, submap, volume
+# submap = volume
+# bind = , equal, exec, $volume --inc
+# bind = , minus, exec, $volume --dec
+# bind = , K, exec, $volume --inc
+# bind = , J, exec, $volume --dec
+# bind = , up, exec, $volume --inc
+# bind = , down, exec, $volume --dec
+# bind = , 0, exec, $volume --toggle
+# bind = , 9, exec, $volume --toggle-mic
+# bind = , escape, submap, reset
+# submap = reset
+
+# # Resize
+# bind = $mainMod SHIFT, R, submap, resize
+# submap = resize
+# binde = , H, resizeactive,-50 0
+# binde = , L, resizeactive,50 0
+# binde = , K, resizeactive,0 -50
+# binde = , J, resizeactive,0 50
+# binde = , left, resizeactive,-50 0
+# binde = , right, resizeactive,50 0
+# binde = , up, resizeactive,0 -50
+# binde = , down, resizeactive,0 50
+# bind = , escape, submap, reset
+# submap = reset
+
+# Move
+# bind = $mainMod SHIFT, M, submap, move
+# submap = move
+# bind = , H, movewindow, l
+# bind = , L, movewindow, r
+# bind = , K, movewindow, u
+# bind = , J, movewindow, d
+# bind = , left, movewindow, l
+# bind = , right, movewindow, r
+# bind = , up, movewindow, u
+# bind = , down, movewindow, d
+# bind = , period, exec, hyprctl dispatch movewindow mon:0
+# bind = , comma, exec, hyprctl dispatch movewindow mon:1
+# bind = , escape, submap, reset
+# submap = reset
+
+# bind = $mainMod, H, movefocus, l
+# bind = $mainMod, L, movefocus, r
+# bind = $mainMod, K, movefocus, u
+# bind = $mainMod, J, movefocus, d
+
+# Focus
+# bind = $mainMod SHIFT, F, submap, focus
+# submap = focus
+# bind = , left, movefocus, l
+# bind = , right, movefocus, r
+# bind = , up, movefocus, u
+# bind = , down, movefocus, d
+# bind = , H, movefocus, l
+# bind = , L, movefocus, r
+# bind = , K, movefocus, u
+# bind = , J, movefocus, d
+# bind = , escape, submap, reset
+# submap = reset
+
+# Preselection split ONLY IN DWINDLE mode
+# bind = $mainMod, S, submap, split
+# submap = split, reset
+# bind = , J, exec, hyprctl dispatch layoutmsg "preselect d"
+# bind = , K, exec, hyprctl dispatch layoutmsg "preselect u"
+# bind = , L, exec, hyprctl dispatch layoutmsg "preselect r"
+# bind = , H, exec, hyprctl dispatch layoutmsg "preselect l"
+# bind = , escape, submap, reset
+# submap = reset
+
+# Bypass global keybinds to pass binds directly to application (eg: VMs)
+bind = $mainMod CTRL, Grave, submap, passthru
+submap = passthru
+bind = $mainMod, Escape, submap, reset
+submap = reset
+
+# Disable all keybinds
+bind = $mainMod SHIFT CTRL, Escape, submap, clean
+submap = clean
+bind = $mainMod, Escape, submap, reset
+submap = reset
+
+# Special workspace
+bind = $mainMod SHIFT, U, movetoworkspace, special:terminal
+bind = $mainMod, U, togglespecialworkspace, terminal
+bind = $mainMod SHIFT, Backspace, movetoworkspace, special:steam
+bind = $mainMod, Backspace, togglespecialworkspace, steam
+bind = $mainMod SHIFT, Delete, movetoworkspace, special:trash
+bind = $mainMod, Delete, togglespecialworkspace, trash
+bind = $mainMod SHIFT, O, movetoworkspace, special:whatsapp
+bind = $mainMod, O, togglespecialworkspace, whatsapp
+
+# Switch workspaces with mainMod + [0-9]
+bind = $mainMod, 1, split-workspace, 1
+bind = $mainMod, 2, split-workspace, 2
+bind = $mainMod, 3, split-workspace, 3
+
+# Move active window and follow to workspace
+bind = $mainMod CTRL, 1, split-movetoworkspace, 1
+bind = $mainMod CTRL, 2, split-movetoworkspace, 2
+bind = $mainMod CTRL, 3, split-movetoworkspace, 3
+
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, split-movetoworkspacesilent, 1
+bind = $mainMod SHIFT, 2, split-movetoworkspacesilent, 2
+bind = $mainMod SHIFT, 3, split-movetoworkspacesilent, 3
+
+# Move/resize windows with mainMod + LMB/RMB and dragging
+# mouse:272 = left
+# mouse:273 = right
+# mouse:274 = middle
+# mouse:275 = side
+# mouse:276 = extra
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+bind = $mainMod, mouse:274, togglefloating
+# bindm = , mouse:275, movewindow
+# bindm = , mouse:276, resizewindow
+
+# Zoom
+bind = $mainMod, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')
+bind = $mainMod, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')
+bind = $mainMod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1
+
+# The second bind is redundant but I'm used to it in DWM
+bind = $mainMod SHIFT CTRL, comma, exec, hyprctl dispatch swapactiveworkspaces 1 0
+bind = $mainMod SHIFT CTRL, period, exec, hyprctl dispatch swapactiveworkspaces 0 1
+bind = $mainMod SHIFT CTRL, left, exec, hyprctl dispatch swapactiveworkspaces 1 0
+bind = $mainMod SHIFT CTRL, right, exec, hyprctl dispatch swapactiveworkspaces 0 1
+
+bind = $mainMod SHIFT, comma, exec, hyprctl dispatch split-changemonitor prev
+bind = $mainMod SHIFT, period, exec, hyprctl dispatch split-changemonitor next
+bind = $mainMod ALT, comma, exec, hyprctl dispatch split-changemonitorsilent prev
+bind = $mainMod ALT, period, exec, hyprctl dispatch split-changemonitorsilent next
+# focus monitor.
+bind = $mainMod, comma, focusmonitor, l
+# bind = $mainMod, bracketleft, workspace, e-1
+bind = $mainMod, period, focusmonitor, r
+# bind = $mainMod, bracketright, workspace, e+1
+
+# move
+bind = SHIFTALT, comma, movecurrentworkspacetomonitor, l
+bind = SHIFTALT, period, movecurrentworkspacetomonitor, r
+
+# grab rogue windows
+# bind = SHIFTALT, slash, split-grabroguewindows
+# bind = $mainMod SHIFT CTRL, bracketright, split-swapactiveworkspaces, current +1
+# bind = $mainMod SHIFT CTRL, bracketleft, split-swapactiveworkspaces, current +1
+
+# bind = $mainMod, S, exec, hyprctl dispatch toggleswallow
+
+# laptop lid switch
+bindl = , switch:on:Lid Switch, exec, hyprctl keyword monitor "eDP-1, 1920x1080, 1920x0, 1"
+bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, disable"
+
+## Plugins
+# source = $confDir/hyprtasking.conf
+# source = $confDir/hyprexpo.conf
+source = $confDir/split-monitor-workspaces.conf
+# exec-once = hyprctl plugin load /home/opal/Projects/hyprscroller/Release/hyprscroller.so
+source = $confDir/hyprscroller.conf
+source = $confDir/wl-kbptr.conf
+# source = $confDir/hypr-dynamic-cursors.conf
+
+## Source local config (yadm)
+## symlink creation is handled by yadm
+source = $confDir/local.conf
+
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = $scriptsDir/hswbstartup.sh
+exec-once = /usr/bin/jamesdsp --tray
+exec-once = hyprpm reload -nn && hyprctl dismissnotify
+exec-once = socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock EXEC:"/home/opal/.config/hypr/scripts/shellevents /home/opal/.config/hypr/scripts/submaps.sh",nofork
+exec-once = swaync
+exec-once = voxd --autostart true
+exec-once = waybar -c $confDir/waybar/config -s $confDir/waybar/style.css
+exec-once =  kanata_cmd_allowed -c $confDir/kanata/lappy.kbd
+# GTK4 cursor size bug fix
+# exec-once = dconf write /org/gnome/desktop/interface/cursor-size 24
+exec-once = USE_LAYER_SHELL=0 vicinae server
+exec-once = hyprpaper
+exec-once = hypridle
+exec-once = /lib64/hyprpolkitagent/hyprpolkitagent
+exec-once = wayscriber --daemon
+exec-once = ghostty
+
+# forcefully kill processes (uwsm sometimes causes slow shutdown)
+exec-shutdown = pkill -9 WhatsAppWeb
+exec-shutdown = pkill -9 swaync
+exec-shutdown = pkill -9 waybar
+exec-shutdown = pkill -9 kanata
+exec-shutdown = pkill -9 hswbstartu
+exec-shutdown = pkill -9 kitty
+exec-shutdown = pkill -9 jamesdsp
+exec-shutdown = pkill -9 outlook
+exec-shutdown = pkill -9 hyprpaper
+exec-shutdown = pkill -9 hypridle
+exec-shutdown = pkill -9 vicinae
+exec-shutdown = pkill -9 shellevents
+exec-shutdown = pkill -9 voxd
+# exec-shutdown = mmuvpnc down
+
+# clipse
+# exec-once = clipse -listen # run listener on startup
+# windowrule = float, size 622 652, class:(clipse-gui) # ensure you have a floating window class set if you want this behavior
+# bind = $mainMod, I, exec, $term --class clipse -e 'clipse' 
+# bind = $mainMod, I, exec, clipse-gui
+
+# smart gaps, no_border_when_only
+# workspace = w[tv1]s[0], gapsout:0, gapsin:0
+# workspace = f[1]s[0], gapsout:0, gapsin:0
+# windowrule = bordersize 0, floating:0, onworkspace:w[tv1]s[0]
+# windowrule = rounding 0, floating:0, onworkspace:w[tv1]s[0]
+# windowrule = bordersize 0, floating:0, onworkspace:f[1]s[0]
+# windowrule = rounding 0, floating:0, onworkspace:f[1]s[0]
+
+workspace = special:terminal, on-created-empty:$term -1 --title scratch -e sesh connect WORK
+workspace = special:trash, on-created-empty:$music
+workspace = special:whatsapp, on-created-empty:$HOME/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer
+# workspace = special:whatsapp, on-created-empty:$HOME/.config/WhatsAppWeb-linux-x64/WhatsAppWeb
+workspace = special:steam, on-created-empty:steam
+workspace = special:update, on-created-empty: $term --class=update -T update -e yay -Syu
+workspace = special:pulsemixer, on-created-empty: $term --class=update -T update -e pulsemixer
+# workspace = 4, on-created-empty:$term -1 --class=workTerminal -T noswallow -o background_opacity=0.5 -e sesh connect Projects
+# workspace = 8, on-created-empty:ghostty --class=workTerminal --title=noswallow --background-opacity=1 -e sesh connect Project
