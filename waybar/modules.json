@@ -196,7 +196,7 @@
     //"format-alt": " {bandwidthUpBits} |  {bandwidthDownBits}",
     "tooltip-format": " {ifname} {essid} via {gwaddr} ({signalStrength}%)",
     //"on-click-middle": "~/.local/bin/mmuvpnc up cbj",
-    "on-click": "kitty --class=update -T update -e gazelle",
+    "on-click": "nmrs",
     "on-click-right": "hyprctl dispatch togglespecialworkspace whatsapp"
   },
   "custom/weather": {
