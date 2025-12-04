@@ -87,14 +87,14 @@
       //"17": "8",
       //"18": "9"
     },
-    "all-outputs": false,
+    "all-outputs": true,
     "active-only": false,
     "sort-by-number": true,
     "show-special": false,
-    "persistent-only": false,
-    //"persistent-workspaces": {
-    //  "*": 3
-    //},
+    "persistent-only": true,
+    "persistent-workspaces": {
+      "*": 3
+    },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },

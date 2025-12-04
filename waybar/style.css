@@ -13,11 +13,13 @@
 @define-color time rgba(0, 0, 0, 0.4);
 /* workspace text colors */
 @define-color workspace_fg @foreground;
-@define-color active_workspace_fg rgba(0, 0, 0, 1);
+/* @define-color active_workspace_fg rgba(0, 0, 0, 1); */
+@define-color active_workspace_fg @mauve;
 @define-color use_workspace_fg @peach;
 /* workspace button-background colors */
 @define-color workspace_bg rgba(0, 0, 0, 0.6);
-@define-color active_workspace_bg @mauve;
+/* @define-color active_workspace_bg @mauve; */
+@define-color active_workspace_bg transparent;
 /* text colors */
 @define-color cpu_fg @red;
 @define-color cputemp_fg @peach;
