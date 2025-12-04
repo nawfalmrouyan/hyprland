@@ -17,7 +17,8 @@
 @define-color active_workspace_fg @mauve;
 @define-color use_workspace_fg @peach;
 /* workspace button-background colors */
-@define-color workspace_bg rgba(0, 0, 0, 0.6);
+/* @define-color workspace_bg rgba(0, 0, 0, 0.6); */
+@define-color workspace_bg transparent;
 /* @define-color active_workspace_bg @mauve; */
 @define-color active_workspace_bg transparent;
 /* text colors */
