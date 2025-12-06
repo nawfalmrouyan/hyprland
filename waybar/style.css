@@ -63,14 +63,14 @@ tooltip {
   border-width: 0px;
 }
 
-#workspaces {
+#waybar-vd {
   /* padding: 3px 3px; */
 }
 
-#workspaces button:hover {
+#waybar-vd button:hover {
 }
 
-#workspaces button.active {
+#waybar-vd button.vdesk-focused {
   color: @active_workspace_fg;
   background: @active_workspace_bg;
   border: none;
@@ -79,7 +79,7 @@ tooltip {
   transition: all 0.3s ease-in-out;
 }
 
-#workspaces button {
+#waybar-vd button {
   color: @workspace_fg;
   background: @workspace_bg;
   padding: 1px 1px;
@@ -87,7 +87,7 @@ tooltip {
   transition: all 0.3s ease-in-out;
 }
 
-#workspaces button:not(.empty):not(.active) {
+#waybar-vd button.vdesk-unfocused {
   color: @use_workspace_fg;
   padding: 1px 1px;
   margin: 1px 1px;
@@ -122,6 +122,7 @@ tooltip {
 #custom-hyprscroller,
 #windowcount,
 #custom-notification,
+#waybar-vd,
 #network {
   padding: 0px 5px;
 }
@@ -163,7 +164,7 @@ tooltip {
   margin-right: 0px;
 }
 
-#workspaces {
+#waybar-vd {
   background: @workspaces;
 }
 

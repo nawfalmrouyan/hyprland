@@ -355,5 +355,10 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "cffi/virtual-desktops": {
+    "module_path": "/home/opal/.config/hypr/waybar/modules/libwaybar_vd.so",
+    "format": "{name}",
+    "show_empty": false
   }
 }
