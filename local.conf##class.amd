@@ -7,4 +7,5 @@ bind = $mainMod, W, exec, $browser
 bind = $mainMod SHIFT, A, exec, [workspace 5 silent] microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland --profile-directory="Profile 2"
 bind = $mainMod ALT, A, exec, [workspace 5 silent] microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland --profile-directory="Profile 1"
 
+exec-once =  kanata_cmd_allowed -c $confDir/kanata/silakka.kbd
 # vim: set ft=hyprlang :

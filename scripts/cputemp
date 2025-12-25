@@ -1,5 +1,6 @@
 #!/bin/sh
-# sensors | awk '/Package/ {sub(/^\+/, "", $4); sub(/\.0/, "", $4);print $4}'
-temp_value=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input)
-temp_celsius=$(echo "scale=1; $temp_value / 1000" | bc)
-echo "${temp_celsius}"
+sensors | awk '/Package/ {sub(/^\+/, "", $4); sub(/\.0/, "", $4);print $4}'
+# for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+# temp_value=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input)
+# temp_celsius=$(echo "scale=1; $temp_value / 1000" | bc)
+# echo "${temp_celsius}"
