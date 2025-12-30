@@ -1,9 +1,0 @@
-#!/bin/sh
-
-PATH=$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/hypr/scripts/:$PATH
-export PATH
-
-cd ~ || exit
-
-# exec Hyprland
-AQ_TRACE=1 HYPRLAND_TRACE=1 Hyprland
