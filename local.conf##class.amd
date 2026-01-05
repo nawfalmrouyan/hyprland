@@ -8,4 +8,10 @@ bind = $mainMod SHIFT, A, exec, [workspace 5 silent] microsoft-edge-stable -enab
 bind = $mainMod ALT, A, exec, [workspace 5 silent] microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland --profile-directory="Profile 1"
 
 exec-once =  kanata_cmd_allowed -c $confDir/kanata/silakka.kbd
+
+# DMS brightness binds
+bind = , XF86MonBrightnessUp, exec, dms ipc call brightness increment 5 backlight:amdgpu_bl1; dms ipc call brightness increment 5 ddc-i2c-4
+bind = , XF86MonBrightnessDown, exec, dms ipc call brightness decrement 5 backlight:amdgpu_bl1; dms ipc call brightness decrement 5 ddc-i2c-4
+bind = , XF86MonBrightnessDown+Shift, exec, dms ipc call brightness toggleExponential backlight:amdgpu_bl1; dms ipc call brightness toggleExponential ddc:i2c-4
+
 # vim: set ft=hyprlang :
