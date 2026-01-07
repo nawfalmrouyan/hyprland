@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-STATUS=$(dms ipc lock isLocked)
-
-if [ "$STATUS" == "false" ]; then
-  $(dms ipc lock lock)
-  exit 0
+# Check if screen is locked before performing action
+if dms ipc call lock isLocked | grep -q "false"; then
+  dms ipc lock lock
 else
   exit 1
 fi
