@@ -593,11 +593,6 @@ submap = reset
 # bindd = , Print, Toggle screenshot dialog, exec, $scriptsDir/rofi-screenshot
 # bindd = , Print, Screenshot, exec, dms screenshot --no-file -f jpg -q 85 --stdout | satty -f -
 bindd = , Print, Toggle screenshot dialog, exec, $scriptsDir/dms-screenshot
-# mkdir -p ~/.config/quickshell && cd ~/.config/quickshell && gcl git@github.com:JamDon2/hyprquickshot.git
-# bindd = , Print, Screenshot utility, exec, HQS_DIR=~/Pictures/Screenshots quickshell -c hyprquickshot -n
-# bindd = $mainMod, Print, Screenshot and edit image utility, exec, HQS_DIR=~/Pictures/Screenshots quickshell -c hyprquickshot -n && kitty --class=nvim-hypr-anywhere -e yazi ~/Pictures/Screenshots
-# bindd = $mainMod ALT, Print, Screenshot and edit image utility, exec, HQS_DIR=~/Pictures/Screenshots quickshell -c hyprquickshot -n && xdg-open http://images.google.com
-# bindd = $mainMod SHIFT, Print, OCR, exec, slurp | grim -g - - | tesseract stdin stdout -l eng | wl-copy
 bindd = $mainMod, X, Toggle hide/reveal dank bar, exec, dms ipc call bar toggle index 0
 
 # Special Keys
@@ -717,13 +712,13 @@ exec-once = dms run
 
 # forcefully kill processes (uwsm sometimes causes slow shutdown)
 # exec-shutdown = pkill -9 zapzap
-# exec-shutdown = pkill -9 WhatsAppWeb
-# exec-shutdown = pkill -9 kanata
-# exec-shutdown = pkill -9 kitty
-# exec-shutdown = pkill -9 jamesdsp
-# exec-shutdown = pkill -9 outlook
-# exec-shutdown = pkill -9 hypridle
-# exec-shutdown = pkill -9 vicinae
+exec-shutdown = pkill -9 WhatsAppWeb
+exec-shutdown = pkill -9 kanata
+exec-shutdown = pkill -9 kitty
+exec-shutdown = pkill -9 jamesdsp
+exec-shutdown = pkill -9 outlook
+exec-shutdown = pkill -9 hypridle
+exec-shutdown = pkill -9 vicinae
 # exec-shutdown = pkill -9 wayscriber
 
 workspace = special:terminal, on-created-empty:kitty -1 --title scratch -e sesh connect WORK

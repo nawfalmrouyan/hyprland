@@ -1,41 +1,37 @@
 #!/usr/bin/env bash
 
-scriptsDir="$HOME/.config/hypr/scripts"
-rofi_command="vicinae dmenu"
+selection=$(printf 'Area\nWindow\nScreen\nAll\nOCR\nSearch' | vicinae dmenu) || exit 1
 
-menu() {
-  printf "1. Screen\n"
-  printf "2. Window\n"
-  printf "3. Area\n"
-  printf "4. All screens\n"
-}
-
-main() {
-  choice=$(menu | ${rofi_command} | cut -d. -f1)
-
-  case $choice in
-  1)
-    sleep 0.5
-    dms screenshot full -f jpg -q 85 --stdout | satty -f -
-    return
-    ;;
-  2)
-    sleep 0.5
-    dms screenshot window -f jpg -q 85 --stdout | satty -f -
-    return
-    ;;
-  3)
-    sleep 0.5
-    dms screenshot region -f jpg -q 85 --stdout | satty -f -
-    return
-    ;;
-  4)
-    sleep 0.5
-    dms screenshot all -f jpg -q 85 --stdout | satty -f -
-    return
-    ;;
-  esac
-}
-
-echo "${choice}"
-main
+case $selection in
+"Screen")
+  sleep 0.5
+  dms screenshot full --stdout | satty -f -
+  return
+  ;;
+"Window")
+  sleep 0.5
+  dms screenshot window --stdout | satty -f -
+  return
+  ;;
+"Area")
+  sleep 0.5
+  dms screenshot region --stdout | satty -f -
+  return
+  ;;
+"All")
+  sleep 0.5
+  dms screenshot all --stdout | satty -f -
+  return
+  ;;
+"OCR")
+  sleep 0.5
+  dms screenshot region --stdout | tesseract stdin stdout -l eng | wl-copy
+  return
+  ;;
+"Search")
+  sleep 0.5
+  dms screenshot region
+  xdg-open https://images.google.com
+  return
+  ;;
+esac
