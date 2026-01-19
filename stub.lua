@@ -778,7 +778,7 @@ hl.bind(
 hl.bind(
 	mainMod .. " + G",
 	hl.dsp.exec_cmd(
-		"if [ $(hyprctl activewindow | rg 'grouped:' | rg -v 'Window' | tr -dc ',' | wc -c) -gt '0' ]; then hyprctl dispatch lockactivegroup toggle; else hyprctl dispatch togglegroup; fi"
+		"if [ $(hyprctl activewindow | rg 'grouped:' | rg -v 'Window' | tr -dc ',' | wc -c) -gt '0' ]; then hyprctl dispatch 'hl.dsp.group.lock()'; else hyprctl dispatch 'hl.dsp.group.toggle()'; fi"
 	),
 	{ description = "Toggle group / Lock group" }
 )
@@ -1074,7 +1074,7 @@ require("hyprscrolling")
 -- require(".hypr-dynamic-cursors")
 
 -- Source local config (yadm), symlink creation is handled by yadm
-require("local")
+require("localAMD")
 
 hl.on("hyprland.start", function()
 	-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
