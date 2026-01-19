@@ -46,10 +46,73 @@ hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 5, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-1" })
 
-require("mocha.lua")
+require("mocha")
 
 hl.config({
-  general({
+  input = {
+    kb_layout = "us",
+    kb_variant = "altgr-intl",
+    kb_options = "compose:menu,level3:ralt_switch",
+    special_fallthrough = true,
+    follow_mouse = 1,
+    numlock_by_default = true,
+    repeat_rate = 25,
+    repeat_delay = 600,
+    focus_on_close = 2,
+    -- scroll_method = edge,
+    accel_profile = "adaptive",
+
+    touchpad = {
+      natural_scroll = true,
+      tap_to_click = true,
+      drag_lock = true,
+      disable_while_typing = true,
+      drag_3fg = 1,
+    },
+  },
+
+  misc = {
+    disable_hyprland_logo = true,
+    disable_splash_rendering = true,
+    mouse_move_enables_dpms = true,
+    key_press_enables_dpms = true,
+    enable_swallow = true,
+    swallow_regex = "foot|kitty|com.mitchellh.ghostty",
+    swallow_exception_regex = "^(noswallow)$",
+    focus_on_activate = true,
+    allow_session_lock_restore = true,
+    font_family = "Pragmasevka Aile SmBd Cn",
+    on_focus_under_fullscreen = 1,
+  },
+
+  cursor = {
+    hide_on_touch = true,
+    hide_on_key_press = true,
+    persistent_warps = true,
+    warp_on_change_workspace = 1,
+    warp_on_toggle_special = 1,
+    default_monitor = "HDMI-A-1",
+    no_hardware_cursors = 2,
+    use_cpu_buffer = 2,
+  },
+
+  binds = {
+    workspace_back_and_forth = false,
+    allow_pin_fullscreen = true,
+    movefocus_cycles_fullscreen = true,
+    movefocus_cycles_groupfirst = true,
+  },
+
+  ecosystem = {
+    no_update_news = true,
+    no_donation_nag = true,
+  },
+
+  debug = {
+    disable_logs = false,
+  },
+
+  general = {
     gaps_in = 0,
     gaps_out = 0,
     border_size = 3,
@@ -64,15 +127,16 @@ hl.config({
     layout = "scrolling",
     allow_tearing = true,
 
-    snap({
+    snap = {
       enabled = true,
       respect_gaps = true,
       border_overlap = false,
       window_gap = 5,
       monitor_gap = 5,
-    }),
-  }),
-  group({
+    },
+  },
+
+  group = {
     col = {
       border_active = { colors = { mauve, blue }, angle = 45 },
       -- Unfocused window border color (fully transparent)
@@ -80,9 +144,9 @@ hl.config({
       border_locked_inactive = "rgba(00000000)",
       border_locked_active = { colors = { mauve, blue }, angle = 45 },
     },
-  }),
+  },
 
-  groupbar({
+  groupbar = {
     font_family = "Pragmasevka Aile SmBd Cn",
     keep_upper_gap = false,
     indicator_height = 7,
@@ -97,7 +161,7 @@ hl.config({
       locked_inactive = teal,
       locked_active = mauve,
     },
-  }),
+  },
 
   decoration = {
     rounding = 0,
