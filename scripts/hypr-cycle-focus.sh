@@ -71,7 +71,9 @@ CLIENTS=$(get_clients)
 COUNT=$(echo "$CLIENTS" | grep -c .)
 
 if [[ "$COUNT" -eq 0 ]]; then
+  # SPAWN_CMD="$(echo "$SPAWN_CMD" | cut -d' ' -f3-)"
   hyprctl dispatch exec "$SPAWN_CMD"
+  # echo "$SPAWN_CMD"
   exit 0
 fi
 

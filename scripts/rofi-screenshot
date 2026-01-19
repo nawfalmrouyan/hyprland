@@ -17,6 +17,7 @@ main() {
 
   case $choice in
   1)
+    sleep 0.5
     "${scriptsDir}"/screenshot --now
     return
     ;;
@@ -29,6 +30,7 @@ main() {
     return
     ;;
   4)
+    sleep 0.5
     "${scriptsDir}"/screenshot --win
     return
     ;;
@@ -37,7 +39,7 @@ main() {
     return
     ;;
   6)
-    sleep 1
+    sleep 0.5
     "${scriptsDir}"/grimblast -n copysave output
     return
     ;;
