@@ -411,7 +411,7 @@ hl.window_rule({ float = true, match = { title = ".*Network Manager.*" } })
 hl.window_rule({ border_color = { colors = { mauve, red } }, match = { float = true } })
 hl.window_rule({ border_size = 0, match = { fullscreen = true } })
 hl.window_rule({ border_size = 0, match = { fullscreen_state_internal = 1, fullscreen_state_client = 2 } })
-hl.window_rule({ opacity = "0.8, 0.8", match = { pin = true } })
+hl.window_rule({ opacity = "0.8 0.8", match = { pin = true } })
 
 hl.window_rule({
 	name = "steam-window",
@@ -763,16 +763,24 @@ hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows
 hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.submap("group"))
 hl.define_submap("group", function()
-	hl.bind(", J", hl.dsp.window.move({ into_group, "d" }), { description = "Move app into group below" })
-	hl.bind(", K", hl.dsp.window.move({ into_group, "u" }), { description = "Move app into group above" })
-	hl.bind(", L", hl.dsp.window.move({ into_group, "r" }), { description = "Move app into group on the right" })
-	hl.bind(", H", hl.dsp.window.move({ into_group, "l" }), { description = "Move app into group on the left" })
+	hl.bind("J", hl.dsp.window.move({ into_group, direction = "d" }), { description = "Move app into group below" })
+	hl.bind("K", hl.dsp.window.move({ into_group, direction = "u" }), { description = "Move app into group above" })
+	hl.bind(
+		"L",
+		hl.dsp.window.move({ into_group, direction = "r" }),
+		{ description = "Move app into group on the right" }
+	)
+	hl.bind(
+		"H",
+		hl.dsp.window.move({ into_group, direction = "l" }),
+		{ description = "Move app into group on the left" }
+	)
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
 
 -- Screenshots
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "OCR / Google Lens" })
-hl.bind(", Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "Screenshot" })
+hl.bind("Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "Screenshot" })
 
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("dms ipc call bar toggle index 0"), { description = "Toggle dank bar" })
 hl.bind(
@@ -826,7 +834,7 @@ hl.define_submap("passthru", function()
 end)
 
 -- Special workspace
--- hl.bind(mainMod .. " + SHIFT + U", hl.dsp.workspace.move("special:terminal"), { description = "Move to terminal workspace", submap_universal = true })
+-- hl.bind(mainMod .. " + SHIFT + U", hl.dsp.workspace.move({ workspace = "special:terminal", monitor = "current" }), { description = "Move to terminal workspace", submap_universal = true })
 hl.bind(
 	mainMod .. " + U",
 	hl.dsp.workspace.toggle_special("terminal"),
@@ -834,7 +842,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + Backspace",
-	hl.dsp.workspace.move("special:steam"),
+	hl.dsp.workspace.move({ workspace = "special:steam", monitor = "current" }),
 	{ description = "Move to Steam workspace", submap_universal = true }
 )
 hl.bind(
@@ -844,7 +852,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + Delete",
-	hl.dsp.workspace.move("special:trash"),
+	hl.dsp.workspace.move({ workspace = "special:trash", monitor = "current" }),
 	{ description = "Move to Trash workspace", submap_universal = true }
 )
 hl.bind(
@@ -852,7 +860,7 @@ hl.bind(
 	hl.dsp.workspace.toggle_special("trash"),
 	{ description = "Toggle Trash workspace", submap_universal = true }
 )
--- hl.bind(mainMod .. " + SHIFT + R", hl.dsp.workspace.move("special:update"), { description = "Move to update workspace", submap_universal = true }
+-- hl.bind(mainMod .. " + SHIFT + R", hl.dsp.workspace.move({ workspace = "special:update", monitor = "current" }), { description = "Move to update workspace", submap_universal = true }
 hl.bind(
 	mainMod .. " + SHIFT + U",
 	hl.dsp.workspace.toggle_special("update"),
@@ -860,7 +868,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + O",
-	hl.dsp.workspace.move("special:whatsapp"),
+	hl.dsp.workspace.move({ workspace = "special:whatsapp", monitor = "current" }),
 	{ description = "Move to Whatsapp workspace", submap_universal = true }
 )
 hl.bind(
@@ -870,7 +878,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + 6",
-	hl.dsp.workspace.move("special:pulsesecure"),
+	hl.dsp.workspace.move({ workspace = "special:pulsesecure", monitor = "current" }),
 	{ description = "Move to Pulse Secure workspace", submap_universal = true }
 )
 hl.bind(
@@ -880,7 +888,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + 7",
-	hl.dsp.workspace.move("special:forticlient"),
+	hl.dsp.workspace.move({ workspace = "special:forticlient", monitor = "current" }),
 	{ description = "Move to Forticlient workspace", submap_universal = true }
 )
 hl.bind(
@@ -888,11 +896,11 @@ hl.bind(
 	hl.dsp.workspace.toggle_special("forticlient"),
 	{ description = "Toggle Forticlient workspace", submap_universal = true }
 )
--- hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.workspace.move("special:ytm"), { description = "Move to ytm workspace", submap_universal = true })
+-- hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.workspace.move({ workspace = "special:ytm", monitor = "current" }), { description = "Move to ytm workspace", submap_universal = true })
 -- hl.bind(mainMod .. " + Y", hl.dsp.workspace.togglespecial("ytm"), { description = "Toggle ytm workspace", submap_universal = true })
 hl.bind(
 	mainMod .. " + SHIFT + I",
-	hl.dsp.workspace.move("special:rmpc"),
+	hl.dsp.workspace.move({ workspace = "special:rmpc", monitor = "current" }),
 	{ description = "Move to rmpc workspace", submap_universal = true }
 )
 hl.bind(
@@ -1001,10 +1009,10 @@ hl.bind(
 hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"), { mouse = true })
 
 -- The second bind is redundant but I'm used to it in DWM
-hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ 1, 0 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ 0, 1 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ 1, 0 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ 0, 1 }))
+hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = 1, monitor2 = 0 }))
+hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = 0, monitor2 = 1 }))
+hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ monitor1 = 1, monitor2 = 0 }))
+hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ monitor1 = 0, monitor2 = 1 }))
 
 hl.bind(
 	mainMod .. " + SHIFT + comma",
@@ -1030,8 +1038,14 @@ hl.bind(
 )
 
 -- laptop lid switch
-hl.bind("switch:on:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = false, locked = true }))
-hl.bind("switch:off:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = true, locked = true }))
+-- hl.bind(
+-- 	"switch:on:[Lid Switch]",
+-- 	hl.dsp.exec_cmd("hyprctl eval 'hl.monitor({ output = \"eDP-1\", disabled = false, locked = true })'")
+-- )
+-- hl.bind(
+-- 	"switch:off:[Lid Switch]",
+-- 	hl.dsp.exec_cmd("hyprctl eval 'hl.monitor({ output = \"eDP-1\", disabled = true, locked = true })'")
+-- )
 
 -- Plugins
 require("hyprscrolling")
