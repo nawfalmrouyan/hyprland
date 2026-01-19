@@ -1,3 +1,5 @@
+require("mocha")
+
 local mainMod = "SUPER"
 local home = "/home/opal"
 local localBin = home .. "/.local/bin"
@@ -12,11 +14,11 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:" .. confDir .. "/scripts:$PATH")
-hl.env(
-	"GAMEMODERUNEXEC",
-	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
-)
+-- hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:" .. confDir .. "/scripts:$PATH")
+-- hl.env(
+-- 	"GAMEMODERUNEXEC",
+-- 	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
+-- )
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -41,8 +43,26 @@ hl.workspace_rule({ workspace = 3, monitor = "eDP-1" })
 hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 5, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-1" })
-
-require("mocha")
+hl.workspace_rule({
+	workspace = "special:terminal",
+	on_created_empty = "footclient -a scratch -T scratch -e sesh connect WORK",
+})
+hl.workspace_rule({ workspace = "special:trash", on_created_empty = "youtube-music-for-desktop" })
+hl.workspace_rule({
+	workspace = "special:whatsapp",
+	on_created_empty =
+	"/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
+})
+hl.workspace_rule({ workspace = "special:steam", on_created_empty = "steam" })
+hl.workspace_rule({ workspace = "special:update", on_created_empty = "footclient -a update -T update -e yay -Syu" })
+hl.workspace_rule({
+	workspace = "special:pulsemixer",
+	on_created_empty = "footclient -a update -T update -e pulsemixer",
+})
+hl.workspace_rule({ workspace = "special:pulsesecure", on_created_empty = "/opt/pulsesecure/bin/pulseUI" })
+hl.workspace_rule({ workspace = "special:forticlient", on_created_empty = "/opt/forticlient/gui/FortiClient" })
+-- hl.workspace_rule({ workspace = "special:ytm", on_created_empty = "footclient -T ytm -e ytm" })
+hl.workspace_rule({ workspace = "special:rmpc", on_created_empty = "footclient -T ytm -e rmpc" })
 
 hl.config({
 	input = {
@@ -105,7 +125,8 @@ hl.config({
 	},
 
 	debug = {
-		disable_logs = false,
+		disable_logs = true,
+		enable_stdout_logs = false,
 	},
 
 	general = {
@@ -742,7 +763,7 @@ hl.bind(
 )
 
 -- Night mode (blue filter)
--- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader $scriptsDir/flux.glsl"))
+-- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader " .. scriptsDir .. "/flux.glsl"))
 -- hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader '[[EMPTY]]'"))
 
 -- wayscriber
@@ -1037,11 +1058,11 @@ hl.bind(
 -- laptop lid switch
 -- hl.bind(
 -- 	"switch:on:[Lid Switch]",
--- 	hl.dsp.exec_cmd("hyprctl eval 'hl.monitor({ output = \"eDP-1\", disabled = false, locked = true })'")
+-- 	hl.dsp.exec_cmd("hyprctl dispatch 'hl.monitor({ output = \"eDP-1\", disabled = false, locked = true })'")
 -- )
 -- hl.bind(
 -- 	"switch:off:[Lid Switch]",
--- 	hl.dsp.exec_cmd("hyprctl eval 'hl.monitor({ output = \"eDP-1\", disabled = true, locked = true })'")
+-- 	hl.dsp.exec_cmd("hyprctl dispatch 'hl.monitor({ output = \"eDP-1\", disabled = true, locked = true })'")
 -- )
 
 -- Plugins
@@ -1055,40 +1076,19 @@ require("local")
 hl.on("hyprland.start", function()
 	-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
 	-- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-	-- hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
-	-- hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	-- hl.exec_cmd("jamesdsp --tray")
-	-- hl.exec_cmd("hyprpm reload")
-	-- hl.exec_cmd("systemctl --user start vicinae")
-	-- hl.exec_cmd("systemctl --user start hypridle")
-	-- hl.exec_cmd("systemctl --user start foot-server")
-	-- hl.exec_cmd("wayscriber --daemon")
+	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
+	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("jamesdsp --tray")
+	hl.exec_cmd("hyprpm reload")
+	hl.exec_cmd("systemctl --user start vicinae")
+	hl.exec_cmd("systemctl --user start hypridle")
+	hl.exec_cmd("systemctl --user start foot-server")
+	hl.exec_cmd("wayscriber --daemon")
 	hl.exec_cmd("dms run --session")
 end)
 
--- hl.on("hyprland.shutdown", function()
--- 	hl.exec_cmd("systemctl --user stop hypridle")
--- 	hl.exec_cmd("systemctl --user stop vicinae")
--- 	hl.exec_cmd("systemctl --user stop foot-server")
--- end)
-
-hl.workspace_rule({
-	workspace = "special:terminal",
-	on_created_empty = "footclient -a scratch -T scratch -e sesh connect WORK",
-})
-hl.workspace_rule({ workspace = "special:trash", on_created_empty = "youtube-music-for-desktop" })
-hl.workspace_rule({
-	workspace = "special:whatsapp",
-	on_created_empty =
-	"/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
-})
-hl.workspace_rule({ workspace = "special:steam", on_created_empty = "steam" })
-hl.workspace_rule({ workspace = "special:update", on_created_empty = "footclient -a update -T update -e yay -Syu" })
-hl.workspace_rule({
-	workspace = "special:pulsemixer",
-	on_created_empty = "footclient -a update -T update -e pulsemixer",
-})
-hl.workspace_rule({ workspace = "special:pulsesecure", on_created_empty = "/opt/pulsesecure/bin/pulseUI" })
-hl.workspace_rule({ workspace = "special:forticlient", on_created_empty = "/opt/forticlient/gui/FortiClient" })
--- hl.workspace_rule({ workspace = "special:ytm", on_created_empty = "footclient -T ytm -e ytm" })
-hl.workspace_rule({ workspace = "special:rmpc", on_created_empty = "footclient -T ytm -e rmpc" })
+hl.on("hyprland.shutdown", function()
+	hl.exec_cmd("systemctl --user stop hypridle")
+	hl.exec_cmd("systemctl --user stop vicinae")
+	hl.exec_cmd("systemctl --user stop foot-server")
+end)
