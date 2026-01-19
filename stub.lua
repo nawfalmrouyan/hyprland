@@ -1012,21 +1012,19 @@ hl.bind(
 )
 
 -- Zoom
-hl.bind(
-	mainMod .. " + mouse_down",
-	hl.dsp.exec_cmd(
-		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')"
-	),
-	{ mouse = true }
-)
-hl.bind(
-	mainMod .. " + mouse_up",
-	hl.dsp.exec_cmd(
-		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')"
-	),
-	{ mouse = true }
-)
-hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"), { mouse = true })
+hl.bind(mainMod .. " + mouse_down", function()
+	local zoomFactor = hl.get_config("cursor.zoom_factor") + 0.5
+	hl.config({
+		cursor = { zoom_factor = zoomFactor },
+	})
+end, { repeating = true })
+hl.bind(mainMod .. " + mouse_up", function()
+	local zoomFactor = hl.get_config("cursor.zoom_factor") - 0.5
+	hl.config({
+		cursor = { zoom_factor = zoomFactor },
+	})
+end, { repeating = true })
+-- hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 
 -- The second bind is redundant but I'm used to it in DWM
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
