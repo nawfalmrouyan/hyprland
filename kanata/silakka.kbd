@@ -35,7 +35,7 @@ mralt (tap-hold $tap-time $hold-time scln ralt)
 (defchordsv2
   (spc j k) C-\ $chords-time first-release () ;; tmux prefix
   (spc d f) (cmd vicinae toggle) $chords-time first-release () ;; vicinae
-  (d f) A-C-s $chords-time first-release () ;; zen toggle floating side bar
-  (w e) A-C-q $chords-time first-release () ;; zen previous workspace
-  (i o) A-C-e $chords-time first-release () ;; zen next workspace
+  (grave 1) A-C-s $chords-time first-release () ;; zen toggle floating side bar
+  (2 3) A-C-q $chords-time first-release () ;; zen previous workspace
+  (8 9) A-C-e $chords-time first-release () ;; zen next workspace
 )
