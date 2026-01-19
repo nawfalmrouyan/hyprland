@@ -1029,10 +1029,10 @@ hl.bind(
 hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"), { mouse = true })
 
 -- The second bind is redundant but I'm used to it in DWM
-hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "r", monitor2 = "l" }))
-hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "l", monitor2 = "r" }))
-hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ monitor1 = "r", monitor2 = "l" }))
-hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ monitor1 = "l", monitor2 = "r" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
 
 hl.bind(
 	mainMod .. " + SHIFT + comma",
