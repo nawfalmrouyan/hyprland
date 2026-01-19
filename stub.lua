@@ -27,11 +27,11 @@ hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XCURSOR_SIZE", "24")
 
-mainMod = "SUPER"
-home = "/home/opal"
-localBin = home .. "/.local/bin"
-confDir = home .. "/.config/hypr"
-scriptsDir = confDir .. "/scripts"
+local mainMod = "SUPER"
+local home = "/home/opal"
+local localBin = home .. "/.local/bin"
+local confDir = home .. "/.config/hypr"
+local scriptsDir = confDir .. "/scripts"
 
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
@@ -52,7 +52,7 @@ hl.config({
 	input = {
 		kb_layout = "us",
 		kb_variant = "altgr-intl",
-		kb_options = "compose:menu,level3:ralt_switch",
+		-- kb_options = "compose:menu,level3:ralt_switch",
 		special_fallthrough = true,
 		follow_mouse = 1,
 		numlock_by_default = true,
@@ -703,17 +703,17 @@ hl.bind(
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(scriptsDir .. "/rofi-beats"), { description = "Open Rofi Radio Stream" })
 hl.bind(
 	"ALT + Tab",
-	hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/wm/switch-windows"),
+	hl.dsp.exec_cmd("vicinae vicinae://launch/wm/switch-windows"),
 	{ description = "Vicinae Switch windows" }
 )
 hl.bind(
 	mainMod .. " + E",
-	hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/core/search-emojis"),
+	hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"),
 	{ description = "Vicinae Search Emojis" }
 )
 hl.bind(
 	mainMod .. " + Semicolon",
-	hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/clipboard/history"),
+	hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"),
 	{ description = "Vicinae Clipboard History" }
 )
 hl.bind(
@@ -762,7 +762,7 @@ hl.bind(
 hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows in a group" })
 hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.submap("group"))
-hl.define_submap("group", function()
+hl.define_submap("group", "reset", function()
 	hl.bind("J", hl.dsp.window.move({ into_group, direction = "d" }), { description = "Move app into group below" })
 	hl.bind("K", hl.dsp.window.move({ into_group, direction = "u" }), { description = "Move app into group above" })
 	hl.bind(
@@ -1009,10 +1009,10 @@ hl.bind(
 hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"), { mouse = true })
 
 -- The second bind is redundant but I'm used to it in DWM
-hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = 1, monitor2 = 0 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = 0, monitor2 = 1 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ monitor1 = 1, monitor2 = 0 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ monitor1 = 0, monitor2 = 1 }))
+hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "r", monitor2 = "l" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "l", monitor2 = "r" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ monitor1 = "r", monitor2 = "l" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ monitor1 = "l", monitor2 = "r" }))
 
 hl.bind(
 	mainMod .. " + SHIFT + comma",
@@ -1055,9 +1055,9 @@ require("hyprscrolling")
 -- Source local config (yadm), symlink creation is handled by yadm
 require("local")
 
--- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
--- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 hl.on("hyprland.start", function()
+	-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
+	-- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("jamesdsp --tray")
