@@ -23,16 +23,16 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
 
-mainMod = "SUPER"
-home = "/home/opal"
-localBin = home .. "/.local/bin"
-confDir = home .. "/.config/hypr"
-scriptsDir = confDir .. "/scripts"
-volume = scriptsDir .. "/volume"
-backlight = "/bin/brightnessctl"
-screenshot = scriptsDir .. "/dms-screenshot"
-rofi_beats = scriptsDir .. "/rofi-beats"
-music = "youtube-music-for-desktop"
+local mainMod = "SUPER"
+local home = "/home/opal"
+local localBin = home .. "/.local/bin"
+local confDir = home .. "/.config/hypr"
+local scriptsDir = confDir .. "/scripts"
+local volume = scriptsDir .. "/volume"
+local backlight = "/bin/brightnessctl"
+local screenshot = scriptsDir .. "/dms-screenshot"
+local rofi_beats = scriptsDir .. "/rofi-beats"
+local music = "youtube-music-for-desktop"
 
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
@@ -46,4 +46,89 @@ hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 5, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-1" })
 
-require("mocha.conf")
+require("mocha.lua")
+
+hl.config({
+  general({
+    gaps_in = 0,
+    gaps_out = 0,
+    border_size = 3,
+    resize_on_border = true,
+    col = {
+      active_border = { colors = { mauve, blue }, angle = 45 },
+      -- Unfocused window border color (fully transparent)
+      inactive_border = "rgba(00000000)",
+    },
+    gaps_workspaces = 5,
+    float_gaps = 3,
+    layout = "scrolling",
+    allow_tearing = true,
+
+    snap({
+      enabled = true,
+      respect_gaps = true,
+      border_overlap = false,
+      window_gap = 5,
+      monitor_gap = 5,
+    }),
+  }),
+  group({
+    col = {
+      border_active = { colors = { mauve, blue }, angle = 45 },
+      -- Unfocused window border color (fully transparent)
+      border_inactive = "rgba(00000000)",
+      border_locked_inactive = "rgba(00000000)",
+      border_locked_active = { colors = { mauve, blue }, angle = 45 },
+    },
+  }),
+
+  groupbar({
+    font_family = "Pragmasevka Aile SmBd Cn",
+    keep_upper_gap = false,
+    indicator_height = 7,
+    blur = true,
+    font_size = 15,
+    gradients = false,
+    render_titles = false,
+    col = {
+      active = mauve,
+      -- Unfocused window border color (fully transparent)
+      inactive = "rgba(00000000)",
+      locked_inactive = teal,
+      locked_active = mauve,
+    },
+  }),
+
+  decoration = {
+    rounding = 0,
+    active_opacity = 1.0,
+    -- inactive_opacity = 0.9,
+    fullscreen_opacity = 1.0,
+    -- dim_inactive = true,
+    dim_strength = 0.7,
+    dim_special = 0.3,
+    dim_around = 0.5,
+
+    blur = {
+      size = 1,
+      passes = 5,
+      vibrancy = 0.1696,
+      new_optimizations = true,
+      popups = true,
+    },
+
+    shadow = {
+      enabled = false,
+      range = 11,
+      render_power = 2,
+      color = mauve,
+    },
+
+    -- glow {
+    --   enabled = true,
+    --   range = 11,
+    --   render_power = 2,
+    --   color = mauve,
+    -- },
+  },
+})
