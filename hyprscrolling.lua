@@ -8,6 +8,8 @@ hl.config({
     },
 })
 
+local mainMod = "SUPER"
+
 hl.bind(mainMod .. " + L", hl.dsp.layout("focus r"))
 hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"))
 hl.bind(mainMod .. " + K", hl.dsp.layout("focus u"))

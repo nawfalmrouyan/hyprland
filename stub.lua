@@ -1,3 +1,9 @@
+local mainMod = "SUPER"
+local home = "/home/opal"
+local localBin = home .. "/.local/bin"
+local confDir = home .. "/.config/hypr"
+local scriptsDir = confDir .. "/scripts"
+
 hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 hl.env("QT_QPA_PLATFORMTHEME_QT6", "gtk3")
@@ -6,7 +12,7 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:$confDir/scripts:$PATH")
+hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:" .. confDir .. "/scripts:$PATH")
 hl.env(
 	"GAMEMODERUNEXEC",
 	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
@@ -22,16 +28,6 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
-hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
-hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_SIZE", "24")
-
-local mainMod = "SUPER"
-local home = "/home/opal"
-local localBin = home .. "/.local/bin"
-local confDir = home .. "/.config/hypr"
-local scriptsDir = confDir .. "/scripts"
 
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
@@ -52,7 +48,6 @@ hl.config({
 	input = {
 		kb_layout = "us",
 		kb_variant = "altgr-intl",
-		-- kb_options = "compose:menu,level3:ralt_switch",
 		special_fallthrough = true,
 		follow_mouse = 1,
 		numlock_by_default = true,
@@ -65,7 +60,7 @@ hl.config({
 		touchpad = {
 			natural_scroll = true,
 			tap_to_click = true,
-			drag_lock = true,
+			drag_lock = 1,
 			disable_while_typing = true,
 			drag_3fg = 1,
 		},
@@ -117,7 +112,7 @@ hl.config({
 		gaps_in = 0,
 		gaps_out = 0,
 		border_size = 3,
-		resize_on_border = true,
+		resize_on_border = false,
 		col = {
 			active_border = { colors = { mauve, blue }, angle = 45 },
 			-- Unfocused window border color (fully transparent)
@@ -132,8 +127,8 @@ hl.config({
 			enabled = true,
 			respect_gaps = true,
 			border_overlap = false,
-			window_gap = 5,
-			monitor_gap = 5,
+			window_gap = 10,
+			monitor_gap = 10,
 		},
 	},
 
@@ -170,9 +165,9 @@ hl.config({
 		-- inactive_opacity = 0.9,
 		fullscreen_opacity = 1.0,
 		-- dim_inactive = true,
-		dim_strength = 0.7,
-		dim_special = 0.3,
-		dim_around = 0.5,
+		-- dim_strength = 0.7,
+		-- dim_special = 0.3,
+		-- dim_around = 0.5,
 
 		blur = {
 			size = 1,
@@ -202,16 +197,18 @@ hl.config({
 		workspace_wraparound = true,
 	},
 
+	xwayland = {
+		force_zero_scaling = true,
+	},
+})
+
+hl.config({
 	master = {
 		new_status = "slave",
 		mfact = 0.5,
 		special_scale_factor = 0.9,
 		allow_small_split = true,
 		new_on_active = "after",
-	},
-
-	xwayland = {
-		force_zero_scaling = true,
 	},
 })
 
@@ -342,18 +339,18 @@ hl.window_rule({
 	workspace = "special:trash silent",
 })
 
-hl.window_rule({
-	name = "showmethekey-rules",
-	match = { class = "showmethekey-gtk" },
-	move = { 1511, 919 },
-	float = true,
-	border_size = 0,
-	opacity = "1.0 override 1.0 override",
-	no_blur = true,
-	no_focus = true,
-	no_anim = true,
-	no_shadow = true,
-})
+-- hl.window_rule({
+-- 	name = "showmethekey-rules",
+-- 	match = { class = "showmethekey-gtk" },
+-- 	move = { 1511, 919 },
+-- 	float = true,
+-- 	border_size = 0,
+-- 	opacity = "1.0 override 1.0 override",
+-- 	no_blur = true,
+-- 	no_focus = true,
+-- 	no_anim = true,
+-- 	no_shadow = true,
+-- })
 
 hl.window_rule({
 	name = "onlyoffice-popups",
@@ -395,11 +392,11 @@ hl.window_rule({
 
 -- grouping rules
 hl.window_rule({
-	group = "set",
 	match = {
 		class =
 		"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
 	},
+	group = "set",
 })
 hl.window_rule({ group = "override barred", match = { class = "foot|kitty|zen|xdg-desktop-portal-gtk" } })
 
@@ -419,7 +416,7 @@ hl.window_rule({
 	float = true,
 })
 
-hl.window_rule({ float = true, match = { class = "^(steam_app_.*)$, match:initial_title ^(..+)$" } })
+hl.window_rule({ float = true, match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" } })
 
 hl.window_rule({
 	name = "steam",
@@ -453,7 +450,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "noscreenshare-rules",
+	name = "noscreenshare-general",
 	match = {
 		class =
 		"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
@@ -522,26 +519,26 @@ hl.window_rule({
 	workspace = "special:update",
 })
 
-hl.window_rule({
-	name = "config-window",
-	match = { class = "org.netrs.ui" },
-	animation = "slide",
-	float = true,
-	size = { 1280, 700 },
-	move = { 380, 35 },
-})
+-- hl.window_rule({
+-- 	name = "config-window",
+-- 	match = { class = "org.netrs.ui" },
+-- 	animation = "slide",
+-- 	float = true,
+-- 	size = { 1280, 700 },
+-- 	move = { 380, 35 },
+-- })
 
 -- firefox textern
 -- ["kitty", "--class", "kitty", "--title", "textern", "-e", "/home/opal/.local/bin/av", "+call cursor(%l,%c)"]
-hl.window_rule({
-	name = "textern-window",
-	match = { class = "foot", title = "textern" },
-	animation = "slide",
-	float = true,
-	pin = true,
-	size = { 1280, 700 },
-	center = true,
-})
+-- hl.window_rule({
+-- 	name = "textern-window",
+-- 	match = { class = "foot", title = "textern" },
+-- 	animation = "slide",
+-- 	float = true,
+-- 	pin = true,
+-- 	size = { 1280, 700 },
+-- 	center = true,
+-- })
 
 hl.window_rule({
 	name = "nvim-hypr-anywhere",
@@ -697,7 +694,7 @@ hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("dms ipc powermenu open"), { des
 -- rofi/vicinae/bemenu, etc
 hl.bind(
 	mainMod .. " + 0",
-	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='$confDir/rofi-pass/config' rofi-pass"),
+	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass"),
 	{ description = "Open rofi-pass" }
 )
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(scriptsDir .. "/rofi-beats"), { description = "Open Rofi Radio Stream" })
@@ -1058,22 +1055,22 @@ require("local")
 hl.on("hyprland.start", function()
 	-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
 	-- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("jamesdsp --tray")
-	hl.exec_cmd("hyprpm reload")
-	hl.exec_cmd("systemctl --user start vicinae")
-	hl.exec_cmd("systemctl --user start hypridle")
-	hl.exec_cmd("systemctl --user start foot-server")
+	-- hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
+	-- hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	-- hl.exec_cmd("jamesdsp --tray")
+	-- hl.exec_cmd("hyprpm reload")
+	-- hl.exec_cmd("systemctl --user start vicinae")
+	-- hl.exec_cmd("systemctl --user start hypridle")
+	-- hl.exec_cmd("systemctl --user start foot-server")
 	-- hl.exec_cmd("wayscriber --daemon")
 	hl.exec_cmd("dms run --session")
 end)
 
-hl.on("hyprland.shutdown", function()
-	hl.exec_cmd("systemctl --user stop hypridle")
-	hl.exec_cmd("systemctl --user stop vicinae")
-	hl.exec_cmd("systemctl --user stop foot-server")
-end)
+-- hl.on("hyprland.shutdown", function()
+-- 	hl.exec_cmd("systemctl --user stop hypridle")
+-- 	hl.exec_cmd("systemctl --user stop vicinae")
+-- 	hl.exec_cmd("systemctl --user stop foot-server")
+-- end)
 
 hl.workspace_rule({
 	workspace = "special:terminal",

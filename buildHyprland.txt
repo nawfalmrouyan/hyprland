@@ -1,0 +1,12 @@
+hyprland-protocols
+hyprwayland-scanner
+hyprutils
+hyprgraphics
+hyprlang
+hyprcursor
+aquamarine
+xdg-desktop-portal-hyprland
+hyprwire
+hyprtoolkit
+hyprland-guiutils-git
+hyprland
