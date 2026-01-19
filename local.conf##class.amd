@@ -3,7 +3,7 @@ bindl = , xf86favourites, exec, remmina
 bindl = , xf86pickupphone, exec, hyprctl dispatch togglespecialworkspace whatsapp
 bindl = , xf86hangupphone, exec, hyprctl dispatch togglespecialworkspace trash
 
-bind = $mainMod, W, exec, $scriptsDir/hypr-cycle-focus.sh zen zen-browser
+bind = $mainMod, W, exec, $scriptsDir/hypr-cycle-focus.sh class zen zen-browser
 bind = $mainMod SHIFT, A, exec, [workspace 5 silent] microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland --profile-directory="Profile 2"
 bind = $mainMod ALT, A, exec, [workspace 5 silent] microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland --profile-directory="Profile 1"
 
