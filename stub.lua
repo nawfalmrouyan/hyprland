@@ -635,7 +635,10 @@ hl.window_rule({
 
 hl.bind(
 	mainMod .. " + T",
-	hl.dsp.exec_raw(scriptsDir .. "/hypr-cycle-focus-lua.sh class footclient footclient -T stuff -e sesh connect stuff"),
+	hl.dsp.exec_raw(
+		scriptsDir
+		.. "/hypr-cycle-focus-lua.sh class footclient stuff footclient footclient -T stuff -e sesh connect stuff"
+	),
 	{ description = "Open Terminal with TMUX session:stuff" }
 )
 hl.bind(
