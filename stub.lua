@@ -31,8 +31,8 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
 
-hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
-hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 -- hl.monitor({ output = "name", disabled = true })
 -- hl.monitor({ output = "HDMI-A-1", mode = "preferred", position = "auto", scale = 1, mirror = "eDP-1"})
@@ -635,18 +635,20 @@ hl.window_rule({
 
 hl.bind(
 	mainMod .. " + T",
-	hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus.sh class footclient footclient -T stuff -e sesh connect stuff"),
+	hl.dsp.exec_raw(scriptsDir .. "/hypr-cycle-focus-lua.sh class footclient footclient -T stuff -e sesh connect stuff"),
 	{ description = "Open Terminal with TMUX session:stuff" }
 )
 hl.bind(
 	mainMod .. " + SHIFT + T",
-	hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus.sh title Projects footclient -T Projects -e sesh connect Projects"),
+	hl.dsp.exec_cmd(
+		scriptsDir .. "/hypr-cycle-focus-lua.sh title Projects footclient -T Projects -e sesh connect Projects"
+	),
 	{ description = "Open Terminal with TMUX session:Projects" }
 )
 hl.bind(
 	mainMod .. " + S",
 	hl.dsp.exec_cmd(
-		scriptsDir .. "/hypr-cycle-focus.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell"
+		scriptsDir .. "/hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell"
 	),
 	{ description = "Open Terminal with TMUX session:PowerShell" }
 )
@@ -665,7 +667,7 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill(activewindow), { descripti
 hl.bind(
 	mainMod .. " + A",
 	hl.dsp.exec_cmd(
-		scriptsDir .. "/hypr-cycle-focus.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"
+		scriptsDir .. "/hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"
 	),
 	{ description = "Open Outlook for Linux" }
 )
@@ -673,7 +675,7 @@ hl.bind(
 	mainMod .. " + Z",
 	hl.dsp.exec_cmd(
 		scriptsDir
-		.. "/hypr-cycle-focus.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio"
+		.. "/hypr-cycle-focus-lua.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio"
 	),
 	{ description = "Open Apache Directory Studio" }
 )
@@ -681,7 +683,7 @@ hl.bind(
 	mainMod .. " + R",
 	hl.dsp.exec_cmd(
 		scriptsDir
-		.. "/hypr-cycle-focus.sh class teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
+		.. "/hypr-cycle-focus-lua.sh class teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
 	),
 	{ description = "Open Teams for Linux" }
 )
@@ -689,7 +691,7 @@ hl.bind(
 	mainMod .. " + SHIFT + A",
 	hl.dsp.exec_cmd(
 		scriptsDir
-		.. "/hypr-cycle-focus.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland"
+		.. "/hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland"
 	),
 	{ description = "Open Brave Browser" }
 )
@@ -930,22 +932,22 @@ hl.bind(
 -- Switch workspaces with SUPER + [0-9]
 hl.bind(
 	mainMod .. " + 1",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=1; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch workspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + 2",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=2; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch workspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + 3",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=3; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch workspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
@@ -953,44 +955,44 @@ hl.bind(
 -- Move active window and follow to workspace
 hl.bind(
 	mainMod .. " + CTRL + 1",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=1; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + CTRL + 2",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=2; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + CTRL + 3",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=3; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 -- Move active window to a workspace with SUPER + SHIFT + [0-9]
 hl.bind(
 	mainMod .. " + SHIFT + 1",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=1; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspacesilent $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + SHIFT + 2",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=2; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspacesilent $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + SHIFT + 3",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=3; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspacesilent $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
 	),
 	{ submap_universal = true }
 )
