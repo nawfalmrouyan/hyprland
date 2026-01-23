@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 selection=$(printf 'Area\nWindow\nScreen\nAll\nOCR\nSearch' | vicinae dmenu) || exit 1
+scriptsDir=~/.config/hypr/scripts/
 
 case $selection in
 "Screen")
