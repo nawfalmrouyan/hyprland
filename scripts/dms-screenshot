@@ -11,7 +11,9 @@ case $selection in
   ;;
 "Window")
   sleep 0.5
-  dms screenshot window --stdout | satty -f -
+  # dms doesn't support niri for windows screenshot
+  # dms screenshot window --stdout | satty -f -
+  niri msg action screenshot-window write-to-disk=false
   return
   ;;
 "Area")

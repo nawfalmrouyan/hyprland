@@ -98,8 +98,8 @@ rec (tap-hold-press $tap-time $hold-time ret lctl)
 (defchordsv2
  (spc j k) C-\ $chord-time first-release () ;; tmux prefix
  (spc d f) (cmd vicinae toggle) $chord-time first-release () ;; vicinae
- (w e) A-C-q $chord-time first-release () ;; zen previous workspace
- (i o) A-C-e $chord-time first-release () ;; zen next workspace
- (d f) A-C-s $chord-time first-release () ;; zen toggle floating side bar
+ (2 3) A-C-q $chord-time first-release () ;; zen previous workspace
+ (8 9) A-C-e $chord-time first-release () ;; zen next workspace
+ (grave 1) A-C-s $chord-time first-release () ;; zen toggle floating side bar
  ;; (e r) A-C-c $chord-time first-release () ;; zen toggle compat mode
  ) 
