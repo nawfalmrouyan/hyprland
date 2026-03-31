@@ -6,9 +6,9 @@ if [[ "$#" -lt 3 ]]; then
   exit 1
 fi
 
-# -----------------------------
-# Parse identifier pairs
-# -----------------------------
+STATE_DIR="${XDG_RUNTIME_DIR:-$HOME/.cache}/hypr-cycle-focus"
+mkdir -p "$STATE_DIR"
+
 declare -a TYPES
 declare -a VALUES
 
@@ -32,55 +32,58 @@ if [[ -z "$SPAWN_CMD" || "${#TYPES[@]}" -eq 0 ]]; then
   exit 1
 fi
 
-# -----------------------------
-# Build jq filter dynamically
-# -----------------------------
-JQ_EXPR='map(select('
-
+KEY=""
 for i in "${!TYPES[@]}"; do
-  TYPE="${TYPES[$i]}"
-  VALUE="${VALUES[$i]}"
-
-  if [[ "$i" -gt 0 ]]; then
-    JQ_EXPR+=' and '
-  fi
-
-  if [[ "$TYPE" == "tag" ]]; then
-    JQ_EXPR+="(.tags[]? == \$val$i)"
-  else
-    JQ_EXPR+="(.[\"$TYPE\"] == \$val$i)"
-  fi
+  KEY+="${TYPES[$i]}:${VALUES[$i]}_"
 done
 
-JQ_EXPR+=')) | .[].address'
+STATE_FILE="$STATE_DIR/${KEY%.state}"
 
-# Build jq args
-JQ_ARGS=()
-for i in "${!VALUES[@]}"; do
-  JQ_ARGS+=(--arg "val$i" "${VALUES[$i]}")
-done
+get_clients() {
+  local JQ_EXPR='map(select('
 
-CLIENTS=$(hyprctl -j clients | jq -r "${JQ_ARGS[@]}" "$JQ_EXPR")
+  for i in "${!TYPES[@]}"; do
+    TYPE="${TYPES[$i]}"
+    VALUE="${VALUES[$i]}"
 
+    if [[ "$i" -gt 0 ]]; then
+      JQ_EXPR+=' and '
+    fi
+
+    if [[ "$TYPE" == "tag" ]]; then
+      JQ_EXPR+="(.tags[]? == \$val$i)"
+    else
+      JQ_EXPR+="(.[\"$TYPE\"] == \$val$i)"
+    fi
+  done
+
+  JQ_EXPR+=')) | .[].address'
+
+  local JQ_ARGS=()
+  for i in "${!VALUES[@]}"; do
+    JQ_ARGS+=(--arg "val$i" "${VALUES[$i]}")
+  done
+
+  hyprctl -j clients | jq -r "${JQ_ARGS[@]}" "$JQ_EXPR"
+}
+
+CLIENTS=$(get_clients)
 COUNT=$(echo "$CLIENTS" | grep -c .)
 
-# -----------------------------
-# Spawn if none
-# -----------------------------
 if [[ "$COUNT" -eq 0 ]]; then
   hyprctl dispatch exec "$SPAWN_CMD"
   exit 0
 fi
 
-# -----------------------------
-# Focus logic
-# -----------------------------
 if [[ "$COUNT" -eq 1 ]]; then
-  hyprctl dispatch focuswindow "address:$CLIENTS"
+  ADDR=$(echo "$CLIENTS" | head -1)
+  echo "$ADDR" >"$STATE_FILE"
+  hyprctl dispatch focuswindow "address:$ADDR"
   exit 0
 fi
 
 CURRENT=$(hyprctl -j activewindow | jq -r '.address')
+
 mapfile -t ADDR_ARRAY <<<"$CLIENTS"
 
 CURRENT_INDEX=-1
@@ -92,9 +95,21 @@ for i in "${!ADDR_ARRAY[@]}"; do
 done
 
 if [[ "$CURRENT_INDEX" -eq -1 ]]; then
+  if [[ -f "$STATE_FILE" ]]; then
+    LAST_FOCUSED=$(cat "$STATE_FILE")
+    for i in "${!ADDR_ARRAY[@]}"; do
+      if [[ "${ADDR_ARRAY[$i]}" == "$LAST_FOCUSED" ]]; then
+        hyprctl dispatch focuswindow "address:${ADDR_ARRAY[$i]}"
+        echo "${ADDR_ARRAY[$i]}" >"$STATE_FILE"
+        exit 0
+      fi
+    done
+  fi
   hyprctl dispatch focuswindow "address:${ADDR_ARRAY[0]}"
+  echo "${ADDR_ARRAY[0]}" >"$STATE_FILE"
   exit 0
 fi
 
 NEXT_INDEX=$(((CURRENT_INDEX + 1) % COUNT))
 hyprctl dispatch focuswindow "address:${ADDR_ARRAY[$NEXT_INDEX]}"
+echo "${ADDR_ARRAY[$NEXT_INDEX]}" >"$STATE_FILE"
