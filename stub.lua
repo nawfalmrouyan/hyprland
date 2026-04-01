@@ -46,7 +46,7 @@ hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 5, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-1" })
 
-require("mocha")
+require("./mocha.lua")
 
 hl.config({
 	input = {
@@ -755,26 +755,14 @@ hl.bind(
 	),
 	{ description = "Toggle group / Lock group" }
 )
-hl.bind(mainMod .. " + Tab", hl.dsp.group.next(activewindow), { description = "Cycle windows in a group" })
-hl.bind(
-	mainMod .. " + CTRL + G",
-	hl.dsp.exec_cmd("hyprctl dispatch moveoutofgroup"),
-	{ description = "Move app out of group" }
-)
+hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows in a group" })
+hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.submap("group"))
 hl.define_submap("group", function()
-	hl.bind(", J", hl.dsp.exec_cmd("hyprctl dispatch moveintogroup d"), { description = "Move app into group below" })
-	hl.bind(", K", hl.dsp.exec_cmd("hyprctl dispatch moveintogroup u"), { description = "Move app into group above" })
-	hl.bind(
-		", L",
-		hl.dsp.exec_cmd("hyprctl dispatch moveintogroup r"),
-		{ description = "Move app into group on the right" }
-	)
-	hl.bind(
-		", H",
-		hl.dsp.exec_cmd("hyprctl dispatch moveintogroup l"),
-		{ description = "Move app into group on the left" }
-	)
+	hl.bind(", J", hl.dsp.window.move({ into_group, "d" }), { description = "Move app into group below" })
+	hl.bind(", K", hl.dsp.window.move({ into_group, "u" }), { description = "Move app into group above" })
+	hl.bind(", L", hl.dsp.window.move({ into_group, "r" }), { description = "Move app into group on the right" })
+	hl.bind(", H", hl.dsp.window.move({ into_group, "l" }), { description = "Move app into group on the left" })
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
 
