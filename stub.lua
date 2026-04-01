@@ -272,37 +272,330 @@ hl.animation({ leaf = "fadePopupsIn", enabled = true, speed = 3, bezier = "smoot
 hl.animation({ leaf = "fadePopupsOut", enabled = true, speed = 3, bezier = "smooth" })
 hl.animation({ leaf = "fadeDpms", enabled = true, speed = 3, bezier = "smooth" })
 
-local layerRulesPopin = hl.layer_rule({
-	name = "layer-rules-popin",
+hl.layer_rule({
 	match = { namespace = "rofi|logout_dialog|vicinae" },
 	dim_around = true,
 	blur = true,
 	animation = "popin",
 })
 
-local layerRulesSlideFadeVert = hl.layer_rule({
-	name = "layer-rules-slidefadevert",
+hl.layer_rule({
 	match = { namespace = "ghostty-quick-terminal|kitty-quick-access" },
 	blur = "on",
 	above_lock = 2,
 	no_screen_share = "on",
 })
 
-local noScreenShareSwayNC = hl.layer_rule({
-	name = "noscreenshare-swaync",
+hl.layer_rule({
 	match = { namespace = "swaync.*|dms.*" },
 	no_screen_share = "on",
 })
 
-local noScreenShareDMS = hl.layer_rule({
-	name = "noscreenshare-dms",
+hl.layer_rule({
 	match = { namespace = "dms.bar" },
 	no_screen_share = "off",
 })
 
-local hyprhalt = hl.layer_rule({
-	name = "hyprhalt",
+hl.layer_rule({
 	match = { namespace = "hyprhalt" },
 	blur = "on",
 	ignore_alpha = 0,
+})
+
+hl.window_rule({
+	name = "term window width",
+	match = { class = "^(kitty|footclient)$" },
+	scrolling_width = 0.5,
+})
+
+hl.window_rule({
+	name = "pulse-secure-rules",
+	match = { class = "pulseUI", title = "(Pulse Secure)" },
+	float = "on",
+	center = "on",
+	size = { 900, 750 },
+	workspace = "special:pulsesecure",
+})
+
+hl.window_rule({
+	name = "forticlient-rules",
+	match = { initial_class = "FortiClient" },
+	float = "on",
+	center = "on",
+	size = { 900, 750 },
+	workspace = "special:forticlient",
+})
+
+hl.window_rule({
+	name = "chatapp-rules",
+	match = { initial_class = "com.rtosta.zapzap|whatsappweb-nativefier-d40211|org.telegram.desktop" },
+	float = "on",
+	center = "on",
+	size = { 1600, 960 },
+	workspace = "special:whatsapp silent",
+})
+
+hl.window_rule({
+	name = "youtube-music-rules",
+	match = { class = "com.github.th_ch.youtube_music|spotube|(YouTube Music for Desktop)" },
+	float = "on",
+	center = "on",
+	size = { 1600, 960 },
+	workspace = "special:trash silent",
+})
+
+hl.window_rule({
+	name = "showmethekey-rules",
+	match = { class = "showmethekey-gtk" },
+	move = { 1511, 919 },
+	float = "on",
+	border_size = 0,
+	opacity = "1.0 override 1.0 override",
+	no_blur = "on",
+	no_focus = "on",
+	no_anim = "on",
+	no_shadow = "on",
+})
+
+hl.window_rule({
+	name = "onlyoffice-popups",
+	match = { float = "true", class = "DesktopEditors" },
+	center = "on",
+})
+
+hl.window_rule({
+	name = "center-float-windows-class",
+	match = { class = "toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
+	float = "on",
+	center = "on",
+	size = { 900, 750 },
+})
+
+hl.window_rule({
+	name = "persistent-size-windows",
+	match = { class = "qt5ct|qt6ct|feh|FortiClient|yad" },
+	float = "on",
+	center = "on",
+	-- persistent_size = on
+})
+
+-- hl.window_rule({
+--   name = "satty-window
+--   match = { class = com.gabm.satty
+--   float = on
+--   center = on
+--   min_size = 730 300
+-- })
+
+hl.window_rule({
+	name = "center-float-windows-title",
+	match = { title = "Settings|Hyprshot|Open|(Publish as PDF or XPS|^Settings - .*|^Warning:.*)" },
+	float = "on",
+	center = "on",
+	size = { 900, 750 },
+})
+
+-- grouping rules
+hl.window_rule({
+	group = "set",
+	match = {
+		class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
+	},
+})
+hl.window_rule({ group = "override barred", match = { class = "foot|kitty|zen|xdg-desktop-portal-gtk" } })
+
+-- misc rules
+hl.window_rule({ center = "on", match = { title = "LibreOffice" } })
+hl.window_rule({ tile = "on", match = { class = "ONLYOFFICE" } })
+hl.window_rule({ float = "on", match = { title = ".*Network Manager.*" } })
+
+hl.window_rule({ border_color = "$mauve $red", match = { float = true } })
+hl.window_rule({ border_size = 0, match = { fullscreen = true } })
+hl.window_rule({ border_size = 0, match = { fullscreen_state_internal = 1, fullscreen_state_client = 2 } })
+hl.window_rule({ opacity = { 0.8, 0.8 }, match = { pin = true } })
+
+hl.window_rule({
+	name = "steam-window",
+	match = { class = "steam" },
+	float = "on",
+})
+
+hl.window_rule({ float = "on", match = { class = "^(steam_app_.*)$, match:initial_title ^(..+)$" } })
+
+hl.window_rule({
+	name = "steam",
+	match = { class = "steam", title = "Steam|(Sign in to Steam)" },
+	workspace = "special:steam silent",
+	float = "on",
+	center = "on",
+	size = { 1600, 960 },
+})
+
+hl.window_rule({
+	name = "torchlight2",
+	match = { class = "Torchlight2.bin.x86_64", title = "(Torchlight II v.25.5.4)" },
+	fullscreen = "on",
+	content = "game",
+})
+
+-- teams rules
+hl.window_rule({
+	name = "idle-inhibit-apps",
+	match = { class = "teams-for-linux" },
+	idle_inhibit = "focus",
+})
+
+-- zen rules
+hl.window_rule({
+	name = "zen-pip-rules",
+	match = { class = "zen", title = "Picture-in-Picture" },
+	float = "on",
+	max_size = { 800, 800 },
+})
+
+hl.window_rule({
+	name = "noscreenshare-rules",
+	match = {
+		class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
+	},
+	no_screen_share = "on",
+})
+
+hl.window_rule({
+	name = "noscreenshare-terminal",
+	match = { title = "noscreenshare" },
+	no_screen_share = "on",
+})
+
+hl.window_rule({
+	name = "center-float-app",
+	match = { class = "waypaper|qt6ct|qt5ct" },
+	float = "on",
+	size = { 900, 750 },
+	center = "on",
+})
+
+hl.window_rule({
+	name = "picker-title-rules",
+	match = { title = "([Ff]ile Upload)|(Enter name of file to save to.*)|(blob.*)|(Open [Ff]iles)|(Open folder.*)" },
+	size = { 1345, 720 },
+	float = "on",
+	center = "on",
+})
+
+hl.window_rule({
+	float = "on",
+	size = { 1345, 720 },
+	center = "on",
+	match = { class = "(soffice|Save Image|Save As|xdg-desktop-portal-gtk)" },
+})
+
+hl.window_rule({
+	name = "waybar-popups",
+	match = { initial_class = "(blueman-manager)|(com.network.manager)" },
+	animation = "slide",
+	stay_focused = "on",
+	float = "on",
+	size = { 1280, 700 },
+	move = { 380, 35 },
+})
+
+-- xwaylandvideobridge
+hl.window_rule({
+	name = "xwaylandvideobridge",
+	match = { class = "xwaylandvideobridge" },
+	opacity = "0.0 override 0.0 override",
+	no_anim = "on",
+	no_focus = "on",
+	no_initial_focus = "on",
+	workspace = "special:junks silent",
+})
+
+-- waybar yay update click, cava
+hl.window_rule({
+	name = "tui-window",
+	match = { class = "update", title = "update" },
+	animation = "slide",
+	float = "on",
+	size = { 1280, 700 },
+	move = { 380, 43 },
+	workspace = "special:update",
+})
+
+hl.window_rule({
+	name = "config-window",
+	match = { class = "org.netrs.ui" },
+	animation = "slide",
+	float = "on",
+	size = { 1280, 700 },
+	move = { 380, 35 },
+})
+
+-- firefox textern
+-- ["kitty", "--class", "kitty", "--title", "textern", "-e", "/home/opal/.local/bin/av", "+call cursor(%l,%c)"]
+hl.window_rule({
+	name = "textern-window",
+	match = { class = "foot", title = "textern" },
+	animation = "slide",
+	float = "on",
+	pin = "on",
+	size = { 1280, 700 },
+	center = "on",
+})
+
+hl.window_rule({
+	name = "nvim-hypr-anywhere",
+	match = { class = "nvim-hypr-anywhere" },
+	animation = "slide",
+	float = "on",
+	pin = "on",
+	size = { 1280, 700 },
+	center = "on",
+})
+
+hl.window_rule({
+	name = "stats-window",
+	match = { initial_title = "btop" },
+	animation = "popin",
+	float = "on",
+	pin = "on",
+	size = { 1280, 700 },
+	center = "on",
+})
+
+hl.window_rule({
+	name = "ytm",
+	match = { initial_title = "ytm" },
+	animation = "popin",
+	size = { 1280, 700 },
+	float = "on",
+	center = "on",
+})
+
+hl.window_rule({
+	name = "terminal-scratchpad",
+	match = { class = "scratch", title = "scratch" },
+	animation = "slide",
+	float = "on",
+	size = { 1440, 700 },
+	move = { 240, 377 },
+})
+
+hl.window_rule({
+	name = "no-focus-window",
+	match = { title = "^(Peek preview)$" },
+	no_focus = "on",
+})
+
+hl.window_rule({
+	name = "enable-tearing",
+	match = { title = "(Grim Dawn)" },
+	immediate = "on",
+	content = "game",
+})
+
+hl.window_rule({
+	name = "suppressevent-maximize",
+	match = { class = ".*" },
+	suppress_event = "maximize",
 })
