@@ -231,6 +231,9 @@ hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 hl.curve("easeoutexpo", { type = "bezier", points = { { 0.87, 0 }, { 0.13, 1 } } })
 hl.curve("easeoutquad", { type = "bezier", points = { { 0.45, 0 }, { 0.55, 1 } } })
 
+-- Default spring
+hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+
 -- Layers styles: slide, popin, fade
 hl.animation({ leaf = "layersIn", enabled = true, speed = 3, bezier = "bounce", style = "slide 90%" })
 hl.animation({ leaf = "layersOut", enabled = true, speed = 3, bezier = "bounce", style = "slide 90%" })
@@ -595,6 +598,21 @@ hl.window_rule({
 	name = "suppressevent-maximize",
 	match = { class = ".*" },
 	suppress_event = "maximize",
+})
+
+hl.window_rule({
+	-- Fix some dragging issues with XWayland
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
+
+	no_focus = true,
 })
 
 hl.bind(
@@ -1016,5 +1034,33 @@ hl.bind(
 )
 
 -- laptop lid switch
-hl.bind("switch:on:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = false }))
-hl.bind("switch:off:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = true }))
+hl.bind("switch:on:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = false, locked = true }))
+hl.bind("switch:off:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = true, locked = true }))
+
+-- Plugins
+require(confDir .. "/hyprscrolling")
+-- source = $confDir/wl-kbptr.conf
+-- require(confDir .. "/hypr-dynamic-cursors")
+
+-- Source local config (yadm), symlink creation is handled by yadm
+require(confDir .. "/local")
+
+-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
+-- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+hl.start("hyprland.start", function()
+	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
+	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("jamesdsp --tray")
+	hl.exec_cmd("hyprpm reload")
+	hl.exec_cmd("systemctl --user start vicinae")
+	hl.exec_cmd("systemctl --user start hypridle")
+	hl.exec_cmd("systemctl --user start foot-server")
+	-- hl.exec_cmd("wayscriber --daemon")
+	hl.exec_cmd("dms run --session")
+end)
+
+hl.on("hyprland.shutdown", function()
+	hl.exec_cmd("systemctl --user stop hypridle")
+	hl.exec_cmd("systemctl --user stop vicinae")
+	hl.exec_cmd("systemctl --user stop foot-server")
+end)
