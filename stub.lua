@@ -1,0 +1,38 @@
+hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
+hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
+hl.env("QT_QPA_PLATFORMTHEME_QT6", "gtk3")
+hl.env("QT_QPA_PLATFORM", "wayland")
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+hl.env("MOZ_ENABLE_WAYLAND", "1")
+hl.env("GDK_BACKEND", "wayland,x11,*")
+hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:$confDir/scripts:$PATH")
+hl.env(
+  "GAMEMODERUNEXEC",
+  "env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
+)
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRLAND_NO_CRASHREPORTER", "1")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+hl.env("TERMINAL", "footclient")
+hl.env("GTK_USE_PORTAL", "1")
+
+hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
+hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+-- hl.monitor({ output = "name", disabled = true })
+
+hl.workspace_rule({ workspace = 1, monitor = "eDP-1" })
+hl.workspace_rule({ workspace = 2, monitor = "eDP-1" })
+hl.workspace_rule({ workspace = 3, monitor = "eDP-1" })
+hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = 5, monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-1" })
+
+require("mocha.conf")
