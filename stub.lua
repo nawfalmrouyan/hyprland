@@ -22,6 +22,10 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
+hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
+hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_SIZE", "24")
 
 local mainMod = "SUPER"
 local home = "/home/opal"
