@@ -27,11 +27,11 @@ hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XCURSOR_SIZE", "24")
 
-local mainMod = "SUPER"
-local home = "/home/opal"
-local localBin = home .. "/.local/bin"
-local confDir = home .. "/.config/hypr"
-local scriptsDir = confDir .. "/scripts"
+mainMod = "SUPER"
+home = "/home/opal"
+localBin = home .. "/.local/bin"
+confDir = home .. "/.config/hypr"
+scriptsDir = confDir .. "/scripts"
 
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
@@ -1039,11 +1039,11 @@ require("hyprscrolling")
 -- require(".hypr-dynamic-cursors")
 
 -- Source local config (yadm), symlink creation is handled by yadm
-require(confDir .. "/local")
+require("local")
 
 -- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
 -- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-hl.start("hyprland.start", function()
+hl.on("hyprland.start", function()
 	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("jamesdsp --tray")
@@ -1060,3 +1060,24 @@ hl.on("hyprland.shutdown", function()
 	hl.exec_cmd("systemctl --user stop vicinae")
 	hl.exec_cmd("systemctl --user stop foot-server")
 end)
+
+hl.workspace_rule({
+	workspace = "special:terminal",
+	on_created_empty = "footclient -a scratch -T scratch -e sesh connect WORK",
+})
+hl.workspace_rule({ workspace = "special:trash", on_created_empty = "youtube-music-for-desktop" })
+hl.workspace_rule({
+	workspace = "special:whatsapp",
+	on_created_empty =
+	"/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
+})
+hl.workspace_rule({ workspace = "special:steam", on_created_empty = "steam" })
+hl.workspace_rule({ workspace = "special:update", on_created_empty = "footclient -a update -T update -e yay -Syu" })
+hl.workspace_rule({
+	workspace = "special:pulsemixer",
+	on_created_empty = "footclient -a update -T update -e pulsemixer",
+})
+hl.workspace_rule({ workspace = "special:pulsesecure", on_created_empty = "/opt/pulsesecure/bin/pulseUI" })
+hl.workspace_rule({ workspace = "special:forticlient", on_created_empty = "/opt/forticlient/gui/FortiClient" })
+-- hl.workspace_rule({ workspace = "special:ytm", on_created_empty = "footclient -T ytm -e ytm" })
+hl.workspace_rule({ workspace = "special:rmpc", on_created_empty = "footclient -T ytm -e rmpc" })
