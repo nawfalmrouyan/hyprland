@@ -23,6 +23,17 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
 
+mainMod = "SUPER"
+home = "/home/opal"
+localBin = home .. "/.local/bin"
+confDir = home .. "/.config/hypr"
+scriptsDir = confDir .. "/scripts"
+volume = scriptsDir .. "/volume"
+backlight = "/bin/brightnessctl"
+screenshot = scriptsDir .. "/dms-screenshot"
+rofi_beats = scriptsDir .. "/rofi-beats"
+music = "youtube-music-for-desktop"
+
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
