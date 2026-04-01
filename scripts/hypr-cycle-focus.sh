@@ -64,7 +64,7 @@ get_clients() {
     JQ_ARGS+=(--arg "val$i" "${VALUES[$i]}")
   done
 
-  hyprctl -j clients | jq -r "${JQ_ARGS[@]}" "$JQ_EXPR"
+  hyprctl -j clients | jaq -r "${JQ_ARGS[@]}" "$JQ_EXPR"
 }
 
 CLIENTS=$(get_clients)
@@ -82,7 +82,7 @@ if [[ "$COUNT" -eq 1 ]]; then
   exit 0
 fi
 
-CURRENT=$(hyprctl -j activewindow | jq -r '.address')
+CURRENT=$(hyprctl -j activewindow | jaq -r '.address')
 
 mapfile -t ADDR_ARRAY <<<"$CLIENTS"
 
