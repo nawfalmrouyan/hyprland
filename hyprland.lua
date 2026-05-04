@@ -735,8 +735,8 @@ hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows
 hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
 
 -- Screenshots
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "OCR / Google Lens" })
-hl.bind("Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "Screenshot" })
+hl.bind("Print", hl.dsp.exec_cmd("quickshell -c HyprQuickFrame -n"), { description = "OCR / Google Lens" })
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "Screenshot" })
 
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("dms ipc call bar toggle index 0"), { description = "Toggle dank bar" })
 hl.bind(
