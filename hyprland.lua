@@ -412,7 +412,8 @@ hl.window_rule({ float = true, match = { title = ".*Network Manager.*" } })
 
 hl.window_rule({ border_color = { colors = { mauve, blue }, angle = 45 }, match = { float = true } })
 hl.window_rule({ border_size = 0, match = { fullscreen = true } })
-hl.window_rule({ border_size = 0, match = { fullscreen_state_internal = 1, fullscreen_state_client = 2 } })
+hl.window_rule({ border_size = 0, match = { fullscreen_state_internal = 0, fullscreen_state_client = 2 } })
+-- hl.window_rule({ border_size = 0, match = { fullscreen_state_client = 2 } })
 hl.window_rule({ opacity = "0.8 0.8", match = { pin = true } })
 
 hl.window_rule({
@@ -657,12 +658,19 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + F",
+	hl.dsp.window.fullscreen({ mode = "fullscreen" }),
 	{ description = "Fullscreen focused app" }
 )
 hl.bind(
 	mainMod .. " + SHIFT + F",
-	hl.dsp.window.fullscreen_state({ internal = 1, client = 2, action = "toggle", window = "activewindow" }),
-	{ description = "Fake Fullscreen focused app" }
+	hl.dsp.window.fullscreen_state({ internal = 1, client = 2, action = "set" }),
+	{ description = "Maximize fake fullscreen app" }
+)
+hl.bind(
+	mainMod .. " + CTRL + F",
+	hl.dsp.window.fullscreen_state({ internal = 0, client = 0, action = "set" }, {
+		description = "Unmaximize fake fullscreen app",
+	})
 )
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("nautilus"), { description = "Open Nautilus" })
 hl.bind(mainMod .. " + CTRL + E", hl.dsp.exec_cmd("kitty -e yazi"), { description = "Open yazi" })
