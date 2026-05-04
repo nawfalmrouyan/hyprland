@@ -27,7 +27,7 @@ hl.bind(mainMod .. " + SHIFT + Slash", hl.dsp.layout("expel l"))
 hl.bind(mainMod .. " + BracketLeft", hl.dsp.layout("consume r"))
 hl.bind(mainMod .. " + BracketRight", hl.dsp.layout("consume l"))
 hl.bind(mainMod .. " + D", hl.dsp.layout("fit visible"))
--- hl.bind(mainMod .. " + S", hl.dsp.layout("fit all"))
+hl.bind(mainMod .. " + C", hl.dsp.layout("fit active"))
 
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
