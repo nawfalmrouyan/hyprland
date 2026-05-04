@@ -657,7 +657,6 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + F",
-	hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle", window = "activewindow" }),
 	{ description = "Fullscreen focused app" }
 )
 hl.bind(
@@ -941,6 +940,10 @@ hl.bind(
 -- mouse:276 = extra
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = "1", mode = "live" })
+hl.gesture({ fingers = 4, direction = "horizontal", action = "scroll_move" })
+
 hl.bind(
 	mainMod .. " + mouse:274",
 	hl.dsp.window.float({ action = "toggle", window = "activewindow" }),
