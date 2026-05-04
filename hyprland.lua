@@ -1,3 +1,11 @@
+require("mocha")
+
+local mainMod = "SUPER"
+local home = "/home/opal"
+local localBin = home .. "/.local/bin"
+local confDir = home .. "/.config/hypr"
+local scriptsDir = confDir .. "/scripts"
+
 hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 hl.env("QT_QPA_PLATFORMTHEME_QT6", "gtk3")
@@ -6,11 +14,11 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:$confDir/scripts:$PATH")
-hl.env(
-	"GAMEMODERUNEXEC",
-	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
-)
+-- hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:" .. confDir .. "/scripts:$PATH")
+-- hl.env(
+-- 	"GAMEMODERUNEXEC",
+-- 	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
+-- )
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -22,18 +30,8 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
-hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
-hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_SIZE", "24")
 
-mainMod = "SUPER"
-home = "/home/opal"
-localBin = home .. "/.local/bin"
-confDir = home .. "/.config/hypr"
-scriptsDir = confDir .. "/scripts"
-
-hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "1920x0", scale = 1 })
+-- hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
 hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 -- hl.monitor({ output = "name", disabled = true })
@@ -45,14 +43,31 @@ hl.workspace_rule({ workspace = 3, monitor = "eDP-1" })
 hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 5, monitor = "HDMI-A-1" })
 hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-1" })
-
-require("mocha")
+hl.workspace_rule({
+	workspace = "special:terminal",
+	on_created_empty = "footclient -a scratch -T scratch -e sesh connect WORK",
+})
+hl.workspace_rule({ workspace = "special:trash", on_created_empty = "youtube-music-for-desktop" })
+hl.workspace_rule({
+	workspace = "special:whatsapp",
+	on_created_empty =
+	"/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
+})
+hl.workspace_rule({ workspace = "special:steam", on_created_empty = "steam" })
+hl.workspace_rule({ workspace = "special:update", on_created_empty = "footclient -a update -T update -e yay -Syu" })
+hl.workspace_rule({
+	workspace = "special:pulsemixer",
+	on_created_empty = "footclient -a update -T update -e pulsemixer",
+})
+hl.workspace_rule({ workspace = "special:pulsesecure", on_created_empty = "/opt/pulsesecure/bin/pulseUI" })
+hl.workspace_rule({ workspace = "special:forticlient", on_created_empty = "/opt/forticlient/gui/FortiClient" })
+-- hl.workspace_rule({ workspace = "special:ytm", on_created_empty = "footclient -T ytm -e ytm" })
+hl.workspace_rule({ workspace = "special:rmpc", on_created_empty = "footclient -T ytm -e rmpc" })
 
 hl.config({
 	input = {
 		kb_layout = "us",
 		kb_variant = "altgr-intl",
-		kb_options = "compose:menu,level3:ralt_switch",
 		special_fallthrough = true,
 		follow_mouse = 1,
 		numlock_by_default = true,
@@ -65,7 +80,7 @@ hl.config({
 		touchpad = {
 			natural_scroll = true,
 			tap_to_click = true,
-			drag_lock = true,
+			drag_lock = 1,
 			disable_while_typing = true,
 			drag_3fg = 1,
 		},
@@ -110,14 +125,15 @@ hl.config({
 	},
 
 	debug = {
-		disable_logs = false,
+		disable_logs = true,
+		enable_stdout_logs = false,
 	},
 
 	general = {
 		gaps_in = 0,
 		gaps_out = 0,
 		border_size = 3,
-		resize_on_border = true,
+		resize_on_border = false,
 		col = {
 			active_border = { colors = { mauve, blue }, angle = 45 },
 			-- Unfocused window border color (fully transparent)
@@ -132,8 +148,8 @@ hl.config({
 			enabled = true,
 			respect_gaps = true,
 			border_overlap = false,
-			window_gap = 5,
-			monitor_gap = 5,
+			window_gap = 10,
+			monitor_gap = 10,
 		},
 	},
 
@@ -170,9 +186,9 @@ hl.config({
 		-- inactive_opacity = 0.9,
 		fullscreen_opacity = 1.0,
 		-- dim_inactive = true,
-		dim_strength = 0.7,
-		dim_special = 0.3,
-		dim_around = 0.5,
+		-- dim_strength = 0.7,
+		-- dim_special = 0.3,
+		-- dim_around = 0.5,
 
 		blur = {
 			size = 1,
@@ -202,16 +218,18 @@ hl.config({
 		workspace_wraparound = true,
 	},
 
+	xwayland = {
+		force_zero_scaling = true,
+	},
+})
+
+hl.config({
 	master = {
 		new_status = "slave",
 		mfact = 0.5,
 		special_scale_factor = 0.9,
 		allow_small_split = true,
 		new_on_active = "after",
-	},
-
-	xwayland = {
-		force_zero_scaling = true,
 	},
 })
 
@@ -342,18 +360,18 @@ hl.window_rule({
 	workspace = "special:trash silent",
 })
 
-hl.window_rule({
-	name = "showmethekey-rules",
-	match = { class = "showmethekey-gtk" },
-	move = { 1511, 919 },
-	float = true,
-	border_size = 0,
-	opacity = "1.0 override 1.0 override",
-	no_blur = true,
-	no_focus = true,
-	no_anim = true,
-	no_shadow = true,
-})
+-- hl.window_rule({
+-- 	name = "showmethekey-rules",
+-- 	match = { class = "showmethekey-gtk" },
+-- 	move = { 1511, 919 },
+-- 	float = true,
+-- 	border_size = 0,
+-- 	opacity = "1.0 override 1.0 override",
+-- 	no_blur = true,
+-- 	no_focus = true,
+-- 	no_anim = true,
+-- 	no_shadow = true,
+-- })
 
 hl.window_rule({
 	name = "onlyoffice-popups",
@@ -395,11 +413,11 @@ hl.window_rule({
 
 -- grouping rules
 hl.window_rule({
-	group = "set",
 	match = {
 		class =
 		"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
 	},
+	group = "set",
 })
 hl.window_rule({ group = "override barred", match = { class = "foot|kitty|zen|xdg-desktop-portal-gtk" } })
 
@@ -408,10 +426,10 @@ hl.window_rule({ center = true, match = { title = "LibreOffice" } })
 hl.window_rule({ tile = true, match = { class = "ONLYOFFICE" } })
 hl.window_rule({ float = true, match = { title = ".*Network Manager.*" } })
 
-hl.window_rule({ border_color = { colors = { mauve, red } }, match = { float = true } })
+hl.window_rule({ border_color = { colors = { mauve, blue }, angle = 45 }, match = { float = true } })
 hl.window_rule({ border_size = 0, match = { fullscreen = true } })
 hl.window_rule({ border_size = 0, match = { fullscreen_state_internal = 1, fullscreen_state_client = 2 } })
-hl.window_rule({ opacity = "0.8, 0.8", match = { pin = true } })
+hl.window_rule({ opacity = "0.8 0.8", match = { pin = true } })
 
 hl.window_rule({
 	name = "steam-window",
@@ -419,7 +437,7 @@ hl.window_rule({
 	float = true,
 })
 
-hl.window_rule({ float = true, match = { class = "^(steam_app_.*)$, match:initial_title ^(..+)$" } })
+hl.window_rule({ float = true, match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" } })
 
 hl.window_rule({
 	name = "steam",
@@ -453,7 +471,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "noscreenshare-rules",
+	name = "noscreenshare-general",
 	match = {
 		class =
 		"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
@@ -522,26 +540,26 @@ hl.window_rule({
 	workspace = "special:update",
 })
 
-hl.window_rule({
-	name = "config-window",
-	match = { class = "org.netrs.ui" },
-	animation = "slide",
-	float = true,
-	size = { 1280, 700 },
-	move = { 380, 35 },
-})
+-- hl.window_rule({
+-- 	name = "config-window",
+-- 	match = { class = "org.netrs.ui" },
+-- 	animation = "slide",
+-- 	float = true,
+-- 	size = { 1280, 700 },
+-- 	move = { 380, 35 },
+-- })
 
 -- firefox textern
 -- ["kitty", "--class", "kitty", "--title", "textern", "-e", "/home/opal/.local/bin/av", "+call cursor(%l,%c)"]
-hl.window_rule({
-	name = "textern-window",
-	match = { class = "foot", title = "textern" },
-	animation = "slide",
-	float = true,
-	pin = true,
-	size = { 1280, 700 },
-	center = true,
-})
+-- hl.window_rule({
+-- 	name = "textern-window",
+-- 	match = { class = "foot", title = "textern" },
+-- 	animation = "slide",
+-- 	float = true,
+-- 	pin = true,
+-- 	size = { 1280, 700 },
+-- 	center = true,
+-- })
 
 hl.window_rule({
 	name = "nvim-hypr-anywhere",
@@ -617,18 +635,23 @@ hl.window_rule({
 
 hl.bind(
 	mainMod .. " + T",
-	hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus.sh class footclient footclient -T stuff -e sesh connect stuff"),
+	hl.dsp.exec_raw(
+		scriptsDir
+		.. "/hypr-cycle-focus-lua.sh class footclient stuff footclient footclient -T stuff -e sesh connect stuff"
+	),
 	{ description = "Open Terminal with TMUX session:stuff" }
 )
 hl.bind(
 	mainMod .. " + SHIFT + T",
-	hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus.sh title Projects footclient -T Projects -e sesh connect Projects"),
+	hl.dsp.exec_cmd(
+		scriptsDir .. "/hypr-cycle-focus-lua.sh title Projects footclient -T Projects -e sesh connect Projects"
+	),
 	{ description = "Open Terminal with TMUX session:Projects" }
 )
 hl.bind(
 	mainMod .. " + S",
 	hl.dsp.exec_cmd(
-		scriptsDir .. "/hypr-cycle-focus.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell"
+		scriptsDir .. "/hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell"
 	),
 	{ description = "Open Terminal with TMUX session:PowerShell" }
 )
@@ -647,7 +670,7 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill(activewindow), { descripti
 hl.bind(
 	mainMod .. " + A",
 	hl.dsp.exec_cmd(
-		scriptsDir .. "/hypr-cycle-focus.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"
+		scriptsDir .. "/hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"
 	),
 	{ description = "Open Outlook for Linux" }
 )
@@ -655,7 +678,7 @@ hl.bind(
 	mainMod .. " + Z",
 	hl.dsp.exec_cmd(
 		scriptsDir
-		.. "/hypr-cycle-focus.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio"
+		.. "/hypr-cycle-focus-lua.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio"
 	),
 	{ description = "Open Apache Directory Studio" }
 )
@@ -663,7 +686,7 @@ hl.bind(
 	mainMod .. " + R",
 	hl.dsp.exec_cmd(
 		scriptsDir
-		.. "/hypr-cycle-focus.sh class teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
+		.. "/hypr-cycle-focus-lua.sh class teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
 	),
 	{ description = "Open Teams for Linux" }
 )
@@ -671,7 +694,7 @@ hl.bind(
 	mainMod .. " + SHIFT + A",
 	hl.dsp.exec_cmd(
 		scriptsDir
-		.. "/hypr-cycle-focus.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland"
+		.. "/hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland"
 	),
 	{ description = "Open Brave Browser" }
 )
@@ -697,23 +720,23 @@ hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("dms ipc powermenu open"), { des
 -- rofi/vicinae/bemenu, etc
 hl.bind(
 	mainMod .. " + 0",
-	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='$confDir/rofi-pass/config' rofi-pass"),
+	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass"),
 	{ description = "Open rofi-pass" }
 )
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(scriptsDir .. "/rofi-beats"), { description = "Open Rofi Radio Stream" })
 hl.bind(
 	"ALT + Tab",
-	hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/wm/switch-windows"),
+	hl.dsp.exec_cmd("vicinae vicinae://launch/wm/switch-windows"),
 	{ description = "Vicinae Switch windows" }
 )
 hl.bind(
 	mainMod .. " + E",
-	hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/core/search-emojis"),
+	hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"),
 	{ description = "Vicinae Search Emojis" }
 )
 hl.bind(
 	mainMod .. " + Semicolon",
-	hl.dsp.exec_cmd("vicinae vicinae://extensions/vicinae/clipboard/history"),
+	hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"),
 	{ description = "Vicinae Clipboard History" }
 )
 hl.bind(
@@ -745,7 +768,7 @@ hl.bind(
 )
 
 -- Night mode (blue filter)
--- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader $scriptsDir/flux.glsl"))
+-- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader " .. scriptsDir .. "/flux.glsl"))
 -- hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader '[[EMPTY]]'"))
 
 -- wayscriber
@@ -755,24 +778,24 @@ hl.bind(
 hl.bind(
 	mainMod .. " + G",
 	hl.dsp.exec_cmd(
-		"if [ $(hyprctl activewindow | rg 'grouped:' | rg -v 'Window' | tr -dc ',' | wc -c) -gt '0' ]; then hyprctl dispatch lockactivegroup toggle; else hyprctl dispatch togglegroup; fi"
+		"if [ $(hyprctl activewindow | rg 'grouped:' | rg -v 'Window' | tr -dc ',' | wc -c) -gt '0' ]; then hyprctl dispatch 'hl.dsp.group.lock()'; else hyprctl dispatch 'hl.dsp.group.toggle()'; fi"
 	),
 	{ description = "Toggle group / Lock group" }
 )
 hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows in a group" })
 hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.submap("group"))
-hl.define_submap("group", function()
-	hl.bind(", J", hl.dsp.window.move({ into_group, "d" }), { description = "Move app into group below" })
-	hl.bind(", K", hl.dsp.window.move({ into_group, "u" }), { description = "Move app into group above" })
-	hl.bind(", L", hl.dsp.window.move({ into_group, "r" }), { description = "Move app into group on the right" })
-	hl.bind(", H", hl.dsp.window.move({ into_group, "l" }), { description = "Move app into group on the left" })
+hl.define_submap("group", "reset", function()
+	hl.bind("J", hl.dsp.window.move({ into_group = "d" }), { description = "Move app into group below" })
+	hl.bind("K", hl.dsp.window.move({ into_group = "u" }), { description = "Move app into group above" })
+	hl.bind("L", hl.dsp.window.move({ into_group = "r" }), { description = "Move app into group on the right" })
+	hl.bind("H", hl.dsp.window.move({ into_group = "l" }), { description = "Move app into group on the left" })
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
 
 -- Screenshots
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "OCR / Google Lens" })
-hl.bind(", Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "Screenshot" })
+hl.bind("Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "Screenshot" })
 
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("dms ipc call bar toggle index 0"), { description = "Toggle dank bar" })
 hl.bind(
@@ -826,7 +849,7 @@ hl.define_submap("passthru", function()
 end)
 
 -- Special workspace
--- hl.bind(mainMod .. " + SHIFT + U", hl.dsp.workspace.move("special:terminal"), { description = "Move to terminal workspace", submap_universal = true })
+-- hl.bind(mainMod .. " + SHIFT + U", hl.dsp.workspace.move({ workspace = "special:terminal", monitor = "current" }), { description = "Move to terminal workspace", submap_universal = true })
 hl.bind(
 	mainMod .. " + U",
 	hl.dsp.workspace.toggle_special("terminal"),
@@ -834,7 +857,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + Backspace",
-	hl.dsp.workspace.move("special:steam"),
+	hl.dsp.workspace.move({ workspace = "special:steam", monitor = "current" }),
 	{ description = "Move to Steam workspace", submap_universal = true }
 )
 hl.bind(
@@ -844,7 +867,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + Delete",
-	hl.dsp.workspace.move("special:trash"),
+	hl.dsp.workspace.move({ workspace = "special:trash", monitor = "current" }),
 	{ description = "Move to Trash workspace", submap_universal = true }
 )
 hl.bind(
@@ -852,7 +875,7 @@ hl.bind(
 	hl.dsp.workspace.toggle_special("trash"),
 	{ description = "Toggle Trash workspace", submap_universal = true }
 )
--- hl.bind(mainMod .. " + SHIFT + R", hl.dsp.workspace.move("special:update"), { description = "Move to update workspace", submap_universal = true }
+-- hl.bind(mainMod .. " + SHIFT + R", hl.dsp.workspace.move({ workspace = "special:update", monitor = "current" }), { description = "Move to update workspace", submap_universal = true }
 hl.bind(
 	mainMod .. " + SHIFT + U",
 	hl.dsp.workspace.toggle_special("update"),
@@ -860,7 +883,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + O",
-	hl.dsp.workspace.move("special:whatsapp"),
+	hl.dsp.workspace.move({ workspace = "special:whatsapp", monitor = "current" }),
 	{ description = "Move to Whatsapp workspace", submap_universal = true }
 )
 hl.bind(
@@ -870,7 +893,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + 6",
-	hl.dsp.workspace.move("special:pulsesecure"),
+	hl.dsp.workspace.move({ workspace = "special:pulsesecure", monitor = "current" }),
 	{ description = "Move to Pulse Secure workspace", submap_universal = true }
 )
 hl.bind(
@@ -880,7 +903,7 @@ hl.bind(
 )
 hl.bind(
 	mainMod .. " + SHIFT + 7",
-	hl.dsp.workspace.move("special:forticlient"),
+	hl.dsp.workspace.move({ workspace = "special:forticlient", monitor = "current" }),
 	{ description = "Move to Forticlient workspace", submap_universal = true }
 )
 hl.bind(
@@ -888,11 +911,11 @@ hl.bind(
 	hl.dsp.workspace.toggle_special("forticlient"),
 	{ description = "Toggle Forticlient workspace", submap_universal = true }
 )
--- hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.workspace.move("special:ytm"), { description = "Move to ytm workspace", submap_universal = true })
+-- hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.workspace.move({ workspace = "special:ytm", monitor = "current" }), { description = "Move to ytm workspace", submap_universal = true })
 -- hl.bind(mainMod .. " + Y", hl.dsp.workspace.togglespecial("ytm"), { description = "Toggle ytm workspace", submap_universal = true })
 hl.bind(
 	mainMod .. " + SHIFT + I",
-	hl.dsp.workspace.move("special:rmpc"),
+	hl.dsp.workspace.move({ workspace = "special:rmpc", monitor = "current" }),
 	{ description = "Move to rmpc workspace", submap_universal = true }
 )
 hl.bind(
@@ -904,22 +927,22 @@ hl.bind(
 -- Switch workspaces with SUPER + [0-9]
 hl.bind(
 	mainMod .. " + 1",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=1; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch workspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + 2",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=2; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch workspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + 3",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=3; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch workspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
@@ -927,44 +950,44 @@ hl.bind(
 -- Move active window and follow to workspace
 hl.bind(
 	mainMod .. " + CTRL + 1",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=1; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + CTRL + 2",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=2; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + CTRL + 3",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=3; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspace $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
 	),
 	{ submap_universal = true }
 )
 -- Move active window to a workspace with SUPER + SHIFT + [0-9]
 hl.bind(
 	mainMod .. " + SHIFT + 1",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=1; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspacesilent $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + SHIFT + 2",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=2; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspacesilent $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
 	),
 	{ submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + SHIFT + 3",
-	hl.dsp.exec_raw(
-		"bash -lc \"s=3; m=$(hyprctl monitors -j | jq -r '.[]|select(.focused)|.name'); b=0; [ '$m' = HDMI-A-1 ] && b=3; hyprctl dispatch movetoworkspacesilent $((b+s))\""
+	hl.dsp.exec_cmd(
+		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
 	),
 	{ submap_universal = true }
 )
@@ -984,27 +1007,25 @@ hl.bind(
 )
 
 -- Zoom
-hl.bind(
-	mainMod .. " + mouse_down",
-	hl.dsp.exec_cmd(
-		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')"
-	),
-	{ mouse = true }
-)
-hl.bind(
-	mainMod .. " + mouse_up",
-	hl.dsp.exec_cmd(
-		"hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')"
-	),
-	{ mouse = true }
-)
-hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"), { mouse = true })
+hl.bind(mainMod .. " + mouse_down", function()
+	local zoomFactor = hl.get_config("cursor.zoom_factor") + 0.5
+	hl.config({
+		cursor = { zoom_factor = zoomFactor },
+	})
+end, { repeating = true })
+hl.bind(mainMod .. " + mouse_up", function()
+	local zoomFactor = hl.get_config("cursor.zoom_factor") - 0.5
+	hl.config({
+		cursor = { zoom_factor = zoomFactor },
+	})
+end, { repeating = true })
+-- hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 
 -- The second bind is redundant but I'm used to it in DWM
-hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ 1, 0 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ 0, 1 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ 1, 0 }))
-hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ 0, 1 }))
+hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
+hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
 
 hl.bind(
 	mainMod .. " + SHIFT + comma",
@@ -1030,20 +1051,26 @@ hl.bind(
 )
 
 -- laptop lid switch
-hl.bind("switch:on:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = false, locked = true }))
-hl.bind("switch:off:[Lid Switch]", hl.monitor({ output = "eDP-1", disabled = true, locked = true }))
+-- hl.bind(
+-- 	"switch:on:[Lid Switch]",
+-- 	hl.dsp.exec_cmd("hyprctl dispatch 'hl.monitor({ output = \"eDP-1\", disabled = false, locked = true })'")
+-- )
+-- hl.bind(
+-- 	"switch:off:[Lid Switch]",
+-- 	hl.dsp.exec_cmd("hyprctl dispatch 'hl.monitor({ output = \"eDP-1\", disabled = true, locked = true })'")
+-- )
 
 -- Plugins
 require("hyprscrolling")
--- require("wl-kbptr.conf")
+-- require("wl-kbptr")
 -- require(".hypr-dynamic-cursors")
 
 -- Source local config (yadm), symlink creation is handled by yadm
-require("local")
+require("localNvidia")
 
--- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
--- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 hl.on("hyprland.start", function()
+	-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
+	-- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("jamesdsp --tray")
@@ -1060,24 +1087,3 @@ hl.on("hyprland.shutdown", function()
 	hl.exec_cmd("systemctl --user stop vicinae")
 	hl.exec_cmd("systemctl --user stop foot-server")
 end)
-
-hl.workspace_rule({
-	workspace = "special:terminal",
-	on_created_empty = "footclient -a scratch -T scratch -e sesh connect WORK",
-})
-hl.workspace_rule({ workspace = "special:trash", on_created_empty = "youtube-music-for-desktop" })
-hl.workspace_rule({
-	workspace = "special:whatsapp",
-	on_created_empty =
-	"/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
-})
-hl.workspace_rule({ workspace = "special:steam", on_created_empty = "steam" })
-hl.workspace_rule({ workspace = "special:update", on_created_empty = "footclient -a update -T update -e yay -Syu" })
-hl.workspace_rule({
-	workspace = "special:pulsemixer",
-	on_created_empty = "footclient -a update -T update -e pulsemixer",
-})
-hl.workspace_rule({ workspace = "special:pulsesecure", on_created_empty = "/opt/pulsesecure/bin/pulseUI" })
-hl.workspace_rule({ workspace = "special:forticlient", on_created_empty = "/opt/forticlient/gui/FortiClient" })
--- hl.workspace_rule({ workspace = "special:ytm", on_created_empty = "footclient -T ytm -e ytm" })
-hl.workspace_rule({ workspace = "special:rmpc", on_created_empty = "footclient -T ytm -e rmpc" })
