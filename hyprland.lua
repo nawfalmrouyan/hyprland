@@ -680,7 +680,7 @@ hl.bind(
 	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass"),
 	{ description = "Open rofi-pass" }
 )
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
+-- hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
 hl.bind(
 	"ALT + Tab",
 	hl.dsp.exec_cmd("vicinae vicinae://launch/wm/switch-windows"),
