@@ -28,6 +28,7 @@ hl.bind(mainMod .. " + BracketLeft", hl.dsp.layout("consume r"))
 hl.bind(mainMod .. " + BracketRight", hl.dsp.layout("consume l"))
 hl.bind(mainMod .. " + D", hl.dsp.layout("fit visible"))
 hl.bind(mainMod .. " + C", hl.dsp.layout("fit active"))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.layout("inhibit_scroll"))
 
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
