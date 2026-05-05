@@ -14,11 +14,11 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("GDK_BACKEND", "wayland,x11,*")
--- hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:" .. confDir .. "/scripts:$PATH")
--- hl.env(
--- 	"GAMEMODERUNEXEC",
--- 	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
--- )
+-- hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/hypr/scripts:$PATH")
+hl.env(
+	"GAMEMODERUNEXEC",
+	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
+)
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
@@ -1061,21 +1061,19 @@ hl.bind(
 )
 
 -- laptop lid switch
--- hl.bind(
--- 	"switch:on:[Lid Switch]",
--- 	hl.dsp.exec_cmd("hyprctl dispatch 'hl.monitor({ output = \"eDP-1\", disabled = false, locked = true })'")
--- )
--- hl.bind(
--- 	"switch:off:[Lid Switch]",
--- 	hl.dsp.exec_cmd("hyprctl dispatch 'hl.monitor({ output = \"eDP-1\", disabled = true, locked = true })'")
--- )
+hl.bind("switch:on:[Lid Switch]", function()
+	hl.monitor({ output = "eDP-1", disabled = false, locked = true })
+end)
+hl.bind("switch:off:[Lid Switch]", function()
+	hl.monitor({ output = "eDP-1", disabled = true, locked = true })
+end)
 
 -- Plugins
 require("hyprscrolling")
 -- require("wl-kbptr")
 -- require(".hypr-dynamic-cursors")
 
--- Source local config (yadm), symlink creation is handled by yadm
+-- Source local config for AMD/Nvidia laptop
 require("localAMD")
 
 hl.on("hyprland.start", function()
@@ -1096,4 +1094,6 @@ hl.on("hyprland.shutdown", function()
 	hl.exec_cmd("systemctl --user stop hypridle")
 	hl.exec_cmd("systemctl --user stop vicinae")
 	hl.exec_cmd("systemctl --user stop foot-server")
+	hl.exec_cmd("pkill jamesdsp")
+	hl.exec_cmd("pkill WhatsApp")
 end)
