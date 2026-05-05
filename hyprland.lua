@@ -1039,12 +1039,12 @@ hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ m
 
 hl.bind(
 	mainMod .. " + SHIFT + comma",
-	hl.dsp.workspace.move({ monitor = "l" }),
+	hl.dsp.window.move({ monitor = "l" }),
 	{ description = "Move to HDMI-A-1 workspace", submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + SHIFT + period",
-	hl.dsp.workspace.move({ monitor = "r" }),
+	hl.dsp.window.move({ monitor = "r" }),
 	{ description = "Move to eDP-1 workspace", submap_universal = true }
 )
 
