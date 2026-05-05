@@ -2,9 +2,7 @@ require("mocha")
 
 local mainMod = "SUPER"
 local home = "/home/opal"
-local localBin = home .. "/.local/bin"
 local confDir = home .. "/.config/hypr"
-local scriptsDir = confDir .. "/scripts"
 
 hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
@@ -14,7 +12,10 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("MOZ_ENABLE_WAYLAND", "1")
 hl.env("GDK_BACKEND", "wayland,x11,*")
--- hl.env("PATH", "$HOME/.bun/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/hypr/scripts:$PATH")
+hl.env(
+	"PATH",
+	"/home/opal/.local/bin:/home/opal/.config/hypr/scripts:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+)
 hl.env(
 	"GAMEMODERUNEXEC",
 	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
@@ -31,8 +32,8 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
 
--- hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
-hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "1920x0", scale = 1 })
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 -- hl.monitor({ output = "name", disabled = true })
 -- hl.monitor({ output = "HDMI-A-1", mode = "preferred", position = "auto", scale = 1, mirror = "eDP-1"})
@@ -636,23 +637,18 @@ hl.window_rule({
 hl.bind(
 	mainMod .. " + T",
 	hl.dsp.exec_raw(
-		scriptsDir
-		.. "/hypr-cycle-focus-lua.sh class footclient stuff footclient footclient -T stuff -e sesh connect stuff"
+		"hypr-cycle-focus-lua.sh class footclient stuff footclient footclient -T stuff -e sesh connect stuff"
 	),
 	{ description = "Open Terminal with TMUX session:stuff" }
 )
 hl.bind(
 	mainMod .. " + SHIFT + T",
-	hl.dsp.exec_cmd(
-		scriptsDir .. "/hypr-cycle-focus-lua.sh title Projects footclient -T Projects -e sesh connect Projects"
-	),
+	hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh title Projects footclient -T Projects -e sesh connect Projects"),
 	{ description = "Open Terminal with TMUX session:Projects" }
 )
 hl.bind(
 	mainMod .. " + S",
-	hl.dsp.exec_cmd(
-		scriptsDir .. "/hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell"
-	),
+	hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell"),
 	{ description = "Open Terminal with TMUX session:PowerShell" }
 )
 hl.bind(
@@ -669,32 +665,27 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close(activewindow), { description = "C
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill(activewindow), { description = "Kill focused app" })
 hl.bind(
 	mainMod .. " + A",
-	hl.dsp.exec_cmd(
-		scriptsDir .. "/hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"
-	),
+	hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"),
 	{ description = "Open Outlook for Linux" }
 )
 hl.bind(
 	mainMod .. " + Z",
 	hl.dsp.exec_cmd(
-		scriptsDir
-		.. "/hypr-cycle-focus-lua.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio"
+		"hypr-cycle-focus-lua.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio"
 	),
 	{ description = "Open Apache Directory Studio" }
 )
 hl.bind(
 	mainMod .. " + R",
 	hl.dsp.exec_cmd(
-		scriptsDir
-		.. "/hypr-cycle-focus-lua.sh class teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
+		"hypr-cycle-focus-lua.sh class teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
 	),
 	{ description = "Open Teams for Linux" }
 )
 hl.bind(
 	mainMod .. " + SHIFT + A",
 	hl.dsp.exec_cmd(
-		scriptsDir
-		.. "/hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland"
+		"hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland"
 	),
 	{ description = "Open Brave Browser" }
 )
@@ -723,7 +714,7 @@ hl.bind(
 	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass"),
 	{ description = "Open rofi-pass" }
 )
-hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(scriptsDir .. "/rofi-beats"), { description = "Open Rofi Radio Stream" })
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
 hl.bind(
 	"ALT + Tab",
 	hl.dsp.exec_cmd("vicinae vicinae://launch/wm/switch-windows"),
@@ -739,28 +730,20 @@ hl.bind(
 	hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"),
 	{ description = "Vicinae Clipboard History" }
 )
-hl.bind(
-	mainMod .. " + SHIFT + P",
-	hl.dsp.exec_cmd(scriptsDir .. "/powerprofiles.sh"),
-	{ description = "Rofi Powerprofiles" }
-)
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("powerprofiles.sh"), { description = "Rofi Powerprofiles" })
 hl.bind(
 	mainMod .. " + SHIFT + C",
-	hl.dsp.exec_cmd("pkill bemenu || " .. scriptsDir .. "/bemenu_input 6"),
+	hl.dsp.exec_cmd("pkill bemenu || bemenu_input 6"),
 	{ description = "Bemenu Input", release = true }
 )
 
 -- compose text using nvim
-hl.bind(
-	mainMod .. " + N",
-	hl.dsp.exec_cmd(localBin .. "/nvim-hypr-anywhere.sh"),
-	{ description = "Open nvim-hypr-anywhere" }
-)
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("nvim-hypr-anywhere.sh"), { description = "Open nvim-hypr-anywhere" })
 
 -- bind = mainMod .. " + B, exec, killall -SIGUSR1 waybar || waybar
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("footclient -T btop -e btop"), { description = "Open btop" })
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("footclient -T btop -e nvtop"), { description = "Open nvtop" })
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(scriptsDir .. "/gamemode.sh"), { description = "Toggle Game Mode" })
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("gamemode.sh"), { description = "Toggle Game Mode" })
 hl.bind(
 	mainMod .. " + 8",
 	hl.dsp.exec_cmd("foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan"),
@@ -1071,7 +1054,7 @@ end)
 -- Plugins
 require("hyprscrolling")
 -- require("wl-kbptr")
--- require(".hypr-dynamic-cursors")
+-- require("hypr-dynamic-cursors")
 
 -- Source local config for AMD/Nvidia laptop
 require("localAMD")

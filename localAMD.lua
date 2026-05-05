@@ -1,7 +1,5 @@
 local mainMod = "SUPER"
-local scriptsDir = "/home/opal/.config/hypr/scripts"
 local confDir = "/home/opal/.config/hypr"
-local localBin = "/home/opal/.local/bin"
 
 hl.bind(
   "xf86calculator",
@@ -14,12 +12,12 @@ hl.bind(
 
 hl.bind(
   mainMod .. " + W",
-  hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus-lua.sh class zen zen-browser"),
+  hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh class zen zen-browser"),
   { description = "Open Zen Browser (hypr-cycle-focus)" }
 )
 
 hl.on("hyprland.start", function()
-  hl.exec_cmd(localBin .. "/kanata_cmd_allowed -c " .. confDir .. "/kanata/silakka.kbd")
+  hl.exec_cmd("kanata_cmd_allowed -c " .. confDir .. "/kanata/silakka.kbd")
   -- hl.exec_cmd(localBin .. "kanata_cmd_allowed -c " .. confDir .. "/kanata/lappy.kbd")
 end)
 
