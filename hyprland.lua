@@ -327,7 +327,6 @@ hl.window_rule({
 	name = "remmina half window width",
 	match = { class = "org.remmina.Remmina", title = "Remmina Remote Desktop Client" },
 	scrolling_width = 0.5,
-	tag = "+mark",
 })
 
 hl.window_rule({
@@ -1004,17 +1003,17 @@ hl.bind(
 -- mark, unmark and focus marked window
 hl.bind(
 	mainMod .. " + SHIFT + Y",
-	hl.dsp.window.tag({ tag = "+marked", window = "activewindow" }),
+	hl.dsp.window.tag({ tag = "+mark" }),
 	{ description = "Mark focused window", submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + CTRL + Y",
-	hl.dsp.window.tag({ tag = "-marked", window = "activewindow" }),
+	hl.dsp.window.tag({ tag = "-mark" }),
 	{ description = "Mark focused window", submap_universal = true }
 )
 hl.bind(
 	mainMod .. " + Y",
-	hl.dsp.focus({ window = "tag:marked" }),
+	hl.dsp.focus({ window = "tag:mark" }),
 	{ description = "Focus marked window", submap_universal = true }
 )
 
