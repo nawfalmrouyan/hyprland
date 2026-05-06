@@ -26,7 +26,6 @@ hl.bind(mainMod .. " + Slash", hl.dsp.layout("expel r"))
 hl.bind(mainMod .. " + SHIFT + Slash", hl.dsp.layout("expel l"))
 hl.bind(mainMod .. " + BracketLeft", hl.dsp.layout("consume r"))
 hl.bind(mainMod .. " + BracketRight", hl.dsp.layout("consume l"))
-hl.bind(mainMod .. " + C", hl.dsp.layout("togglefit"))
 hl.bind(mainMod .. " + D", hl.dsp.layout("fit visible"))
 -- hl.bind(mainMod .. " + S", hl.dsp.layout("fit all"))
 

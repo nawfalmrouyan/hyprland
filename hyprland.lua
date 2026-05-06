@@ -1,8 +1,7 @@
 require("mocha")
 
 local mainMod = "SUPER"
-local home = "/home/opal"
-local confDir = home .. "/.config/hypr"
+local confDir = "/home/opal/.config/hypr"
 
 hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
@@ -62,7 +61,6 @@ hl.workspace_rule({
 })
 hl.workspace_rule({ workspace = "special:pulsesecure", on_created_empty = "/opt/pulsesecure/bin/pulseUI" })
 hl.workspace_rule({ workspace = "special:forticlient", on_created_empty = "/opt/forticlient/gui/FortiClient" })
--- hl.workspace_rule({ workspace = "special:ytm", on_created_empty = "footclient -T ytm -e ytm" })
 hl.workspace_rule({ workspace = "special:rmpc", on_created_empty = "footclient -T ytm -e rmpc" })
 
 hl.config({
@@ -361,19 +359,6 @@ hl.window_rule({
 	workspace = "special:trash silent",
 })
 
--- hl.window_rule({
--- 	name = "showmethekey-rules",
--- 	match = { class = "showmethekey-gtk" },
--- 	move = { 1511, 919 },
--- 	float = true,
--- 	border_size = 0,
--- 	opacity = "1.0 override 1.0 override",
--- 	no_blur = true,
--- 	no_focus = true,
--- 	no_anim = true,
--- 	no_shadow = true,
--- })
-
 hl.window_rule({
 	name = "onlyoffice-popups",
 	match = { float = "true", class = "DesktopEditors" },
@@ -395,14 +380,6 @@ hl.window_rule({
 	center = true,
 	-- persistent_size = true
 })
-
--- hl.window_rule({
---   name = "satty-window",
---   match = { class = "com.gabm.satty"),
---   float = true,
---   center = true,
---   min_size = { 730, 300 },
--- })
 
 hl.window_rule({
 	name = "center-float-windows-title",
@@ -541,27 +518,6 @@ hl.window_rule({
 	workspace = "special:update",
 })
 
--- hl.window_rule({
--- 	name = "config-window",
--- 	match = { class = "org.netrs.ui" },
--- 	animation = "slide",
--- 	float = true,
--- 	size = { 1280, 700 },
--- 	move = { 380, 35 },
--- })
-
--- firefox textern
--- ["kitty", "--class", "kitty", "--title", "textern", "-e", "/home/opal/.local/bin/av", "+call cursor(%l,%c)"]
--- hl.window_rule({
--- 	name = "textern-window",
--- 	match = { class = "foot", title = "textern" },
--- 	animation = "slide",
--- 	float = true,
--- 	pin = true,
--- 	size = { 1280, 700 },
--- 	center = true,
--- })
-
 hl.window_rule({
 	name = "nvim-hypr-anywhere",
 	match = { class = "nvim-hypr-anywhere" },
@@ -678,7 +634,7 @@ hl.bind(
 hl.bind(
 	mainMod .. " + R",
 	hl.dsp.exec_cmd(
-		"hypr-cycle-focus-lua.sh class teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
+		"hypr-cycle-focus-lua.sh class teams-for-linux teams-for-linux teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
 	),
 	{ description = "Open Teams for Linux" }
 )
@@ -694,11 +650,11 @@ hl.bind(
 	hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle", window = "activewindow" }),
 	{ description = "Fullscreen focused app" }
 )
--- hl.bind(
--- 	mainMod .. " + SHIFT + F",
--- 	hl.dsp.window.fullscreenstate({ internal = 1, client = 2, action = "toggle", window = "activewindow" }),
--- 	{ description = "Fake Fullscreen focused app" }
--- )
+hl.bind(
+	mainMod .. " + SHIFT + F",
+	hl.dsp.window.fullscreen_state({ internal = 1, client = 2, action = "toggle", window = "activewindow" }),
+	{ description = "Fake Fullscreen focused app" }
+)
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("nautilus"), { description = "Open Nautilus" })
 hl.bind(mainMod .. " + CTRL + E", hl.dsp.exec_cmd("kitty -e yazi"), { description = "Open yazi" })
 hl.bind(
@@ -732,7 +688,7 @@ hl.bind(
 )
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("powerprofiles.sh"), { description = "Rofi Powerprofiles" })
 hl.bind(
-	mainMod .. " + SHIFT + C",
+	mainMod .. " + C",
 	hl.dsp.exec_cmd("pkill bemenu || bemenu_input 6"),
 	{ description = "Bemenu Input", release = true }
 )
@@ -767,14 +723,6 @@ hl.bind(
 )
 hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows in a group" })
 hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
--- hl.bind(mainMod .. " + SHIFT + G", hl.dsp.submap("group"))
--- hl.define_submap("group", "reset", function()
--- 	hl.bind("J", hl.dsp.window.move({ into_group = "d" }), { description = "Move app into group below" })
--- 	hl.bind("K", hl.dsp.window.move({ into_group = "u" }), { description = "Move app into group above" })
--- 	hl.bind("L", hl.dsp.window.move({ into_group = "r" }), { description = "Move app into group on the right" })
--- 	hl.bind("H", hl.dsp.window.move({ into_group = "l" }), { description = "Move app into group on the left" })
--- 	hl.bind("catchall", hl.dsp.submap("reset"))
--- end)
 
 -- Screenshots
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "OCR / Google Lens" })
@@ -1012,7 +960,6 @@ hl.bind(mainMod .. " + mouse_up", function()
 		})
 	end
 end, { repeating = true })
--- hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 
 -- The second bind is redundant but I'm used to it in DWM
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
@@ -1065,7 +1012,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
 	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("jamesdsp --tray")
-	hl.exec_cmd("hyprpm reload")
+	-- hl.exec_cmd("hyprpm reload")
 	hl.exec_cmd("systemctl --user start vicinae")
 	hl.exec_cmd("systemctl --user start hypridle")
 	hl.exec_cmd("systemctl --user start foot-server")
