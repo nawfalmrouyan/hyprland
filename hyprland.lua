@@ -677,7 +677,7 @@ hl.bind(
 	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass"),
 	{ description = "Open rofi-pass" }
 )
-hl.bind(mainMod .. " + CTRL + Y", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
 hl.bind(
 	"ALT + Tab",
 	hl.dsp.exec_cmd("vicinae vicinae://launch/wm/switch-windows"),
@@ -997,10 +997,15 @@ hl.bind(
 	{ description = "Focus right monitor", submap_universal = true }
 )
 
--- mark and focus marked window
+-- mark, unmark and focus marked window
 hl.bind(
 	mainMod .. " + SHIFT + Y",
-	hl.dsp.window.tag({ tag = "marked", window = "activewindow" }),
+	hl.dsp.window.tag({ tag = "+marked", window = "activewindow" }),
+	{ description = "Mark focused window", submap_universal = true }
+)
+hl.bind(
+	mainMod .. " + CTRL + Y",
+	hl.dsp.window.tag({ tag = "-marked", window = "activewindow" }),
 	{ description = "Mark focused window", submap_universal = true }
 )
 hl.bind(
