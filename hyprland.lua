@@ -324,6 +324,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "remmina half window width",
+	match = { class = "org.remmina.Remmina", title = "Remmina Remote Desktop Client" },
+	scrolling_width = 0.5,
+	tag = "+mark",
+})
+
+hl.window_rule({
 	name = "pulse-secure-rules",
 	match = { class = "pulseUI", title = "(Pulse Secure)" },
 	float = true,
@@ -670,7 +677,7 @@ hl.bind(
 	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass"),
 	{ description = "Open rofi-pass" }
 )
-hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
+hl.bind(mainMod .. " + CTRL + Y", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
 hl.bind(
 	"ALT + Tab",
 	hl.dsp.exec_cmd("vicinae vicinae://launch/wm/switch-windows"),
@@ -990,6 +997,18 @@ hl.bind(
 	{ description = "Focus right monitor", submap_universal = true }
 )
 
+-- mark and focus marked window
+hl.bind(
+	mainMod .. " + SHIFT + Y",
+	hl.dsp.window.tag({ tag = "marked", window = "activewindow" }),
+	{ description = "Mark focused window", submap_universal = true }
+)
+hl.bind(
+	mainMod .. " + Y",
+	hl.dsp.focus({ window = "tag:marked" }),
+	{ description = "Focus marked window", submap_universal = true }
+)
+
 -- laptop lid switch
 hl.bind("switch:on:[Lid Switch]", function()
 	hl.monitor({ output = "eDP-1", disabled = false, locked = true })
@@ -1000,8 +1019,6 @@ end)
 
 -- Plugins
 require("hyprscrolling")
--- require("wl-kbptr")
--- require("hypr-dynamic-cursors")
 
 -- Source local config for AMD/Nvidia laptop
 require("localAMD")
