@@ -624,8 +624,12 @@ hl.bind(
 	hl.dsp.exec_cmd("footclient -e sesh connect stuff"),
 	{ description = "Open Terminal with TMUX session:stuff" }
 )
-hl.bind(mainMod .. " + Q", hl.dsp.window.close(activewindow), { description = "Close focused app" })
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.kill(activewindow), { description = "Kill focused app" })
+hl.bind(mainMod .. " + Q", hl.dsp.window.close({ window = "activewindow" }), { description = "Close focused app" })
+hl.bind(
+	mainMod .. " + SHIFT + Q",
+	hl.dsp.window.kill({ window = "activewindow" }),
+	{ description = "Kill focused app" }
+)
 hl.bind(
 	mainMod .. " + A",
 	hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"),
