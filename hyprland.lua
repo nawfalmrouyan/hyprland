@@ -972,8 +972,6 @@ end)
 -- The second bind is redundant but I'm used to it in DWM
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
 hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
-hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
-hl.bind(mainMod .. " + SHIFT + CTRL + right", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
 
 hl.bind(
 	mainMod .. " + SHIFT + comma",
