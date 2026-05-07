@@ -4,7 +4,7 @@ hl.config({
         fullscreen_on_one_column = false,
         explicit_column_widths = "0.25, 0.5, 0.75, 1.0",
         focus_fit_method = 1,
-        follow_min_visible = 0.25,
+        follow_min_visible = 0.20,
     },
 })
 

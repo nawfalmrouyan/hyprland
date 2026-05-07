@@ -1022,7 +1022,7 @@ hl.bind("switch:off:[Lid Switch]", function()
 end)
 
 -- Plugins
-require("hyprscrolling")
+require("scrolling")
 
 -- Source local config for AMD/Nvidia laptop
 require("localAMD")
