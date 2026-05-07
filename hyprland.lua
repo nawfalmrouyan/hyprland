@@ -953,23 +953,21 @@ hl.bind(mainMod .. " + mouse_down", function()
 	if zoomFactor == 10 then
 		return
 	else
-		zoomFactor = zoomFactor + 0.5
 		hl.config({
-			cursor = { zoom_factor = zoomFactor },
+			cursor = { zoom_factor = zoomFactor + 0.5 },
 		})
 	end
-end, { repeating = true })
+end)
 hl.bind(mainMod .. " + mouse_up", function()
 	local zoomFactor = hl.get_config("cursor.zoom_factor")
 	if zoomFactor == 1 then
 		return
 	else
-		zoomFactor = zoomFactor - 0.5
 		hl.config({
-			cursor = { zoom_factor = zoomFactor },
+			cursor = { zoom_factor = zoomFactor - 0.5 },
 		})
 	end
-end, { repeating = true })
+end)
 
 -- The second bind is redundant but I'm used to it in DWM
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
