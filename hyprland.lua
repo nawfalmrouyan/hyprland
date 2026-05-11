@@ -685,138 +685,206 @@ for _, rule in ipairs(window_rules) do
 	hl.window_rule(rule)
 end
 
-hl.bind(
-	mainMod .. " + T",
-	hl.dsp.exec_cmd(
-		"hypr-cycle-focus-lua.sh class footclient stuff footclient footclient -T stuff -e sesh connect stuff"
-	),
-	{ description = "Open Terminal with TMUX session:stuff" }
-)
-hl.bind(
-	mainMod .. " + SHIFT + T",
-	hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh title Projects footclient -T Projects -e sesh connect Projects"),
-	{ description = "Open Terminal with TMUX session:Projects" }
-)
-hl.bind(
-	mainMod .. " + S",
-	hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell"),
-	{ description = "Open Terminal with TMUX session:PowerShell" }
-)
-hl.bind(
-	mainMod .. " + Return",
-	hl.dsp.exec_cmd("footclient -e sesh connect stuff"),
-	{ description = "Open Terminal with TMUX session:stuff" }
-)
-hl.bind(
-	mainMod .. " + SHIFT + Return",
-	hl.dsp.exec_cmd("footclient -e sesh connect stuff"),
-	{ description = "Open Terminal with TMUX session:stuff" }
-)
-hl.bind(mainMod .. " + Q", hl.dsp.window.close({ window = "activewindow" }), { description = "Close focused app" })
-hl.bind(
-	mainMod .. " + SHIFT + Q",
-	hl.dsp.window.kill({ window = "activewindow" }),
-	{ description = "Kill focused app" }
-)
-hl.bind(
-	mainMod .. " + A",
-	hl.dsp.exec_cmd("hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux"),
-	{ description = "Open Outlook for Linux" }
-)
-hl.bind(
-	mainMod .. " + Z",
-	hl.dsp.exec_cmd(
-		"hypr-cycle-focus-lua.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio"
-	),
-	{ description = "Open Apache Directory Studio" }
-)
-hl.bind(
-	mainMod .. " + R",
-	hl.dsp.exec_cmd(
-		"hypr-cycle-focus-lua.sh class teams-for-linux teams-for-linux teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto"
-	),
-	{ description = "Open Teams for Linux" }
-)
-hl.bind(
-	mainMod .. " + SHIFT + A",
-	hl.dsp.exec_cmd(
-		"hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland"
-	),
-	{ description = "Open Brave Browser" }
-)
-hl.bind(
-	mainMod .. " + F",
-	hl.dsp.window.fullscreen({ mode = "fullscreen" }),
-	{ description = "Fullscreen focused app" }
-)
-hl.bind(
-	mainMod .. " + SHIFT + F",
-	hl.dsp.window.fullscreen_state({ internal = 1, client = 2, action = "set" }),
-	{ description = "Maximize fake fullscreen app" }
-)
-hl.bind(
-	mainMod .. " + CTRL + F",
-	hl.dsp.window.fullscreen_state({ internal = 0, client = 0, action = "set" }, {
-		description = "Unmaximize fake fullscreen app",
-	})
-)
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("nautilus"), { description = "Open Nautilus" })
-hl.bind(mainMod .. " + CTRL + E", hl.dsp.exec_cmd("kitty -e yazi"), { description = "Open yazi" })
-hl.bind(
-	mainMod .. " + V",
-	hl.dsp.window.float({ action = "toggle", window = "activewindow" }),
-	{ description = "Float focused app" }
-)
-hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("dms ipc powermenu open"), { description = "Open Powermenu" })
+local exec_cmd = {
+	-- terminals / apps
+	{
+		key = "T",
+		cmd = "hypr-cycle-focus-lua.sh class footclient stuff footclient footclient -T stuff -e sesh connect stuff",
+		desc = "Open Terminal with TMUX session:stuff",
+	},
+	{
+		key = "SHIFT + T",
+		cmd = "hypr-cycle-focus-lua.sh title Projects footclient -T Projects -e sesh connect Projects",
+		desc = "Open Terminal with TMUX session:Projects",
+	},
+	{
+		key = "S",
+		cmd = "hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell",
+		desc = "Open Terminal with TMUX session:PowerShell",
+	},
 
--- rofi/vicinae/bemenu, etc
-hl.bind(
-	mainMod .. " + 0",
-	hl.dsp.exec_cmd("ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass"),
-	{ description = "Open rofi-pass" }
-)
--- hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("rofi-beats"), { description = "Open Rofi Radio Stream" })
-hl.bind(
-	"ALT + Tab",
-	hl.dsp.exec_cmd("vicinae vicinae://launch/wm/switch-windows"),
-	{ description = "Vicinae Switch windows" }
-)
-hl.bind(
-	mainMod .. " + E",
-	hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"),
-	{ description = "Vicinae Search Emojis" }
-)
-hl.bind(
-	mainMod .. " + Semicolon",
-	hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"),
-	{ description = "Vicinae Clipboard History" }
-)
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("powerprofiles.sh"), { description = "Rofi Powerprofiles" })
-hl.bind(
-	mainMod .. " + C",
-	hl.dsp.exec_cmd("pkill bemenu || bemenu_input 6"),
-	{ description = "Bemenu Input", release = true }
-)
+	{
+		key = "Return",
+		cmd = "footclient -e sesh connect stuff",
+		desc = "Open Terminal with TMUX session:stuff",
+	},
+	{
+		key = "SHIFT + Return",
+		cmd = "footclient -e sesh connect stuff",
+		desc = "Open Terminal with TMUX session:stuff",
+	},
 
--- compose text using nvim
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("nvim-hypr-anywhere.sh"), { description = "Open nvim-hypr-anywhere" })
+	{
+		key = "A",
+		cmd = "hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux",
+		desc = "Open Outlook for Linux",
+	},
+	{
+		key = "Z",
+		cmd = "hypr-cycle-focus-lua.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio",
+		desc = "Open Apache Directory Studio",
+	},
+	{
+		key = "R",
+		cmd =
+		"hypr-cycle-focus-lua.sh class teams-for-linux teams-for-linux teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto",
+		desc = "Open Teams for Linux",
+	},
+	{
+		key = "SHIFT + A",
+		cmd = "hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
+		desc = "Open Brave Browser",
+	},
 
--- bind = mainMod .. " + B, exec, killall -SIGUSR1 waybar || waybar
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("footclient -T btop -e btop"), { description = "Open btop" })
-hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("footclient -T btop -e nvtop"), { description = "Open nvtop" })
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("gamemode.sh"), { description = "Toggle Game Mode" })
-hl.bind(
-	mainMod .. " + 8",
-	hl.dsp.exec_cmd("foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan"),
-	{ description = "Open Toofan (typing test)" }
-)
+	{
+		key = "SHIFT + E",
+		cmd = "nautilus",
+		desc = "Open Nautilus",
+	},
+	{ key = "CTRL + E",  cmd = "kitty -e yazi",               desc = "Open yazi" },
+	{
+		key = "Escape",
+		cmd = "dms ipc powermenu open",
+		desc = "Open Powermenu",
+	},
 
--- Night mode (blue filter)
--- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader " .. scriptsDir .. "/flux.glsl"))
--- hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader '[[EMPTY]]'"))
+	-- rofi / vicinae
+	{
+		key = "0",
+		cmd = "ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass",
+		desc = "Open rofi-pass",
+	},
+	-- {
+	-- 	key = "SHIFT + U",
+	-- 	cmd = "rofi-beats",
+	-- 	desc = "Open Rofi Radio Stream",
+	-- },
+	{
+		key = "ALT + Tab",
+		cmd = "vicinae vicinae://launch/wm/switch-windows",
+		desc = "Vicinae Switch windows",
+	},
+	{
+		key = "E",
+		cmd = "vicinae vicinae://launch/core/search-emojis",
+		desc = "Vicinae Search Emojis",
+	},
+	{
+		key = "Semicolon",
+		cmd = "vicinae vicinae://launch/clipboard/history",
+		desc = "Vicinae Clipboard History",
+	},
+	{
+		key = "SHIFT + P",
+		cmd = "powerprofiles.sh",
+		desc = "Rofi Powerprofiles",
+	},
 
--- wayscriber
--- hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"), { description = "Toggle wayscriber" })
+	{
+		key = "SHIFT + C",
+		cmd = "pkill bemenu || bemenu_input 6",
+		desc = "Bemenu Input",
+		release = true,
+	},
+
+	-- {
+	-- 	key = "SHIFT + Z",
+	-- 	cmd = "pkill -SIGUSR1 wayscriber",
+	-- 	desc = "Toggle wayscriber",
+	-- },
+
+	-- tools
+	{ key = "N",         cmd = "nvim-hypr-anywhere.sh",       desc = "Open nvim-hypr-anywhere" },
+	{ key = "B",         cmd = "footclient -T btop -e btop",  desc = "Open btop" },
+	{ key = "SHIFT + N", cmd = "footclient -T btop -e nvtop", desc = "Open nvtop" },
+	{ key = "SHIFT + B", cmd = "gamemode.sh",                 desc = "Toggle Game Mode" },
+	{
+		key = "8",
+		cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
+		desc = "Open Toofan (typing test)",
+	},
+
+	-- screenshots / UI
+	{ key = "Print",         cmd = "quickshell -c HyprQuickFrame -n", desc = "OCR / Google Lens" },
+	{ key = "SUPER + Print", cmd = "quickshell -c QuickSnip -n",      desc = "Screenshot" },
+	{ key = "X",             cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
+
+	{
+		key = "CTRL + Grave",
+		cmd = "kitten quick-access-terminal",
+		desc = "Open Kitty Quick Access Terminal",
+		locked = true,
+	},
+}
+
+for _, b in ipairs(exec_cmd) do
+	local opts = {
+		description = b.desc,
+	}
+
+	if b.release then
+		opts.release = true
+	end
+	if b.locked then
+		opts.locked = true
+	end
+
+	hl.bind(mainMod .. " + " .. b.key, hl.dsp.exec_cmd(b.cmd), opts)
+end
+
+local dispatch_window = {
+	{
+		key = "F",
+		action = hl.dsp.window.fullscreen({ mode = "fullscreen" }),
+		desc = "Fullscreen focused app",
+	},
+	{
+		key = "Q",
+		action = hl.dsp.window.close({ window = "activewindow" }),
+		desc = "Close focused app",
+	},
+	{
+		key = "SHIFT + Q",
+		action = hl.dsp.window.kill({ window = "activewindow" }),
+		desc = "Kill focused app",
+	},
+	{
+		key = "SHIFT + F",
+		action = hl.dsp.window.fullscreen_state({ internal = 1, client = 2, action = "set" }),
+		desc = "Maximize fake fullscreen app",
+	},
+	{
+		key = "CTRL + F",
+		action = hl.dsp.window.fullscreen_state({ internal = 0, client = 0, action = "set" }),
+		desc = "Unmaximize fake fullscreen app",
+	},
+	{
+		key = "V",
+		action = hl.dsp.window.float({ action = "toggle", window = "activewindow" }),
+		desc = "Float focused app",
+	},
+	{
+		key = "CTRL + G",
+		action = hl.dsp.window.move({ out_of_group = "r" }),
+		desc = "Move app out of group",
+	},
+}
+
+for _, b in ipairs(dispatch_window) do
+	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc })
+end
+
+local dispatch_group = {
+	{
+		key = "Tab",
+		action = hl.dsp.group.next(),
+		desc = "Cycle windows in a group",
+	},
+}
+
+for _, b in ipairs(dispatch_group) do
+	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc })
+end
 
 -- Group binds
 hl.bind(mainMod .. " + G", function()
@@ -828,140 +896,93 @@ hl.bind(mainMod .. " + G", function()
 	end
 end, { description = "Toggle group / Lock group" })
 
-hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows in a group" })
-hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
-
--- Screenshots
-hl.bind("Print", hl.dsp.exec_cmd("quickshell -c HyprQuickFrame -n"), { description = "OCR / Google Lens" })
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("quickshell -c QuickSnip -n"), { description = "Screenshot" })
-
-hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("dms ipc call bar toggle index 0"), { description = "Toggle dank bar" })
-hl.bind(
-	"CTRL + Grave",
-	hl.dsp.exec_cmd("kitten quick-access-terminal"),
-	{ description = "Open Kitty Quick Access Terminal", locked = true }
-)
+-- Night mode (blue filter)
+-- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader " .. scriptsDir .. "/flux.glsl"))
+-- hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader '[[EMPTY]]'"))
 
 -- Special Keys
-hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("dms ipc call audio increment 5"),
-	{ description = "Raise volume", locked = true, repeating = true }
-)
-hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("dms ipc call audio decrement 5"),
-	{ description = "Lower volume", locked = true, repeating = true }
-)
-hl.bind(
-	"XF86AudioMute",
-	hl.dsp.exec_cmd("dms ipc call audio mute"),
-	{ description = "Mute audio", locked = true, repeating = true }
-)
-hl.bind(
-	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("dms ipc call audio micmute"),
-	{ description = "Mute Microphone", locked = true, repeating = true }
-)
+local media_binds = {
+	{
+		key = "XF86AudioRaiseVolume",
+		cmd = "dms ipc call audio increment 5",
+		desc = "Raise volume",
+	},
+	{
+		key = "XF86AudioLowerVolume",
+		cmd = "dms ipc call audio decrement 5",
+		desc = "Lower volume",
+	},
+	{
+		key = "XF86AudioMute",
+		cmd = "dms ipc call audio mute",
+		desc = "Mute audio",
+	},
+	{
+		key = "XF86AudioMicMute",
+		cmd = "dms ipc call audio micmute",
+		desc = "Mute Microphone",
+	},
+	{
+		key = "xf86audioplay",
+		cmd = "playerctl play-pause",
+		desc = "Play/Pause",
+	},
+	{
+		key = "xf86audionext",
+		cmd = "playerctl next",
+		desc = "Play Next Track",
+	},
+	{
+		key = "xf86audioprev",
+		cmd = "playerctl previous",
+		desc = "Play Previous Track",
+	},
+}
 
-hl.bind(
-	"xf86audioplay",
-	hl.dsp.exec_cmd("playerctl play-pause"),
-	{ description = "Play/Pause", locked = true, repeating = true }
-)
-hl.bind(
-	"xf86audionext",
-	hl.dsp.exec_cmd("playerctl next"),
-	{ description = "Play Next Track", locked = true, repeating = true }
-)
-hl.bind(
-	"xf86audioprev",
-	hl.dsp.exec_cmd("playerctl previous"),
-	{ description = "Play Previous Track", locked = true, repeating = true }
-)
-
--- Bypass global keybinds to pass binds directly to application (eg: VMs)
-hl.bind(mainMod .. " + CTRL + Grave", hl.dsp.submap("passthru"))
-hl.define_submap("passthru", function()
-	hl.bind(mainMod .. " + Escape", hl.dsp.submap("reset"))
-end)
+for _, b in ipairs(media_binds) do
+	hl.bind(b.key, hl.dsp.exec_cmd(b.cmd), {
+		description = b.desc,
+		locked = true,
+		repeating = true,
+	})
+end
 
 -- Special workspace
--- hl.bind(mainMod .. " + SHIFT + U", hl.dsp.workspace.move({ workspace = "special:terminal", monitor = "current" }), { description = "Move to terminal workspace", submap_universal = true })
-hl.bind(
-	mainMod .. " + U",
-	hl.dsp.workspace.toggle_special("terminal"),
-	{ description = "Toggle terminal workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + Backspace",
-	hl.dsp.workspace.move({ workspace = "special:steam", monitor = "current" }),
-	{ description = "Move to Steam workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + Backspace",
-	hl.dsp.workspace.toggle_special("steam"),
-	{ description = "Toggle Steam workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + Delete",
-	hl.dsp.workspace.move({ workspace = "special:trash", monitor = "current" }),
-	{ description = "Move to Trash workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + Delete",
-	hl.dsp.workspace.toggle_special("trash"),
-	{ description = "Toggle Trash workspace", submap_universal = true }
-)
--- hl.bind(mainMod .. " + SHIFT + R", hl.dsp.workspace.move({ workspace = "special:update", monitor = "current" }), { description = "Move to update workspace", submap_universal = true }
-hl.bind(
-	mainMod .. " + SHIFT + U",
-	hl.dsp.workspace.toggle_special("update"),
-	{ description = "Toggle update workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + O",
-	hl.dsp.workspace.move({ workspace = "special:whatsapp", monitor = "current" }),
-	{ description = "Move to Whatsapp workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + O",
-	hl.dsp.workspace.toggle_special("whatsapp"),
-	{ description = "Toggle Whatsapp workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + 6",
-	hl.dsp.workspace.move({ workspace = "special:pulsesecure", monitor = "current" }),
-	{ description = "Move to Pulse Secure workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + 6",
-	hl.dsp.workspace.toggle_special("pulsesecure"),
-	{ description = "Toggle Pulse Secure workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + 7",
-	hl.dsp.workspace.move({ workspace = "special:forticlient", monitor = "current" }),
-	{ description = "Move to Forticlient workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + 7",
-	hl.dsp.workspace.toggle_special("forticlient"),
-	{ description = "Toggle Forticlient workspace", submap_universal = true }
-)
--- hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.workspace.move({ workspace = "special:ytm", monitor = "current" }), { description = "Move to ytm workspace", submap_universal = true })
--- hl.bind(mainMod .. " + Y", hl.dsp.workspace.togglespecial("ytm"), { description = "Toggle ytm workspace", submap_universal = true })
-hl.bind(
-	mainMod .. " + SHIFT + I",
-	hl.dsp.workspace.move({ workspace = "special:rmpc", monitor = "current" }),
-	{ description = "Move to rmpc workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + I",
-	hl.dsp.workspace.toggle_special("rmpc"),
-	{ description = "Toggle rmpc workspace", submap_universal = true }
-)
+local special_workspaces = {
+	terminal = { key = "U" },
+	steam = { key = "Backspace" },
+	trash = { key = "Delete" },
+	update = { key = "Y" },
+	whatsapp = { key = "O" },
+	pulsesecure = { key = "6" },
+	forticlient = { key = "7" },
+	rmpc = { key = "I" },
+}
 
+for name, cfg in pairs(special_workspaces) do
+	local key = cfg.key
+
+	-- toggle special workspace
+	hl.bind(mainMod .. " + " .. key, hl.dsp.workspace.toggle_special(name), {
+		description = "Toggle " .. name .. " workspace",
+		submap_universal = true,
+	})
+
+	-- move to special workspace (NOW includes terminal too)
+	hl.bind(
+		mainMod .. " + SHIFT + " .. key,
+		hl.dsp.workspace.move({
+			workspace = "special:" .. name,
+			monitor = "current",
+		}),
+		{
+			description = "Move to " .. name .. " workspace",
+			submap_universal = true,
+		}
+	)
+end
+
+-- Simulate split-monitor-workspaces
 local function baseWorkspace()
 	local m = hl.get_active_monitor()
 
