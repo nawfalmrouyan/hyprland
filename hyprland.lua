@@ -828,8 +828,9 @@ local exec_cmd = {
 	},
 
 	-- screenshots
-	{ key = "Print",         cmd = "quickshell -c HyprQuickFrame -n", desc = "OCR / Google Lens" },
-	{ key = "SUPER + Print", cmd = "quickshell -c QuickSnip -n",      desc = "Screenshot" },
+	-- key with a space at the beginning is a bind without using the mainMod.
+	{ key = " Print", cmd = "quickshell -c HyprQuickFrame -n", desc = "OCR / Google Lens" },
+	{ key = "Print",  cmd = "quickshell -c QuickSnip -n",      desc = "Screenshot" },
 
 	-- kitty scratch terminal
 	{
@@ -852,6 +853,10 @@ for _, b in ipairs(exec_cmd) do
 		opts.locked = true
 	end
 
+	local nomod = string.sub(b.key, 1, 1)
+	if nomod == " " then
+		hl.bind(b.key, hl.dsp.exec_cmd(b.cmd), opts)
+	end
 	hl.bind(mainMod .. " + " .. b.key, hl.dsp.exec_cmd(b.cmd), opts)
 end
 
