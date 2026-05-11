@@ -1040,12 +1040,12 @@ for _, k in ipairs(workspace_keys) do
 	end, { submap_universal = true })
 
 	-- move window
-	hl.bind(mainMod .. " + CTRL + " .. k, function()
+	hl.bind(mainMod .. " + SHIFT + " .. k, function()
 		moveWindowWorkspace(ws)
 	end, { submap_universal = true })
 
 	-- move window silent
-	hl.bind(mainMod .. " + SHIFT + " .. k, function()
+	hl.bind(mainMod .. " + CTRL + " .. k, function()
 		moveWindowWorkspace(ws, false)
 	end, { submap_universal = true })
 end
