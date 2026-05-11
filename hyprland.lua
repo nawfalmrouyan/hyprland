@@ -960,16 +960,27 @@ hl.bind(
 	{ description = "Toggle rmpc workspace", submap_universal = true }
 )
 
--- Switch workspaces with SUPER + [0-9]
-function switchWorkspace(s)
+local function baseWorkspace()
 	local m = hl.get_active_monitor()
+
 	if m.name == "HDMI-A-1" then
-		hl.dispatch(hl.dsp.focus({ workspace = 3 + s }))
-	else
-		hl.dispatch(hl.dsp.focus({ workspace = 0 + s }))
+		return 3
 	end
+	return 0
 end
 
+local function switchWorkspace(s)
+	hl.dispatch(hl.dsp.focus({ workspace = baseWorkspace() + s }))
+end
+
+local function moveWindowWorkspace(s, follow)
+	hl.dispatch(hl.dsp.window.move({
+		workspace = baseWorkspace() + s,
+		follow = follow,
+	}))
+end
+
+-- Switch workspaces with SUPER + [0-9]
 hl.bind(mainMod .. " + 1", function()
 	switchWorkspace(1)
 end, { submap_universal = true })
@@ -982,16 +993,7 @@ hl.bind(mainMod .. " + 3", function()
 	switchWorkspace(3)
 end, { submap_universal = true })
 
--- Move active window and follow to workspace
-function moveWindowWorkspace(s)
-	local m = hl.get_active_monitor()
-	if m.name == "HDMI-A-1" then
-		hl.dispatch(hl.dsp.window.move({ workspace = 3 + s }))
-	else
-		hl.dispatch(hl.dsp.window.move({ workspace = 0 + s }))
-	end
-end
-
+-- Move active window to workspace
 hl.bind(mainMod .. " + CTRL + 1", function()
 	moveWindowWorkspace(1)
 end, { submap_universal = true })
@@ -1004,26 +1006,17 @@ hl.bind(mainMod .. " + CTRL + 3", function()
 	moveWindowWorkspace(3)
 end, { submap_universal = true })
 
--- Move active window and follow to workspace silent
-function moveWindowWorkspaceSilent(s)
-	local m = hl.get_active_monitor()
-	if m.name == "HDMI-A-1" then
-		hl.dispatch(hl.dsp.window.move({ workspace = 3 + s, follow = false }))
-	else
-		hl.dispatch(hl.dsp.window.move({ workspace = 0 + s, follow = false }))
-	end
-end
-
+-- Move active window to workspace silent
 hl.bind(mainMod .. " + SHIFT + 1", function()
-	moveWindowWorkspaceSilent(1)
+	moveWindowWorkspace(1, false)
 end, { submap_universal = true })
 
 hl.bind(mainMod .. " + SHIFT + 2", function()
-	moveWindowWorkspaceSilent(2)
+	moveWindowWorkspace(2, false)
 end, { submap_universal = true })
 
 hl.bind(mainMod .. " + SHIFT + 3", function()
-	moveWindowWorkspaceSilent(3)
+	moveWindowWorkspace(3, false)
 end, { submap_universal = true })
 
 -- Move/resize windows with SUPER + LMB/RMB and dragging
