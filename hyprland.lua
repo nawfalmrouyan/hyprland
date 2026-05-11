@@ -70,25 +70,51 @@ for _, group in ipairs(workspaces) do
 	end
 end
 
-hl.workspace_rule({
-	workspace = "special:terminal",
-	on_created_empty = "footclient -a scratch -T scratch -e sesh connect WORK",
-})
-hl.workspace_rule({ workspace = "special:trash", on_created_empty = "youtube-music-for-desktop" })
-hl.workspace_rule({
-	workspace = "special:whatsapp",
-	on_created_empty =
-	"/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
-})
-hl.workspace_rule({ workspace = "special:steam", on_created_empty = "steam" })
-hl.workspace_rule({ workspace = "special:update", on_created_empty = "footclient -a update -T update -e yay -Syu" })
-hl.workspace_rule({
-	workspace = "special:pulsemixer",
-	on_created_empty = "footclient -a update -T update -e pulsemixer",
-})
-hl.workspace_rule({ workspace = "special:pulsesecure", on_created_empty = "/opt/pulsesecure/bin/pulseUI" })
-hl.workspace_rule({ workspace = "special:forticlient", on_created_empty = "/opt/forticlient/gui/FortiClient" })
-hl.workspace_rule({ workspace = "special:rmpc", on_created_empty = "footclient -T ytm -e rmpc" })
+local on_created_empty = {
+	{
+		workspace = "special:terminal",
+		cmd = "footclient -a scratch -T scratch -e sesh connect WORK",
+	},
+	{
+		workspace = "special:trash",
+		cmd = "youtube-music-for-desktop",
+	},
+	{
+		workspace = "special:whatsapp",
+		cmd = "/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb",
+	},
+	{
+		workspace = "special:steam",
+		cmd = "steam",
+	},
+	{
+		workspace = "special:update",
+		cmd = "footclient -a update -T update -e yay -Syu",
+	},
+	{
+		workspace = "special:pulsemixer",
+		cmd = "footclient -a update -T update -e pulsemixer",
+	},
+	{
+		workspace = "special:pulsesecure",
+		cmd = "/opt/pulsesecure/bin/pulseUI",
+	},
+	{
+		workspace = "special:forticlient",
+		cmd = "/opt/forticlient/gui/FortiClient",
+	},
+	{
+		workspace = "special:rmpc",
+		cmd = "footclient -T ytm -e rmpc",
+	},
+}
+
+for _, rule in ipairs(on_created_empty) do
+	hl.workspace_rule({
+		workspace = rule.workspace,
+		on_created_empty = rule.cmd,
+	})
+end
 
 hl.config({
 	input = {
