@@ -340,315 +340,350 @@ hl.animation({ leaf = "fadePopupsIn", enabled = true, speed = 3, bezier = "smoot
 hl.animation({ leaf = "fadePopupsOut", enabled = true, speed = 3, bezier = "smooth" })
 hl.animation({ leaf = "fadeDpms", enabled = true, speed = 3, bezier = "smooth" })
 
-hl.layer_rule({
-	match = { namespace = "rofi|logout_dialog|vicinae" },
-	dim_around = true,
-	blur = true,
-	animation = "popin",
-})
-
-hl.layer_rule({
-	match = { namespace = "ghostty-quick-terminal|kitty-quick-access" },
-	blur = true,
-	above_lock = 2,
-	no_screen_share = true,
-})
-
-hl.layer_rule({
-	match = { namespace = "swaync.*|dms.*" },
-	no_screen_share = true,
-})
-
-hl.layer_rule({
-	match = { namespace = "dms.bar" },
-	no_screen_share = false,
-})
-
-hl.layer_rule({
-	match = { namespace = "hyprhalt" },
-	blur = true,
-	ignore_alpha = 0,
-})
-
-hl.window_rule({
-	name = "term window width",
-	match = { class = "^(kitty|footclient)$" },
-	scrolling_width = 0.5,
-})
-
-hl.window_rule({
-	name = "remmina half window width",
-	match = { class = "org.remmina.Remmina", title = "Remmina Remote Desktop Client" },
-	scrolling_width = 0.5,
-})
-
-hl.window_rule({
-	name = "pulse-secure-rules",
-	match = { class = "pulseUI", title = "(Pulse Secure)" },
-	float = true,
-	center = true,
-	size = { 900, 750 },
-	workspace = "special:pulsesecure",
-})
-
-hl.window_rule({
-	name = "forticlient-rules",
-	match = { initial_class = "FortiClient" },
-	float = true,
-	center = true,
-	size = { 900, 750 },
-	workspace = "special:forticlient",
-})
-
-hl.window_rule({
-	name = "chatapp-rules",
-	match = { initial_class = "com.rtosta.zapzap|whatsappweb-nativefier-d40211|org.telegram.desktop" },
-	float = true,
-	center = true,
-	size = { 1600, 960 },
-	workspace = "special:whatsapp silent",
-})
-
-hl.window_rule({
-	name = "youtube-music-rules",
-	match = { class = "com.github.th_ch.youtube_music|spotube|(YouTube Music for Desktop)" },
-	float = true,
-	center = true,
-	size = { 1600, 960 },
-	workspace = "special:trash silent",
-})
-
-hl.window_rule({
-	name = "onlyoffice-popups",
-	match = { float = "true", class = "DesktopEditors" },
-	center = true,
-})
-
-hl.window_rule({
-	name = "center-float-windows-class",
-	match = { class = "toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
-	float = true,
-	center = true,
-	size = { 900, 750 },
-})
-
-hl.window_rule({
-	name = "persistent-size-windows",
-	match = { class = "qt5ct|qt6ct|feh|FortiClient|yad" },
-	float = true,
-	center = true,
-	-- persistent_size = true
-})
-
-hl.window_rule({
-	name = "center-float-windows-title",
-	match = { title = "Settings|Hyprshot|Open|(Publish as PDF or XPS|^Settings - .*|^Warning:.*)" },
-	float = true,
-	center = true,
-	size = { 900, 750 },
-})
-
--- grouping rules
-hl.window_rule({
-	match = {
-		class =
-		"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
+local layer_rules = {
+	{
+		match = { namespace = "rofi|logout_dialog|vicinae" },
+		dim_around = true,
+		blur = true,
+		animation = "popin",
 	},
-	group = "set",
-})
-hl.window_rule({ group = "override barred", match = { class = "foot|kitty|zen|xdg-desktop-portal-gtk" } })
-
--- misc rules
-hl.window_rule({ center = true, match = { title = "LibreOffice" } })
-hl.window_rule({ tile = true, match = { class = "ONLYOFFICE" } })
-hl.window_rule({ float = true, match = { title = ".*Network Manager.*" } })
-
-hl.window_rule({ border_color = { colors = { mauve, blue }, angle = 45 }, match = { float = true } })
-hl.window_rule({ border_size = 0, match = { fullscreen = true } })
-hl.window_rule({ border_size = 0, match = { fullscreen_state_internal = 0, fullscreen_state_client = 2 } })
--- hl.window_rule({ border_size = 0, match = { fullscreen_state_client = 2 } })
-hl.window_rule({ opacity = "0.8 0.8", match = { pin = true } })
-
-hl.window_rule({
-	name = "steam-window",
-	match = { class = "steam" },
-	float = true,
-})
-
-hl.window_rule({ float = true, match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" } })
-
-hl.window_rule({
-	name = "steam",
-	match = { class = "steam", title = "Steam|(Sign in to Steam)" },
-	workspace = "special:steam silent",
-	float = true,
-	center = true,
-	size = { 1600, 960 },
-})
-
-hl.window_rule({
-	name = "torchlight2",
-	match = { class = "Torchlight2.bin.x86_64", title = "(Torchlight II v.25.5.4)" },
-	fullscreen = true,
-	content = "game",
-})
-
--- teams rules
-hl.window_rule({
-	name = "idle-inhibit-apps",
-	match = { class = "teams-for-linux" },
-	idle_inhibit = "focus",
-})
-
--- zen rules
-hl.window_rule({
-	name = "zen-pip-rules",
-	match = { class = "zen", title = "Picture-in-Picture" },
-	float = true,
-	max_size = { 800, 800 },
-})
-
-hl.window_rule({
-	name = "noscreenshare-general",
-	match = {
-		class =
-		"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
+	{
+		match = { namespace = "ghostty-quick-terminal|kitty-quick-access" },
+		blur = true,
+		above_lock = 2,
+		no_screen_share = true,
 	},
-	no_screen_share = true,
-})
+	{
+		match = { namespace = "swaync.*|dms.*" },
+		no_screen_share = true,
+	},
+	{
+		match = { namespace = "dms.bar" },
+		no_screen_share = false,
+	},
+	{
+		match = { namespace = "hyprhalt" },
+		blur = true,
+		ignore_alpha = 0,
+	},
+}
 
-hl.window_rule({
-	name = "noscreenshare-terminal",
-	match = { title = "noscreenshare" },
-	no_screen_share = true,
-})
+for _, rule in ipairs(layer_rules) do
+	hl.layer_rule(rule)
+end
 
-hl.window_rule({
-	name = "center-float-app",
-	match = { class = "waypaper|qt6ct|qt5ct" },
-	float = true,
-	size = { 900, 750 },
-	center = true,
-})
+local window_rules = {
+	{
+		name = "term window width",
+		match = { class = "^(kitty|footclient)$" },
+		scrolling_width = 0.5,
+	},
 
-hl.window_rule({
-	name = "picker-title-rules",
-	match = { title = "([Ff]ile Upload)|(Enter name of file to save to.*)|(blob.*)|(Open [Ff]iles)|(Open folder.*)" },
-	size = { 1345, 720 },
-	float = true,
-	center = true,
-})
+	{
+		name = "remmina half window width",
+		match = { class = "org.remmina.Remmina", title = "Remmina Remote Desktop Client" },
+		scrolling_width = 0.5,
+	},
 
-hl.window_rule({
-	float = true,
-	size = { 1345, 720 },
-	center = true,
-	match = { class = "(soffice|Save Image|Save As|xdg-desktop-portal-gtk)" },
-})
-
-hl.window_rule({
-	name = "waybar-popups",
-	match = { initial_class = "(blueman-manager)|(com.network.manager)" },
-	animation = "slide",
-	stay_focused = true,
-	float = true,
-	size = { 1280, 700 },
-	move = { 380, 35 },
-})
-
--- xwaylandvideobridge
-hl.window_rule({
-	name = "xwaylandvideobridge",
-	match = { class = "xwaylandvideobridge" },
-	opacity = "0.0 override 0.0 override",
-	no_anim = true,
-	no_focus = true,
-	no_initial_focus = true,
-	workspace = "special:junks silent",
-})
-
--- waybar yay update click, cava
-hl.window_rule({
-	name = "tui-window",
-	match = { class = "update", title = "update" },
-	animation = "slide",
-	float = true,
-	size = { 1280, 700 },
-	move = { 380, 43 },
-	workspace = "special:update",
-})
-
-hl.window_rule({
-	name = "nvim-hypr-anywhere",
-	match = { class = "nvim-hypr-anywhere" },
-	animation = "slide",
-	float = true,
-	pin = true,
-	size = { 1280, 700 },
-	center = true,
-})
-
-hl.window_rule({
-	name = "stats-window",
-	match = { initial_title = "btop" },
-	animation = "popin",
-	float = true,
-	pin = true,
-	size = { 1280, 700 },
-	center = true,
-})
-
-hl.window_rule({
-	name = "ytm",
-	match = { initial_title = "ytm" },
-	animation = "popin",
-	size = { 1280, 700 },
-	float = true,
-	center = true,
-})
-
-hl.window_rule({
-	name = "terminal-scratchpad",
-	match = { class = "scratch", title = "scratch" },
-	animation = "slide",
-	float = true,
-	size = { 1440, 700 },
-	move = { 240, 377 },
-})
-
-hl.window_rule({
-	name = "no-focus-window",
-	match = { title = "^(Peek preview)$" },
-	no_focus = true,
-})
-
-hl.window_rule({
-	name = "enable-tearing",
-	match = { title = "(Grim Dawn)" },
-	immediate = true,
-	content = "game",
-})
-
-hl.window_rule({
-	name = "suppressevent-maximize",
-	match = { class = ".*" },
-	suppress_event = "maximize",
-})
-
-hl.window_rule({
-	-- Fix some dragging issues with XWayland
-	name = "fix-xwayland-drags",
-	match = {
-		class = "^$",
-		title = "^$",
-		xwayland = true,
+	{
+		name = "pulse-secure-rules",
+		match = { class = "pulseUI", title = "(Pulse Secure)" },
 		float = true,
-		fullscreen = false,
-		pin = false,
+		center = true,
+		size = { 900, 750 },
+		workspace = "special:pulsesecure",
 	},
 
-	no_focus = true,
-})
+	{
+		name = "forticlient-rules",
+		match = { initial_class = "FortiClient" },
+		float = true,
+		center = true,
+		size = { 900, 750 },
+		workspace = "special:forticlient",
+	},
+
+	{
+		name = "chatapp-rules",
+		match = { initial_class = "com.rtosta.zapzap|whatsappweb-nativefier-d40211|org.telegram.desktop" },
+		float = true,
+		center = true,
+		size = { 1600, 960 },
+		workspace = "special:whatsapp silent",
+	},
+
+	{
+		name = "youtube-music-rules",
+		match = { class = "com.github.th_ch.youtube_music|spotube|(YouTube Music for Desktop)" },
+		float = true,
+		center = true,
+		size = { 1600, 960 },
+		workspace = "special:trash silent",
+	},
+
+	{
+		name = "onlyoffice-popups",
+		match = { float = "true", class = "DesktopEditors" },
+		center = true,
+	},
+
+	{
+		name = "center-float-windows-class",
+		match = { class = "toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
+		float = true,
+		center = true,
+		size = { 900, 750 },
+	},
+
+	{
+		name = "persistent-size-windows",
+		match = { class = "qt5ct|qt6ct|feh|FortiClient|yad" },
+		float = true,
+		center = true,
+	},
+
+	{
+		name = "center-float-windows-title",
+		match = { title = "Settings|Hyprshot|Open|(Publish as PDF or XPS|^Settings - .*|^Warning:.*)" },
+		float = true,
+		center = true,
+		size = { 900, 750 },
+	},
+
+	-- grouping rules
+	{
+		match = {
+			class =
+			"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
+		},
+		group = "set",
+	},
+
+	{
+		group = "override barred",
+		match = { class = "foot|kitty|zen|xdg-desktop-portal-gtk" },
+	},
+
+	-- misc rules
+	{
+		center = true,
+		match = { title = "LibreOffice" },
+	},
+
+	{
+		tile = true,
+		match = { class = "ONLYOFFICE" },
+	},
+
+	{
+		float = true,
+		match = { title = ".*Network Manager.*" },
+	},
+
+	{
+		border_color = { colors = { mauve, blue }, angle = 45 },
+		match = { float = true },
+	},
+
+	{
+		border_size = 0,
+		match = { fullscreen = true },
+	},
+
+	{
+		border_size = 0,
+		match = { fullscreen_state_internal = 0, fullscreen_state_client = 2 },
+	},
+
+	{
+		opacity = "0.8 0.8",
+		match = { pin = true },
+	},
+
+	{
+		name = "steam-window",
+		match = { class = "steam" },
+		float = true,
+	},
+
+	{
+		float = true,
+		match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" },
+	},
+
+	{
+		name = "steam",
+		match = { class = "steam", title = "Steam|(Sign in to Steam)" },
+		workspace = "special:steam silent",
+		float = true,
+		center = true,
+		size = { 1600, 960 },
+	},
+
+	{
+		name = "torchlight2",
+		match = { class = "Torchlight2.bin.x86_64", title = "(Torchlight II v.25.5.4)" },
+		fullscreen = true,
+		content = "game",
+	},
+
+	{
+		name = "idle-inhibit-apps",
+		match = { class = "teams-for-linux" },
+		idle_inhibit = "focus",
+	},
+
+	{
+		name = "zen-pip-rules",
+		match = { class = "zen", title = "Picture-in-Picture" },
+		float = true,
+		max_size = { 800, 800 },
+	},
+
+	{
+		name = "noscreenshare-general",
+		match = {
+			class =
+			"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
+		},
+		no_screen_share = true,
+	},
+
+	{
+		name = "noscreenshare-terminal",
+		match = { title = "noscreenshare" },
+		no_screen_share = true,
+	},
+
+	{
+		name = "center-float-app",
+		match = { class = "waypaper|qt6ct|qt5ct" },
+		float = true,
+		size = { 900, 750 },
+		center = true,
+	},
+
+	{
+		name = "picker-title-rules",
+		match = {
+			title = "([Ff]ile Upload)|(Enter name of file to save to.*)|(blob.*)|(Open [Ff]iles)|(Open folder.*)",
+		},
+		size = { 1345, 720 },
+		float = true,
+		center = true,
+	},
+
+	{
+		float = true,
+		size = { 1345, 720 },
+		center = true,
+		match = { class = "(soffice|Save Image|Save As|xdg-desktop-portal-gtk)" },
+	},
+
+	{
+		name = "waybar-popups",
+		match = { initial_class = "(blueman-manager)|(com.network.manager)" },
+		animation = "slide",
+		stay_focused = true,
+		float = true,
+		size = { 1280, 700 },
+		move = { 380, 35 },
+	},
+
+	{
+		name = "xwaylandvideobridge",
+		match = { class = "xwaylandvideobridge" },
+		opacity = "0.0 override 0.0 override",
+		no_anim = true,
+		no_focus = true,
+		no_initial_focus = true,
+		workspace = "special:junks silent",
+	},
+
+	{
+		name = "tui-window",
+		match = { class = "update", title = "update" },
+		animation = "slide",
+		float = true,
+		size = { 1280, 700 },
+		move = { 380, 43 },
+		workspace = "special:update",
+	},
+
+	{
+		name = "nvim-hypr-anywhere",
+		match = { class = "nvim-hypr-anywhere" },
+		animation = "slide",
+		float = true,
+		pin = true,
+		size = { 1280, 700 },
+		center = true,
+	},
+
+	{
+		name = "stats-window",
+		match = { initial_title = "btop" },
+		animation = "popin",
+		float = true,
+		pin = true,
+		size = { 1280, 700 },
+		center = true,
+	},
+
+	{
+		name = "ytm",
+		match = { initial_title = "ytm" },
+		animation = "popin",
+		size = { 1280, 700 },
+		float = true,
+		center = true,
+	},
+
+	{
+		name = "terminal-scratchpad",
+		match = { class = "scratch", title = "scratch" },
+		animation = "slide",
+		float = true,
+		size = { 1440, 700 },
+		move = { 240, 377 },
+	},
+
+	{
+		name = "no-focus-window",
+		match = { title = "^(Peek preview)$" },
+		no_focus = true,
+	},
+
+	{
+		name = "enable-tearing",
+		match = { title = "(Grim Dawn)" },
+		immediate = true,
+		content = "game",
+	},
+
+	{
+		name = "suppressevent-maximize",
+		match = { class = ".*" },
+		suppress_event = "maximize",
+	},
+
+	{
+		name = "fix-xwayland-drags",
+		match = {
+			class = "^$",
+			title = "^$",
+			xwayland = true,
+			float = true,
+			fullscreen = false,
+			pin = false,
+		},
+		no_focus = true,
+	},
+}
+
+for _, rule in ipairs(window_rules) do
+	hl.window_rule(rule)
+end
 
 hl.bind(
 	mainMod .. " + T",
