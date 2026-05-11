@@ -1003,44 +1003,26 @@ local function moveWindowWorkspace(s, follow)
 	}))
 end
 
--- Switch workspaces with SUPER + [0-9]
-hl.bind(mainMod .. " + 1", function()
-	switchWorkspace(1)
-end, { submap_universal = true })
+local workspace_keys = { "1", "2", "3" }
 
-hl.bind(mainMod .. " + 2", function()
-	switchWorkspace(2)
-end, { submap_universal = true })
+for _, k in ipairs(workspace_keys) do
+	local ws = tonumber(k)
 
-hl.bind(mainMod .. " + 3", function()
-	switchWorkspace(3)
-end, { submap_universal = true })
+	-- switch workspace
+	hl.bind(mainMod .. " + " .. k, function()
+		switchWorkspace(ws)
+	end, { submap_universal = true })
 
--- Move active window to workspace
-hl.bind(mainMod .. " + CTRL + 1", function()
-	moveWindowWorkspace(1)
-end, { submap_universal = true })
+	-- move window
+	hl.bind(mainMod .. " + CTRL + " .. k, function()
+		moveWindowWorkspace(ws)
+	end, { submap_universal = true })
 
-hl.bind(mainMod .. " + CTRL + 2", function()
-	moveWindowWorkspace(2)
-end, { submap_universal = true })
-
-hl.bind(mainMod .. " + CTRL + 3", function()
-	moveWindowWorkspace(3)
-end, { submap_universal = true })
-
--- Move active window to workspace silent
-hl.bind(mainMod .. " + SHIFT + 1", function()
-	moveWindowWorkspace(1, false)
-end, { submap_universal = true })
-
-hl.bind(mainMod .. " + SHIFT + 2", function()
-	moveWindowWorkspace(2, false)
-end, { submap_universal = true })
-
-hl.bind(mainMod .. " + SHIFT + 3", function()
-	moveWindowWorkspace(3, false)
-end, { submap_universal = true })
+	-- move window silent
+	hl.bind(mainMod .. " + SHIFT + " .. k, function()
+		moveWindowWorkspace(ws, false)
+	end, { submap_universal = true })
+end
 
 -- Move/resize windows with SUPER + LMB/RMB and dragging
 -- mouse:272 = left
