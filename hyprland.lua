@@ -952,7 +952,7 @@ local special_workspaces = {
 	terminal = { key = "U" },
 	steam = { key = "Backspace" },
 	trash = { key = "Delete" },
-	update = { key = "Y" },
+	-- update = { key = "Y" },
 	whatsapp = { key = "O" },
 	pulsesecure = { key = "6" },
 	forticlient = { key = "7" },
