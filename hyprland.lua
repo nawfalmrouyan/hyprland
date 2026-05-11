@@ -1130,24 +1130,36 @@ else
 	require("localNvidia")
 end
 
+local startup_cmds = {
+	-- Remove button layouts on libadwaita apps. To undo:
+	-- gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+	"gsettings set org.gnome.desktop.wm.preferences button-layout ':'",
+	"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+	"jamesdsp --tray",
+	-- "hyprpm reload",
+	"systemctl --user start vicinae",
+	"systemctl --user start hypridle",
+	"systemctl --user start foot-server",
+	-- "wayscriber --daemon",
+	"dms run --session",
+}
+
+local shutdown_cmds = {
+	"systemctl --user stop hypridle",
+	"systemctl --user stop vicinae",
+	"systemctl --user stop foot-server",
+	"pkill jamesdsp",
+	"pkill WhatsApp",
+}
+
 hl.on("hyprland.start", function()
-	-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
-	-- to undo: gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-	hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'")
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("jamesdsp --tray")
-	-- hl.exec_cmd("hyprpm reload")
-	hl.exec_cmd("systemctl --user start vicinae")
-	hl.exec_cmd("systemctl --user start hypridle")
-	hl.exec_cmd("systemctl --user start foot-server")
-	-- hl.exec_cmd("wayscriber --daemon")
-	hl.exec_cmd("dms run --session")
+	for _, cmd in ipairs(startup_cmds) do
+		hl.exec_cmd(cmd)
+	end
 end)
 
 hl.on("hyprland.shutdown", function()
-	hl.exec_cmd("systemctl --user stop hypridle")
-	hl.exec_cmd("systemctl --user stop vicinae")
-	hl.exec_cmd("systemctl --user stop foot-server")
-	hl.exec_cmd("pkill jamesdsp")
-	hl.exec_cmd("pkill WhatsApp")
+	for _, cmd in ipairs(shutdown_cmds) do
+		hl.exec_cmd(cmd)
+	end
 end)
