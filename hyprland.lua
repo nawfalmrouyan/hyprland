@@ -819,13 +819,15 @@ hl.bind(
 -- hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"), { description = "Toggle wayscriber" })
 
 -- Group binds
-hl.bind(
-	mainMod .. " + G",
-	hl.dsp.exec_cmd(
-		"if [ $(hyprctl activewindow | rg 'grouped:' | rg -v 'Window' | tr -dc ',' | wc -c) -gt '0' ]; then hyprctl dispatch 'hl.dsp.group.lock_active()'; else hyprctl dispatch 'hl.dsp.group.toggle()'; fi"
-	),
-	{ description = "Toggle group / Lock group" }
-)
+hl.bind(mainMod .. " + G", function()
+	local group = hl.get_active_window().group
+	if not group or #group.members == 1 then
+		hl.dispatch(hl.dsp.group.toggle())
+	else
+		hl.dispatch(hl.dsp.group.lock_active())
+	end
+end, { description = "Toggle group / Lock group" })
+
 hl.bind(mainMod .. " + Tab", hl.dsp.group.next(), { description = "Cycle windows in a group" })
 hl.bind(mainMod .. " + CTRL + G", hl.dsp.window.move({ out_of_group = "r" }), { description = "Move app out of group" })
 
