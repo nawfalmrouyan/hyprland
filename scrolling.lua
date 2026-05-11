@@ -10,35 +10,54 @@ hl.config({
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + L", hl.dsp.layout("focus r"))
-hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"))
-hl.bind(mainMod .. " + K", hl.dsp.layout("focus u"))
-hl.bind(mainMod .. " + J", hl.dsp.layout("focus d"))
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.layout("swapcol r"))
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.layout("swapcol l"))
-hl.bind(mainMod .. " + Home", hl.dsp.layout("fit tobeg"))
-hl.bind(mainMod .. " + End", hl.dsp.layout("fit toend"))
-hl.bind(mainMod .. " + Equal", hl.dsp.layout("colresize +conf"))
-hl.bind(mainMod .. " + Minus", hl.dsp.layout("colresize -conf"))
-hl.bind(mainMod .. " + Comma", hl.dsp.layout("move -col"))
-hl.bind(mainMod .. " + Period", hl.dsp.layout("move +col"))
-hl.bind(mainMod .. " + Slash", hl.dsp.layout("expel r"))
-hl.bind(mainMod .. " + SHIFT + Slash", hl.dsp.layout("expel l"))
-hl.bind(mainMod .. " + BracketLeft", hl.dsp.layout("consume r"))
-hl.bind(mainMod .. " + BracketRight", hl.dsp.layout("consume l"))
-hl.bind(mainMod .. " + D", hl.dsp.layout("fit visible"))
-hl.bind(mainMod .. " + C", hl.dsp.layout("fit active"))
-hl.bind(mainMod .. " + SHIFT + D", hl.dsp.layout("inhibit_scroll"))
+local directions = {
+    L = "r",
+    H = "l",
+    K = "u",
+    J = "d",
+}
 
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "u" }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "d" }))
-hl.bind(mainMod .. " + ALT + L", hl.dsp.window.move({ into_or_create_group = "r" }))
-hl.bind(mainMod .. " + ALT + H", hl.dsp.window.move({ into_or_create_group = "l" }))
-hl.bind(mainMod .. " + ALT + K", hl.dsp.window.move({ into_or_create_group = "u" }))
-hl.bind(mainMod .. " + ALT + J", hl.dsp.window.move({ into_or_create_group = "d" }))
-hl.bind(mainMod .. " + SHIFT + ALT + L", hl.dsp.window.move({ out_of_group = "r" }))
-hl.bind(mainMod .. " + SHIFT + ALT + H", hl.dsp.window.move({ out_of_group = "l" }))
-hl.bind(mainMod .. " + SHIFT + ALT + K", hl.dsp.window.move({ out_of_group = "u" }))
-hl.bind(mainMod .. " + SHIFT + ALT + J", hl.dsp.window.move({ out_of_group = "d" }))
+-- layout focus
+for key, dir in pairs(directions) do
+    hl.bind(mainMod .. " + " .. key, hl.dsp.layout("focus " .. dir))
+end
+
+-- swap columns
+for key, dir in pairs(directions) do
+    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.layout("swapcol " .. dir))
+end
+
+-- move windows
+for key, dir in pairs(directions) do
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = dir }))
+end
+
+-- move into/create group
+for key, dir in pairs(directions) do
+    hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.move({ into_or_create_group = dir }))
+end
+
+-- move out of group
+for key, dir in pairs(directions) do
+    hl.bind(mainMod .. " + SHIFT + ALT + " .. key, hl.dsp.window.move({ out_of_group = dir }))
+end
+
+local layout_binds = {
+    { "Home",          "fit tobeg" },
+    { "End",           "fit toend" },
+    { "Equal",         "colresize +conf" },
+    { "Minus",         "colresize -conf" },
+    { "Comma",         "move -col" },
+    { "Period",        "move +col" },
+    { "Slash",         "expel r" },
+    { "SHIFT + Slash", "expel l" },
+    { "BracketLeft",   "consume r" },
+    { "BracketRight",  "consume l" },
+    { "D",             "fit visible" },
+    { "C",             "fit active" },
+    { "SHIFT + D",     "inhibit_scroll" },
+}
+
+for _, bind in ipairs(layout_binds) do
+    hl.bind(mainMod .. " + " .. bind[1], hl.dsp.layout(bind[2]))
+end
