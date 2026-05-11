@@ -1,3 +1,11 @@
+function getHostname()
+	local f = io.popen("/bin/hostnamectl hostname")
+	local hostname = f:read("*a") or ""
+	f:close()
+	hostname = string.gsub(hostname, "\n$", "")
+	return hostname
+end
+
 require("mocha")
 
 local mainMod = "SUPER"
@@ -31,18 +39,31 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("TERMINAL", "footclient")
 hl.env("GTK_USE_PORTAL", "1")
 
-hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
-hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "1920x0", scale = 1 })
+if getHostname() == "opalMMU" then
+	hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
+	hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "1920x0", scale = 1 })
+else
+	hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+end
+
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 -- hl.monitor({ output = "name", disabled = true })
 -- hl.monitor({ output = "HDMI-A-1", mode = "preferred", position = "auto", scale = 1, mirror = "eDP-1"})
 
-hl.workspace_rule({ workspace = 1, monitor = "eDP-1" })
-hl.workspace_rule({ workspace = 2, monitor = "eDP-1" })
-hl.workspace_rule({ workspace = 3, monitor = "eDP-1" })
-hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = 5, monitor = "HDMI-A-1" })
-hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-1" })
+local workspaces = {
+	{ start = 1, finish = 3, monitor = "eDP-1" },
+	{ start = 4, finish = 6, monitor = "HDMI-A-1" },
+}
+
+for _, group in ipairs(workspaces) do
+	for ws = group.start, group.finish do
+		hl.workspace_rule({
+			workspace = ws,
+			monitor = group.monitor,
+		})
+	end
+end
+
 hl.workspace_rule({
 	workspace = "special:terminal",
 	on_created_empty = "footclient -a scratch -T scratch -e sesh connect WORK",
@@ -1036,7 +1057,11 @@ end)
 require("scrolling")
 
 -- Source local config for AMD/Nvidia laptop
-require("localAMD")
+if getHostname() == "opalMMU" then
+	require("localAMD")
+else
+	require("localNvidia")
+end
 
 hl.on("hyprland.start", function()
 	-- Remove button layouts on libadwaita apps https://www.reddit.com/r/hyprland/comments/1saizau/pro_tip/
