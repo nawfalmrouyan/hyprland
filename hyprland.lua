@@ -285,60 +285,86 @@ hl.config({
 	},
 })
 
-hl.curve("simple", { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } })
-hl.curve("smooth", { type = "bezier", points = { { 0.25, 0.1 }, { 0.35, 0.15 } } })
-hl.curve("smoothOut", { type = "bezier", points = { { 0.36, 0 }, { 0.66, -0.56 } } })
-hl.curve("smoothIn", { type = "bezier", points = { { 0.25, 1 }, { 0.5, 1 } } })
-hl.curve("linear", { type = "bezier", points = { { 0.0, 0.0 }, { 1.0, 1.0 } } })
-hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
-hl.curve("overshot", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.1 } } })
-hl.curve("cubic", { type = "bezier", points = { { 0.54, 0.22 }, { 0.07, 0.74 } } })
-hl.curve("overshotCircle", { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.275 } } })
-hl.curve("md3_standard", { type = "bezier", points = { { 0.2, 0.0 }, { 0, 1.0 } } })
-hl.curve("bounce", { type = "bezier", points = { { 1, 1.6 }, { 0.1, 0.85 } } })
-hl.curve("decel", { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } })
-hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
-hl.curve("easeoutexpo", { type = "bezier", points = { { 0.87, 0 }, { 0.13, 1 } } })
-hl.curve("easeoutquad", { type = "bezier", points = { { 0.45, 0 }, { 0.55, 1 } } })
+local curves = {
+	simple = { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } },
+	smooth = { type = "bezier", points = { { 0.25, 0.1 }, { 0.35, 0.15 } } },
+	smoothOut = { type = "bezier", points = { { 0.36, 0 }, { 0.66, -0.56 } } },
+	smoothIn = { type = "bezier", points = { { 0.25, 1 }, { 0.5, 1 } } },
+	linear = { type = "bezier", points = { { 0.0, 0.0 }, { 1.0, 1.0 } } },
+	myBezier = { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } },
+	overshot = { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.1 } } },
+	cubic = { type = "bezier", points = { { 0.54, 0.22 }, { 0.07, 0.74 } } },
+	overshotCircle = { type = "bezier", points = { { 0.175, 0.885 }, { 0.32, 1.275 } } },
+	md3_standard = { type = "bezier", points = { { 0.2, 0.0 }, { 0, 1.0 } } },
+	bounce = { type = "bezier", points = { { 1, 1.6 }, { 0.1, 0.85 } } },
+	decel = { type = "bezier", points = { { 0.05, 0.7 }, { 0.1, 1 } } },
+	quick = { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } },
+	easeoutexpo = { type = "bezier", points = { { 0.87, 0 }, { 0.13, 1 } } },
+	easeoutquad = { type = "bezier", points = { { 0.45, 0 }, { 0.55, 1 } } },
+}
 
--- Default spring
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+for name, curve in pairs(curves) do
+	hl.curve(name, curve)
+end
 
--- Layers styles: slide, popin, fade
-hl.animation({ leaf = "layersIn", enabled = true, speed = 3, bezier = "bounce", style = "slide 90%" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 3, bezier = "bounce", style = "slide 90%" })
+hl.curve("easy", {
+	type = "spring",
+	mass = 1,
+	stiffness = 71.2633,
+	dampening = 15.8273644,
+})
 
--- Zoom
-hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
+local animations = {
+	{ leaf = "layersIn",            style = "slide 90%",     bezier = "bounce",       speed = 3 },
+	{ leaf = "layersOut",           style = "slide 90%",     bezier = "bounce",       speed = 3 },
 
--- Windows styles:slid", enabled = true, speed = popin, gnomed
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "bounce", style = "popin 85%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "bounce", style = "popin 85%" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "md3_standard", style = "slide 90%" })
+	{ leaf = "zoomFactor",          speed = 7,               bezier = "quick" },
 
--- Border
-hl.animation({ leaf = "border", enabled = true, speed = 10, bezier = "overshot" })
+	{ leaf = "windowsIn",           style = "popin 85%",     bezier = "bounce",       speed = 3 },
+	{ leaf = "windowsOut",          style = "popin 85%",     bezier = "bounce",       speed = 3 },
+	{ leaf = "windowsMove",         style = "slide 90%",     bezier = "md3_standard", speed = 3 },
 
--- styles: once", enabled = true, speed = loop
-hl.animation({ leaf = "borderangle", enabled = true, speed = 100, bezier = "linear", style = "loop" })
+	{ leaf = "border",              bezier = "overshot",     speed = 10 },
 
--- Workspaces styles: slide", enabled = true, speed = slidevert, fade, slidefade, slidefadevert
-hl.animation({ leaf = "workspacesIn", enabled = true, speed = 3, bezier = "bounce", style = "slidevert 90%" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 3, bezier = "bounce", style = "slidevert 90%" })
-hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 3, bezier = "bounce", style = "slidevert 90%" })
-hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 3, bezier = "bounce", style = "slidevert 90%" })
+	{ leaf = "borderangle",         style = "loop",          bezier = "linear",       speed = 100 },
 
--- Fade hl.animations
-hl.animation({ leaf = "fadeIn", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadeSwitch", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadeShadow", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadeDim", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadePopupsIn", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadePopupsOut", enabled = true, speed = 3, bezier = "smooth" })
-hl.animation({ leaf = "fadeDpms", enabled = true, speed = 3, bezier = "smooth" })
+	{ leaf = "workspacesIn",        style = "slidevert 90%", bezier = "bounce",       speed = 3 },
+	{ leaf = "workspacesOut",       style = "slidevert 90%", bezier = "bounce",       speed = 3 },
+	{ leaf = "specialWorkspaceIn",  style = "slidevert 90%", bezier = "bounce",       speed = 3 },
+	{ leaf = "specialWorkspaceOut", style = "slidevert 90%", bezier = "bounce",       speed = 3 },
+}
+
+for _, a in ipairs(animations) do
+	hl.animation({
+		leaf = a.leaf,
+		enabled = true,
+		speed = a.speed or 3,
+		bezier = a.bezier,
+		style = a.style,
+	})
+end
+
+local fade_leaves = {
+	"fadeIn",
+	"fadeOut",
+	"fadeSwitch",
+	"fadeShadow",
+	"fadeDim",
+	"fadeLayersIn",
+	"fadeLayersOut",
+	"fadePopupsIn",
+	"fadePopupsOut",
+	"fadeDpms",
+}
+
+for _, leaf in ipairs(fade_leaves) do
+	hl.animation({
+		leaf = leaf,
+		enabled = true,
+		speed = 3,
+		bezier = "smooth",
+	})
+end
 
 local layer_rules = {
 	{
