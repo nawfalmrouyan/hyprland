@@ -961,72 +961,70 @@ hl.bind(
 )
 
 -- Switch workspaces with SUPER + [0-9]
-hl.bind(
-	mainMod .. " + 1",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
-	),
-	{ submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + 2",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
-	),
-	{ submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + 3",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.focus({ workspace = "$((b+s))" })"\''
-	),
-	{ submap_universal = true }
-)
+function switchWorkspace(s)
+	local m = hl.get_active_monitor()
+	if m.name == "HDMI-A-1" then
+		hl.dispatch(hl.dsp.focus({ workspace = 3 + s }))
+	else
+		hl.dispatch(hl.dsp.focus({ workspace = 0 + s }))
+	end
+end
+
+hl.bind(mainMod .. " + 1", function()
+	switchWorkspace(1)
+end, { submap_universal = true })
+
+hl.bind(mainMod .. " + 2", function()
+	switchWorkspace(2)
+end, { submap_universal = true })
+
+hl.bind(mainMod .. " + 3", function()
+	switchWorkspace(3)
+end, { submap_universal = true })
 
 -- Move active window and follow to workspace
-hl.bind(
-	mainMod .. " + CTRL + 1",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
-	),
-	{ submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + CTRL + 2",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
-	),
-	{ submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + CTRL + 3",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))" })"\''
-	),
-	{ submap_universal = true }
-)
--- Move active window to a workspace with SUPER + SHIFT + [0-9]
-hl.bind(
-	mainMod .. " + SHIFT + 1",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=1; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
-	),
-	{ submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + 2",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=2; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
-	),
-	{ submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + 3",
-	hl.dsp.exec_cmd(
-		'bash -lc \'s=3; m=$(hyprctl monitors -j | jq -r ".[]|select(.focused)|.name"); b=0; if [ "$m" = "HDMI-A-1" ]; then b=3; fi; hyprctl dispatch "hl.dsp.window.move({ workspace = "$((b+s))", follow = false })"\''
-	),
-	{ submap_universal = true }
-)
+function moveWindowWorkspace(s)
+	local m = hl.get_active_monitor()
+	if m.name == "HDMI-A-1" then
+		hl.dispatch(hl.dsp.window.move({ workspace = 3 + s }))
+	else
+		hl.dispatch(hl.dsp.window.move({ workspace = 0 + s }))
+	end
+end
+
+hl.bind(mainMod .. " + CTRL + 1", function()
+	moveWindowWorkspace(1)
+end, { submap_universal = true })
+
+hl.bind(mainMod .. " + CTRL + 2", function()
+	moveWindowWorkspace(2)
+end, { submap_universal = true })
+
+hl.bind(mainMod .. " + CTRL + 3", function()
+	moveWindowWorkspace(3)
+end, { submap_universal = true })
+
+-- Move active window and follow to workspace silent
+function moveWindowWorkspaceSilent(s)
+	local m = hl.get_active_monitor()
+	if m.name == "HDMI-A-1" then
+		hl.dispatch(hl.dsp.window.move({ workspace = 3 + s, follow = false }))
+	else
+		hl.dispatch(hl.dsp.window.move({ workspace = 0 + s, follow = false }))
+	end
+end
+
+hl.bind(mainMod .. " + SHIFT + 1", function()
+	moveWindowWorkspaceSilent(1)
+end, { submap_universal = true })
+
+hl.bind(mainMod .. " + SHIFT + 2", function()
+	moveWindowWorkspaceSilent(2)
+end, { submap_universal = true })
+
+hl.bind(mainMod .. " + SHIFT + 3", function()
+	moveWindowWorkspaceSilent(3)
+end, { submap_universal = true })
 
 -- Move/resize windows with SUPER + LMB/RMB and dragging
 -- mouse:272 = left
