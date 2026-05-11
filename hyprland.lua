@@ -11,33 +11,39 @@ require("mocha")
 local mainMod = "SUPER"
 local confDir = "/home/opal/.config/hypr"
 
-hl.env("_JAVA_AWT_WM_NONREPARENTING", "1")
-hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
-hl.env("QT_QPA_PLATFORMTHEME_QT6", "gtk3")
-hl.env("QT_QPA_PLATFORM", "wayland")
-hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
-hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-hl.env("MOZ_ENABLE_WAYLAND", "1")
-hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env(
-	"PATH",
-	"/home/opal/.local/bin:/home/opal/.config/hypr/scripts:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
-)
-hl.env(
-	"GAMEMODERUNEXEC",
-	"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only"
-)
-hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
-hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRLAND_NO_CRASHREPORTER", "1")
-hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-hl.env("XDG_SESSION_TYPE", "wayland")
-hl.env("XDG_SESSION_DESKTOP", "Hyprland")
-hl.env("TERMINAL", "footclient")
-hl.env("GTK_USE_PORTAL", "1")
+local envs = {
+	{ "_JAVA_AWT_WM_NONREPARENTING",         "1" },
+	{ "QT_QPA_PLATFORMTHEME",                "gtk3" },
+	{ "QT_QPA_PLATFORMTHEME_QT6",            "gtk3" },
+	{ "QT_QPA_PLATFORM",                     "wayland" },
+	{ "QT_AUTO_SCREEN_SCALE_FACTOR",         "1" },
+	{ "QT_WAYLAND_DISABLE_WINDOWDECORATION", "1" },
+	{ "MOZ_ENABLE_WAYLAND",                  "1" },
+	{ "GDK_BACKEND",                         "wayland,x11,*" },
+	{
+		"PATH",
+		"/home/opal/.local/bin:/home/opal/.config/hypr/scripts:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
+	},
+	{
+		"GAMEMODERUNEXEC",
+		"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only",
+	},
+	{ "ELECTRON_OZONE_PLATFORM_HINT", "auto" },
+	{ "HYPRCURSOR_THEME",             "catppuccin-mocha-mauve-cursors" },
+	{ "HYPRCURSOR_SIZE",              "24" },
+	{ "XCURSOR_THEME",                "catppuccin-mocha-mauve-cursors" },
+	{ "XCURSOR_SIZE",                 "24" },
+	{ "HYPRLAND_NO_CRASHREPORTER",    "1" },
+	{ "XDG_CURRENT_DESKTOP",          "Hyprland" },
+	{ "XDG_SESSION_TYPE",             "wayland" },
+	{ "XDG_SESSION_DESKTOP",          "Hyprland" },
+	{ "TERMINAL",                     "footclient" },
+	{ "GTK_USE_PORTAL",               "1" },
+}
+
+for _, env in ipairs(envs) do
+	hl.env(env[1], env[2])
+end
 
 if getHostname() == "opalMMU" then
 	hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
