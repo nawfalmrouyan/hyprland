@@ -714,19 +714,9 @@ end
 local exec_cmd = {
 	-- terminals / apps
 	{
-		key = "T",
-		cmd = "hypr-cycle-focus-lua.sh class footclient stuff footclient footclient -T stuff -e sesh connect stuff",
-		desc = "Open Terminal with TMUX session:stuff",
-	},
-	{
 		key = "SHIFT + T",
-		cmd = "hypr-cycle-focus-lua.sh title Projects footclient -T Projects -e sesh connect Projects",
+		cmd = "footclient -T Projects -e sesh connect Projects",
 		desc = "Open Terminal with TMUX session:Projects",
-	},
-	{
-		key = "S",
-		cmd = "hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell",
-		desc = "Open Terminal with TMUX session:PowerShell",
 	},
 	{
 		key = "Return",
@@ -737,27 +727,6 @@ local exec_cmd = {
 		key = "SHIFT + Return",
 		cmd = "footclient -e sesh connect stuff",
 		desc = "Open Terminal with TMUX session:stuff",
-	},
-	{
-		key = "A",
-		cmd = "hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux",
-		desc = "Open Outlook for Linux",
-	},
-	{
-		key = "Z",
-		cmd = "hypr-cycle-focus-lua.sh class 'Apache Directory Studio' /opt/ApacheDirectoryStudio/ApacheDirectoryStudio",
-		desc = "Open Apache Directory Studio",
-	},
-	{
-		key = "R",
-		cmd =
-		"hypr-cycle-focus-lua.sh class teams-for-linux teams-for-linux teams-for-linux /opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto",
-		desc = "Open Teams for Linux",
-	},
-	{
-		key = "SHIFT + A",
-		cmd = "hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
-		desc = "Open Brave Browser",
 	},
 	{
 		key = "SHIFT + E",
@@ -773,6 +742,11 @@ local exec_cmd = {
 		key = "Escape",
 		cmd = "dms ipc powermenu open",
 		desc = "Open Powermenu",
+	},
+	{
+		key = "SHIFT + W",
+		cmd = "zen-browser -new-window",
+		desc = "Open another zen window",
 	},
 
 	-- rofi / vicinae
@@ -1159,6 +1133,61 @@ end)
 hl.bind("switch:off:[Lid Switch]", function()
 	hl.monitor({ output = "eDP-1", disabled = true, locked = true })
 end)
+
+-- MRU cycle focus by class/title
+require("cycle")
+
+local class_binds = {
+	{ key = "W", class = "zen", exec = "zen-browser" },
+	{ key = "T", class = "footclient", exec = "footclient -e sesh connect stuff" },
+	{
+		key = "R",
+		class = "teams-for-linux",
+		exec = "/opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto",
+	},
+	{ key = "A", class = "outlook-for-linux", exec = "/opt/outlook-for-linux/outlook-for-linux" },
+	{ key = "Z", class = "Apache Directory Studio", exec = "/opt/ApacheDirectoryStudio/ApacheDirectoryStudio" },
+	{
+		key = "SHIFT + A",
+		class = "brave-browser",
+		exec = "brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
+	},
+}
+
+for _, b in ipairs(class_binds) do
+	hl.bind(mainMod .. " + " .. b.key, function()
+		Cycle_focus(b)
+	end, {
+		description = "Cycle focus by class: " .. b.class,
+	})
+end
+
+hl.bind(mainMod .. " + Tab", function()
+	local c = {}
+	c.class = hl.get_active_window().class
+	c.exec = ""
+	-- hl.notification.create({ text = "class: " .. c, duration = 2000 })
+	Cycle_focus(c)
+end, {
+	description = "Cycle focus by current window's class",
+	repeating = true,
+})
+
+local title_binds = {
+	{
+		key = "S",
+		title = "PowerShell",
+		exec = "footclient -T PowerShell -e sesh connect PowerShell",
+	},
+}
+
+for _, b in ipairs(title_binds) do
+	hl.bind(mainMod .. " + " .. b.key, function()
+		Cycle_focus(b)
+	end, {
+		description = "Cycle focus by title: " .. b.title,
+	})
+end
 
 -- Plugins
 require("scrolling")
