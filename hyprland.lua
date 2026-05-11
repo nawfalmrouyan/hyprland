@@ -1110,8 +1110,8 @@ hl.bind(
 -- Zoom
 hl.bind(mainMod .. " + mouse_down", function()
 	local zoomFactor = hl.get_config("cursor.zoom_factor")
-	if zoomFactor == 10 then
-		return
+	if zoomFactor >= 10 then
+		return 10
 	end
 	hl.config({
 		cursor = { zoom_factor = zoomFactor + 0.5 },
@@ -1120,8 +1120,8 @@ end, { repeating = true })
 
 hl.bind(mainMod .. " + mouse_up", function()
 	local zoomFactor = hl.get_config("cursor.zoom_factor")
-	if zoomFactor == 1 then
-		return
+	if zoomFactor <= 1 then
+		return 1
 	end
 	hl.config({
 		cursor = { zoom_factor = zoomFactor - 0.5 },
