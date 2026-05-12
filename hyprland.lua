@@ -934,6 +934,7 @@ hl.bind(mainMod .. " + G", function()
 	local group = hl.get_active_window().group
 	if not group or #group.members == 1 then
 		hl.dispatch(hl.dsp.group.toggle())
+		return
 	end
 	hl.dispatch(hl.dsp.group.lock_active())
 end, { description = "Toggle group / Lock group" })
