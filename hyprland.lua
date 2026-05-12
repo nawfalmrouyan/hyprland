@@ -894,6 +894,23 @@ local dispatch_window = {
 		action = hl.dsp.window.move({ out_of_group = "r" }),
 		desc = "Move app out of group",
 	},
+
+	-- mark, unmark and focus marked window
+	{
+		key = "SHIFT + Y",
+		action = hl.dsp.window.tag({ tag = "+mark" }),
+		desc = "Mark focused window",
+	},
+	{
+		key = "CTRL + Y",
+		action = hl.dsp.window.tag({ tag = "-mark" }),
+		desc = "Mark focused window",
+	},
+	{
+		key = "Y",
+		action = hl.dsp.focus({ window = "tag:mark" }),
+		desc = "Focus marked window",
+	},
 }
 
 for _, b in ipairs(dispatch_window) do
@@ -1129,23 +1146,6 @@ hl.bind(
 	mainMod .. " + period",
 	hl.dsp.focus({ monitor = "r" }),
 	{ description = "Focus right monitor", submap_universal = true }
-)
-
--- mark, unmark and focus marked window
-hl.bind(
-	mainMod .. " + SHIFT + Y",
-	hl.dsp.window.tag({ tag = "+mark" }),
-	{ description = "Mark focused window", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + CTRL + Y",
-	hl.dsp.window.tag({ tag = "-mark" }),
-	{ description = "Mark focused window", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + Y",
-	hl.dsp.focus({ window = "tag:mark" }),
-	{ description = "Focus marked window", submap_universal = true }
 )
 
 -- laptop lid switch
