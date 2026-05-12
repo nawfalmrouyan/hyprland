@@ -823,7 +823,7 @@ local exec_cmd = {
 	{ key = "N",         cmd = "nvim-hypr-anywhere.sh",       desc = "Open nvim-hypr-anywhere" },
 	{ key = "B",         cmd = "footclient -T btop -e btop",  desc = "Open btop" },
 	{ key = "SHIFT + N", cmd = "footclient -T btop -e nvtop", desc = "Open nvtop" },
-	{ key = "SHIFT + B", cmd = "gamemode.sh",                 desc = "Toggle Game Mode" },
+	-- { key = "SHIFT + B", cmd = "gamemode.sh",                 desc = "Toggle Game Mode" },
 	{
 		key = "8",
 		cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
@@ -922,9 +922,19 @@ hl.bind(mainMod .. " + G", function()
 	end
 end, { description = "Toggle group / Lock group" })
 
--- Night mode (blue filter)
--- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader " .. scriptsDir .. "/flux.glsl"))
--- hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader '[[EMPTY]]'"))
+-- Game Mode
+hl.bind(mainMod .. " + SHIFT + B", function()
+	local anim = hl.get_config("animations.enabled")
+	if anim then
+		hl.config({
+			animations = { enabled = false },
+			decoration = { shadow = { enabled = false }, rounding = 0, blur = { enabled = false } },
+			general = { gaps_in = 0, gaps_out = 0, border_size = 0 },
+		})
+	else
+		hl.exec_cmd("hyprctl reload")
+	end
+end, { description = "Toggle Game Mode" })
 
 -- Special Keys
 local media_binds = {
