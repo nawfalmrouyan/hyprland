@@ -917,23 +917,20 @@ hl.bind(mainMod .. " + G", function()
 	local group = hl.get_active_window().group
 	if not group or #group.members == 1 then
 		hl.dispatch(hl.dsp.group.toggle())
-	else
-		hl.dispatch(hl.dsp.group.lock_active())
 	end
+	hl.dispatch(hl.dsp.group.lock_active())
 end, { description = "Toggle group / Lock group" })
 
 -- Game Mode
 hl.bind(mainMod .. " + SHIFT + B", function()
-	local anim = hl.get_config("animations.enabled")
-	if anim then
-		hl.config({
-			animations = { enabled = false },
-			decoration = { shadow = { enabled = false }, rounding = 0, blur = { enabled = false } },
-			general = { gaps_in = 0, gaps_out = 0, border_size = 0 },
-		})
-	else
+	if not hl.get_config("animations.enabled") then
 		hl.exec_cmd("hyprctl reload")
 	end
+	hl.config({
+		animations = { enabled = false },
+		decoration = { shadow = { enabled = false }, rounding = 0, blur = { enabled = false } },
+		general = { gaps_in = 0, gaps_out = 0, border_size = 0 },
+	})
 end, { description = "Toggle Game Mode" })
 
 -- Special Keys
