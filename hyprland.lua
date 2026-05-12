@@ -1078,20 +1078,31 @@ hl.bind(
 -- Zoom
 hl.bind(mainMod .. " + mouse_down", function()
 	local zoomFactor = hl.get_config("cursor.zoom_factor")
-	if zoomFactor < 10 then
-		hl.config({
-			cursor = { zoom_factor = zoomFactor + 0.5 },
-		})
+	if zoomFactor == 10 then
+		return
 	end
-end)
+	hl.config({
+		cursor = { zoom_factor = zoomFactor + 0.5 },
+	})
+end, { repeating = true })
+
 hl.bind(mainMod .. " + mouse_up", function()
 	local zoomFactor = hl.get_config("cursor.zoom_factor")
-	if zoomFactor > 1 then
-		hl.config({
-			cursor = { zoom_factor = zoomFactor - 0.5 },
-		})
+	if zoomFactor == 1 then
+		return
 	end
-end)
+	hl.config({
+		cursor = { zoom_factor = zoomFactor - 0.5 },
+	})
+end, { description = "Zoom out", repeatring = true })
+
+hl.bind(mainMod .. " + SHIFT + mouse_down", function()
+	hl.config({ cursor = { zoom_factor = 5 } })
+end, { description = "Reset zoom factor" })
+
+hl.bind(mainMod .. " + SHIFT + mouse_up", function()
+	hl.config({ cursor = { zoom_factor = 1 } })
+end, { description = "Reset zoom factor" })
 
 -- The second bind is redundant but I'm used to it in DWM
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
