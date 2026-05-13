@@ -796,7 +796,7 @@ local exec_cmd = {
 		desc = "Vicinae Search Emojis",
 	},
 	{
-		key = "Semicolon",
+		key = "Y",
 		cmd = "vicinae vicinae://launch/clipboard/history",
 		desc = "Vicinae Clipboard History",
 	},
@@ -897,17 +897,17 @@ local dispatch_window = {
 
 	-- mark, unmark and focus marked window
 	{
-		key = "SHIFT + Y",
+		key = "Apostrophe",
 		action = hl.dsp.window.tag({ tag = "+mark" }),
 		desc = "Mark focused window",
 	},
 	{
-		key = "CTRL + Y",
+		key = "SHIFT + Apostrophe",
 		action = hl.dsp.window.tag({ tag = "-mark" }),
 		desc = "Mark focused window",
 	},
 	{
-		key = "Y",
+		key = "Semicolon",
 		action = hl.dsp.focus({ window = "tag:mark" }),
 		desc = "Focus marked window",
 	},
