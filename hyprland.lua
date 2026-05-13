@@ -817,23 +817,21 @@ local exec_cmd = {
 	-- 	cmd = "pkill -SIGUSR1 wayscriber",
 	-- 	desc = "Toggle wayscriber",
 	-- },
-
-	-- tools
-	{ key = "N",         cmd = "nvim-hypr-anywhere.sh",       desc = "Open nvim-hypr-anywhere" },
-	{ key = "B",         cmd = "footclient -T btop -e btop",  desc = "Open btop" },
-	{ key = "SHIFT + N", cmd = "footclient -T btop -e nvtop", desc = "Open nvtop" },
-	-- { key = "SHIFT + B", cmd = "gamemode.sh",                 desc = "Toggle Game Mode" },
+	{ key = "N",         cmd = "nvim-hypr-anywhere.sh",           desc = "Open nvim-hypr-anywhere" },
+	{ key = "B",         cmd = "footclient -T btop -e btop",      desc = "Open btop" },
+	{ key = "SHIFT + N", cmd = "footclient -T btop -e nvtop",     desc = "Open nvtop" },
+	{ key = "X",         cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
 	{
 		key = "8",
 		cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
 		desc = "Open Toofan (typing test)",
 	},
 
-	-- screenshots / UI
+	-- screenshots
 	{ key = "Print",         cmd = "quickshell -c HyprQuickFrame -n", desc = "OCR / Google Lens" },
 	{ key = "SUPER + Print", cmd = "quickshell -c QuickSnip -n",      desc = "Screenshot" },
-	{ key = "X",             cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
 
+	-- kitty scratch terminal
 	{
 		key = "CTRL + Grave",
 		cmd = "kitten quick-access-terminal",
