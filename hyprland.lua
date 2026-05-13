@@ -943,6 +943,7 @@ end, { description = "Toggle group / Lock group" })
 hl.bind(mainMod .. " + SHIFT + B", function()
 	if not hl.get_config("animations.enabled") then
 		hl.exec_cmd("hyprctl reload")
+		return
 	end
 	hl.config({
 		animations = { enabled = false },
