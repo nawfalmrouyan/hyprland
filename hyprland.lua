@@ -728,7 +728,6 @@ local exec_cmd = {
 		cmd = "hypr-cycle-focus-lua.sh title PowerShell footclient -T PowerShell -e sesh connect PowerShell",
 		desc = "Open Terminal with TMUX session:PowerShell",
 	},
-
 	{
 		key = "Return",
 		cmd = "footclient -e sesh connect stuff",
@@ -739,7 +738,6 @@ local exec_cmd = {
 		cmd = "footclient -e sesh connect stuff",
 		desc = "Open Terminal with TMUX session:stuff",
 	},
-
 	{
 		key = "A",
 		cmd = "hypr-cycle-focus-lua.sh class outlook-for-linux /opt/outlook-for-linux/outlook-for-linux",
@@ -761,13 +759,16 @@ local exec_cmd = {
 		cmd = "hypr-cycle-focus-lua.sh class brave-browser brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
 		desc = "Open Brave Browser",
 	},
-
 	{
 		key = "SHIFT + E",
 		cmd = "nautilus",
 		desc = "Open Nautilus",
 	},
-	{ key = "CTRL + E",  cmd = "kitty -e yazi",               desc = "Open yazi" },
+	{
+		key = "CTRL + E",
+		cmd = "kitty -e yazi",
+		desc = "Open yazi",
+	},
 	{
 		key = "Escape",
 		cmd = "dms ipc powermenu open",
@@ -786,7 +787,7 @@ local exec_cmd = {
 	-- 	desc = "Open Rofi Radio Stream",
 	-- },
 	{
-		key = "ALT + Tab",
+		key = "Grave",
 		cmd = "vicinae vicinae://launch/wm/switch-windows",
 		desc = "Vicinae Switch windows",
 	},
@@ -805,14 +806,12 @@ local exec_cmd = {
 		cmd = "powerprofiles.sh",
 		desc = "Rofi Powerprofiles",
 	},
-
 	{
 		key = "SHIFT + C",
 		cmd = "pkill bemenu || bemenu_input 6",
 		desc = "Bemenu Input",
 		release = true,
 	},
-
 	-- {
 	-- 	key = "SHIFT + Z",
 	-- 	cmd = "pkill -SIGUSR1 wayscriber",
@@ -911,10 +910,20 @@ local dispatch_window = {
 		action = hl.dsp.focus({ window = "tag:mark" }),
 		desc = "Focus marked window",
 	},
+	{
+		key = "SHIFT + Comma",
+		action = hl.dsp.window.move({ monitor = "l" }),
+		desc = "Move focused window to monitor on the left",
+	},
+	{
+		key = "SHIFT + Period",
+		action = hl.dsp.window.move({ monitor = "r" }),
+		desc = "Move focused window to monitor on the right",
+	},
 }
 
 for _, b in ipairs(dispatch_window) do
-	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc })
+	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc, universal_submap = true })
 end
 
 local dispatch_group = {
@@ -926,7 +935,7 @@ local dispatch_group = {
 }
 
 for _, b in ipairs(dispatch_group) do
-	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc })
+	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc, universal_submap = true })
 end
 
 -- Group binds
@@ -996,6 +1005,7 @@ for _, b in ipairs(media_binds) do
 		description = b.desc,
 		locked = true,
 		repeating = true,
+		universal_submap = true,
 	})
 end
 
@@ -1076,12 +1086,12 @@ for _, k in ipairs(workspace_keys) do
 	end, { submap_universal = true })
 end
 
--- Move/resize windows with SUPER + LMB/RMB and dragging
 -- mouse:272 = left
 -- mouse:273 = right
 -- mouse:274 = middle
 -- mouse:275 = side
 -- mouse:276 = extra
+-- Move/resize windows with SUPER + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
@@ -1113,7 +1123,7 @@ hl.bind(mainMod .. " + mouse_up", function()
 	hl.config({
 		cursor = { zoom_factor = zoomFactor - 0.5 },
 	})
-end, { description = "Zoom out", repeatring = true })
+end, { description = "Zoom out", repeating = true })
 
 hl.bind(mainMod .. " + SHIFT + mouse_down", function()
 	hl.config({ cursor = { zoom_factor = 5 } })
@@ -1126,17 +1136,6 @@ end, { description = "Reset zoom factor" })
 -- The second bind is redundant but I'm used to it in DWM
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
 hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
-
-hl.bind(
-	mainMod .. " + SHIFT + comma",
-	hl.dsp.window.move({ monitor = "l" }),
-	{ description = "Move to HDMI-A-1 workspace", submap_universal = true }
-)
-hl.bind(
-	mainMod .. " + SHIFT + period",
-	hl.dsp.window.move({ monitor = "r" }),
-	{ description = "Move to eDP-1 workspace", submap_universal = true }
-)
 
 -- focus monitor.
 hl.bind(
