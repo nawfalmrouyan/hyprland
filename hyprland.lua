@@ -854,11 +854,6 @@ local dispatch_window = {
 		desc = "Maximize fake fullscreen app",
 	},
 	{
-		key = "CTRL + F",
-		action = hl.dsp.window.fullscreen_state({ internal = 0, client = 0, action = "set" }),
-		desc = "Unmaximize fake fullscreen app",
-	},
-	{
 		key = "V",
 		action = hl.dsp.window.float({ action = "toggle", window = "activewindow" }),
 		desc = "Float focused app",
