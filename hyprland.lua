@@ -518,7 +518,7 @@ local window_rules = {
 
 	{
 		border_size = 0,
-		match = { fullscreen_state_internal = 0, fullscreen_state_client = 2 },
+		match = { fullscreen_state_internal = 1, fullscreen_state_client = 2 },
 	},
 
 	{
@@ -878,7 +878,7 @@ local dispatch_window = {
 	},
 	{
 		key = "SHIFT + F",
-		action = hl.dsp.window.fullscreen_state({ internal = 1, client = 2, action = "set" }),
+		action = hl.dsp.window.fullscreen_state({ internal = 1, client = 2, action = "toggle" }),
 		desc = "Maximize fake fullscreen app",
 	},
 	{
