@@ -12,14 +12,14 @@ local mainMod = "SUPER"
 local confDir = "/home/opal/.config/hypr"
 
 local envs = {
-	{ "_JAVA_AWT_WM_NONREPARENTING",         "1" },
-	{ "QT_QPA_PLATFORMTHEME",                "gtk3" },
-	{ "QT_QPA_PLATFORMTHEME_QT6",            "gtk3" },
-	{ "QT_QPA_PLATFORM",                     "wayland" },
-	{ "QT_AUTO_SCREEN_SCALE_FACTOR",         "1" },
+	{ "_JAVA_AWT_WM_NONREPARENTING", "1" },
+	{ "QT_QPA_PLATFORMTHEME", "gtk3" },
+	{ "QT_QPA_PLATFORMTHEME_QT6", "gtk3" },
+	{ "QT_QPA_PLATFORM", "wayland" },
+	{ "QT_AUTO_SCREEN_SCALE_FACTOR", "1" },
 	{ "QT_WAYLAND_DISABLE_WINDOWDECORATION", "1" },
-	{ "MOZ_ENABLE_WAYLAND",                  "1" },
-	{ "GDK_BACKEND",                         "wayland,x11,*" },
+	{ "MOZ_ENABLE_WAYLAND", "1" },
+	{ "GDK_BACKEND", "wayland,x11,*" },
 	{
 		"PATH",
 		"/home/opal/.local/bin:/home/opal/.config/hypr/scripts:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
@@ -29,16 +29,16 @@ local envs = {
 		"env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only",
 	},
 	{ "ELECTRON_OZONE_PLATFORM_HINT", "auto" },
-	{ "HYPRCURSOR_THEME",             "catppuccin-mocha-mauve-cursors" },
-	{ "HYPRCURSOR_SIZE",              "24" },
-	{ "XCURSOR_THEME",                "catppuccin-mocha-mauve-cursors" },
-	{ "XCURSOR_SIZE",                 "24" },
-	{ "HYPRLAND_NO_CRASHREPORTER",    "1" },
-	{ "XDG_CURRENT_DESKTOP",          "Hyprland" },
-	{ "XDG_SESSION_TYPE",             "wayland" },
-	{ "XDG_SESSION_DESKTOP",          "Hyprland" },
-	{ "TERMINAL",                     "footclient" },
-	{ "GTK_USE_PORTAL",               "1" },
+	{ "HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors" },
+	{ "HYPRCURSOR_SIZE", "24" },
+	{ "XCURSOR_THEME", "catppuccin-mocha-mauve-cursors" },
+	{ "XCURSOR_SIZE", "24" },
+	{ "HYPRLAND_NO_CRASHREPORTER", "1" },
+	{ "XDG_CURRENT_DESKTOP", "Hyprland" },
+	{ "XDG_SESSION_TYPE", "wayland" },
+	{ "XDG_SESSION_DESKTOP", "Hyprland" },
+	{ "TERMINAL", "footclient" },
+	{ "GTK_USE_PORTAL", "1" },
 }
 
 for _, env in ipairs(envs) do
@@ -315,23 +315,23 @@ hl.curve("easy", {
 })
 
 local animations = {
-	{ leaf = "layersIn",            style = "slide 90%",     bezier = "bounce",       speed = 3 },
-	{ leaf = "layersOut",           style = "slide 90%",     bezier = "bounce",       speed = 3 },
+	{ leaf = "layersIn", style = "slide 90%", bezier = "bounce", speed = 3 },
+	{ leaf = "layersOut", style = "slide 90%", bezier = "bounce", speed = 3 },
 
-	{ leaf = "zoomFactor",          speed = 7,               bezier = "quick" },
+	{ leaf = "zoomFactor", speed = 7, bezier = "quick" },
 
-	{ leaf = "windowsIn",           style = "popin 85%",     bezier = "bounce",       speed = 3 },
-	{ leaf = "windowsOut",          style = "popin 85%",     bezier = "bounce",       speed = 3 },
-	{ leaf = "windowsMove",         style = "slide 90%",     bezier = "md3_standard", speed = 3 },
+	{ leaf = "windowsIn", style = "popin 85%", bezier = "bounce", speed = 3 },
+	{ leaf = "windowsOut", style = "popin 85%", bezier = "bounce", speed = 3 },
+	{ leaf = "windowsMove", style = "slide 90%", bezier = "md3_standard", speed = 3 },
 
-	{ leaf = "border",              bezier = "overshot",     speed = 10 },
+	{ leaf = "border", bezier = "overshot", speed = 10 },
 
-	{ leaf = "borderangle",         style = "loop",          bezier = "linear",       speed = 100 },
+	{ leaf = "borderangle", style = "loop", bezier = "linear", speed = 100 },
 
-	{ leaf = "workspacesIn",        style = "slidevert 90%", bezier = "bounce",       speed = 3 },
-	{ leaf = "workspacesOut",       style = "slidevert 90%", bezier = "bounce",       speed = 3 },
-	{ leaf = "specialWorkspaceIn",  style = "slidevert 90%", bezier = "bounce",       speed = 3 },
-	{ leaf = "specialWorkspaceOut", style = "slidevert 90%", bezier = "bounce",       speed = 3 },
+	{ leaf = "workspacesIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	{ leaf = "workspacesOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	{ leaf = "specialWorkspaceIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	{ leaf = "specialWorkspaceOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
 }
 
 for _, a in ipairs(animations) do
@@ -479,8 +479,7 @@ local window_rules = {
 	-- grouping rules
 	{
 		match = {
-			class =
-			"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
+			class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
 		},
 		group = "set",
 	},
@@ -569,8 +568,7 @@ local window_rules = {
 	{
 		name = "noscreenshare-general",
 		match = {
-			class =
-			"whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
+			class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
 		},
 		no_screen_share = true,
 	},
@@ -791,10 +789,10 @@ local exec_cmd = {
 	-- 	cmd = "pkill -SIGUSR1 wayscriber",
 	-- 	desc = "Toggle wayscriber",
 	-- },
-	{ key = "N",         cmd = "nvim-hypr-anywhere.sh",           desc = "Open nvim-hypr-anywhere" },
-	{ key = "B",         cmd = "footclient -T btop -e btop",      desc = "Open btop" },
-	{ key = "SHIFT + N", cmd = "footclient -T btop -e nvtop",     desc = "Open nvtop" },
-	{ key = "X",         cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
+	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open nvim-hypr-anywhere" },
+	{ key = "B", cmd = "footclient -T btop -e btop", desc = "Open btop" },
+	{ key = "SHIFT + N", cmd = "footclient -T btop -e nvtop", desc = "Open nvtop" },
+	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
 	{
 		key = "8",
 		cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
@@ -804,7 +802,7 @@ local exec_cmd = {
 	-- screenshots
 	-- key with a space at the beginning is a bind without using the mainMod.
 	{ key = " Print", cmd = "quickshell -c HyprQuickFrame -n", desc = "OCR / Google Lens" },
-	{ key = "Print",  cmd = "quickshell -c QuickSnip -n",      desc = "Screenshot" },
+	{ key = "Print", cmd = "quickshell -c QuickSnip -n", desc = "Screenshot" },
 
 	-- kitty scratch terminal
 	{
