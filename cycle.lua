@@ -19,7 +19,7 @@ function Cycle_focus(data)
 		return
 	end
 
-	if #windows == 2 then
+	if data.class == "zen" then
 		table.sort(windows, function(a, b)
 			return a.focus_history_id > b.focus_history_id
 		end)
