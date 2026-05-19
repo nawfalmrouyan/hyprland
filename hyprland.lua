@@ -1230,3 +1230,5 @@ hl.on("hyprland.shutdown", function()
 		hl.exec_cmd(cmd)
 	end
 end)
+
+require("hyprview")
