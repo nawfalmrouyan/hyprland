@@ -746,6 +746,11 @@ local exec_cmd = {
 		cmd = "zen-browser -new-window",
 		desc = "Open another zen window",
 	},
+	{
+		key = "SHIFT + S",
+		cmd = "footclient -T PowerShell -e sesh connect PowerShell",
+		desc = "Open Terminal with TMUX session:PowerShell",
+	},
 
 	-- rofi / vicinae
 	{
