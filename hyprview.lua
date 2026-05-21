@@ -24,7 +24,7 @@ hl.plugin.hyprview.configure({
 	scrolling = {
 		scroll_moves_up_down = true,
 		default_zoom = 0.5,
-		window_gap = 0,
+		window_gap = 5,
 		workspace_gap = 0,
 		background_blur = false,
 		show_workspace_layers = true,
