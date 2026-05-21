@@ -61,6 +61,6 @@ hl.plugin.hyprview.gesture({
 	gesture = "overview",
 })
 
-hl.bind("SUPER+G", function()
+hl.bind("SUPER + Tab", function()
 	hl.plugin.hyprview.overview("toggle")
 end)

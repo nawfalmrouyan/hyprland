@@ -901,17 +901,17 @@ for _, b in ipairs(dispatch_window) do
 	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc, universal_submap = true })
 end
 
-local dispatch_group = {
-	{
-		key = "Tab",
-		action = hl.dsp.group.next(),
-		desc = "Cycle windows in a group",
-	},
-}
-
-for _, b in ipairs(dispatch_group) do
-	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc, universal_submap = true })
-end
+-- local dispatch_group = {
+-- 	{
+-- 		key = "Tab",
+-- 		action = hl.dsp.group.next(),
+-- 		desc = "Cycle windows in a group",
+-- 	},
+-- }
+--
+-- for _, b in ipairs(dispatch_group) do
+-- 	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc, universal_submap = true })
+-- end
 
 -- Group binds
 hl.bind(mainMod .. " + G", function()
