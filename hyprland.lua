@@ -45,30 +45,32 @@ for _, env in ipairs(envs) do
 	hl.env(env[1], env[2])
 end
 
-if getHostname() == "opalMMU" then
-	hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
-	hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "1920x0", scale = 1 })
-else
-	hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
-end
+require("split-monitor-workspaces")
 
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
--- hl.monitor({ output = "name", disabled = true })
--- hl.monitor({ output = "HDMI-A-1", mode = "preferred", position = "auto", scale = 1, mirror = "eDP-1"})
-
-local workspaces = {
-	{ start = 1, finish = 3, monitor = "eDP-1" },
-	{ start = 4, finish = 6, monitor = "HDMI-A-1" },
-}
-
-for _, group in ipairs(workspaces) do
-	for ws = group.start, group.finish do
-		hl.workspace_rule({
-			workspace = ws,
-			monitor = group.monitor,
-		})
-	end
-end
+-- if getHostname() == "opalMMU" then
+-- 	hl.monitor({ output = "HDMI-A-1", mode = "1920x1080", position = "0x0", scale = 1 })
+-- 	hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "1920x0", scale = 1 })
+-- else
+-- 	hl.monitor({ output = "eDP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+-- end
+--
+-- hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+-- -- hl.monitor({ output = "name", disabled = true })
+-- -- hl.monitor({ output = "HDMI-A-1", mode = "preferred", position = "auto", scale = 1, mirror = "eDP-1"})
+--
+-- local workspaces = {
+-- 	{ start = 1, finish = 3, monitor = "eDP-1" },
+-- 	{ start = 4, finish = 6, monitor = "HDMI-A-1" },
+-- }
+--
+-- for _, group in ipairs(workspaces) do
+-- 	for ws = group.start, group.finish do
+-- 		hl.workspace_rule({
+-- 			workspace = ws,
+-- 			monitor = group.monitor,
+-- 		})
+-- 	end
+-- end
 
 local on_created_empty = {
 	{
@@ -1020,46 +1022,46 @@ for name, cfg in pairs(special_workspaces) do
 end
 
 -- Simulate split-monitor-workspaces
-local function baseWorkspace()
-	local m = hl.get_active_monitor()
-
-	if m.name == "HDMI-A-1" then
-		return 3
-	end
-	return 0
-end
-
-local function switchWorkspace(s)
-	hl.dispatch(hl.dsp.focus({ workspace = baseWorkspace() + s }))
-end
-
-local function moveWindowWorkspace(s, follow)
-	hl.dispatch(hl.dsp.window.move({
-		workspace = baseWorkspace() + s,
-		follow = follow,
-	}))
-end
-
-local workspace_keys = { "1", "2", "3" }
-
-for _, k in ipairs(workspace_keys) do
-	local ws = tonumber(k)
-
-	-- switch workspace
-	hl.bind(mainMod .. " + " .. k, function()
-		switchWorkspace(ws)
-	end, { submap_universal = true })
-
-	-- move window
-	hl.bind(mainMod .. " + SHIFT + " .. k, function()
-		moveWindowWorkspace(ws)
-	end, { submap_universal = true })
-
-	-- move window silent
-	hl.bind(mainMod .. " + CTRL + " .. k, function()
-		moveWindowWorkspace(ws, false)
-	end, { submap_universal = true })
-end
+-- local function baseWorkspace()
+-- 	local m = hl.get_active_monitor()
+--
+-- 	if m.name == "HDMI-A-1" then
+-- 		return 3
+-- 	end
+-- 	return 0
+-- end
+--
+-- local function switchWorkspace(s)
+-- 	hl.dispatch(hl.dsp.focus({ workspace = baseWorkspace() + s }))
+-- end
+--
+-- local function moveWindowWorkspace(s, follow)
+-- 	hl.dispatch(hl.dsp.window.move({
+-- 		workspace = baseWorkspace() + s,
+-- 		follow = follow,
+-- 	}))
+-- end
+--
+-- local workspace_keys = { "1", "2", "3" }
+--
+-- for _, k in ipairs(workspace_keys) do
+-- 	local ws = tonumber(k)
+--
+-- 	-- switch workspace
+-- 	hl.bind(mainMod .. " + " .. k, function()
+-- 		switchWorkspace(ws)
+-- 	end, { submap_universal = true })
+--
+-- 	-- move window
+-- 	hl.bind(mainMod .. " + SHIFT + " .. k, function()
+-- 		moveWindowWorkspace(ws)
+-- 	end, { submap_universal = true })
+--
+-- 	-- move window silent
+-- 	hl.bind(mainMod .. " + CTRL + " .. k, function()
+-- 		moveWindowWorkspace(ws, false)
+-- 	end, { submap_universal = true })
+-- end
 
 -- mouse:272 = left
 -- mouse:273 = right
