@@ -904,12 +904,12 @@ local dispatch_window = {
 	},
 	{
 		key = "SHIFT + Comma",
-		action = hl.dsp.window.move({ monitor = "l" }),
+		action = hl.dsp.window.move({ monitor = "-1" }),
 		desc = "Move focused window to monitor on the left",
 	},
 	{
 		key = "SHIFT + Period",
-		action = hl.dsp.window.move({ monitor = "r" }),
+		action = hl.dsp.window.move({ monitor = "+1" }),
 		desc = "Move focused window to monitor on the right",
 	},
 }
