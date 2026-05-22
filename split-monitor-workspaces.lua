@@ -29,21 +29,20 @@ local function remove_monitor(name)
 	end
 end
 
--- Catch monitors already connected at startup
-local existing = hl.get_monitors()
-if existing then
-	for _, m in ipairs(existing) do
-		add_monitor(m.name)
-	end
-end
-
--- Handle hotplug
-hl.on("monitor.added", function(m)
-	-- Position to the left of the leftmost existing monitor
+local function position_left_of_all(name)
 	local all = hl.get_monitors()
+	local m = nil
+	for _, mon in ipairs(all) do
+		if mon.name == name then
+			m = mon
+			break
+		end
+	end
+	if not m then return end
+
 	local leftmost_x = 0
 	for _, mon in ipairs(all) do
-		if mon.name ~= m.name then
+		if mon.name ~= name then
 			if mon.x < leftmost_x then
 				leftmost_x = mon.x
 			end
@@ -52,11 +51,47 @@ hl.on("monitor.added", function(m)
 	local new_w = math.floor((m.width or 1920) / (m.scale or 1))
 	local x = leftmost_x - new_w
 	hl.monitor({
-		output = m.name,
+		output = name,
 		mode = "preferred",
 		position = string.format("%dx%d", x, 0),
-		scale = 1,
+		scale = m.scale or 1,
 	})
+end
+
+-- Catch monitors already connected at startup
+-- Ensure eDP-1 is always first so it gets workspace base 0
+local existing = hl.get_monitors()
+if existing then
+	table.sort(existing, function(a, b)
+		if a.name == "eDP-1" then return true end
+		if b.name == "eDP-1" then return false end
+		return false
+	end)
+	for _, m in ipairs(existing) do
+		add_monitor(m.name)
+	end
+	-- Position eDP-1 at 0, then everything else to its left
+	for _, m in ipairs(existing) do
+		if m.name == "eDP-1" then
+			hl.monitor({
+				output = m.name,
+				mode = "preferred",
+				position = "0x0",
+				scale = m.scale or 1,
+			})
+			break
+		end
+	end
+	for _, m in ipairs(existing) do
+		if m.name ~= "eDP-1" then
+			position_left_of_all(m.name)
+		end
+	end
+end
+
+-- Handle hotplug
+hl.on("monitor.added", function(m)
+	position_left_of_all(m.name)
 	add_monitor(m.name)
 end)
 
