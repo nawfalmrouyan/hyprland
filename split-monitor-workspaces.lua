@@ -3,6 +3,7 @@ local WORKSPACES_PER_MONITOR = 3
 
 -- Track monitors in connection order with their workspace base offsets
 local monitors = {}
+local saved_windows = {}
 
 local function add_monitor(name)
 	for _, m in ipairs(monitors) do
@@ -29,35 +30,28 @@ local function remove_monitor(name)
 	end
 end
 
-local function position_left_of_all(name)
+local function relayout_monitors()
 	local all = hl.get_monitors()
-	local m = nil
-	for _, mon in ipairs(all) do
-		if mon.name == name then
-			m = mon
-			break
-		end
-	end
-	if not m then
-		return
-	end
+	if #all == 0 then return end
 
-	local leftmost_x = 0
-	for _, mon in ipairs(all) do
-		if mon.name ~= name then
-			if mon.x < leftmost_x then
-				leftmost_x = mon.x
-			end
-		end
+	-- Sort: non-eDP-1 first (by x), eDP-1 last, so eDP-1 is rightmost
+	table.sort(all, function(a, b)
+		if a.name == "eDP-1" then return false end
+		if b.name == "eDP-1" then return true end
+		return a.x < b.x
+	end)
+
+	local x = 0
+	for _, m in ipairs(all) do
+		local w = math.floor((m.width or 1920) / (m.scale or 1))
+		hl.monitor({
+			output = m.name,
+			mode = "preferred",
+			position = string.format("%dx%d", x, 0),
+			scale = m.scale or 1,
+		})
+		x = x + w
 	end
-	local new_w = math.floor((m.width or 1920) / (m.scale or 1))
-	local x = leftmost_x - new_w
-	hl.monitor({
-		output = name,
-		mode = "preferred",
-		position = string.format("%dx%d", x, 0),
-		scale = m.scale or 1,
-	})
 end
 
 -- Catch monitors already connected at startup
@@ -65,44 +59,80 @@ end
 local existing = hl.get_monitors()
 if existing then
 	table.sort(existing, function(a, b)
-		if a.name == "eDP-1" then
-			return true
-		end
-		if b.name == "eDP-1" then
-			return false
-		end
+		if a.name == "eDP-1" then return true end
+		if b.name == "eDP-1" then return false end
 		return false
 	end)
 	for _, m in ipairs(existing) do
 		add_monitor(m.name)
 	end
-	-- Position eDP-1 at 0, then everything else to its left
-	for _, m in ipairs(existing) do
-		if m.name == "eDP-1" then
-			hl.monitor({
-				output = m.name,
-				mode = "preferred",
-				position = "0x0",
-				scale = m.scale or 1,
-			})
-			break
-		end
-	end
-	for _, m in ipairs(existing) do
-		if m.name ~= "eDP-1" then
-			position_left_of_all(m.name)
-		end
-	end
+	relayout_monitors()
 end
 
 -- Handle hotplug
 hl.on("monitor.added", function(m)
-	position_left_of_all(m.name)
+	relayout_monitors()
 	add_monitor(m.name)
+
+	-- Restore windows saved from a previous removal of this monitor
+	local saved = saved_windows[m.name]
+	if saved then
+		for ws_id, addrs in pairs(saved) do
+			for _, addr in ipairs(addrs) do
+				if hl.get_window("address:" .. addr) then
+					hl.dispatch(hl.dsp.window.move({ workspace = ws_id, window = "address:" .. addr }))
+				end
+			end
+		end
+		saved_windows[m.name] = nil
+	end
 end)
 
 hl.on("monitor.removed", function(m)
+	-- Move all windows from the removed monitor's workspaces onto eDP-1
+	local mon_entry = nil
+	for _, entry in ipairs(monitors) do
+		if entry.name == m.name then
+			mon_entry = entry
+			break
+		end
+	end
+
+	if mon_entry and mon_entry.name ~= "eDP-1" then
+		local target_base = 0
+		for _, entry in ipairs(monitors) do
+			if entry.name == "eDP-1" then
+				target_base = entry.base
+				break
+			end
+		end
+
+		-- Save windows by workspace ID before moving
+		saved_windows[m.name] = {}
+		for i = 1, WORKSPACES_PER_MONITOR do
+			local ws_id = mon_entry.base + i
+			local windows = hl.get_workspace_windows(ws_id)
+			if windows and #windows > 0 then
+				saved_windows[m.name][ws_id] = {}
+				for _, win in ipairs(windows) do
+					table.insert(saved_windows[m.name][ws_id], win.address)
+				end
+			end
+		end
+
+		for i = 1, WORKSPACES_PER_MONITOR do
+			local ws_id = mon_entry.base + i
+			local windows = hl.get_workspace_windows(ws_id)
+			if windows then
+				for _, win in ipairs(windows) do
+					hl.dispatch(hl.dsp.window.move({ workspace = target_base + i, window = win }))
+				end
+			end
+		end
+	end
+
 	remove_monitor(m.name)
+	relayout_monitors()
 end)
 
 -- Fallback for unknown monitors
