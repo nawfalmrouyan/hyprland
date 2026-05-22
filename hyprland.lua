@@ -873,19 +873,34 @@ local dispatch_window = {
 
 	-- mark, unmark and focus marked window
 	{
-		key = "Apostrophe",
-		action = hl.dsp.window.tag({ tag = "+mark" }),
-		desc = "Mark focused window",
+		key = "SHIFT + Apostrophe",
+		action = hl.dsp.window.tag({ tag = "+mark1" }),
+		desc = "Tag mark1 focused window",
 	},
 	{
-		key = "SHIFT + Apostrophe",
-		action = hl.dsp.window.tag({ tag = "-mark" }),
-		desc = "Mark focused window",
+		key = "CTRL + Apostrophe",
+		action = hl.dsp.window.tag({ tag = "-mark1" }),
+		desc = "Untag mark1 focused window",
+	},
+	{
+		key = "Apostrophe",
+		action = hl.dsp.focus({ window = "tag:mark1" }),
+		desc = "Focus tag:mark1 window",
+	},
+	{
+		key = "SHIFT + Semicolon",
+		action = hl.dsp.window.tag({ tag = "+mark2" }),
+		desc = "Tag mark2 focused window",
+	},
+	{
+		key = "CTRL + Semicolon",
+		action = hl.dsp.window.tag({ tag = "-mark2" }),
+		desc = "Untag mark2 focused window",
 	},
 	{
 		key = "Semicolon",
-		action = hl.dsp.focus({ window = "tag:mark" }),
-		desc = "Focus marked window",
+		action = hl.dsp.focus({ window = "tag:mark2" }),
+		desc = "Focus tag:mark2 window",
 	},
 	{
 		key = "SHIFT + Comma",
