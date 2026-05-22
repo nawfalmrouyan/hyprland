@@ -1081,26 +1081,52 @@ hl.bind(
 	{ mouse = true }
 )
 
--- Zoom
-hl.bind(mainMod .. " + mouse_down", function()
-	local zoomFactor = hl.get_config("cursor.zoom_factor")
-	if zoomFactor >= 10 then
-		return 10
-	end
-	hl.config({
-		cursor = { zoom_factor = zoomFactor + 0.5 },
-	})
-end, { repeating = true })
+local throttled = false
 
-hl.bind(mainMod .. " + mouse_up", function()
-	local zoomFactor = hl.get_config("cursor.zoom_factor")
-	if zoomFactor <= 1 then
-		return 1
+local function throttled_dsp(dsp)
+	return function()
+		if throttled then
+			return
+		end
+		throttled = true
+		hl.dispatch(dsp)
+		hl.timer(function()
+			throttled = false
+		end, {
+			timeout = 200,
+			type = "oneshot",
+		})
 	end
-	hl.config({
-		cursor = { zoom_factor = zoomFactor - 0.5 },
-	})
-end, { description = "Zoom out", repeating = true })
+end
+
+-- Zoom
+hl.bind(
+	mainMod .. " + mouse_down",
+	throttled_dsp(function()
+		local zoomFactor = hl.get_config("cursor.zoom_factor")
+		if zoomFactor >= 10 then
+			return 10
+		end
+		hl.config({
+			cursor = { zoom_factor = zoomFactor + 0.5 },
+		})
+	end),
+	{ description = "Zoom in" }
+)
+
+hl.bind(
+	mainMod .. " + mouse_up",
+	throttled_dsp(function()
+		local zoomFactor = hl.get_config("cursor.zoom_factor")
+		if zoomFactor <= 1 then
+			return 1
+		end
+		hl.config({
+			cursor = { zoom_factor = zoomFactor - 0.5 },
+		})
+	end),
+	{ description = "Zoom out" }
+)
 
 hl.bind(mainMod .. " + SHIFT + mouse_down", function()
 	hl.config({ cursor = { zoom_factor = 5 } })
@@ -1109,6 +1135,28 @@ end, { description = "Reset zoom factor" })
 hl.bind(mainMod .. " + SHIFT + mouse_up", function()
 	hl.config({ cursor = { zoom_factor = 1 } })
 end, { description = "Reset zoom factor" })
+
+hl.bind(
+	mainMod .. " + CTRL + mouse_down",
+	throttled_dsp(hl.dsp.layout("move -col")),
+	{ description = "Scroll windows right" }
+)
+hl.bind(
+	mainMod .. " + CTRL + mouse_up",
+	throttled_dsp(hl.dsp.layout("move +col")),
+	{ description = "Scroll windows left" }
+)
+
+-- Allows dragging Picture-in-Picture windows with middle mouse drag and without holding SUPER
+hl.bind("mouse:274", function()
+	local active = hl.get_active_window()
+	if active ~= nil and active.title == "Picture-in-Picture" then
+		hl.dispatch(hl.dsp.window.drag())
+	end
+end, {
+	mouse = true,
+	non_consuming = true,
+})
 
 -- The second bind is redundant but I'm used to it in DWM
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
