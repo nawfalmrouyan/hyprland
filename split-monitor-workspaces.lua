@@ -38,7 +38,9 @@ local function position_left_of_all(name)
 			break
 		end
 	end
-	if not m then return end
+	if not m then
+		return
+	end
 
 	local leftmost_x = 0
 	for _, mon in ipairs(all) do
@@ -63,8 +65,12 @@ end
 local existing = hl.get_monitors()
 if existing then
 	table.sort(existing, function(a, b)
-		if a.name == "eDP-1" then return true end
-		if b.name == "eDP-1" then return false end
+		if a.name == "eDP-1" then
+			return true
+		end
+		if b.name == "eDP-1" then
+			return false
+		end
 		return false
 	end)
 	for _, m in ipairs(existing) do
