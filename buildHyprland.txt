@@ -10,3 +10,5 @@ hyprwire
 hyprtoolkit
 hyprland-guiutils-git
 hyprland
+
+hl.bind("SHIFT + F6", hl.dsp.exec_cmd([[hyprctl eval 'hl.config({ general = { layout = "dwindle" } })']]))
