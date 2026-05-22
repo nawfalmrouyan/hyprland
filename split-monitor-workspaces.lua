@@ -16,7 +16,7 @@ local function add_monitor(name)
 	table.insert(monitors, { name = name, base = base })
 
 	for i = 1, WORKSPACES_PER_MONITOR do
-		hl.workspace_rule({ workspace = base + i, monitor = name })
+		hl.workspace_rule({ workspace = tostring(base + i), monitor = name })
 	end
 end
 
