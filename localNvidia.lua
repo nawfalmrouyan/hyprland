@@ -6,9 +6,6 @@
 
 local mainMod = "SUPER"
 local confDir = "/home/opal/.config/hypr"
-local scriptsDir = confDir .. "/scripts"
-local prime =
-	"LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1"
 
 hl.env("NVD_GPU", "0")
 hl.env("MOZ_DISABLE_RDD_SANDBOX", "1")
@@ -25,12 +22,19 @@ hl.config({
 	},
 })
 
--- hl.bind(
---   mainMod .. " + W",
---   hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus-lua.sh class zen " .. prime .. " zen-browser"),
---   { description = "(hypr-cycle-focus) Open Zen Browser" }
--- )
--- hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(prime .. "zen-browser"), { description = "Open Zen Browser" })
+local focus = require("modules.cycle")
+
+local class_binds = {
+	{ key = "W", class = "zen", exec = "LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1 zen-browser" },
+}
+
+for _, b in ipairs(class_binds) do
+	hl.bind(mainMod .. " + " .. b.key, function()
+		focus.cycle(b)
+	end, {
+		description = "Cycle focus by class: " .. b.class,
+	})
+end
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("sudo setkeycodes e057 240 e058 240")

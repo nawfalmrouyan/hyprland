@@ -1,6 +1,20 @@
 local mainMod = "SUPER"
 local confDir = "/home/opal/.config/hypr"
 
+local focus = require("modules.cycle")
+
+local class_binds = {
+	{ key = "W", class = "zen", exec = "zen-browser" },
+}
+
+for _, b in ipairs(class_binds) do
+	hl.bind(mainMod .. " + " .. b.key, function()
+		focus.cycle(b)
+	end, {
+		description = "Cycle focus by class: " .. b.class,
+	})
+end
+
 hl.bind(
   "xf86calculator",
   hl.dsp.exec_cmd("vicinae vicinae://launch/calculator/history"),

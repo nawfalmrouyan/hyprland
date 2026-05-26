@@ -1,5 +1,8 @@
 local function getHostname()
 	local f = io.popen("/bin/hostnamectl hostname")
+	if f == nil then
+		return
+	end
 	local hostname = f:read("*a") or ""
 	f:close()
 	hostname = string.gsub(hostname, "\n$", "")
@@ -138,11 +141,13 @@ hl.config({
 		hide_on_touch = true,
 		hide_on_key_press = true,
 		persistent_warps = true,
+		warp_back_after_non_mouse_input = true,
 		warp_on_change_workspace = 1,
 		warp_on_toggle_special = 1,
 		default_monitor = "HDMI-A-1",
 		no_hardware_cursors = 2,
 		use_cpu_buffer = 2,
+		zoom_rigid = true,
 	},
 
 	binds = {
@@ -1178,7 +1183,6 @@ end)
 
 -- MRU cycle focus by class/title
 local class_binds = {
-	{ key = "W", class = "zen", exec = "zen-browser" },
 	{ key = "T", class = "kittyterminal", exec = "kitty -1 --class=kittyterminal -e sesh connect stuff" },
 	{
 		key = "R",
