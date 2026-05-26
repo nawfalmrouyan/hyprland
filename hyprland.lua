@@ -360,7 +360,7 @@ local layer_rules = {
 		animation = "popin",
 	},
 	{
-		match = { namespace = "ghostty-quick-terminal|kitty-quick-access" },
+		match = { namespace = "vicinae|ghostty-quick-terminal|kitty-quick-access" },
 		blur = true,
 		above_lock = 2,
 		no_screen_share = true,
@@ -387,7 +387,7 @@ end
 local window_rules = {
 	{
 		name = "term window width",
-		match = { class = "^(kitty|kittyterminal|footclient)$" },
+		match = { class = "^(explorer|kitty|kittyterminal|footclient)$" },
 		scrolling_width = 0.5,
 	},
 
