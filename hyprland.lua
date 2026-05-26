@@ -1274,7 +1274,7 @@ local startup_cmds = {
 	"systemctl --user start foot-server",
 	-- "wayscriber --daemon",
 	"dms run --session",
-	"hyprctl plugin load /home/opal/Projects/hyprview/hyprview.so",
+	-- "hyprctl plugin load /home/opal/Projects/hyprview/hyprview.so",
 }
 
 local shutdown_cmds = {
@@ -1297,4 +1297,4 @@ hl.on("hyprland.shutdown", function()
 	end
 end)
 
-require("hyprview")
+-- require("hyprview")
