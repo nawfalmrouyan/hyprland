@@ -96,8 +96,7 @@ for _, rule in ipairs(on_created_empty) do
 	})
 end
 
-hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
-hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 0, rounding = 0 })
+hl.workspace_rule({ workspace = "w[tv1]", border_size = 0, gaps_out = 0, gaps_in = 0 })
 
 hl.config({
 	input = {
@@ -412,6 +411,12 @@ local window_rules = {
 		name = "focused_border",
 		match = { focus = true },
 		border_size = 3
+	},
+	{
+		name = "wtv1",
+		match = { float = false, workspace = "w[tv1]" },
+		border_size = 0,
+		rounding = 0,
 	},
   {
     name  = "steamgames",
