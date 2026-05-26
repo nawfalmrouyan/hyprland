@@ -49,6 +49,8 @@ function M.swap()
 hl.timer(function()
         swap_workspace_ids(current_ws, other_ws)
     end, { timeout = 50, type = "oneshot"})
+
+    hl.exec_cmd("hyprctl reload")
 end
 
 return M
