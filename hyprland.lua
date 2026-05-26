@@ -698,7 +698,7 @@ local exec_cmd = {
 	-- terminals / apps
 	{
 		key = "SHIFT + T",
-		cmd = "kitty -1 -T Projects -e sesh connect Projects",
+		cmd = "kitty -1 --class=kittyterminal -T Projects -e sesh connect Projects",
 		desc = "Open Terminal with TMUX session:Projects",
 	},
 	{
