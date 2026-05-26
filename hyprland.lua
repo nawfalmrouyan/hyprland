@@ -172,11 +172,11 @@ hl.config({
 	general = {
 		gaps_in = 3,
 		gaps_out = 3,
-		border_size = 0,
+		border_size = 3,
 		resize_on_border = false,
 		col = {
 			active_border = mauve,
-			inactive_border = blue,
+			inactive_border = "rgba(00000000)",
 		},
 		gaps_workspaces = 5,
 		float_gaps = 3,
@@ -408,11 +408,11 @@ for _, rule in ipairs(layer_rules) do
 end
 
 local window_rules = {
-	{
-		name = "all_focused_border",
-		match = { focus = true },
-		border_size = 3
-	},
+	-- {
+	-- 	name = "all_focused_border",
+	-- 	match = { focus = true },
+	-- 	border_size = 3
+	-- },
 	{
 		name = "sigle_window_focused_border",
 		match = { focus = true, workspace = "w[t1]" },
