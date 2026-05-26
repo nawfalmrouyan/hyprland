@@ -23,7 +23,7 @@ function M.swap()
     local monitors = hl.get_monitors()
 
     if #monitors ~= 2 then
-        hl.notify("Exactly two monitors are required.")
+        hl.notification.create({ text = "Exactly two monitors are required.", timeout = 3000, icon = "error"})
         return
     end
 
