@@ -170,7 +170,6 @@ hl.config({
 		border_size = 0,
 		resize_on_border = false,
 		col = {
-			-- active_border = { colors = { mauve, blue }, angle = 45 },
 			active_border = mauve,
 		},
 		gaps_workspaces = 5,
@@ -194,11 +193,9 @@ hl.config({
 		},
 
 		groupbar = {
-			font_family = "Pragmasevka Aile SmBd Cn",
 			keep_upper_gap = false,
 			indicator_height = 9,
 			blur = true,
-			font_size = 15,
 			gradients = false,
 			render_titles = false,
 			rounding = 5,
@@ -415,6 +412,11 @@ local window_rules = {
 		match = { focus = true, workspace = "s[true]" },
 		border_size = 3
 	},
+	{
+		name = "movetag_border",
+		match = { tag = "movetag" },
+		border_size = 3
+	},
   {
     name  = "steamgames",
     match = { class = "steam_app_.*"},
@@ -534,11 +536,13 @@ local window_rules = {
 
 	{
 		border_size = 0,
+		rounding = 0,
 		match = { fullscreen = true },
 	},
 
 	{
 		border_size = 0,
+		rounding = 0,
 		match = { fullscreen_state_internal = 1, fullscreen_state_client = 2 },
 	},
 
