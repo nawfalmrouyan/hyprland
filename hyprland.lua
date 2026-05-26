@@ -97,8 +97,7 @@ for _, rule in ipairs(on_created_empty) do
 end
 
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
-hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 0 })
-hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, rounding = 0 })
+hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 0, rounding = 0 })
 
 hl.config({
 	input = {
@@ -168,14 +167,12 @@ hl.config({
 
 	general = {
 		gaps_in = 3,
-		gaps_out = 3,
-		border_size = 3,
+		gaps_out = 7,
+		border_size = 0,
 		resize_on_border = false,
 		col = {
-			active_border = { colors = { mauve, blue }, angle = 45 },
-			-- Unfocused window border color (fully transparent)
-			-- inactive_border = "rgba(00000000)",
-			inactive_border = { colors = { overlay2, overlay0 }, angle = 45 },
+			-- active_border = { colors = { mauve, blue }, angle = 45 },
+			active_border = mauve,
 		},
 		gaps_workspaces = 5,
 		float_gaps = 3,
@@ -193,13 +190,10 @@ hl.config({
 
 	group = {
 		col = {
-			border_active = { colors = { mauve, blue }, angle = 45 },
-			border_locked_active = { colors = { mauve, blue }, angle = 45 },
-			-- Unfocused window border color (fully transparent)
-			-- border_inactive = "rgba(00000000)",
-			-- border_locked_inactive = "rgba(00000000)",
-			border_inactive = { colors = { overlay2, overlay0 }, angle = 45 },
-			border_locked_inactive = { colors = { overlay2, overlay0 }, angle = 45 },
+			-- border_active = { colors = { mauve, blue }, angle = 45 },
+			-- border_locked_active = { colors = { mauve, blue }, angle = 45 },
+			border_active = mauve,
+			border_locked_active = mauve,
 		},
 
 		groupbar = {
@@ -216,8 +210,6 @@ hl.config({
 			disable_when_only = true,
 			col = {
 				active = mauve,
-				-- Unfocused window border color (fully transparent)
-				-- inactive = "rgba(00000000)",
 				locked_inactive = blue,
 				locked_active = mauve,
 			},
@@ -288,18 +280,18 @@ hl.config({
 })
 
 -- spring
-hl.curve("easy2", { type = "spring", mass = 1, stiffness = 1000.1191, dampening = 20.9 })
+hl.curve("easy2", { type = "spring", mass = 1, stiffness = 1000.1191, dampening = 33.9 })
 hl.curve("easy", { type = "spring", mass = 1, stiffness = 213.7989, dampening = 25.6978877 })
 
 local spring_animations = {
-	-- { leaf = "workspacesIn", style = "slidevert", spring = "easy2", speed = 1 },
-	-- { leaf = "workspacesOut", style = "slidevert", spring = "easy2", speed = 1 },
-	-- { leaf = "specialWorkspaceIn", style = "slidevert", spring = "easy2", speed = 1 },
-	-- { leaf = "specialWorkspaceOut", style = "slidevert", spring = "easy2", speed = 1 },
-	-- { leaf = "windowsIn", style = "popin", spring = "easy2", speed = 1 },
-	-- { leaf = "windowsOut", style = "slide", spring = "easy2", speed = 1 },
-	-- { leaf = "layersIn", style = "slide", spring = "easy2", speed = 1 },
-	-- { leaf = "layersOut", style = "slide", spring = "easy2", speed = 1 },
+	{ leaf = "workspacesIn", style = "slidevert", spring = "easy2", speed = 1 },
+	{ leaf = "workspacesOut", style = "slidevert", spring = "easy2", speed = 1 },
+	{ leaf = "specialWorkspaceIn", style = "slidevert", spring = "easy2", speed = 1 },
+	{ leaf = "specialWorkspaceOut", style = "slidevert", spring = "easy2", speed = 1 },
+	{ leaf = "windowsIn", style = "popin", spring = "easy2", speed = 1 },
+	{ leaf = "windowsOut", style = "slide", spring = "easy2", speed = 1 },
+	{ leaf = "layersIn", style = "popin", spring = "easy2", speed = 1 },
+	{ leaf = "layersOut", style = "popin", spring = "easy2", speed = 1 },
 }
 
 for _, a in ipairs(spring_animations) do
@@ -341,14 +333,14 @@ local bezier_animations = {
 	{ leaf = "border", bezier = "overshot", speed = 10 },
 	{ leaf = "borderangle", style = "loop", bezier = "linear", speed = 100 },
 
-	{ leaf = "workspacesIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
-	{ leaf = "workspacesOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
-	{ leaf = "windowsIn", style = "popin 85%", bezier = "bounce", speed = 3 },
-	{ leaf = "windowsOut", style = "popin 85%", bezier = "bounce", speed = 3 },
-	{ leaf = "layersIn", style = "slide 90%", bezier = "bounce", speed = 3 },
-	{ leaf = "layersOut", style = "slide 90%", bezier = "bounce", speed = 3 },
-	{ leaf = "specialWorkspaceIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
-	{ leaf = "specialWorkspaceOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	-- { leaf = "workspacesIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	-- { leaf = "workspacesOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	-- { leaf = "windowsIn", style = "popin 85%", bezier = "bounce", speed = 3 },
+	-- { leaf = "windowsOut", style = "popin 85%", bezier = "bounce", speed = 3 },
+	-- { leaf = "layersIn", style = "slide 90%", bezier = "bounce", speed = 3 },
+	-- { leaf = "layersOut", style = "slide 90%", bezier = "bounce", speed = 3 },
+	-- { leaf = "specialWorkspaceIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	-- { leaf = "specialWorkspaceOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
 }
 
 for _, a in ipairs(bezier_animations) do
@@ -416,6 +408,11 @@ for _, rule in ipairs(layer_rules) do
 end
 
 local window_rules = {
+	{
+		name = "focused_border",
+		match = { focus = true },
+		border_size = 3
+	},
   {
     name  = "steamgames",
     match = { class = "steam_app_.*"},
@@ -529,7 +526,8 @@ local window_rules = {
 	},
 
 	{
-		border_color = { colors = { mauve, blue }, angle = 45 },
+		-- border_color = { colors = { mauve, blue }, angle = 45 },
+		border_color = mauve,
 		match = { float = true },
 	},
 
@@ -554,10 +552,10 @@ local window_rules = {
 		float = true,
 	},
 
-	-- {
-	-- 	float = true,
-	-- 	match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" },
-	-- },
+	{
+		float = true,
+		match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" },
+	},
 
 	{
 		name = "steam",
@@ -567,13 +565,6 @@ local window_rules = {
 		center = true,
 		size = { 1600, 960 },
 	},
-
-	-- {
-	-- 	name = "torchlight2",
-	-- 	match = { class = "Torchlight2.bin.x86_64", title = "(Torchlight II v.25.5.4)" },
-	-- 	fullscreen = true,
-	-- 	content = "game",
-	-- },
 
 	{
 		name = "idle-inhibit-apps",
@@ -700,13 +691,6 @@ local window_rules = {
 		scrolling_width = 0.5,
 	},
 
-	-- {
-	-- 	name = "enable-tearing",
-	-- 	match = { title = "(Grim Dawn)" },
-	-- 	immediate = true,
-	-- 	content = "game",
-	-- },
-
 	{
 		name = "suppressevent-maximize",
 		match = { class = ".*" },
@@ -739,6 +723,7 @@ local screen_share_rules = hl.window_rule({
 	no_screen_share = true,
 })
 
+-- toggle screen share on/off for noscreenshare-general window rule
 hl.bind(mainMod .. " + SHIFT + O", function()
 	if screen_share_rules:is_enabled() then
 		screen_share_rules:set_enabled(false)
@@ -748,7 +733,6 @@ hl.bind(mainMod .. " + SHIFT + O", function()
 end, { description = "Toggle screen share" })
 
 local exec_cmd = {
-	-- terminals / apps
 	{
 		key = "SHIFT + T",
 		cmd = "kitty -1 --class=kittyterminal -T Projects -e sesh connect Projects",
@@ -786,11 +770,6 @@ local exec_cmd = {
 		cmd = "ROFI_PASS_CONFIG='" .. confDir .. "/rofi-pass/config' rofi-pass",
 		desc = "Open rofi-pass",
 	},
-	-- {
-	-- 	key = "SHIFT + U",
-	-- 	cmd = "rofi-beats",
-	-- 	desc = "Open Rofi Radio Stream",
-	-- },
 	{
 		key = "Grave",
 		cmd = "vicinae vicinae://launch/wm/switch-windows",
@@ -935,18 +914,6 @@ local dispatch_window = {
 for _, b in ipairs(dispatch_window) do
 	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc, universal_submap = true })
 end
-
--- local dispatch_group = {
--- 	{
--- 		key = "Tab",
--- 		action = hl.dsp.group.next(),
--- 		desc = "Cycle windows in a group",
--- 	},
--- }
---
--- for _, b in ipairs(dispatch_group) do
--- 	hl.bind(mainMod .. " + " .. b.key, b.action, { description = b.desc, universal_submap = true })
--- end
 
 -- Group binds
 hl.bind(mainMod .. " + G", function()
@@ -1149,10 +1116,7 @@ end, {
 	non_consuming = true,
 })
 
--- The second bind is redundant but I'm used to it in DWM
--- hl.bind(mainMod .. " + SHIFT + CTRL + comma", hl.dsp.workspace.swap_monitors({ monitor1 = "-1", monitor2 = "1" }))
--- hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
-
+-- swap workspaces across monitors
 local ws_swap = require("modules.workspace_swap")
 hl.bind(mainMod .. " + SHIFT + CTRL + comma", function()
 	ws_swap.swap()
@@ -1182,7 +1146,6 @@ hl.bind("switch:off:[Lid Switch]", function()
 end)
 
 -- MRU cycle focus by class/title
-
 local class_binds = {
 	{ key = "W", class = "zen", exec = "zen-browser" },
 	{ key = "T", class = "kittyterminal", exec = "kitty -1 --class=kittyterminal -e sesh connect stuff" },
@@ -1266,7 +1229,6 @@ local startup_cmds = {
 	"hyprpm reload",
 	"systemctl --user start vicinae",
 	"systemctl --user start hypridle",
-	-- "systemctl --user start foot-server",
 	-- "wayscriber --daemon",
 	"dms run --session",
 }
@@ -1274,7 +1236,6 @@ local startup_cmds = {
 local shutdown_cmds = {
 	"systemctl --user stop hypridle",
 	"systemctl --user stop vicinae",
-	-- "systemctl --user stop foot-server",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
 }
