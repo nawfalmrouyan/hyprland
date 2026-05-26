@@ -19,15 +19,9 @@ function Cycle_focus(data)
 		return
 	end
 
-	-- if data.class == "zen" then
-	-- 	table.sort(windows, function(a, b)
-	-- 		return a.focus_history_id > b.focus_history_id
-	-- 	end)
-	-- else
 	table.sort(windows, function(a, b)
 		return a.focus_history_id < b.focus_history_id
 	end)
-	-- end
 
 	if hl.get_active_window().initial_class == windows[1].initial_class then
 		hl.dispatch(hl.dsp.focus({ window = "address:" .. windows[#windows].address }))
