@@ -1165,7 +1165,8 @@ local class_binds = {
 		class = "teams-for-linux",
 		exec = "/opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto",
 	},
-	{ key = "A", class = "outlook-for-linux", exec = "/opt/outlook-for-linux/outlook-for-linux" },
+	-- { key = "A", class = "outlook-for-linux", exec = "/opt/outlook-for-linux/outlook-for-linux" },
+	{ key = "A", class = "Prospect Mail", exec = "prospect-mail" },
 	{ key = "Z", class = "Apache Directory Studio", exec = "/opt/ApacheDirectoryStudio/ApacheDirectoryStudio" },
 	{
 		key = "SHIFT + A",
