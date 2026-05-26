@@ -261,6 +261,7 @@ hl.config({
 
 	render = {
 		new_render_scheduling = true,
+		expand_undersized_textures = false,
 	},
 })
 
@@ -781,6 +782,7 @@ local exec_cmd = {
 	{ key = "SHIFT + N", cmd = "kitty -1 -T btop -e nvtop", desc = "Open nvtop" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
 	{ key = "CTRL + E", cmd = "kitty -1 -T yazi -e yazi", desc = "Open yazi" },
+	{ key = "CTRL + P", cmd = "dms ipc wallpaperCarousel toggle", desc = "Toggle wallpaperCarousel" },
 
 	-- screenshots
 	-- key with a space at the beginning is a bind without using the mainMod.
