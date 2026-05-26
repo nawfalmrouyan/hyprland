@@ -17,6 +17,8 @@ local envs = {
 	{ "QT_QPA_PLATFORMTHEME_QT6", "gtk3" },
 	{ "QT_QPA_PLATFORM", "wayland" },
 	{ "QT_AUTO_SCREEN_SCALE_FACTOR", "1" },
+	{ "QT_ENABLE_HIGHDPI_SCALING", "1" },
+	{ "QT_SCALE_FACTOR_ROUNDING_POLICY", "RoundPreferFloor" },
 	{ "QT_WAYLAND_DISABLE_WINDOWDECORATION", "1" },
 	{ "MOZ_ENABLE_WAYLAND", "1" },
 	{ "GDK_BACKEND", "wayland,x11,*" },
@@ -39,6 +41,7 @@ local envs = {
 	{ "XDG_SESSION_DESKTOP", "Hyprland" },
 	{ "TERMINAL", "kitty" },
 	{ "GTK_USE_PORTAL", "1" },
+	{ "GTK_DECORATION_LAYOUT", "" },
 }
 
 for _, env in ipairs(envs) do
@@ -1209,10 +1212,14 @@ else
 end
 
 local startup_cmds = {
+	-- firefox use xdg-desktop-portal.file-picker
+	-- widget.use-xdg-desktop-portal.file-picker = 1
+	
 	-- Remove button layouts on libadwaita apps. To undo:
 	-- gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 	"gsettings set org.gnome.desktop.wm.preferences button-layout ':'",
 	"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
+	-- "dbus-update-activation-environment --systemd --all",
 	"jamesdsp --tray",
 	"hyprpm reload",
 	"systemctl --user start vicinae",
