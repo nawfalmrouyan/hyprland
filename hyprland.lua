@@ -1069,7 +1069,7 @@ end
 
 -- Zoom
 hl.bind(
-	mainMod .. " + mouse_down",
+	mainMod .. " + mouse_up",
 	throttled_dsp(function()
 		local zoomFactor = hl.get_config("cursor.zoom_factor")
 		if zoomFactor >= 10 then
