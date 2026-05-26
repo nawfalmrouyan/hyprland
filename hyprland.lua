@@ -96,7 +96,7 @@ for _, rule in ipairs(on_created_empty) do
 	})
 end
 
-hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "w[tv1]", no_border = true, no_rounding = true, gaps_out = 0, gaps_in = 0 })
 
 hl.config({
 	input = {
