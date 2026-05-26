@@ -166,11 +166,12 @@ hl.config({
 
 	general = {
 		gaps_in = 3,
-		gaps_out = 7,
+		gaps_out = 3,
 		border_size = 0,
 		resize_on_border = false,
 		col = {
 			active_border = mauve,
+			inactive_border = blue,
 		},
 		gaps_workspaces = 5,
 		float_gaps = 3,
@@ -403,14 +404,14 @@ end
 
 local window_rules = {
 	{
-		name = "focused_border",
-		match = { focus = true, workspace = "w[tv2-50]" },
+		name = "all_focused_border",
+		match = { focus = true },
 		border_size = 3
 	},
 	{
-		name = "focused_border_special",
-		match = { focus = true, workspace = "s[true]" },
-		border_size = 3
+		name = "sigle_window_focused_border",
+		match = { focus = true, workspace = "w[t1]" },
+		border_size = 0
 	},
 	{
 		name = "movetag_border",
