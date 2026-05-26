@@ -1131,9 +1131,10 @@ end, {
 -- hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
 
 local ws_swap = require("modules.workspace_swap")
-hl.bind( mainMod .. " + SHIFT + CTRL + comma", function()
-  ws_swap.swap()
-end,
+hl.bind( mainMod .. " + SHIFT + CTRL + comma", function() ws_swap.swap() end,
+	{ description = "Swap workspaces between monitors", submap_universal = true }
+)
+hl.bind( mainMod .. " + SHIFT + CTRL + period", function() ws_swap.swap() end,
 	{ description = "Swap workspaces between monitors", submap_universal = true }
 )
 
