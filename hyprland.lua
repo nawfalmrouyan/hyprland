@@ -96,7 +96,7 @@ for _, rule in ipairs(on_created_empty) do
 	})
 end
 
-hl.workspace_rule({ workspace = "w[tv1]", border_size = 0, gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
 
 hl.config({
 	input = {
@@ -189,8 +189,6 @@ hl.config({
 
 	group = {
 		col = {
-			-- border_active = { colors = { mauve, blue }, angle = 45 },
-			-- border_locked_active = { colors = { mauve, blue }, angle = 45 },
 			border_active = mauve,
 			border_locked_active = mauve,
 		},
@@ -409,14 +407,13 @@ end
 local window_rules = {
 	{
 		name = "focused_border",
-		match = { focus = true },
+		match = { focus = true, workspace = "w[tv2-50]" },
 		border_size = 3
 	},
 	{
-		name = "wtv1",
-		match = { float = false, workspace = "w[tv1]" },
-		border_size = 0,
-		rounding = 0,
+		name = "focused_border_special",
+		match = { focus = true, workspace = "s[true]" },
+		border_size = 3
 	},
   {
     name  = "steamgames",
@@ -531,7 +528,6 @@ local window_rules = {
 	},
 
 	{
-		-- border_color = { colors = { mauve, blue }, angle = 45 },
 		border_color = mauve,
 		match = { float = true },
 	},
@@ -1168,7 +1164,6 @@ local class_binds = {
 		exec = "brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
 	},
 	{ key = "8", class = "toipe", exec = "kitty --class=toipe -o font_size=17 -e toofan" },
-	-- { key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland" },
 	{ key = "CTRL + W", class = "microsoft-edge", exec = "microsoft-edge-stable" },
 	{ key = "E", class = "explorer", exec = "kitty -1 --class=explorer -T explorer -e yazi" },
 }
@@ -1229,7 +1224,6 @@ local startup_cmds = {
 	-- gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 	"gsettings set org.gnome.desktop.wm.preferences button-layout ':'",
 	"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
-	-- "dbus-update-activation-environment --systemd --all",
 	"jamesdsp --tray",
 	"hyprpm reload",
 	"systemctl --user start vicinae",
