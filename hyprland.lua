@@ -199,6 +199,7 @@ hl.config({
 			font_size = 15,
 			gradients = false,
 			render_titles = false,
+			-- disable_when_only = true,
 			col = {
 				active = mauve,
 				-- Unfocused window border color (fully transparent)
@@ -292,12 +293,8 @@ for name, curve in pairs(curves) do
 	hl.curve(name, curve)
 end
 
-hl.curve("easy", {
-	type = "spring",
-	mass = 1,
-	stiffness = 238.1191,
-	dampening = 24.21279333,
-})
+hl.curve("easy2", { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
+hl.curve("easy", { type = "spring", mass = 1, stiffness = 213.7989, dampening = 27.6978877 })
 
 local animations = {
 	{ leaf = "layersIn", style = "slide 90%", bezier = "bounce", speed = 3 },
@@ -1131,12 +1128,12 @@ end, {
 -- hl.bind(mainMod .. " + SHIFT + CTRL + period", hl.dsp.workspace.swap_monitors({ monitor1 = "1", monitor2 = "+1" }))
 
 local ws_swap = require("modules.workspace_swap")
-hl.bind( mainMod .. " + SHIFT + CTRL + comma", function() ws_swap.swap() end,
-	{ description = "Swap workspaces between monitors", submap_universal = true }
-)
-hl.bind( mainMod .. " + SHIFT + CTRL + period", function() ws_swap.swap() end,
-	{ description = "Swap workspaces between monitors", submap_universal = true }
-)
+hl.bind(mainMod .. " + SHIFT + CTRL + comma", function()
+	ws_swap.swap()
+end, { description = "Swap workspaces between monitors", submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + CTRL + period", function()
+	ws_swap.swap()
+end, { description = "Swap workspaces between monitors", submap_universal = true })
 
 -- focus monitor.
 hl.bind(
@@ -1236,7 +1233,6 @@ local startup_cmds = {
 	-- "systemctl --user start foot-server",
 	-- "wayscriber --daemon",
 	"dms run --session",
-	-- "hyprctl plugin load /home/opal/Projects/hyprview/hyprview.so",
 }
 
 local shutdown_cmds = {
@@ -1260,4 +1256,3 @@ hl.on("hyprland.shutdown", function()
 end)
 
 require("scrolloverview")
-
