@@ -13,5 +13,6 @@ hyprland-git
 hypridle-git
 hyprquickframe-git
 quicksnip-git
+hyprhalt
 
 hl.bind("SHIFT + F6", hl.dsp.exec_cmd([[hyprctl eval 'hl.config({ general = { layout = "dwindle" } })']]))
