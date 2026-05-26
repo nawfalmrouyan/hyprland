@@ -943,6 +943,31 @@ hl.bind(mainMod .. " + SHIFT + B", function()
 	})
 end, { description = "Toggle Game Mode" })
 
+-- Toggle mic in Teams / Google Meet based on the focused window
+-- Teams (teams-for-linux): Ctrl+Shift+M  |  Google Meet (browser): Ctrl+D
+hl.bind(mainMod .. " + CTRL + M", function()
+	local active = hl.get_active_window()
+	if not active then
+		return
+	end
+
+	local class = active.class or ""
+	local title = active.title or ""
+
+	local shortcut
+	local mods
+
+	if class:match("teams%-for%-linux") then
+		shortcut, mods = "M", "CTRL SHIFT"
+	elseif title:match("Meet") then
+		shortcut, mods = "D", "CTRL"
+	else
+		return
+	end
+
+	hl.dispatch(hl.dsp.send_shortcut({ mods = mods, key = shortcut }))
+end, { description = "Toggle mic (Teams: Ctrl+Shift+M, Meet: Ctrl+D)" })
+
 -- Special Keys
 local media_binds = {
 	{
