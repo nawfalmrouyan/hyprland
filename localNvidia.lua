@@ -8,7 +8,7 @@ local mainMod = "SUPER"
 local confDir = "/home/opal/.config/hypr"
 local scriptsDir = confDir .. "/scripts"
 local prime =
-"LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1"
+	"LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1"
 
 hl.env("NVD_GPU", "0")
 hl.env("MOZ_DISABLE_RDD_SANDBOX", "1")
@@ -20,36 +20,36 @@ hl.env("VDPAU_DRIVER", "nvidia")
 -- hl.env("AQ_DRM_DEVICES", "/dev/dri/card0:/dev/dri/card1")
 
 hl.config({
-  render = {
-    direct_scanout = true,
-  },
+	render = {
+		direct_scanout = true,
+	},
 })
 
-hl.bind(
-  mainMod .. " + W",
-  hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus-lua.sh class zen " .. prime .. " zen-browser"),
-  { description = "(hypr-cycle-focus) Open Zen Browser" }
-)
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(prime .. "zen-browser"), { description = "Open Zen Browser" })
+-- hl.bind(
+--   mainMod .. " + W",
+--   hl.dsp.exec_cmd(scriptsDir .. "/hypr-cycle-focus-lua.sh class zen " .. prime .. " zen-browser"),
+--   { description = "(hypr-cycle-focus) Open Zen Browser" }
+-- )
+-- hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(prime .. "zen-browser"), { description = "Open Zen Browser" })
 
 hl.on("hyprland.start", function()
-  hl.exec_cmd("sudo setkeycodes e057 240 e058 240")
-  hl.exec_cmd("/home/opal/.local/bin/kanata_cmd_allowed -c " .. confDir .. "/kanata/lappy.kbd")
+	hl.exec_cmd("sudo setkeycodes e057 240 e058 240")
+	hl.exec_cmd("/home/opal/.local/bin/kanata_cmd_allowed -c " .. confDir .. "/kanata/lappy.kbd")
 end)
 
 -- DMS brightness binds
 hl.bind(
-  "XF86MonBrightnessUp",
-  hl.dsp.exec_cmd("dms ipc call brightness increment 5 backlight:intel_backlight"),
-  { description = "Brightness Up" }
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd("dms ipc call brightness increment 5 backlight:intel_backlight"),
+	{ description = "Brightness Up" }
 )
 hl.bind(
-  "XF86MonBrightnessDown",
-  hl.dsp.exec_cmd("dms ipc call brightness decrement 5 backlight:intel_backlight"),
-  { description = "Brightness Down" }
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd("dms ipc call brightness decrement 5 backlight:intel_backlight"),
+	{ description = "Brightness Down" }
 )
 hl.bind(
-  "SHIFT + XF86MonBrightnessDown",
-  hl.dsp.exec_cmd("dms ipc call brightness toggleExponential backlight:intel_backlight"),
-  { description = "Toggle Exponential Brightness" }
+	"SHIFT + XF86MonBrightnessDown",
+	hl.dsp.exec_cmd("dms ipc call brightness toggleExponential backlight:intel_backlight"),
+	{ description = "Toggle Exponential Brightness" }
 )
