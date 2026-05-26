@@ -700,7 +700,7 @@ hl.bind(mainMod .. " + SHIFT + O", function()
 	else
 		screen_share_rules:set_enabled(true)
 	end
-end)
+end, { description = "Toggle screen share" })
 
 local exec_cmd = {
 	-- terminals / apps
