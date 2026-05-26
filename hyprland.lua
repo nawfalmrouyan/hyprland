@@ -684,11 +684,11 @@ for _, rule in ipairs(window_rules) do
 end
 
 local screen_share_rules = hl.window_rule({
-		name = "noscreenshare-general",
-		match = {
-			class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
-		},
-		no_screen_share = true,
+	name = "noscreenshare-general",
+	match = {
+		class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
+	},
+	no_screen_share = true,
 })
 
 hl.bind(mainMod .. " + SHIFT + O", function()
