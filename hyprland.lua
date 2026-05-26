@@ -551,14 +551,6 @@ local window_rules = {
 	},
 
 	{
-		name = "noscreenshare-general",
-		match = {
-			class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
-		},
-		no_screen_share = true,
-	},
-
-	{
 		name = "noscreenshare-terminal",
 		match = { title = "noscreenshare" },
 		no_screen_share = true,
@@ -693,6 +685,22 @@ local window_rules = {
 for _, rule in ipairs(window_rules) do
 	hl.window_rule(rule)
 end
+
+local screen_share_rules = hl.window_rule({
+		name = "noscreenshare-general",
+		match = {
+			class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
+		},
+		no_screen_share = true,
+})
+
+hl.bind(mainMod .. " + SHIFT + O", function()
+	if screen_share_rules:is_enabled() then
+		screen_share_rules:set_enabled(false)
+	else
+		screen_share_rules:set_enabled(true)
+	end
+end)
 
 local exec_cmd = {
 	-- terminals / apps
