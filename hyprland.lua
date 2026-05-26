@@ -1130,7 +1130,7 @@ hl.bind(
 )
 
 hl.bind(
-	mainMod .. " + mouse_up",
+	mainMod .. " + mouse_down",
 	throttled_dsp(function()
 		local zoomFactor = hl.get_config("cursor.zoom_factor")
 		if zoomFactor <= 1 then
@@ -1143,21 +1143,21 @@ hl.bind(
 	{ description = "Zoom out" }
 )
 
-hl.bind(mainMod .. " + SHIFT + mouse_down", function()
+hl.bind(mainMod .. " + SHIFT + mouse_up", function()
 	hl.config({ cursor = { zoom_factor = 5 } })
 end, { description = "Reset zoom factor" })
 
-hl.bind(mainMod .. " + SHIFT + mouse_up", function()
+hl.bind(mainMod .. " + SHIFT + mouse_down", function()
 	hl.config({ cursor = { zoom_factor = 1 } })
 end, { description = "Reset zoom factor" })
 
 hl.bind(
-	mainMod .. " + CTRL + mouse_down",
+	mainMod .. " + CTRL + mouse_up",
 	throttled_dsp(hl.dsp.layout("move -col")),
 	{ description = "Scroll windows right" }
 )
 hl.bind(
-	mainMod .. " + CTRL + mouse_up",
+	mainMod .. " + CTRL + mouse_down",
 	throttled_dsp(hl.dsp.layout("move +col")),
 	{ description = "Scroll windows left" }
 )
