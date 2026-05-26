@@ -219,6 +219,10 @@ hl.config({
 		-- dim_special = 0.3,
 		-- dim_around = 0.5,
 
+		motion_blur = {
+			enabled = true,
+		},
+
 		blur = {
 			size = 1,
 			passes = 5,
@@ -249,6 +253,10 @@ hl.config({
 
 	xwayland = {
 		force_zero_scaling = true,
+	},
+
+	render = {
+		new_render_scheduling = true,
 	},
 })
 
