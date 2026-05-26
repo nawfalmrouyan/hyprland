@@ -1,14 +1,17 @@
-hyprland-protocols
-hyprwayland-scanner
-hyprutils
-hyprgraphics
-hyprlang
-hyprcursor
-aquamarine
-xdg-desktop-portal-hyprland
-hyprwire
-hyprtoolkit
+hyprland-protocols-git
+hyprwayland-scanner-git
+hyprutils-git
+hyprgraphics-git
+hyprlang-git
+hyprcursor-git
+aquamarine-git
+xdg-desktop-portal-hyprland-git
+hyprwire-git
+hyprtoolkit-git
 hyprland-guiutils-git
-hyprland
+hyprland-git
+hypridle-git
+hyprquickframe-git
+quicksnip-git
 
 hl.bind("SHIFT + F6", hl.dsp.exec_cmd([[hyprctl eval 'hl.config({ general = { layout = "dwindle" } })']]))
