@@ -728,11 +728,6 @@ local exec_cmd = {
 		desc = "Open Terminal with TMUX session:stuff",
 	},
 	{
-		key = "SHIFT + E",
-		cmd = "nautilus",
-		desc = "Open Nautilus",
-	},
-	{
 		key = "Escape",
 		cmd = "dms ipc powermenu open",
 		desc = "Open Powermenu",
@@ -788,7 +783,6 @@ local exec_cmd = {
 	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open nvim-hypr-anywhere" },
 	{ key = "SHIFT + N", cmd = "kitty -1 -T btop -e nvtop", desc = "Open nvtop" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
-	{ key = "CTRL + E", cmd = "kitty -1 -T yazi -e yazi", desc = "Open yazi" },
 	{ key = "CTRL + P", cmd = "dms ipc wallpaperCarousel toggle", desc = "Toggle wallpaperCarousel" },
 	{ key = "CTRL + T", cmd = "dms ipc typingSounds toggle", desc = "Toggle typingSounds" },
 
@@ -1171,6 +1165,7 @@ local class_binds = {
 	{ key = "8", class = "toipe", exec = "kitty --class=toipe -o font_size=17 -e toofan" },
 	-- { key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland" },
 	{ key = "CTRL + W", class = "microsoft-edge", exec = "microsoft-edge-stable" },
+	{ key = "E", class = "explorer", exec = "kitty -1 --class=explorer -T explorer -e yazi" },
 }
 
 local focus = require("modules.cycle")
@@ -1201,7 +1196,6 @@ local title_binds = {
 		exec = "kitty -1 --class=kittyterminal -T PowerShell -e sesh connect PowerShell",
 	},
 	{ key = "B", title = "btop", exec = "kitty -1 -T btop -e btop" },
-	{ key = "E", title = "explorer", exec = "kitty -1 -T explorer -e yazi" },
 }
 
 for _, b in ipairs(title_binds) do
