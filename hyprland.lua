@@ -424,7 +424,7 @@ local window_rules = {
 		border_size = 3
 	},
   {
-    name  = "steamgames",
+    name  = "tearing_steamgames",
     match = { class = "steam_app_.*"},
     immediate = true
 	},
