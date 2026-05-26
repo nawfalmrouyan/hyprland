@@ -133,7 +133,7 @@ hl.config({
 		swallow_exception_regex = "^(noswallow)$",
 		focus_on_activate = true,
 		allow_session_lock_restore = true,
-		font_family = "Pragmasevka Aile SmBd Cn",
+		font_family = "OpalBSDAile Nerd Font Propo",
 		on_focus_under_fullscreen = 1,
 	},
 

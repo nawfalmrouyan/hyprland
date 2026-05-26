@@ -4,7 +4,7 @@
 
 THEME='Catppuccin-Mocha-Standard-Mauve-Dark'
 # ICONS='Qualia-purple-dark'
-FONT='Pragmasevka Aile SmBd Cn 13'
+FONT='OpalBSDAile Nerd Font Propo'
 CURSOR='Catppuccin-Mauve-Cursors'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'
