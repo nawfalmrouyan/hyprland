@@ -25,7 +25,9 @@ function M.cycle(data)
 		return a.focus_history_id < b.focus_history_id
 	end)
 
-	if hl.get_active_window().initial_class == windows[1].initial_class then
+	local active_window = hl.get_active_window()
+
+	if active_window and hl.get_active_window().initial_class == windows[1].initial_class then
 		hl.dispatch(hl.dsp.focus({ window = "address:" .. windows[#windows].address }))
 		return
 	end
