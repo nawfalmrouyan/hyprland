@@ -97,11 +97,8 @@ for _, rule in ipairs(on_created_empty) do
 end
 
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
-hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
 hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 0 })
 hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, rounding = 0 })
-hl.window_rule({ match = { float = false, workspace = "f[1]" }, border_size = 0 })
-hl.window_rule({ match = { float = false, workspace = "f[1]" }, rounding = 0 })
 
 hl.config({
 	input = {
@@ -216,12 +213,12 @@ hl.config({
 			rounding = 5,
 			rounding_power = 5.0,
 			gaps_in = 3,
-			-- disable_when_only = true,
+			disable_when_only = true,
 			col = {
 				active = mauve,
 				-- Unfocused window border color (fully transparent)
 				-- inactive = "rgba(00000000)",
-				locked_inactive = overlay0,
+				locked_inactive = blue,
 				locked_active = mauve,
 			},
 		},
@@ -290,6 +287,32 @@ hl.config({
 	},
 })
 
+-- spring
+hl.curve("easy2", { type = "spring", mass = 1, stiffness = 1000.1191, dampening = 20.9 })
+hl.curve("easy", { type = "spring", mass = 1, stiffness = 213.7989, dampening = 25.6978877 })
+
+local spring_animations = {
+	-- { leaf = "workspacesIn", style = "slidevert", spring = "easy2", speed = 1 },
+	-- { leaf = "workspacesOut", style = "slidevert", spring = "easy2", speed = 1 },
+	-- { leaf = "specialWorkspaceIn", style = "slidevert", spring = "easy2", speed = 1 },
+	-- { leaf = "specialWorkspaceOut", style = "slidevert", spring = "easy2", speed = 1 },
+	-- { leaf = "windowsIn", style = "popin", spring = "easy2", speed = 1 },
+	-- { leaf = "windowsOut", style = "slide", spring = "easy2", speed = 1 },
+	-- { leaf = "layersIn", style = "slide", spring = "easy2", speed = 1 },
+	-- { leaf = "layersOut", style = "slide", spring = "easy2", speed = 1 },
+}
+
+for _, a in ipairs(spring_animations) do
+	hl.animation({
+		leaf = a.leaf,
+		enabled = true,
+		speed = a.speed or 3,
+		spring = a.spring,
+		style = a.style,
+	})
+end
+
+-- bezier
 local curves = {
 	simple = { type = "bezier", points = { { 0.16, 1 }, { 0.3, 1 } } },
 	smooth = { type = "bezier", points = { { 0.25, 0.1 }, { 0.35, 0.15 } } },
@@ -312,30 +335,23 @@ for name, curve in pairs(curves) do
 	hl.curve(name, curve)
 end
 
-hl.curve("easy2", { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 213.7989, dampening = 27.6978877 })
-
-local animations = {
-	{ leaf = "layersIn", style = "slide 90%", bezier = "bounce", speed = 3 },
-	{ leaf = "layersOut", style = "slide 90%", bezier = "bounce", speed = 3 },
-
+local bezier_animations = {
 	{ leaf = "zoomFactor", speed = 7, bezier = "quick" },
-
-	{ leaf = "windowsIn", style = "popin 85%", bezier = "bounce", speed = 3 },
-	{ leaf = "windowsOut", style = "popin 85%", bezier = "bounce", speed = 3 },
 	{ leaf = "windowsMove", style = "slide 90%", bezier = "md3_standard", speed = 3 },
-
 	{ leaf = "border", bezier = "overshot", speed = 10 },
-
 	{ leaf = "borderangle", style = "loop", bezier = "linear", speed = 100 },
 
 	{ leaf = "workspacesIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
 	{ leaf = "workspacesOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
+	{ leaf = "windowsIn", style = "popin 85%", bezier = "bounce", speed = 3 },
+	{ leaf = "windowsOut", style = "popin 85%", bezier = "bounce", speed = 3 },
+	{ leaf = "layersIn", style = "slide 90%", bezier = "bounce", speed = 3 },
+	{ leaf = "layersOut", style = "slide 90%", bezier = "bounce", speed = 3 },
 	{ leaf = "specialWorkspaceIn", style = "slidevert 90%", bezier = "bounce", speed = 3 },
 	{ leaf = "specialWorkspaceOut", style = "slidevert 90%", bezier = "bounce", speed = 3 },
 }
 
-for _, a in ipairs(animations) do
+for _, a in ipairs(bezier_animations) do
 	hl.animation({
 		leaf = a.leaf,
 		enabled = true,
@@ -400,6 +416,12 @@ for _, rule in ipairs(layer_rules) do
 end
 
 local window_rules = {
+  {
+    name  = "steamgames",
+    match = { class = "steam_app_.*"},
+    immediate = true
+	},
+
 	{
 		name = "term window width",
 		match = { class = "^(explorer|kitty|kittyterminal|footclient)$" },
@@ -532,10 +554,10 @@ local window_rules = {
 		float = true,
 	},
 
-	{
-		float = true,
-		match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" },
-	},
+	-- {
+	-- 	float = true,
+	-- 	match = { class = "^(steam_app_.*)$", initial_title = "^(..+)$" },
+	-- },
 
 	{
 		name = "steam",
@@ -546,12 +568,12 @@ local window_rules = {
 		size = { 1600, 960 },
 	},
 
-	{
-		name = "torchlight2",
-		match = { class = "Torchlight2.bin.x86_64", title = "(Torchlight II v.25.5.4)" },
-		fullscreen = true,
-		content = "game",
-	},
+	-- {
+	-- 	name = "torchlight2",
+	-- 	match = { class = "Torchlight2.bin.x86_64", title = "(Torchlight II v.25.5.4)" },
+	-- 	fullscreen = true,
+	-- 	content = "game",
+	-- },
 
 	{
 		name = "idle-inhibit-apps",
@@ -678,12 +700,12 @@ local window_rules = {
 		scrolling_width = 0.5,
 	},
 
-	{
-		name = "enable-tearing",
-		match = { title = "(Grim Dawn)" },
-		immediate = true,
-		content = "game",
-	},
+	-- {
+	-- 	name = "enable-tearing",
+	-- 	match = { title = "(Grim Dawn)" },
+	-- 	immediate = true,
+	-- 	content = "game",
+	-- },
 
 	{
 		name = "suppressevent-maximize",
