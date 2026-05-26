@@ -829,8 +829,9 @@ for _, b in ipairs(exec_cmd) do
 	local nomod = string.sub(b.key, 1, 1)
 	if nomod == " " then
 		hl.bind(b.key, hl.dsp.exec_cmd(b.cmd), opts)
+	else
+		hl.bind(mainMod .. " + " .. b.key, hl.dsp.exec_cmd(b.cmd), opts)
 	end
-	hl.bind(mainMod .. " + " .. b.key, hl.dsp.exec_cmd(b.cmd), opts)
 end
 
 local dispatch_window = {
