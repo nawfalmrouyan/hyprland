@@ -1221,7 +1221,7 @@ local startup_cmds = {
 	"gsettings set org.gnome.desktop.wm.preferences button-layout ':'",
 	"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
 	"jamesdsp --tray",
-	-- "hyprpm reload",
+	"hyprpm reload",
 	"systemctl --user start vicinae",
 	"systemctl --user start hypridle",
 	-- "systemctl --user start foot-server",
@@ -1250,4 +1250,5 @@ hl.on("hyprland.shutdown", function()
 	end
 end)
 
--- require("hyprview")
+require("scrolloverview")
+
