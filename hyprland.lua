@@ -1159,7 +1159,8 @@ local class_binds = {
 		exec = "brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
 	},
 	{ key = "8", class = "toipe", exec = "kitty --class=toipe -o font_size=17 -e toofan" },
-	{ key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland" },
+	-- { key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland" },
+	{ key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable" },
 }
 
 local focus = require("modules.cycle")
