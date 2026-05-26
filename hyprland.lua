@@ -755,8 +755,10 @@ local exec_cmd = {
 	},
 	{
 		key = "E",
-		cmd = "vicinae vicinae://launch/core/search-emojis",
-		desc = "Vicinae Search Emojis",
+		-- cmd = "vicinae vicinae://launch/core/search-emojis",
+		-- desc = "Vicinae Search Emojis",
+		cmd = "footclient -T explorer -e yazi",
+		desc = "Open yazi",
 	},
 	{
 		key = "Y",
