@@ -1148,7 +1148,7 @@ local class_binds = {
 	{
 		key = "R",
 		class = "teams-for-linux",
-		exec = "/opt/teams-for-linux/teams-for-linux --ozone-platform-hint=auto",
+		exec = "teams-for-linux-electron --ozone-platform-hint=auto",
 	},
 	-- { key = "A", class = "outlook-for-linux", exec = "/opt/outlook-for-linux/outlook-for-linux" },
 	{ key = "A", class = "Prospect Mail", exec = "prospect-mail" },
