@@ -27,7 +27,7 @@ function M.cycle(data)
 
 	local active_window = hl.get_active_window()
 
-	if active_window and hl.get_active_window().initial_class == windows[1].initial_class then
+	if active_window and active_window.initial_class == windows[1].initial_class then
 		hl.dispatch(hl.dsp.focus({ window = "address:" .. windows[#windows].address }))
 		return
 	end
