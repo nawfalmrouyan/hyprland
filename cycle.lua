@@ -1,4 +1,6 @@
-function Cycle_focus(data)
+local M = {}
+
+function M.cycle(data)
 	local w = hl.get_windows()
 
 	local windows = {}
@@ -30,3 +32,5 @@ function Cycle_focus(data)
 
 	hl.dispatch(hl.dsp.focus({ window = "address:" .. windows[1].address }))
 end
+
+return M

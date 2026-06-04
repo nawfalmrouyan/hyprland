@@ -1131,7 +1131,6 @@ hl.bind("switch:off:[Lid Switch]", function()
 end)
 
 -- MRU cycle focus by class/title
-require("cycle")
 
 local class_binds = {
 	{ key = "W", class = "zen", exec = "zen-browser" },
@@ -1150,9 +1149,11 @@ local class_binds = {
 	},
 }
 
+focus = require("cycle")
+
 for _, b in ipairs(class_binds) do
 	hl.bind(mainMod .. " + " .. b.key, function()
-		Cycle_focus(b)
+		focus.cycle(b)
 	end, {
 		description = "Cycle focus by class: " .. b.class,
 	})
@@ -1163,7 +1164,7 @@ hl.bind(mainMod .. " + Tab", function()
 	c.class = hl.get_active_window().class
 	c.exec = ""
 	-- hl.notification.create({ text = "class: " .. c, duration = 2000 })
-	Cycle_focus(c)
+	focus.cycle(c)
 end, {
 	description = "Cycle focus by current window's class",
 	repeating = true,
@@ -1179,7 +1180,7 @@ local title_binds = {
 
 for _, b in ipairs(title_binds) do
 	hl.bind(mainMod .. " + " .. b.key, function()
-		Cycle_focus(b)
+		focus.cycle(b)
 	end, {
 		description = "Cycle focus by title: " .. b.title,
 	})
