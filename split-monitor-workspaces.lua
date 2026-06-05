@@ -35,12 +35,18 @@ end
 
 local function relayout_monitors()
 	local all = hl.get_monitors()
-	if #all == 0 then return end
+	if #all == 0 then
+		return
+	end
 
 	-- Sort: non-eDP-1 first (by x), eDP-1 last, so eDP-1 is rightmost
 	table.sort(all, function(a, b)
-		if a.name == "eDP-1" then return false end
-		if b.name == "eDP-1" then return true end
+		if a.name == "eDP-1" then
+			return false
+		end
+		if b.name == "eDP-1" then
+			return true
+		end
 		return a.x < b.x
 	end)
 
@@ -62,8 +68,12 @@ end
 local existing = hl.get_monitors()
 if existing then
 	table.sort(existing, function(a, b)
-		if a.name == "eDP-1" then return true end
-		if b.name == "eDP-1" then return false end
+		if a.name == "eDP-1" then
+			return true
+		end
+		if b.name == "eDP-1" then
+			return false
+		end
 		return false
 	end)
 	for _, m in ipairs(existing) do
@@ -167,8 +177,8 @@ end
 
 -- Toggle tag on focused window
 hl.bind(mainMod .. " + M", hl.dsp.window.tag({ tag = "movetag" }), {
-    description = "Toggle movetag on focused window",
-    submap_universal = true,
+	description = "Toggle movetag on focused window",
+	submap_universal = true,
 })
 
 -- Generate keybinds based on WORKSPACES_PER_MONITOR
@@ -194,7 +204,9 @@ for _, k in ipairs(workspace_keys) do
 
 	hl.bind(mainMod .. " + ALT + " .. k, function()
 		local tagged = hl.get_windows({ tag = "movetag" })
-		if not tagged then return end
+		if not tagged then
+			return
+		end
 		local target = get_current_base() + ws
 		for _, win in ipairs(tagged) do
 			hl.dispatch(hl.dsp.window.move({ workspace = target, window = win }))
