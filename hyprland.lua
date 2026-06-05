@@ -58,7 +58,7 @@ local on_created_empty = {
 	},
 	{
 		workspace = "special:whatsapp",
-		cmd = "/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb",
+		cmd = "/home/opal/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
 	},
 	{
 		workspace = "special:steam",
