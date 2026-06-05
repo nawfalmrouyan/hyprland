@@ -5,6 +5,9 @@ local WORKSPACES_PER_MONITOR = 3
 local monitors = {}
 local saved_windows = {}
 
+-- Tagged window border (Catppuccin Mocha red)
+hl.window_rule({ match = { tag = "movetag" }, border_color = red .. " " .. red })
+
 local function add_monitor(name)
 	for _, m in ipairs(monitors) do
 		if m.name == name then
@@ -162,6 +165,12 @@ local function move_workspace(s, follow)
 	}))
 end
 
+-- Toggle tag on focused window
+hl.bind(mainMod .. " + M", hl.dsp.window.tag({ tag = "movetag" }), {
+    description = "Toggle movetag on focused window",
+    submap_universal = true,
+})
+
 -- Generate keybinds based on WORKSPACES_PER_MONITOR
 local workspace_keys = {}
 for i = 1, WORKSPACES_PER_MONITOR do
@@ -181,5 +190,14 @@ for _, k in ipairs(workspace_keys) do
 
 	hl.bind(mainMod .. " + CTRL + " .. k, function()
 		move_workspace(ws, false)
+	end, { submap_universal = true })
+
+	hl.bind(mainMod .. " + ALT + " .. k, function()
+		local tagged = hl.get_windows({ tag = "movetag" })
+		if not tagged then return end
+		local target = get_current_base() + ws
+		for _, win in ipairs(tagged) do
+			hl.dispatch(hl.dsp.window.move({ workspace = target, window = win }))
+		end
 	end, { submap_universal = true })
 end
