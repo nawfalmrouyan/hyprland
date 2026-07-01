@@ -37,7 +37,7 @@ local envs = {
 	{ "XDG_CURRENT_DESKTOP", "Hyprland" },
 	{ "XDG_SESSION_TYPE", "wayland" },
 	{ "XDG_SESSION_DESKTOP", "Hyprland" },
-	{ "TERMINAL", "footclient" },
+	{ "TERMINAL", "kitty" },
 	{ "GTK_USE_PORTAL", "1" },
 }
 
@@ -50,7 +50,7 @@ require("split-monitor-workspaces")
 local on_created_empty = {
 	{
 		workspace = "special:terminal",
-		cmd = "footclient -a scratch -T scratch -e sesh connect WORK",
+		cmd = "kitty --class=scratch -T scratch -e sesh connect WORK",
 	},
 	{
 		workspace = "special:trash",
@@ -70,7 +70,7 @@ local on_created_empty = {
 	},
 	{
 		workspace = "special:pulsemixer",
-		cmd = "footclient -a update -T update -e pulsemixer",
+		cmd = "kitty -1 --class=update -T update -e pulsemixer",
 	},
 	{
 		workspace = "special:pulsesecure",
@@ -82,7 +82,7 @@ local on_created_empty = {
 	},
 	{
 		workspace = "special:rmpc",
-		cmd = "footclient -T ytm -e rmpc",
+		cmd = "kitty -1 -T ytm -e rmpc",
 	},
 }
 
@@ -386,7 +386,7 @@ end
 local window_rules = {
 	{
 		name = "term window width",
-		match = { class = "^(kitty|footclient)$" },
+		match = { class = "^(kitty|kittyterminal|footclient)$" },
 		scrolling_width = 0.5,
 	},
 
@@ -471,7 +471,7 @@ local window_rules = {
 
 	{
 		group = "override barred",
-		match = { class = "foot|kitty|zen|xdg-desktop-portal-gtk" },
+		match = { class = "foot|zen|xdg-desktop-portal-gtk" },
 	},
 
 	-- misc rules
@@ -698,17 +698,17 @@ local exec_cmd = {
 	-- terminals / apps
 	{
 		key = "SHIFT + T",
-		cmd = "footclient -T Projects -e sesh connect Projects",
+		cmd = "kitty -1 -T Projects -e sesh connect Projects",
 		desc = "Open Terminal with TMUX session:Projects",
 	},
 	{
 		key = "Return",
-		cmd = "footclient -e sesh connect stuff",
+		cmd = "kitty -1 -e sesh connect stuff",
 		desc = "Open Terminal with TMUX session:stuff",
 	},
 	{
 		key = "SHIFT + Return",
-		cmd = "footclient -e sesh connect stuff",
+		cmd = "kitty -1 -e sesh connect stuff",
 		desc = "Open Terminal with TMUX session:stuff",
 	},
 	{
@@ -718,7 +718,7 @@ local exec_cmd = {
 	},
 	{
 		key = "CTRL + E",
-		cmd = "kitty -e yazi",
+		cmd = "kitty -1 -e yazi",
 		desc = "Open yazi",
 	},
 	{
@@ -733,7 +733,7 @@ local exec_cmd = {
 	},
 	{
 		key = "SHIFT + S",
-		cmd = "footclient -T PowerShell -e sesh connect PowerShell",
+		cmd = "kitty -1 -T PowerShell -e sesh connect PowerShell",
 		desc = "Open Terminal with TMUX session:PowerShell",
 	},
 
@@ -757,7 +757,7 @@ local exec_cmd = {
 		key = "E",
 		-- cmd = "vicinae vicinae://launch/core/search-emojis",
 		-- desc = "Vicinae Search Emojis",
-		cmd = "footclient -T explorer -e yazi",
+		cmd = "kitty -1 -T explorer -e yazi",
 		desc = "Open yazi",
 	},
 	{
@@ -782,12 +782,13 @@ local exec_cmd = {
 	-- 	desc = "Toggle wayscriber",
 	-- },
 	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open nvim-hypr-anywhere" },
-	{ key = "B", cmd = "footclient -T btop -e btop", desc = "Open btop" },
-	{ key = "SHIFT + N", cmd = "footclient -T btop -e nvtop", desc = "Open nvtop" },
+	{ key = "B", cmd = "kitty -1 -T btop -e btop", desc = "Open btop" },
+	{ key = "SHIFT + N", cmd = "kitty -1 -T btop -e nvtop", desc = "Open nvtop" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
 	{
 		key = "8",
-		cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
+		-- cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
+		cmd = "kitty --class=toipe --config=/home/opal/.config/kitty/kitty-anywhere.conf -e toofan",
 		desc = "Open Toofan (typing test)",
 	},
 
@@ -1144,7 +1145,7 @@ end)
 
 local class_binds = {
 	{ key = "W", class = "zen", exec = "zen-browser" },
-	{ key = "T", class = "footclient", exec = "footclient -e sesh connect stuff" },
+	{ key = "T", class = "kittyterminal", exec = "kitty -1 --class=kittyterminal -e sesh connect stuff" },
 	{
 		key = "R",
 		class = "teams-for-linux",
@@ -1184,7 +1185,7 @@ local title_binds = {
 	{
 		key = "S",
 		title = "PowerShell",
-		exec = "footclient -T PowerShell -e sesh connect PowerShell",
+		exec = "kitty -1 --class=kittyterminal -T PowerShell -e sesh connect PowerShell",
 	},
 }
 
@@ -1215,7 +1216,7 @@ local startup_cmds = {
 	-- "hyprpm reload",
 	"systemctl --user start vicinae",
 	"systemctl --user start hypridle",
-	"systemctl --user start foot-server",
+	-- "systemctl --user start foot-server",
 	-- "wayscriber --daemon",
 	"dms run --session",
 	-- "hyprctl plugin load /home/opal/Projects/hyprview/hyprview.so",
@@ -1224,7 +1225,7 @@ local startup_cmds = {
 local shutdown_cmds = {
 	"systemctl --user stop hypridle",
 	"systemctl --user stop vicinae",
-	"systemctl --user stop foot-server",
+	-- "systemctl --user stop foot-server",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
 }
