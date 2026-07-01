@@ -66,7 +66,7 @@ local on_created_empty = {
 	},
 	{
 		workspace = "special:update",
-		cmd = "footclient -a update -T update -e yay -Syu",
+		cmd = "kitty -1 --class=update -T update -e yay -Syu",
 	},
 	{
 		workspace = "special:pulsemixer",
@@ -788,7 +788,7 @@ local exec_cmd = {
 	{
 		key = "8",
 		-- cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
-		cmd = "kitty --class=toipe --config=/home/opal/.config/kitty/kitty-anywhere.conf -e toofan",
+		cmd = "kitty --class=toipe -o font_size=17 -e toofan",
 		desc = "Open Toofan (typing test)",
 	},
 
