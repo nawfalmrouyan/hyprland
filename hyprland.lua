@@ -658,6 +658,12 @@ local window_rules = {
 	},
 
 	{
+		name = "sioyek-window",
+		match = { class = "sioyek" },
+		scrolling_width = 0.5,
+	},
+
+	{
 		name = "enable-tearing",
 		match = { title = "(Grim Dawn)" },
 		immediate = true,
@@ -784,6 +790,7 @@ local exec_cmd = {
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
 	{ key = "CTRL + E", cmd = "kitty -1 -T yazi -e yazi", desc = "Open yazi" },
 	{ key = "CTRL + P", cmd = "dms ipc wallpaperCarousel toggle", desc = "Toggle wallpaperCarousel" },
+	{ key = "CTRL + T", cmd = "dms ipc typingSounds toggle", desc = "Toggle typingSounds" },
 
 	-- screenshots
 	-- key with a space at the beginning is a bind without using the mainMod.
