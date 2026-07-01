@@ -654,6 +654,7 @@ local window_rules = {
 		name = "no-focus-window",
 		match = { title = "^(Peek preview)$" },
 		no_focus = true,
+		scrolling_width = 0.5,
 	},
 
 	{
