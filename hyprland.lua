@@ -1160,7 +1160,7 @@ local class_binds = {
 	},
 	{ key = "8", class = "toipe", exec = "kitty --class=toipe -o font_size=17 -e toofan" },
 	-- { key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland" },
-	{ key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable" },
+	{ key = "CTRL + W", class = "microsoft-edge", exec = "microsoft-edge-stable" },
 }
 
 local focus = require("modules.cycle")
