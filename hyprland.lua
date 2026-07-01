@@ -1,4 +1,4 @@
-function getHostname()
+local function getHostname()
 	local f = io.popen("/bin/hostnamectl hostname")
 	local hostname = f:read("*a") or ""
 	f:close()
@@ -1177,7 +1177,7 @@ local class_binds = {
 	},
 }
 
-focus = require("modules.cycle")
+local focus = require("modules.cycle")
 
 for _, b in ipairs(class_binds) do
 	hl.bind(mainMod .. " + " .. b.key, function()
