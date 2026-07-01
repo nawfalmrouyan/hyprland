@@ -295,8 +295,8 @@ end
 hl.curve("easy", {
 	type = "spring",
 	mass = 1,
-	stiffness = 71.2633,
-	dampening = 15.8273644,
+	stiffness = 238.1191,
+	dampening = 24.21279333,
 })
 
 local animations = {
