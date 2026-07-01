@@ -148,6 +148,7 @@ hl.config({
 		allow_pin_fullscreen = true,
 		movefocus_cycles_fullscreen = true,
 		movefocus_cycles_groupfirst = true,
+		-- drag_center_window = false,
 	},
 
 	ecosystem = {
