@@ -440,7 +440,7 @@ local window_rules = {
 		match = { class = "toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
 		float = true,
 		center = true,
-		size = { 900, 750 },
+		size = { 1200, 750 },
 	},
 
 	{
@@ -722,11 +722,6 @@ local exec_cmd = {
 		desc = "Open Nautilus",
 	},
 	{
-		key = "CTRL + E",
-		cmd = "kitty -1 -e yazi",
-		desc = "Open yazi",
-	},
-	{
 		key = "Escape",
 		cmd = "dms ipc powermenu open",
 		desc = "Open Powermenu",
@@ -759,13 +754,6 @@ local exec_cmd = {
 		desc = "Vicinae Switch windows",
 	},
 	{
-		key = "E",
-		-- cmd = "vicinae vicinae://launch/core/search-emojis",
-		-- desc = "Vicinae Search Emojis",
-		cmd = "kitty -1 -T explorer -e yazi",
-		desc = "Open yazi",
-	},
-	{
 		key = "Y",
 		cmd = "vicinae vicinae://launch/clipboard/history",
 		desc = "Vicinae Clipboard History",
@@ -787,15 +775,9 @@ local exec_cmd = {
 	-- 	desc = "Toggle wayscriber",
 	-- },
 	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open nvim-hypr-anywhere" },
-	{ key = "B", cmd = "kitty -1 -T btop -e btop", desc = "Open btop" },
 	{ key = "SHIFT + N", cmd = "kitty -1 -T btop -e nvtop", desc = "Open nvtop" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
-	{
-		key = "8",
-		-- cmd = "foot -c /home/opal/.config/foot/foot-anywhere.ini -a toipe -e toofan",
-		cmd = "kitty --class=toipe -o font_size=17 -e toofan",
-		desc = "Open Toofan (typing test)",
-	},
+	{ key = "CTRL + E", cmd = "kitty -1 -T yazi -e yazi", desc = "Open yazi" },
 
 	-- screenshots
 	-- key with a space at the beginning is a bind without using the mainMod.
@@ -1173,6 +1155,8 @@ local class_binds = {
 		class = "brave-browser",
 		exec = "brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
 	},
+	{ key = "8", class = "toipe", exec = "kitty --class=toipe -o font_size=17 -e toofan" },
+	{ key = "CTRL + W", class = "Microsoft-edge", exec = "microsoft-edge-stable -enable-features=UseOzonePlatform -ozone-platform=wayland" },
 }
 
 local focus = require("modules.cycle")
@@ -1202,6 +1186,8 @@ local title_binds = {
 		title = "PowerShell",
 		exec = "kitty -1 --class=kittyterminal -T PowerShell -e sesh connect PowerShell",
 	},
+	{ key = "B", title = "btop", exec = "kitty -1 -T btop -e btop" },
+	{ key = "E", title = "explorer", exec = "kitty -1 -T explorer -e yazi" },
 }
 
 for _, b in ipairs(title_binds) do
