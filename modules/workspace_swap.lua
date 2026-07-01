@@ -1,24 +1,5 @@
 local M = {}
 
-local function swap_workspace_ids(id1, id2)
-    local tmp = 999999
-
-    hl.dispatch(hl.dsp.workspace.change_id({
-        workspace = id2,
-        id = tmp,
-    }))
-
-    hl.dispatch(hl.dsp.workspace.change_id({
-        workspace = id1,
-        id = id2,
-    }))
-
-    hl.dispatch(hl.dsp.workspace.change_id({
-        workspace = tmp,
-        id = id1,
-    }))
-end
-
 function M.swap()
     local monitors = hl.get_monitors()
 
@@ -38,19 +19,19 @@ function M.swap()
     end
 
     local current_ws = current.active_workspace.id
-    local other_ws = other.active_workspace.id
+    local other_ws  = other.active_workspace.id
+    local tmp = 9999
 
-    hl.dispatch(hl.dsp.workspace.swap_monitors({
-        monitor1 = "current",
-        monitor2 = "+1",
-    }))
+    hl.dispatch(hl.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1", }))
 
-    -- Wait for Hyprland to finish moving the workspaces.
-hl.timer(function()
-        swap_workspace_ids(current_ws, other_ws)
-    end, { timeout = 50, type = "oneshot"})
+    hl.dispatch(hl.dsp.workspace.change_id({ workspace = other_ws, id = tmp, }))
+    hl.dispatch(hl.dsp.workspace.change_id({ workspace = current_ws, id = other_ws, }))
+    hl.dispatch(hl.dsp.workspace.change_id({ workspace = tmp, id = current_ws, }))
 
-    hl.exec_cmd("hyprctl reload")
 end
+
+hl.on("workspace.move_to_monitor", function()
+    hl.exec_cmd("hyprctl reload")
+end)
 
 return M
