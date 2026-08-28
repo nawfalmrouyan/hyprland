@@ -96,6 +96,8 @@ for _, rule in ipairs(on_created_empty) do
 	})
 end
 
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+
 hl.config({
 	input = {
 		kb_layout = "us",
@@ -163,14 +165,15 @@ hl.config({
 	},
 
 	general = {
-		gaps_in = 0,
-		gaps_out = 0,
+		gaps_in = 3,
+		gaps_out = 3,
 		border_size = 3,
 		resize_on_border = false,
 		col = {
 			active_border = { colors = { mauve, blue }, angle = 45 },
 			-- Unfocused window border color (fully transparent)
-			inactive_border = "rgba(00000000)",
+			-- inactive_border = "rgba(00000000)",
+			inactive_border = { colors = { overlay2, overlay0 }, angle = 45 },
 		},
 		gaps_workspaces = 5,
 		float_gaps = 3,
@@ -189,10 +192,12 @@ hl.config({
 	group = {
 		col = {
 			border_active = { colors = { mauve, blue }, angle = 45 },
-			-- Unfocused window border color (fully transparent)
-			border_inactive = "rgba(00000000)",
-			border_locked_inactive = "rgba(00000000)",
 			border_locked_active = { colors = { mauve, blue }, angle = 45 },
+			-- Unfocused window border color (fully transparent)
+			-- border_inactive = "rgba(00000000)",
+			-- border_locked_inactive = "rgba(00000000)",
+			border_inactive = { colors = { overlay2, overlay0 }, angle = 45 },
+			border_locked_inactive = { colors = { overlay2, overlay0 }, angle = 45 },
 		},
 
 		groupbar = {
@@ -203,6 +208,8 @@ hl.config({
 			font_size = 15,
 			gradients = false,
 			render_titles = false,
+			rounding = 5,
+			rounding_power = 5.0,
 			-- disable_when_only = true,
 			col = {
 				active = mauve,
@@ -215,7 +222,8 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 0,
+		rounding = 5,
+		rounding_power = 5.0,
 		active_opacity = 1.0,
 		-- inactive_opacity = 0.9,
 		fullscreen_opacity = 1.0,
