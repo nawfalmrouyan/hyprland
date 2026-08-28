@@ -215,7 +215,7 @@ hl.config({
 				active = mauve,
 				-- Unfocused window border color (fully transparent)
 				inactive = "rgba(00000000)",
-				locked_inactive = teal,
+				locked_inactive = overlay0,
 				locked_active = mauve,
 			},
 		},
