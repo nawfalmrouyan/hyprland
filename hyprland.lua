@@ -208,7 +208,7 @@ hl.config({
 		groupbar = {
 			font_family = "Pragmasevka Aile SmBd Cn",
 			keep_upper_gap = false,
-			indicator_height = 7,
+			indicator_height = 9,
 			blur = true,
 			font_size = 15,
 			gradients = false,
