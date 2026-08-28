@@ -215,11 +215,12 @@ hl.config({
 			render_titles = false,
 			rounding = 5,
 			rounding_power = 5.0,
+			gaps_in = 3,
 			-- disable_when_only = true,
 			col = {
 				active = mauve,
 				-- Unfocused window border color (fully transparent)
-				inactive = "rgba(00000000)",
+				-- inactive = "rgba(00000000)",
 				locked_inactive = overlay0,
 				locked_active = mauve,
 			},
