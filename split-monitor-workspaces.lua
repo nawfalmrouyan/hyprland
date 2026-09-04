@@ -1,5 +1,7 @@
 local mainMod = "SUPER"
 local WORKSPACES_PER_MONITOR = 3
+-- local WORKSPACE_NAMES = { "I", "II", "III" }
+local WORKSPACE_NAMES = { "一", "二", "三" }
 
 -- Track monitors in connection order with their workspace base offsets
 local monitors = {}
@@ -20,7 +22,7 @@ local function add_monitor(name)
 	table.insert(monitors, { name = name, base = base })
 
 	for i = 1, WORKSPACES_PER_MONITOR do
-		hl.workspace_rule({ workspace = tostring(base + i), monitor = name })
+		hl.workspace_rule({ workspace = tostring(base + i), monitor = name, default_name = WORKSPACE_NAMES[i] })
 	end
 end
 
