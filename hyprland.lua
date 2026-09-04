@@ -1285,4 +1285,5 @@ hl.on("hyprland.shutdown", function()
 	end
 end)
 
+require("wl-kbptr")
 require("scrolloverview")
