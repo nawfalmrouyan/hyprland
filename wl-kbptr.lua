@@ -8,30 +8,30 @@ end, { description = "Enter cursor submap" })
 
 hl.define_submap("cursor", function()
 	-- Jump cursor to a position
-	hl.bind("a", function()
+	hl.bind("A", function()
 		hl.exec_cmd("hyprctl dispatch 'hl.dsp.submap(\"reset\")' && wl-kbptr -o modes=floating,click -o mode_floating.source=detect && hyprctl dispatch 'hl.dsp.submap(\"cursor\")'")
 	end)
 
 	-- Cursor movement
-	hl.bind("j", hl.dsp.exec_cmd("wlrctl pointer move 0 10"), { repeating = true })
-	hl.bind("k", hl.dsp.exec_cmd("wlrctl pointer move 0 -10"), { repeating = true })
-	hl.bind("l", hl.dsp.exec_cmd("wlrctl pointer move 10 0"), { repeating = true })
-	hl.bind("h", hl.dsp.exec_cmd("wlrctl pointer move -10 0"), { repeating = true })
+	hl.bind("J", hl.dsp.exec_cmd("wlrctl pointer move 0 10"), { repeating = true })
+	hl.bind("K", hl.dsp.exec_cmd("wlrctl pointer move 0 -10"), { repeating = true })
+	hl.bind("L", hl.dsp.exec_cmd("wlrctl pointer move 10 0"), { repeating = true })
+	hl.bind("H", hl.dsp.exec_cmd("wlrctl pointer move -10 0"), { repeating = true })
 
 	-- Left button
-	hl.bind("f", hl.dsp.exec_cmd("wlrctl pointer click left"))
+	hl.bind("F", hl.dsp.exec_cmd("wlrctl pointer click left"))
 	-- Middle button
-	hl.bind("d", hl.dsp.exec_cmd("wlrctl pointer click middle"))
+	hl.bind("D", hl.dsp.exec_cmd("wlrctl pointer click middle"))
 	-- Right button
-	hl.bind("s", hl.dsp.exec_cmd("wlrctl pointer click right"))
+	hl.bind("S", hl.dsp.exec_cmd("wlrctl pointer click right"))
 
 	-- Scroll up and down
-	hl.bind("g", hl.dsp.exec_cmd("wlrctl pointer scroll 30 0"), { repeating = true })
-	hl.bind("t", hl.dsp.exec_cmd("wlrctl pointer scroll -30 0"), { repeating = true })
+	hl.bind("G", hl.dsp.exec_cmd("wlrctl pointer scroll 30 0"), { repeating = true })
+	hl.bind("T", hl.dsp.exec_cmd("wlrctl pointer scroll -30 0"), { repeating = true })
 
 	-- Scroll left and right
-	hl.bind("e", hl.dsp.exec_cmd("wlrctl pointer scroll 0 -30"), { repeating = true })
-	hl.bind("r", hl.dsp.exec_cmd("wlrctl pointer scroll 0 30"), { repeating = true })
+	hl.bind("E", hl.dsp.exec_cmd("wlrctl pointer scroll 0 -30"), { repeating = true })
+	hl.bind("R", hl.dsp.exec_cmd("wlrctl pointer scroll 0 30"), { repeating = true })
 
 	-- Exit cursor submap
 	hl.bind("escape", function()
