@@ -26,12 +26,12 @@ hl.define_submap("cursor", function()
 	hl.bind("s", hl.dsp.exec_cmd("wlrctl pointer click right"))
 
 	-- Scroll up and down
-	hl.bind("e", hl.dsp.exec_cmd("wlrctl pointer scroll 30 0"), { repeating = true })
-	hl.bind("r", hl.dsp.exec_cmd("wlrctl pointer scroll -30 0"), { repeating = true })
+	hl.bind("g", hl.dsp.exec_cmd("wlrctl pointer scroll 30 0"), { repeating = true })
+	hl.bind("t", hl.dsp.exec_cmd("wlrctl pointer scroll -30 0"), { repeating = true })
 
 	-- Scroll left and right
-	hl.bind("t", hl.dsp.exec_cmd("wlrctl pointer scroll 0 -30"), { repeating = true })
-	hl.bind("g", hl.dsp.exec_cmd("wlrctl pointer scroll 0 30"), { repeating = true })
+	hl.bind("e", hl.dsp.exec_cmd("wlrctl pointer scroll 0 -30"), { repeating = true })
+	hl.bind("r", hl.dsp.exec_cmd("wlrctl pointer scroll 0 30"), { repeating = true })
 
 	-- Exit cursor submap
 	hl.bind("escape", function()
