@@ -21,12 +21,16 @@ function M.swap()
     local current_ws = current.active_workspace.id
     local other_ws  = other.active_workspace.id
     local tmp = 9999
+    -- local current_ws_name = current.active_workspace.name
+    -- local other_ws_name = other.active_workspace.name
 
     hl.dispatch(hl.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1", }))
 
     hl.dispatch(hl.dsp.workspace.change_id({ workspace = other_ws, id = tmp, }))
     hl.dispatch(hl.dsp.workspace.change_id({ workspace = current_ws, id = other_ws, }))
     hl.dispatch(hl.dsp.workspace.change_id({ workspace = tmp, id = current_ws, }))
+    -- hl.dispatch(hl.dsp.workspace.rename({ workspace = other_ws, name = other_ws_name, }))
+    -- hl.dispatch(hl.dsp.workspace.rename({ workspace = current_ws, name = current_ws_name, }))
 
 end
 
