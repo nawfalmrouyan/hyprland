@@ -151,7 +151,7 @@ hl.config({
 	},
 
 	binds = {
-		workspace_back_and_forth = false,
+		workspace_back_and_forth = true,
 		allow_pin_fullscreen = true,
 		movefocus_cycles_fullscreen = true,
 		movefocus_cycles_groupfirst = true,
