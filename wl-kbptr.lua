@@ -2,7 +2,7 @@ local mainMod = "SUPER"
 
 -- Cursor submap (similar to the Mouse mode in Sway)
 hl.bind(mainMod .. "+ CTRL + C", function()
-	hl.exec_cmd("hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false")
+	hl.config ({ cursor = { hide_on_key_press = false, inactive_timeout = 0 } })
 	hl.dispatch(hl.dsp.submap("cursor"))
 end, { description = "Enter cursor submap" })
 
@@ -34,7 +34,7 @@ hl.define_submap("cursor", function()
 
 	-- Exit cursor submap
 	hl.bind("escape", function()
-		hl.exec_cmd("hyprctl keyword cursor:inactive_timeout 3; hyprctl keyword cursor:hide_on_key_press true")
+		hl.config ({ cursor = { hide_on_key_press = true, inactive_timeout = 3 } })
 		hl.dispatch(hl.dsp.submap("reset"))
 	end)
 end)
