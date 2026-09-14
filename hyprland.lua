@@ -196,6 +196,8 @@ hl.config({
 		col = {
 			border_active = mauve,
 			border_locked_active = mauve,
+			border_inactive = "rgba(00000000)",
+			border_locked_inactive = "rgba(00000000)",
 		},
 
 		groupbar = {
