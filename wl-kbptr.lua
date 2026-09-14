@@ -8,8 +8,8 @@ end, { description = "Enter cursor submap" })
 
 hl.define_submap("cursor", function()
 	-- Jump cursor to a position
-	hl.bind("A", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.submap(\"reset\")' && wl-kbptr -o modes=tile,click -o mode_floating.source=detect && hyprctl dispatch 'hl.dsp.submap(\"cursor\")'")
-	)
+	hl.bind("A", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.submap(\"reset\")' && wl-kbptr -o modes=tile,click -o mode_floating.source=detect && hyprctl dispatch 'hl.dsp.submap(\"cursor\")'"))
+	hl.bind("W", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.submap(\"reset\")' && wl-kbptr -o modes=floating,click -o mode_floating.source=detect && hyprctl dispatch 'hl.dsp.submap(\"cursor\")'"))
 
 	-- Cursor movement
 	hl.bind("J", hl.dsp.exec_cmd("wlrctl pointer move 0 25"), { repeating = true })
