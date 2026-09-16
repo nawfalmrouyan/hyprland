@@ -9,6 +9,15 @@ local function getHostname()
 	return hostname
 end
 
+local hostname = getHostname()
+
+local envExec = ""
+if hostname == "opalMMU" then
+	envExec = ""
+else
+	envExec = "LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1 "
+end
+
 require("mocha")
 
 local mainMod = "SUPER"
@@ -51,12 +60,23 @@ for _, env in ipairs(envs) do
 	hl.env(env[1], env[2])
 end
 
+if hostname ~= "opalMMU" then
+	hl.env("NVD_GPU", "0")
+	hl.env("MOZ_DISABLE_RDD_SANDBOX", "1")
+	hl.env("MOZ_DRM_DEVICE", "/dev/dri/card0")
+	hl.env("NVD_BACKEND", "direct")
+	hl.env("LIBVA_DRIVER_NAME", "nvidia")
+	hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+	hl.env("VDPAU_DRIVER", "nvidia")
+	hl.env("AQ_DRM_DEVICES", "/dev/dri/card0:/dev/dri/card1")
+end
+
 require("split-monitor-workspaces")
 
 local on_created_empty = {
 	{
 		workspace = "special:terminal",
-		cmd = "kitty --class=scratch -T scratch -e sesh connect WORK",
+		cmd = envExec .. "kitty --class=scratch -T scratch -e sesh connect WORK",
 	},
 	{
 		workspace = "special:trash",
@@ -72,11 +92,11 @@ local on_created_empty = {
 	},
 	{
 		workspace = "special:update",
-		cmd = "kitty -1 --class=update -T update -e yay -Syu",
+		cmd = envExec .. "kitty -1 --class=update -T update -e yay -Syu",
 	},
 	{
 		workspace = "special:pulsemixer",
-		cmd = "kitty -1 --class=update -T update -e pulsemixer",
+		cmd = envExec .. "kitty -1 --class=update -T update -e pulsemixer",
 	},
 	{
 		workspace = "special:pulsesecure",
@@ -88,7 +108,7 @@ local on_created_empty = {
 	},
 	{
 		workspace = "special:rmpc",
-		cmd = "kitty -1 -T ytm -e rmpc",
+		cmd = envExec .. "kitty -1 -T ytm -e rmpc",
 	},
 }
 
@@ -280,6 +300,14 @@ hl.config({
 		new_on_active = "after",
 	},
 })
+
+if hostname ~= "opalMMU" then
+	hl.config({
+		render = {
+			direct_scanout = true,
+		},
+	})
+end
 
 -- spring
 hl.curve("easy2", { type = "spring", mass = 1, stiffness = 1000.1191, dampening = 33.9 })
@@ -748,17 +776,17 @@ end, { description = "Toggle screen share" })
 local exec_cmd = {
 	{
 		key = "SHIFT + T",
-		cmd = "kitty -1 --class=kittyterminal -T Projects -e sesh connect Projects",
+		cmd = envExec .. "kitty -1 --class=kittyterminal -T Projects -e sesh connect Projects",
 		desc = "Open Terminal with TMUX session:Projects",
 	},
 	{
 		key = "Return",
-		cmd = "kitty -1 -e sesh connect stuff",
+		cmd = envExec .. "kitty -1 -e sesh connect stuff",
 		desc = "Open Terminal with TMUX session:stuff",
 	},
 	{
 		key = "SHIFT + Return",
-		cmd = "kitty -1 -e sesh connect stuff",
+		cmd = envExec .. "kitty -1 -e sesh connect stuff",
 		desc = "Open Terminal with TMUX session:stuff",
 	},
 	{
@@ -773,7 +801,7 @@ local exec_cmd = {
 	},
 	{
 		key = "SHIFT + S",
-		cmd = "kitty -1 -T PowerShell -e sesh connect PowerShell",
+		cmd = envExec .. "kitty -1 -T PowerShell -e sesh connect PowerShell",
 		desc = "Open Terminal with TMUX session:PowerShell",
 	},
 
@@ -810,7 +838,7 @@ local exec_cmd = {
 	-- 	desc = "Toggle wayscriber",
 	-- },
 	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open nvim-hypr-anywhere" },
-	{ key = "SHIFT + N", cmd = "kitty -1 -T btop -e nvtop", desc = "Open nvtop" },
+	{ key = "SHIFT + N", cmd = envExec .. "kitty -1 -T btop -e nvtop", desc = "Open nvtop" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
 	{ key = "CTRL + P", cmd = "dms ipc wallpaperCarousel toggle", desc = "Toggle wallpaperCarousel" },
 	{ key = "CTRL + T", cmd = "dms ipc typingSounds toggle", desc = "Toggle typingSounds" },
@@ -1185,7 +1213,8 @@ end)
 
 -- MRU cycle focus by class/title
 local class_binds = {
-	{ key = "T", class = "kittyterminal", exec = "kitty -1 --class=kittyterminal -e sesh connect stuff" },
+	{ key = "W", class = "zen", exec = envExec .. "zen-browser" },
+	{ key = "T", class = "kittyterminal", exec = envExec .. "kitty -1 --class=kittyterminal -e sesh connect stuff" },
 	{
 		key = "R",
 		class = "teams-for-linux",
@@ -1199,9 +1228,9 @@ local class_binds = {
 		class = "brave-browser",
 		exec = "brave -enable-features=UseOzonePlatform -ozone-platform=wayland",
 	},
-	{ key = "8", class = "toipe", exec = "kitty --class=toipe -o font_size=17 -e toofan" },
+	{ key = "8", class = "toipe", exec = envExec .. "kitty --class=toipe -o font_size=17 -e toofan" },
 	{ key = "CTRL + W", class = "microsoft-edge", exec = "microsoft-edge-stable" },
-	{ key = "E", class = "explorer", exec = "kitty -1 --class=explorer -T explorer -e yazi" },
+	{ key = "E", class = "explorer", exec = envExec .. "kitty -1 --class=explorer -T explorer -e yazi" },
 }
 
 local focus = require("modules.cycle")
@@ -1229,9 +1258,9 @@ local title_binds = {
 	{
 		key = "S",
 		title = "PowerShell",
-		exec = "kitty -1 --class=kittyterminal -T PowerShell -e sesh connect PowerShell",
+		exec = envExec .. "kitty -1 --class=kittyterminal -T PowerShell -e sesh connect PowerShell",
 	},
-	{ key = "B", title = "btop", exec = "kitty -1 -T btop -e btop" },
+	{ key = "B", title = "btop", exec = envExec .. "kitty -1 -T btop -e btop" },
 }
 
 for _, b in ipairs(title_binds) do
@@ -1242,14 +1271,31 @@ for _, b in ipairs(title_binds) do
 	})
 end
 
+-- DMS binds for Nvidia laptop
+if hostname ~= "opalMMU" then
+	hl.bind(
+		"XF86MonBrightnessUp",
+		hl.dsp.exec_cmd("dms ipc call brightness increment 5 backlight:intel_backlight"),
+		{ description = "Brightness Up" }
+	)
+	hl.bind(
+		"XF86MonBrightnessDown",
+		hl.dsp.exec_cmd("dms ipc call brightness decrement 5 backlight:intel_backlight"),
+		{ description = "Brightness Down" }
+	)
+	hl.bind(
+		"SHIFT + XF86MonBrightnessDown",
+		hl.dsp.exec_cmd("dms ipc call brightness toggleExponential backlight:intel_backlight"),
+		{ description = "Toggle Exponential Brightness" }
+	)
+end
+
 -- Plugins
 require("scrolling")
 
 -- Source local config for AMD/Nvidia laptop
-if getHostname() == "opalMMU" then
+if hostname == "opalMMU" then
 	require("localAMD")
-else
-	require("localNvidia")
 end
 
 local startup_cmds = {
@@ -1278,6 +1324,10 @@ local shutdown_cmds = {
 hl.on("hyprland.start", function()
 	for _, cmd in ipairs(startup_cmds) do
 		hl.exec_cmd(cmd)
+	end
+	if hostname ~= "opalMMU" then
+		hl.exec_cmd("sudo setkeycodes e057 240 e058 240")
+		hl.exec_cmd("/home/opal/.local/bin/kanata_cmd_allowed -c " .. confDir .. "/kanata/lappy.kbd")
 	end
 end)
 
