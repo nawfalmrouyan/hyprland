@@ -780,11 +780,11 @@ local exec_cmd = {
 		cmd = envExec .. "kitty -1 --class=kittyterminal -T Projects -e sesh connect Projects",
 		desc = "Open Terminal with TMUX session:Projects",
 	},
-	{
-		key = "Return",
-		cmd = envExec .. "kitty -1 -e sesh connect stuff",
-		desc = "Open Terminal with TMUX session:stuff",
-	},
+	-- {
+	-- 	key = "Return",
+	-- 	cmd = envExec .. "kitty -1 -e sesh connect stuff",
+	-- 	desc = "Open Terminal with TMUX session:stuff",
+	-- },
 	{
 		key = "SHIFT + Return",
 		cmd = envExec .. "kitty -1 -e sesh connect stuff",
@@ -1273,7 +1273,40 @@ for _, b in ipairs(title_binds) do
 end
 
 -- DMS binds for Nvidia laptop
-if hostname ~= "opalMMU" then
+if hostname == "opalMMU" then
+	hl.bind(
+		"xf86calculator",
+		hl.dsp.exec_cmd("vicinae vicinae://launch/calculator/history"),
+		{ description = "Vicinae Calculator" }
+	)
+
+	-- hl.bind("xf86favourites", hl.dsp.exec_cmd("remmina"), { description = "Open Remmina" })
+	-- hl.bind("xf86pickupphone", hl.dsp.workspace.toggle_special("whatsapp"), { description = "Toggle Whatsapp workspace" })
+	-- hl.bind("xf86hangupphone", hl.dsp.workspace.toggle_special("trash"), { description = "Toggle Trash workspace" })
+
+	-- DMS brightness binds
+	hl.bind(
+		"XF86MonBrightnessUp",
+		hl.dsp.exec_cmd(
+			"dms ipc call brightness increment 5 backlight:amdgpu_bl1; dms ipc call brightness increment 5 ddc-i2c-4"
+		),
+		{ description = "Increase brightness" }
+	)
+	hl.bind(
+		"XF86MonBrightnessDown",
+		hl.dsp.exec_cmd(
+			"dms ipc call brightness decrement 5 backlight:amdgpu_bl1; dms ipc call brightness decrement 5 ddc-i2c-4"
+		),
+		{ description = "Decrease brightness" }
+	)
+	hl.bind(
+		"SHIFT + XF86MonBrightnessDown",
+		hl.dsp.exec_cmd(
+			"dms ipc call brightness toggleExponential backlight:amdgpu_bl1; dms ipc call brightness toggleExponential ddc:i2c-4"
+		),
+		{ description = "Toggle exponential brightness" }
+	)
+else
 	hl.bind(
 		"XF86MonBrightnessUp",
 		hl.dsp.exec_cmd("dms ipc call brightness increment 5 backlight:intel_backlight"),
@@ -1295,9 +1328,9 @@ end
 require("scrolling")
 
 -- Source local config for AMD/Nvidia laptop
-if hostname == "opalMMU" then
-	require("localAMD")
-end
+-- if hostname == "opalMMU" then
+-- 	require("localAMD")
+-- end
 
 local startup_cmds = {
 	-- firefox use xdg-desktop-portal.file-picker
