@@ -15,7 +15,8 @@ local envExec = ""
 if hostname == "opalMMU" then
 	envExec = ""
 else
-	envExec = "LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1 "
+	envExec =
+		"LIBVA_DRIVER_NAME=nvidia __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only __NV_PRIME_RENDER_OFFLOAD=1 "
 end
 
 require("mocha")
@@ -446,17 +447,17 @@ local window_rules = {
 	{
 		name = "sigle_window_focused_border",
 		match = { focus = true, workspace = "w[t1]" },
-		border_size = 0
+		border_size = 0,
 	},
 	{
 		name = "movetag_border",
 		match = { tag = "movetag" },
-		border_size = 3
+		border_size = 3,
 	},
-  {
-    name  = "tearing_steamgames",
-    match = { class = "steam_app_.*"},
-    immediate = true
+	{
+		name = "tearing_steamgames",
+		match = { class = "steam_app_.*" },
+		immediate = true,
 	},
 
 	{
@@ -1301,7 +1302,7 @@ end
 local startup_cmds = {
 	-- firefox use xdg-desktop-portal.file-picker
 	-- widget.use-xdg-desktop-portal.file-picker = 1
-	
+
 	-- Remove button layouts on libadwaita apps. To undo:
 	-- gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 	"gsettings set org.gnome.desktop.wm.preferences button-layout ':'",
