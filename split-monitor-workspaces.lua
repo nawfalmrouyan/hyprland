@@ -1,7 +1,7 @@
 local mainMod = "SUPER"
 local WORKSPACES_PER_MONITOR = 3
 -- local WORKSPACE_NAMES = { "I", "II", "III" }
-local WORKSPACE_NAMES = { "一", "二", "三" }
+-- local WORKSPACE_NAMES = { "一", "二", "三" }
 
 -- Track monitors in connection order with their workspace base offsets
 local monitors = {}
@@ -22,8 +22,8 @@ local function add_monitor(name)
 	table.insert(monitors, { name = name, base = base })
 
 	for i = 1, WORKSPACES_PER_MONITOR do
-		-- hl.workspace_rule({ workspace = tostring(base + i), monitor = name, })
-		hl.workspace_rule({ workspace = tostring(base + i), monitor = name, persistent = true, default_name = WORKSPACE_NAMES[i] })
+		hl.workspace_rule({ workspace = tostring(base + i), monitor = name, })
+		-- hl.workspace_rule({ workspace = tostring(base + i), monitor = name, default_name = WORKSPACE_NAMES[i] })
 	end
 end
 
@@ -216,6 +216,3 @@ for _, k in ipairs(workspace_keys) do
 		end
 	end, { submap_universal = true })
 end
-
--- make sure workspace 1 name is set properly
-hl.dispatch(hl.dsp.workspace.rename({ workspace = 1, name = "一" }))
