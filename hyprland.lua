@@ -81,7 +81,7 @@ local on_created_empty = {
 	},
 	{
 		workspace = "special:trash",
-		cmd = "youtube-music-for-desktop",
+		cmd = "sung",
 	},
 	{
 		workspace = "special:whatsapp",
@@ -501,7 +501,7 @@ local window_rules = {
 
 	{
 		name = "youtube-music-rules",
-		match = { class = "com.github.th_ch.youtube_music|spotube|(YouTube Music for Desktop)" },
+		match = { class = "com.github.th_ch.youtube_music|spotube|(YouTube Music for Desktop|sung)" },
 		float = true,
 		center = true,
 		size = { 1600, 960 },
