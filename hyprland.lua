@@ -841,7 +841,8 @@ local exec_cmd = {
 	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open nvim-hypr-anywhere" },
 	{ key = "SHIFT + N", cmd = envExec .. "kitty -1 -T btop -e nvtop", desc = "Open nvtop" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle dank bar" },
-	{ key = "CTRL + P", cmd = "dms ipc wallpaperCarousel toggle", desc = "Toggle wallpaperCarousel" },
+	-- { key = "CTRL + P", cmd = "dms ipc wallpaperCarousel toggle", desc = "Toggle wallpaperCarousel" },
+	{ key = "CTRL + P", cmd = "skwd-wall-v2 toggle", desc = "skwd wall v2" },
 	{ key = "CTRL + T", cmd = "dms ipc typingSounds toggle", desc = "Toggle typingSounds" },
 
 	-- screenshots
