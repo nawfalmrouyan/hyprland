@@ -1328,11 +1328,6 @@ end
 -- Plugins
 require("scrolling")
 
--- Source local config for AMD/Nvidia laptop
--- if hostname == "opalMMU" then
--- 	require("localAMD")
--- end
-
 local startup_cmds = {
 	-- firefox use xdg-desktop-portal.file-picker
 	-- widget.use-xdg-desktop-portal.file-picker = 1
