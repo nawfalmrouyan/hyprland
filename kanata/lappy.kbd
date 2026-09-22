@@ -6,9 +6,9 @@
 )
 
 (defvar
-  tap-time 300
-  hold-time 300
-  chord-time 60
+  tap-time 200
+  hold-time 200
+  chord-time 80
 )
 
 (defsrc
@@ -47,6 +47,7 @@ rec (tap-hold-press $tap-time $hold-time ret lctl)
   game (layer-switch game)
   base (layer-switch base)
   hspc (tap-hold $tap-time $hold-time spc (layer-toggle vi))
+  fievel (tap-dance 200 (XX (layer-switch wlkbptr)))
 )
 
 ;; apps
@@ -65,7 +66,7 @@ rec (tap-hold-press $tap-time $hold-time ret lctl)
   tab q w e r t y u i o p [ ] \
   @cec @mlalt @mlmet @mlsft @mlctl g h @mrctl @mrsft @mrmet @mralt ' @rec
   lsft z x c v b n m comm . / rsft
-  lctl lalt @hspc ralt rctl
+  lctl lalt @hspc ralt @fievel
 )
 
 (deflayer game
@@ -86,18 +87,18 @@ rec (tap-hold-press $tap-time $hold-time ret lctl)
   M-lctl M-lalt - - @game
 )
 
-;; (deflayer wlkbptr
-;;   XX XX XX
-;;   XX XX XX XX XX XX XX XX XX XX XX XX XX XX
-;;   XX XX XX XX XX XX XX XX XX XX XX XX XX XX
-;;   XX XX XX XX XX XX XX XX XX XX XX XX XX
-;;   XX XX XX XX XX XX XX XX XX XX XX XX
-;;   XX XX XX XX XX
-;; )
+(deflayer wlkbptr
+  esc home del
+  grv  1 2 3 4 5 6 7 8 9 0 min eql bspc
+  tab q w e r t y u i o p [ ] \
+  caps a s d f3 g h j k l scln ' ret
+  lsft z x c v b n m comm . / rsft
+  lctl lalt spc ralt @base
+)
 
 (defchordsv2
- (spc j k) C-\ $chord-time first-release () ;; tmux prefix
- (spc d f) (cmd vicinae toggle) $chord-time first-release () ;; vicinae
+ ;; (spc j k) C-\ $chord-time first-release () ;; tmux prefix
+ ;; (spc d f) (cmd vicinae toggle) $chord-time first-release () ;; vicinae
  (2 3) A-C-q $chord-time first-release () ;; zen previous workspace
  (8 9) A-C-e $chord-time first-release () ;; zen next workspace
  (grave 1) A-C-s $chord-time first-release () ;; zen toggle floating side bar
