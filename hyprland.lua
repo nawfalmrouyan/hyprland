@@ -1340,6 +1340,7 @@ local startup_cmds = {
 	"hyprpm reload",
 	"systemctl --user start vicinae",
 	"systemctl --user start hypridle",
+	"systemctl --user start cable-uhid-bridge.service",
 	-- "wayscriber --daemon",
 	"dms run --session",
 }
