@@ -45,7 +45,7 @@ rec (tap-hold-press $tap-time $hold-time ret lctl)
 ;; layer switches
 (defalias
   game (layer-switch game)
-  base (layer-switch base)
+  base (tap-dance 200 (XX (layer-switch base)))
   hspc (tap-hold $tap-time $hold-time spc (layer-toggle vi))
   fievel (tap-dance 200 (XX (layer-switch wlkbptr)))
 )
