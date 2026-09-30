@@ -1348,6 +1348,7 @@ local startup_cmds = {
 local shutdown_cmds = {
 	"systemctl --user stop hypridle",
 	"systemctl --user stop vicinae",
+	"systemctl --user stop skwd-walld",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
 }
