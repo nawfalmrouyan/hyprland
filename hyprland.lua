@@ -759,7 +759,16 @@ local window_rules = {
 		},
 		float = true,
 		center = true,
-	}
+	},
+
+	{
+		name = "Sung-float-pin",
+		match = {
+			title = "^(Sung · Mini player)$"
+		},
+		float = true,
+		pin = true
+	},
 }
 
 for _, rule in ipairs(window_rules) do
