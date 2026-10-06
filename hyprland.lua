@@ -751,6 +751,15 @@ local window_rules = {
 		},
 		no_focus = true,
 	},
+
+	{
+		name = "cable-uhid-bridge-center-float",
+		match = {
+			class = "^(cable-uhid-bridge)$",
+		},
+		float = true,
+		center = true,
+	}
 }
 
 for _, rule in ipairs(window_rules) do
