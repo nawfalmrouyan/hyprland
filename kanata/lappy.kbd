@@ -6,8 +6,8 @@
 )
 
 (defvar
-  tap-time 200
-  hold-time 200
+  tap-time 250
+  hold-time 250
   chord-time 80
 )
 
