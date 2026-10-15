@@ -29,6 +29,7 @@ local startup_cmds = {
 local shutdown_cmds = {
 	"systemctl --user stop hypridle",
 	"systemctl --user stop vicinae",
+	"systemctl --user stop cable-uhid-bridge.service",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
 }
