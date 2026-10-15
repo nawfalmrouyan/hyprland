@@ -89,7 +89,7 @@ local window_rules = {
 
 	{
 		name = "pulse-secure-rules",
-		match = { class = "pulseUI", title = "(Pulse Secure)" },
+		match = { class = "pulseUI" },
 		float = true,
 		center = true,
 		size = { 900, 750 },
