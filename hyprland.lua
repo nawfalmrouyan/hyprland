@@ -41,11 +41,16 @@ hl.on("hyprland.start", function()
 	if env.isNvidia then
 		hl.exec_cmd("sudo setkeycodes e057 240 e058 240")
 		hl.exec_cmd(env.home .. "/.local/bin/kanata_cmd_allowed -c " .. env.confDir .. "/kanata/lappy.kbd")
+	else
+		hl.exec_cmd("fievel")
 	end
 end)
 
 hl.on("hyprland.shutdown", function()
 	for _, cmd in ipairs(shutdown_cmds) do
 		hl.exec_cmd(cmd)
+	end
+	if not env.isNvidia then
+		hl.exec_cmd("pkill fievel")
 	end
 end)
