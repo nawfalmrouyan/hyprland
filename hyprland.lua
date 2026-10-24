@@ -23,17 +23,17 @@ local startup_cmds = {
 	"systemctl --user start vicinae",
 	"systemctl --user start hypridle",
 	"systemctl --user start cable-uhid-bridge.service",
+	"systemctl --user start mech-sound.service",
 	"dms run --session",
-	"/home/opal/Projects/linux-mech-keys/bin/mech-sound --pack /home/opal/Projects/linux-mech-keys/sounds/akko-lavender --volume 0.85"
 }
 
 local shutdown_cmds = {
 	"systemctl --user stop hypridle",
 	"systemctl --user stop vicinae",
 	"systemctl --user stop cable-uhid-bridge.service",
+	"systemctl --user stop mech-sound.service",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
-	"pkill mech-sound"
 }
 
 hl.on("hyprland.start", function()
