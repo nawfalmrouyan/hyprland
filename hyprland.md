@@ -315,6 +315,8 @@ NVIDIA (others):
 
 Workspaces are assigned per monitor (3 per monitor). On monitor hotplug, windows are moved onto eDP-1 and restored on reconnect.
 
+`SUPER + 9` toggles the connected second monitor (any output other than `eDP-1`) between extending the desktop and mirroring `eDP-1`. While mirroring, its windows are moved onto `eDP-1` and restored when toggled back. If no second monitor is connected, the chosen mode is remembered and applied to the next monitor that connects.
+
 ---
 
 ## Layer Rules (popups / OSD / overlays)
