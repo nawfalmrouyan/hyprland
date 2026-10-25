@@ -133,6 +133,7 @@ local cfg = {
 			vibrancy = 0.1696,
 			new_optimizations = true,
 			popups = true,
+			-- proportional = true,
 		},
 
 		shadow = {
