@@ -139,7 +139,7 @@ local window_rules = {
 
 	{
 		name = "persistent-size-windows",
-		match = { class = "qt5ct|qt6ct|feh|FortiClient|yad" },
+		match = { class = "qt5ct|qt6ct|FortiClient|yad" },
 		float = true,
 		center = true,
 	},
