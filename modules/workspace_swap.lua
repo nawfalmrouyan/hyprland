@@ -1,5 +1,11 @@
 local M = {}
 
+-- True only while M.swap() is moving workspaces between monitors. Hyprland
+-- also emits workspace.move_to_monitor when a monitor starts mirroring (it
+-- moves that monitor's workspaces away), and reloading the config there drops
+-- the freshly added mirror rule.
+local swapping = false
+
 function M.swap()
     local monitors = hl.get_monitors()
 
@@ -24,6 +30,7 @@ function M.swap()
     -- local current_ws_name = current.active_workspace.name
     -- local other_ws_name = other.active_workspace.name
 
+    swapping = true
     hl.dispatch(hl.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1", }))
 
     hl.dispatch(hl.dsp.workspace.change_id({ workspace = other_ws, id = tmp, }))
@@ -32,10 +39,15 @@ function M.swap()
     -- hl.dispatch(hl.dsp.workspace.rename({ workspace = other_ws, name = other_ws_name, }))
     -- hl.dispatch(hl.dsp.workspace.rename({ workspace = current_ws, name = current_ws_name, }))
 
+    hl.timer(function()
+        swapping = false
+    end, { timeout = 200, type = "oneshot" })
 end
 
 hl.on("workspace.move_to_monitor", function()
-    hl.exec_cmd("hyprctl reload")
+    if swapping then
+        hl.exec_cmd("hyprctl reload")
+    end
 end)
 
 return M

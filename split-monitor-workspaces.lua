@@ -54,18 +54,30 @@ local function get_base(name)
 	return nil
 end
 
+-- Hyprland hides mirrored outputs from hl.get_monitors() and hl.get_monitor(),
+-- so a mirrored monitor has to be looked up in the full monitor list.
+local function find_monitor(name)
+	if not name then
+		return nil
+	end
+	for _, m in ipairs(hl.get_monitors({ all = true })) do
+		if m.name == name then
+			return m
+		end
+	end
+	return nil
+end
+
 -- Returns the monitor that should be treated as the second monitor. The
 -- current mirror target wins, otherwise the first connected non-primary
 -- monitor is used.
 local function get_second_monitor()
-	if mirror_target then
-		local target = hl.get_monitor(mirror_target)
-		if target then
-			return target
-		end
+	local target = find_monitor(mirror_target)
+	if target then
+		return target
 	end
-	for _, m in ipairs(hl.get_monitors()) do
-		if m.name ~= PRIMARY_MONITOR then
+	for _, m in ipairs(hl.get_monitors({ all = true })) do
+		if m.name ~= PRIMARY_MONITOR and m.enabled and not m.is_mirror then
 			return m
 		end
 	end
@@ -194,7 +206,7 @@ local function apply_mirror(target)
 end
 
 local function disable_mirror(target)
-	local mon = hl.get_monitor(target)
+	local mon = find_monitor(target)
 	hl.monitor({
 		output = target,
 		mode = "preferred",
@@ -227,7 +239,7 @@ end
 hl.on("monitor.added", function(m)
 	-- While mirroring, the next second monitor takes the mirror role
 	if mirror_mode and m.name ~= PRIMARY_MONITOR then
-		local current = mirror_target and hl.get_monitor(mirror_target)
+		local current = find_monitor(mirror_target)
 		if not current or current.name == m.name then
 			if mirror_target and mirror_target ~= m.name then
 				transfer_saved_windows(mirror_target, m.name, get_next_base(m.name))
@@ -347,14 +359,26 @@ local function toggle_mirror()
 		mirror_target = nil
 		disable_mirror(target)
 		add_monitor(target)
-		relayout_monitors()
-		-- Wait for the monitor rule refresh before moving windows back, since a
-		-- mirrored output cannot own workspaces yet.
-		hl.timer(function()
-			if not mirror_mode and hl.get_monitor(target) then
-				restore_saved_windows(target)
+		-- Wait for the monitor rule refresh before arranging the outputs and
+		-- moving windows back, since a mirrored output cannot own workspaces yet.
+		local attempts = 0
+		local function finish_unmirror()
+			local mon = find_monitor(target)
+			if mirror_mode then
+				return
 			end
-		end, {
+			if (mon and mon.is_mirror) and attempts < 20 then
+				attempts = attempts + 1
+				hl.timer(finish_unmirror, {
+					timeout = 100,
+					type = "oneshot",
+				})
+				return
+			end
+			relayout_monitors()
+			restore_saved_windows(target)
+		end
+		hl.timer(finish_unmirror, {
 			timeout = 200,
 			type = "oneshot",
 		})
