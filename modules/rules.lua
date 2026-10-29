@@ -8,7 +8,7 @@ hl.on("workspace.created", function(ws)
 	if ws.name == "special:terminal" then
 		hl.exec_cmd("kitty --class=scratch -T scratch -e sesh connect WORK")
 	elseif ws.name == "special:whatsapp" then
-		hl.exec_cmd(env.home .. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb")
+		hl.exec_cmd(env.home .. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb") --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer")
 	elseif ws.name == "special:steam" then
 		hl.exec_cmd("steam")
 	elseif ws.name == "special:update" then
