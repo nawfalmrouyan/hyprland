@@ -43,6 +43,7 @@ local cfg = {
 		persistent_warps = true,
 		warp_back_after_non_mouse_input = true,
 		warp_on_change_workspace = 1,
+		warp_on_monitor_change = -1,
 		warp_on_toggle_special = 1,
 		default_monitor = "HDMI-A-1",
 		no_hardware_cursors = 2,
@@ -133,7 +134,7 @@ local cfg = {
 			vibrancy = 0.1696,
 			new_optimizations = true,
 			popups = true,
-			-- proportional = true,
+			proportional = true,
 		},
 
 		shadow = {
@@ -163,6 +164,7 @@ local cfg = {
 	render = {
 		new_render_scheduling = true,
 		expand_undersized_textures = false,
+		use_shader_blur_blend = false,
 	},
 
 	master = {
