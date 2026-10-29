@@ -11,7 +11,7 @@ require("modules.binds")
 -- Plugins
 require("scrolling")
 require("wl-kbptr")
-require("scrolloverview")
+-- require("scrolloverview")
 
 local startup_cmds = {
 	-- Remove button layouts on libadwaita apps. To undo:
