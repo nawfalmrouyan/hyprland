@@ -170,7 +170,6 @@ local cfg = {
 	master = {
 		new_status = "slave",
 		mfact = 0.5,
-		special_scale_factor = 0.9,
 		allow_small_split = true,
 		new_on_active = "after",
 	},
