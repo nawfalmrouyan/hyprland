@@ -77,7 +77,7 @@ if M.isNvidia then
 		LIBVA_DRIVER_NAME = nvidia_env.LIBVA_DRIVER_NAME,
 		__GLX_VENDOR_LIBRARY_NAME = nvidia_env.__GLX_VENDOR_LIBRARY_NAME,
 		VDPAU_DRIVER = "nvidia",
-		AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1",
+		-- AQ_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1",
 	}
 
 	for key, value in pairs(nvidia_global_env) do
