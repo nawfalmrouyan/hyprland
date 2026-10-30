@@ -4,23 +4,25 @@ local env = require("modules.env")
 
 local M = {}
 
+-- Commands are built once at startup, then looked up by special workspace name
+-- instead of walking an if/elseif chain on every workspace.created event.
+local special_workspace_cmds = {
+	["special:terminal"] = "kitty --class=scratch -T scratch -e sesh connect WORK",
+	-- --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer
+	["special:whatsapp"] = env.home .. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb",
+	["special:steam"] = "steam",
+	["special:update"] = env.envExec .. "kitty -1 --class=update -T update -e yay -Syu",
+	["special:pulsemixer"] = env.envExec .. "kitty -1 --class=update -T update -e pulsemixer",
+	["special:pulsesecure"] = "/opt/pulsesecure/bin/pulseUI",
+	["special:forticlient"] = "/opt/forticlient/gui/FortiClient",
+	["special:rmpc"] = env.envExec .. "kitty -1 -T ytm -e rmpc",
+	["special:trash"] = env.home .. "/.local/bin/sung",
+}
+
 hl.on("workspace.created", function(ws)
-	if ws.name == "special:terminal" then
-		hl.exec_cmd("kitty --class=scratch -T scratch -e sesh connect WORK")
-	elseif ws.name == "special:whatsapp" then
-		hl.exec_cmd(env.home .. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb") --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer")
-	elseif ws.name == "special:steam" then
-		hl.exec_cmd("steam")
-	elseif ws.name == "special:update" then
-		hl.exec_cmd(env.envExec .. "kitty -1 --class=update -T update -e yay -Syu")
-	elseif ws.name == "special:pulsemixer" then
-		hl.exec_cmd(env.envExec .. "kitty -1 --class=update -T update -e pulsemixer")
-	elseif ws.name == "special:pulsesecure" then
-		hl.exec_cmd("/opt/pulsesecure/bin/pulseUI")
-	elseif ws.name == "special:forticlient" then
-		hl.exec_cmd("/opt/forticlient/gui/FortiClient")
-	elseif ws.name == "special:rmpc" then
-		hl.exec_cmd(env.envExec .. "kitty -1 -T ytm -e rmpc")
+	local cmd = ws.name and special_workspace_cmds[ws.name]
+	if cmd then
+		hl.exec_cmd(cmd)
 	end
 end)
 
