@@ -88,6 +88,26 @@ local function is_mirrored(m)
 	return m.is_mirror or (mirror_mode and mirror_target == m.name)
 end
 
+local function logical_width(m)
+	if not m then
+		return 1920
+	end
+	return math.ceil((m.width or 1920) / (m.scale or 1))
+end
+
+-- Right edge of every active output except `exclude`. Used as a temporary
+-- parking spot when unmirroring, so the newly re-enabled output does not
+-- overlap the primary until relayout_monitors() runs.
+local function get_free_x(exclude)
+	local x = 0
+	for _, m in ipairs(hl.get_monitors()) do
+		if m.name ~= exclude and m.enabled and not is_mirrored(m) then
+			x = math.max(x, m.x + logical_width(m))
+		end
+	end
+	return x
+end
+
 local function relayout_monitors()
 	local all = hl.get_monitors()
 	if #all == 0 then
@@ -109,7 +129,7 @@ local function relayout_monitors()
 	for _, m in ipairs(all) do
 		-- A mirrored output cannot be positioned/own workspaces
 		if not is_mirrored(m) then
-			local w = math.floor((m.width or 1920) / (m.scale or 1))
+			local w = logical_width(m)
 			hl.monitor({
 				output = m.name,
 				mode = "preferred",
@@ -207,10 +227,13 @@ end
 
 local function disable_mirror(target)
 	local mon = find_monitor(target)
+	-- Unmirror to the right of the current layout instead of 0x0. The primary
+	-- is still at 0x0 at this point, so putting the output back at 0x0 makes
+	-- Hyprland briefly see two overlapping monitors and show its layout warning.
 	hl.monitor({
 		output = target,
 		mode = "preferred",
-		position = "0x0",
+		position = string.format("%dx%d", get_free_x(target), 0),
 		scale = mon and mon.scale or 1,
 		mirror = "",
 	})
