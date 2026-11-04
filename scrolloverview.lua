@@ -6,7 +6,7 @@ hl.config({
 			workspace_gap = 100,
 			layout = "vertical", -- vertical or horizontal
 			wallpaper = 2, -- 0: global only, 1: per-workspace only, 2: both
-			blur = false, -- blur only the main overview wallpaper
+			blur = true, -- blur only the main overview wallpaper
 
 			shadow = {
 				enabled = false,
