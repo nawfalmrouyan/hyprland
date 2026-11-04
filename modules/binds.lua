@@ -461,6 +461,7 @@ local cycle_binds = {
 	{ key = "8", match = "class", class = "toipe", exec = env.envExec .. "kitty --class=toipe -o font_size=17 -e toofan" },
 	{ key = "CTRL + W", match = "class", class = "microsoft-edge", exec = "microsoft-edge-stable" },
 	{ key = "E", match = "class", class = "explorer", exec = env.envExec .. "kitty -1 --class=explorer -T explorer -e yazi" },
+	{ key = "SHIFT + E", match = "class", class = "dfiles", exec = "dfiles" },
 	{
 		key = "S",
 		match = "title",
