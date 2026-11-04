@@ -9,7 +9,7 @@ local M = {}
 local special_workspace_cmds = {
 	["special:terminal"] = "kitty --class=scratch -T scratch -e sesh connect WORK",
 	-- --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer
-	["special:whatsapp"] = env.home .. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb",
+	["special:whatsapp"] = env.home .. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
 	["special:steam"] = "steam",
 	["special:update"] = env.envExec .. "kitty -1 --class=update -T update -e yay -Syu",
 	["special:pulsemixer"] = env.envExec .. "kitty -1 --class=update -T update -e pulsemixer",

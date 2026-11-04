@@ -450,7 +450,7 @@ local cycle_binds = {
 		class = "teams-for-linux",
 		exec = "teams-for-linux-electron --ozone-platform-hint=auto",
 	},
-	{ key = "A", match = "class", class = "Prospect Mail", exec = "prospect-mail" },
+	{ key = "A", match = "class", class = "Prospect Mail", exec = "prospect-mail -enable-features=UseOzonePlatform -ozone-platform=wayland" },
 	{ key = "Z", match = "class", class = "Apache Directory Studio", exec = "/opt/ApacheDirectoryStudio/ApacheDirectoryStudio" },
 	{
 		key = "SHIFT + A",
