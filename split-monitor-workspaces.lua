@@ -1,7 +1,7 @@
 local mainMod = "SUPER"
-local WORKSPACES_PER_MONITOR = 3
--- local WORKSPACE_NAMES = { "I", "II", "III" }
--- local WORKSPACE_NAMES = { "一", "二", "三" }
+local workspace_names = require("modules.workspace_names")
+local WORKSPACES_PER_MONITOR = workspace_names.WORKSPACES_PER_MONITOR
+local WORKSPACE_NAMES = workspace_names.names
 
 local PRIMARY_MONITOR = "eDP-1"
 
@@ -31,8 +31,14 @@ local function add_monitor(name)
 	table.insert(monitors, { name = name, base = base })
 
 	for i = 1, WORKSPACES_PER_MONITOR do
-		hl.workspace_rule({ workspace = tostring(base + i), monitor = name, })
-		-- hl.workspace_rule({ workspace = tostring(base + i), monitor = name, default_name = WORKSPACE_NAMES[i] })
+		hl.workspace_rule({
+			workspace = tostring(base + i),
+			monitor = name,
+			default_name = WORKSPACE_NAMES[i],
+		})
+		-- The rule only names workspaces created from now on, so make sure
+		-- workspaces that already exist get their name too.
+		workspace_names.apply(base + i)
 	end
 end
 
