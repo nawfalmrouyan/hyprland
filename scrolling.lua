@@ -42,13 +42,14 @@ for key, dir in pairs(directions) do
     hl.bind(mainMod .. " + SHIFT + ALT + " .. key, hl.dsp.window.move({ out_of_group = dir }))
 end
 
+-- SUPER + Comma/Period are reserved for focusing monitors in modules/binds.lua.
+-- Binding them here too would run both actions: focusing a monitor and then
+-- scrolling that monitor's active column, which can push a lone window offscreen.
 local layout_binds = {
     { "Home",          "fit tobeg" },
     { "End",           "fit toend" },
     { "Equal",         "colresize +conf" },
     { "Minus",         "colresize -conf" },
-    { "Comma",         "move -col" },
-    { "Period",        "move +col" },
     { "Slash",         "expel r" },
     { "SHIFT + Slash", "expel l" },
     { "BracketLeft",   "consume r" },
