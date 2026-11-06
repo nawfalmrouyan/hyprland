@@ -1,10 +1,10 @@
 local M = {}
 
-M.WORKSPACES_PER_MONITOR = 3
-M.names = { "一", "二", "三" }
+M.WORKSPACES_PER_MONITOR = 5
+M.names = { "一", "二", "三", "四", "五" }
 
 -- Workspace IDs are grouped in blocks of WORKSPACES_PER_MONITOR, one block per
--- monitor. Every block uses the same names so each monitor reads 一 二 三.
+-- monitor. Every block uses the same names so each monitor reads 一 二 三 四 五.
 function M.name_for(id)
 	id = tonumber(id)
 	if not id or id <= 0 then
