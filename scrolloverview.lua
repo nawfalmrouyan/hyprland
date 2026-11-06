@@ -9,7 +9,7 @@ hl.config({
 			blur = true, -- blur only the main overview wallpaper
 
 			shadow = {
-				enabled = false,
+				enabled = true,
 				range = 50,
 				render_power = 3,
 				color = 0xee1a1a1a,
