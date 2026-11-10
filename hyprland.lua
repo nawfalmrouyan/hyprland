@@ -23,13 +23,14 @@ local startup_cmds = {
 	"systemctl --user start vicinae",
 	"systemctl --user start hypridle",
 	"systemctl --user start cable-uhid-bridge.service",
-	"dms run --session",
+	"systemctl --user start dms.service",
 }
 
 local shutdown_cmds = {
 	"systemctl --user stop hypridle",
 	"systemctl --user stop vicinae",
 	"systemctl --user stop cable-uhid-bridge.service",
+	"systemctl --user stop dms.service",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
 }
