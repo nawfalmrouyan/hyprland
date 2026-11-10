@@ -56,6 +56,11 @@ local cfg = {
 		allow_pin_fullscreen = true,
 		movefocus_cycles_fullscreen = true,
 		movefocus_cycles_groupfirst = true,
+		hide_special_on_workspace_change = true,
+		scroll_event_delay = 10,
+		window_direction_monitor_fallback = false,
+		ignore_group_lock = true,
+		focus_preferred_method = 1,
 	},
 
 	ecosystem = {
@@ -126,6 +131,7 @@ local cfg = {
 
 		motion_blur = {
 			enabled = true,
+			samples = 32,
 		},
 
 		blur = {
