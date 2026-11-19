@@ -133,7 +133,7 @@ local window_rules = {
 
 	{
 		name = "center-float-windows-class",
-		match = { class = "toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
+		match = { class = "dev.duxlabs.files|toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
 		float = true,
 		center = true,
 		size = { 1200, 750 },
