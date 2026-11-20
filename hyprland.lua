@@ -24,6 +24,7 @@ local startup_cmds = {
 	"systemctl --user start hypridle",
 	"systemctl --user start cable-uhid-bridge.service",
 	"systemctl --user start dms.service",
+	"dcal daemon",
 }
 
 local shutdown_cmds = {
@@ -33,6 +34,7 @@ local shutdown_cmds = {
 	"systemctl --user stop dms.service",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
+	"dcal kill",
 }
 
 hl.on("hyprland.start", function()
