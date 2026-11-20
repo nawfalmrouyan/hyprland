@@ -133,7 +133,7 @@ local window_rules = {
 
 	{
 		name = "center-float-windows-class",
-		match = { class = "dev.duxlabs.files|toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
+		match = { class = "toipe|jamesdsp|hyprland-share-picker|nm-connection-editor|pavucontrol|Gimp|org.quickshell" },
 		float = true,
 		center = true,
 		size = { 1200, 750 },
@@ -255,7 +255,7 @@ local window_rules = {
 	{
 		name = "picker-title-rules",
 		match = {
-			title = "([Ff]ile Upload)|(Enter name of file to save to.*)|(blob.*)|(Open [Ff]iles)|(Open folder.*)",
+			initial_title = "([Ff]ile Upload)|(Enter name of file to save to.*)|(blob.*)|(Open [Ff]iles)|(Open folder.*)",
 		},
 		size = { 1345, 720 },
 		float = true,
