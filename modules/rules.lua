@@ -255,7 +255,7 @@ local window_rules = {
 	{
 		name = "picker-title-rules",
 		match = {
-			initial_title = "([Ff]ile Upload)|(Enter name of file to save to.*)|(blob.*)|(Open [Ff]iles)|(Open folder.*)",
+			initial_title = "(All files)|([Ff]ile Upload.*)|(Enter name of file to save to.*)|(blob.*)|(Open [Ff]iles)|(Open folder.*)",
 		},
 		size = { 1345, 720 },
 		float = true,
