@@ -71,7 +71,7 @@ local exec_cmd = {
 	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open quick text editor (nvim-hypr-anywhere)" },
 	{ key = "SHIFT + N", cmd = env.envExec .. "kitty -1 -T btop -e nvtop", desc = "Open GPU task monitor (nvtop in Kitty)" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle DMS top bar" },
-	{ key = "CTRL + P", cmd = "dms ipc wallpaperCarousel toggle", desc = "Toggle DMS wallpaper carousel" },
+	{ key = "CTRL + P", cmd = "dms ipc wallhavenCarousel toggle", desc = "Toggle DMS wallpaper carousel" },
 	{ key = "CTRL + T", cmd = "dms ipc typingSounds toggle", desc = "Toggle DMS typing sound effects" },
 
 	-- screenshots
