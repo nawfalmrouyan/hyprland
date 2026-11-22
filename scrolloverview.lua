@@ -20,4 +20,4 @@ hl.config({
 
 hl.bind("SUPER + SHIFT + I", function()
     hl.plugin.scrolloverview.overview("toggle")
-end)
+end, { description = "Toggle scroll workspace overview" })

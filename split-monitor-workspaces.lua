@@ -422,13 +422,13 @@ local function toggle_mirror()
 end
 
 hl.bind(mainMod .. " + 9", toggle_mirror, {
-	description = "Toggle second monitor mirror/extend",
+	description = "Toggle second monitor mirroring (mirror/extend primary display)",
 	submap_universal = true,
 })
 
 -- Toggle tag on focused window
 hl.bind(mainMod .. " + M", hl.dsp.window.tag({ tag = "movetag" }), {
-	description = "Toggle movetag on focused window",
+	description = "Toggle movetag on active window (batch move tag)",
 	submap_universal = true,
 })
 
@@ -443,15 +443,24 @@ for _, k in ipairs(workspace_keys) do
 
 	hl.bind(mainMod .. " + " .. k, function()
 		switch_workspace(ws)
-	end, { submap_universal = true })
+	end, {
+		description = "Switch to workspace " .. k .. " on active monitor",
+		submap_universal = true,
+	})
 
 	hl.bind(mainMod .. " + SHIFT + " .. k, function()
 		move_workspace(ws)
-	end, { submap_universal = true })
+	end, {
+		description = "Move active window to workspace " .. k .. " and follow",
+		submap_universal = true,
+	})
 
 	hl.bind(mainMod .. " + CTRL + " .. k, function()
 		move_workspace(ws, false)
-	end, { submap_universal = true })
+	end, {
+		description = "Move active window to workspace " .. k .. " (silent / no follow)",
+		submap_universal = true,
+	})
 
 	hl.bind(mainMod .. " + ALT + " .. k, function()
 		local tagged = hl.get_windows({ tag = "movetag" })
@@ -462,5 +471,8 @@ for _, k in ipairs(workspace_keys) do
 		for _, win in ipairs(tagged) do
 			hl.dispatch(hl.dsp.window.move({ workspace = target, window = win }))
 		end
-	end, { submap_universal = true })
+	end, {
+		description = "Move all movetag windows to workspace " .. k .. " on active monitor",
+		submap_universal = true,
+	})
 end

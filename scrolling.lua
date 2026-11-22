@@ -17,48 +17,67 @@ local directions = {
     J = "d",
 }
 
+local dir_names = {
+    r = "right",
+    l = "left",
+    u = "up",
+    d = "down",
+}
+
 -- layout focus
 for key, dir in pairs(directions) do
-    hl.bind(mainMod .. " + " .. key, hl.dsp.layout("focus " .. dir))
+    hl.bind(mainMod .. " + " .. key, hl.dsp.layout("focus " .. dir), {
+        description = "Focus window " .. dir_names[dir],
+    })
 end
 
 -- swap columns
 for key, dir in pairs(directions) do
-    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.layout("swapcol " .. dir))
+    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.layout("swapcol " .. dir), {
+        description = "Swap column " .. dir_names[dir],
+    })
 end
 
 -- move windows
 for key, dir in pairs(directions) do
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = dir }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = dir }), {
+        description = "Move window " .. dir_names[dir],
+    })
 end
 
 -- move into/create group
 for key, dir in pairs(directions) do
-    hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.move({ into_or_create_group = dir }))
+    hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.move({ into_or_create_group = dir }), {
+        description = "Move window into or create group " .. dir_names[dir],
+    })
 end
 
 -- move out of group
 for key, dir in pairs(directions) do
-    hl.bind(mainMod .. " + SHIFT + ALT + " .. key, hl.dsp.window.move({ out_of_group = dir }))
+    hl.bind(mainMod .. " + SHIFT + ALT + " .. key, hl.dsp.window.move({ out_of_group = dir }), {
+        description = "Move window out of group " .. dir_names[dir],
+    })
 end
 
 -- SUPER + Comma/Period are reserved for focusing monitors in modules/binds.lua.
 -- Binding them here too would run both actions: focusing a monitor and then
 -- scrolling that monitor's active column, which can push a lone window offscreen.
 local layout_binds = {
-    { "Home",          "fit tobeg" },
-    { "End",           "fit toend" },
-    { "Equal",         "colresize +conf" },
-    { "Minus",         "colresize -conf" },
-    { "Slash",         "expel r" },
-    { "SHIFT + Slash", "expel l" },
-    { "BracketLeft",   "consume r" },
-    { "BracketRight",  "consume l" },
-    { "D",             "fit visible" },
-    { "C",             "fit active" },
-    { "SHIFT + D",     "inhibit_scroll" },
+    { "Home",          "fit tobeg",      "Scroll layout to beginning (first column)" },
+    { "End",           "fit toend",        "Scroll layout to end (last column)" },
+    { "Equal",         "colresize +conf",  "Increase column width preset" },
+    { "Minus",         "colresize -conf",  "Decrease column width preset" },
+    { "Slash",         "expel r",          "Expel window to new column on the right" },
+    { "SHIFT + Slash", "expel l",          "Expel window to new column on the left" },
+    { "BracketLeft",   "consume r",        "Consume window from right into current column" },
+    { "BracketRight",  "consume l",        "Consume window from left into current column" },
+    { "D",             "fit visible",      "Fit all columns onto visible screen" },
+    { "C",             "fit active",       "Fit active column to screen center" },
+    { "SHIFT + D",     "inhibit_scroll",   "Toggle scroll inhibition (lock layout scrolling)" },
 }
 
 for _, bind in ipairs(layout_binds) do
-    hl.bind(mainMod .. " + " .. bind[1], hl.dsp.layout(bind[2]))
+    hl.bind(mainMod .. " + " .. bind[1], hl.dsp.layout(bind[2]), {
+        description = bind[3],
+    })
 end
