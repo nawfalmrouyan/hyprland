@@ -24,7 +24,7 @@ local startup_cmds = {
 	"systemctl --user start hypridle",
 	"systemctl --user start cable-uhid-bridge.service",
 	"systemctl --user start dms.service",
-	"mmu-vpn-tray.py",
+	"mmu-vpn-tray",
 	"dcal daemon",
 }
 
@@ -35,7 +35,7 @@ local shutdown_cmds = {
 	"systemctl --user stop dms.service",
 	"pkill jamesdsp",
 	"pkill WhatsApp",
-	"pkill -f mmu-vpn-tray.py",
+	"pkill -f mmu-vpn-tray",
 	"dcal kill",
 }
 
