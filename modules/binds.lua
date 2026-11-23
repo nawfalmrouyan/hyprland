@@ -1,4 +1,5 @@
 local env = require("modules.env")
+local uwsm = require("modules.uwsm")
 local rules = require("modules.rules")
 local focus = require("modules.cycle")
 local ws_swap = require("modules.workspace_swap")
@@ -17,12 +18,12 @@ end, { description = "Toggle screen share privacy filter (noscreenshare rule)" }
 local exec_cmd = {
 	{
 		key = "SHIFT + T",
-		cmd = env.envExec .. "kitty -1 --class=kittyterminal -T Projects -e sesh connect Projects",
+		cmd = uwsm.app(env.envExec .. "kitty -1 --class=kittyterminal -T Projects -e sesh connect Projects"),
 		desc = "Open Terminal (tmux session: Projects)",
 	},
 	{
 		key = "SHIFT + Return",
-		cmd = env.envExec .. "kitty -1 -e sesh connect stuff",
+		cmd = uwsm.app(env.envExec .. "kitty -1 -e sesh connect stuff"),
 		desc = "Open Terminal (tmux session: stuff)",
 	},
 	{
@@ -32,19 +33,19 @@ local exec_cmd = {
 	},
 	{
 		key = "SHIFT + W",
-		cmd = "zen-browser -new-window",
+		cmd = uwsm.app("zen-browser -new-window"),
 		desc = "Open new Zen Browser window",
 	},
 	{
 		key = "SHIFT + S",
-		cmd = env.envExec .. "kitty -1 -T PowerShell -e sesh connect PowerShell",
+		cmd = uwsm.app(env.envExec .. "kitty -1 -T PowerShell -e sesh connect PowerShell"),
 		desc = "Open Terminal (tmux session: PowerShell)",
 	},
 
 	-- rofi / vicinae
 	{
 		key = "0",
-		cmd = "ROFI_PASS_CONFIG='" .. env.confDir .. "/rofi-pass/config' rofi-pass",
+		cmd = uwsm.app("env ROFI_PASS_CONFIG='" .. env.confDir .. "/rofi-pass/config' rofi-pass"),
 		desc = "Open password manager (rofi-pass)",
 	},
 	{
@@ -59,25 +60,25 @@ local exec_cmd = {
 	},
 	{
 		key = "SHIFT + P",
-		cmd = "powerprofiles.sh",
+		cmd = uwsm.app("powerprofiles.sh"),
 		desc = "Select power profile (Rofi)",
 	},
 	{
 		key = "SHIFT + C",
-		cmd = "pkill bemenu || bemenu_input 6",
+		cmd = uwsm.app("sh -c 'pkill bemenu || bemenu_input 6'"),
 		desc = "Open quick input menu (bemenu)",
 		release = true,
 	},
-	{ key = "N", cmd = "nvim-hypr-anywhere.sh", desc = "Open quick text editor (nvim-hypr-anywhere)" },
-	{ key = "SHIFT + N", cmd = env.envExec .. "kitty -1 -T btop -e nvtop", desc = "Open GPU task monitor (nvtop in Kitty)" },
+	{ key = "N", cmd = uwsm.app("nvim-hypr-anywhere.sh"), desc = "Open quick text editor (nvim-hypr-anywhere)" },
+	{ key = "SHIFT + N", cmd = uwsm.app(env.envExec .. "kitty -1 -T btop -e nvtop"), desc = "Open GPU task monitor (nvtop in Kitty)" },
 	{ key = "X", cmd = "dms ipc call bar toggle index 0", desc = "Toggle DMS top bar" },
 	{ key = "CTRL + P", cmd = "dms ipc wallhavenCarousel toggle", desc = "Toggle DMS wallpaper carousel" },
 	{ key = "CTRL + T", cmd = "dms ipc typingSounds toggle", desc = "Toggle DMS typing sound effects" },
 
 	-- screenshots
 	-- key with a space at the beginning is a bind without using the mainMod.
-	{ key = " Print", cmd = "quickshell -c HyprQuickFrame -n", desc = "OCR / visual search screen area (HyprQuickFrame)" },
-	{ key = "Print", cmd = "quickshell -c QuickSnip -n", desc = "Take interactive screenshot (QuickSnip)" },
+	{ key = " Print", cmd = uwsm.app("quickshell -c HyprQuickFrame -n"), desc = "OCR / visual search screen area (HyprQuickFrame)" },
+	{ key = "Print", cmd = uwsm.app("quickshell -c QuickSnip -n"), desc = "Take interactive screenshot (QuickSnip)" },
 
 	-- kitty scratch terminal
 	{

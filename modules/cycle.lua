@@ -1,5 +1,7 @@
 local M = {}
 
+local uwsm = require("modules.uwsm")
+
 function M.cycle(data)
 	local w = hl.get_windows()
 
@@ -14,7 +16,9 @@ function M.cycle(data)
 	end
 
 	if #windows == 0 then
-		hl.exec_cmd(data.exec)
+		if data.exec and data.exec ~= "" then
+			hl.exec_cmd(uwsm.app(data.exec))
+		end
 		return
 	elseif #windows == 1 then
 		hl.dispatch(hl.dsp.focus({ window = "address:" .. windows[1].address }))

@@ -6,9 +6,22 @@ Sources: `hyprland.lua` (main), `modules/binds.lua`, `modules/config.lua`, `modu
 
 ---
 
+## Session Startup (uwsm)
+
+The session is launched through uwsm:
+
+- Login screen session: **Hyprland (uwsm-managed)** (`/usr/share/wayland-sessions/hyprland-uwsm.desktop`), which runs `uwsm start -e -D Hyprland hyprland.desktop`.
+- Session environment lives in `~/.config/uwsm/env` and `~/.config/uwsm/env-hyprland` (no longer set from `modules/env.lua`).
+- Long-lived apps are launched with `uwsm app --`, and session daemons with `uwsm app -s s --`, so they get their own systemd units instead of accumulating in the compositor's unit.
+- XDG autostart is handled by uwsm. Autostart entries for services already enabled in `graphical-session.target` are marked `Hidden=true` to avoid duplicate launches.
+
+---
+
 ## Keybinds
 
 ### Apps & Launch
+
+App commands are wrapped with `uwsm app --` in the config; the table lists the underlying command.
 
 | Keybind | Action / Command | Description |
 |---|---|---|
@@ -27,7 +40,7 @@ Sources: `hyprland.lua` (main), `modules/binds.lua`, `modules/config.lua`, `modu
 | `Print` | `quickshell -c QuickSnip -n` | Take interactive screenshot (QuickSnip) |
 | `Print` (no mod) | `quickshell -c HyprQuickFrame -n` | Screen OCR and visual search (HyprQuickFrame) |
 | `SUPER + X` | `dms ipc call bar toggle index 0` | Toggle DMS top bar |
-| `SUPER + CTRL + P` | `dms ipc wallpaperCarousel toggle` | Toggle DMS wallpaper carousel |
+| `SUPER + CTRL + P` | `dms ipc wallhavenCarousel toggle` | Toggle DMS wallpaper carousel |
 | `SUPER + CTRL + T` | `dms ipc typingSounds toggle` | Toggle DMS typing sound effects |
 | `SUPER + Escape` | `dms ipc powermenu open` | Open DMS power menu |
 

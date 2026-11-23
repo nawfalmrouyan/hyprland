@@ -1,22 +1,26 @@
 require("mocha")
 
 local env = require("modules.env")
+local uwsm = require("modules.uwsm")
 
 local M = {}
 
 -- Commands are built once at startup, then looked up by special workspace name
 -- instead of walking an if/elseif chain on every workspace.created event.
 local special_workspace_cmds = {
-	["special:terminal"] = "kitty --class=scratch -T scratch -e sesh connect WORK",
+	["special:terminal"] = uwsm.app("kitty --class=scratch -T scratch -e sesh connect WORK"),
 	-- --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer
-	["special:whatsapp"] = env.home .. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer",
-	["special:steam"] = "steam",
-	["special:update"] = env.envExec .. "kitty -1 --class=update -T update -e yay -Syu",
-	["special:pulsemixer"] = env.envExec .. "kitty -1 --class=update -T update -e pulsemixer",
-	["special:pulsesecure"] = "/opt/pulsesecure/bin/pulseUI",
-	["special:forticlient"] = "/opt/forticlient/gui/FortiClient",
-	["special:rmpc"] = env.envExec .. "kitty -1 -T ytm -e rmpc",
-	["special:trash"] = env.home .. "/.local/bin/sung",
+	["special:whatsapp"] = uwsm.app(
+		env.home
+			.. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer"
+	),
+	["special:steam"] = uwsm.app("steam"),
+	["special:update"] = uwsm.app(env.envExec .. "kitty -1 --class=update -T update -e yay -Syu"),
+	["special:pulsemixer"] = uwsm.app(env.envExec .. "kitty -1 --class=update -T update -e pulsemixer"),
+	["special:pulsesecure"] = uwsm.app("/opt/pulsesecure/bin/pulseUI"),
+	["special:forticlient"] = uwsm.app("/opt/forticlient/gui/FortiClient"),
+	["special:rmpc"] = uwsm.app(env.envExec .. "kitty -1 -T ytm -e rmpc"),
+	["special:trash"] = uwsm.app(env.home .. "/.local/bin/sung"),
 }
 
 hl.on("workspace.created", function(ws)

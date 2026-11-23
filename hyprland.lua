@@ -1,6 +1,7 @@
 require("mocha")
 
 local env = require("modules.env")
+local uwsm = require("modules.uwsm")
 
 require("split-monitor-workspaces")
 require("modules.config")
@@ -21,6 +22,6 @@ hl.on("hyprland.start", function()
 
 	if env.isNvidia then
 		hl.exec_cmd("sudo setkeycodes e057 240 e058 240")
-		hl.exec_cmd(env.home .. "/.local/bin/kanata_cmd_allowed -c " .. env.confDir .. "/kanata/lappy.kbd")
+		hl.exec_cmd(uwsm.session(env.home .. "/.local/bin/kanata_cmd_allowed -c " .. env.confDir .. "/kanata/lappy.kbd"))
 	end
 end)

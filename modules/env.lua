@@ -32,6 +32,8 @@ local function build_prefix(vars, skip)
 	return table.concat(parts, " ")
 end
 
-M.envExec = M.isNvidia and (build_prefix(nvidia_env) .. " ") or ""
+-- Keep the `env` executable in front of the assignments so the command can be
+-- wrapped by uwsm, e.g. `uwsm app -- env LIBVA_DRIVER_NAME=nvidia kitty`.
+M.envExec = M.isNvidia and ("env " .. build_prefix(nvidia_env) .. " ") or ""
 
 return M
