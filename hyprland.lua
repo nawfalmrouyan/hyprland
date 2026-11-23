@@ -18,25 +18,25 @@ local startup_cmds = {
 	-- gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 	"gsettings set org.gnome.desktop.wm.preferences button-layout ':'",
 	"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
-	"jamesdsp --tray",
 	"hyprpm reload",
-	"systemctl --user start vicinae",
-	"systemctl --user start hypridle",
+	"systemctl --user start jamesdsp.service",
+	"systemctl --user start vicinae.service",
+	"systemctl --user start hypridle.service",
 	"systemctl --user start cable-uhid-bridge.service",
 	"systemctl --user start dms.service",
-	"mmu-vpn-tray",
-	"dcal daemon",
+	"systemctl --user start mmu-vpn-tray.service",
+	"systemctl --user start dcal.service",
 }
 
 local shutdown_cmds = {
-	"systemctl --user stop hypridle",
-	"systemctl --user stop vicinae",
+	"systemctl --user stop hypridle.service",
+	"systemctl --user stop vicinae.service",
 	"systemctl --user stop cable-uhid-bridge.service",
 	"systemctl --user stop dms.service",
-	"pkill jamesdsp",
+	"systemctl --user stop jamesdsp.service",
+	"systemctl --user stop mmu-vpn-tray.service",
+	"systemctl --user stop dcal.service",
 	"pkill WhatsApp",
-	"pkill -f mmu-vpn-tray",
-	"dcal kill",
 }
 
 hl.on("hyprland.start", function()
@@ -47,7 +47,7 @@ hl.on("hyprland.start", function()
 		hl.exec_cmd("sudo setkeycodes e057 240 e058 240")
 		hl.exec_cmd(env.home .. "/.local/bin/kanata_cmd_allowed -c " .. env.confDir .. "/kanata/lappy.kbd")
 	else
-		hl.exec_cmd("fievel")
+		hl.exec_cmd("systemctl --user start fievel")
 	end
 end)
 
@@ -56,6 +56,6 @@ hl.on("hyprland.shutdown", function()
 		hl.exec_cmd(cmd)
 	end
 	if not env.isNvidia then
-		hl.exec_cmd("pkill fievel")
+		hl.exec_cmd("systemctl --user stop fievel")
 	end
 end)
