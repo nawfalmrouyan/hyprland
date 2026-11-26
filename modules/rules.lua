@@ -12,7 +12,7 @@ local special_workspace_cmds = {
 	-- --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer
 	["special:whatsapp"] = uwsm.app(
 		env.home
-			.. "/.config/WhatsAppWeb-linux-x64/WhatsAppWeb --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer"
+			.. "/.config/WhatsApp-linux-x64/WhatsApp --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer"
 	),
 	["special:steam"] = uwsm.app("steam"),
 	["special:update"] = uwsm.app(env.envExec .. "kitty -1 --class=update -T update -e yay -Syu"),
@@ -113,7 +113,7 @@ local window_rules = {
 
 	{
 		name = "chatapp-rules",
-		match = { initial_class = "com.rtosta.zapzap|whatsappweb-nativefier-d40211|org.telegram.desktop" },
+		match = { initial_class = "com.rtosta.zapzap|whatsapp-nativefier-d40211|org.telegram.desktop" },
 		float = true,
 		center = true,
 		size = { 1600, 960 },
@@ -161,7 +161,7 @@ local window_rules = {
 	-- grouping rules
 	{
 		match = {
-			class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
+			class = "whatsapp-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|com.rtosta.zapzap|FortiClient|pulseUI",
 		},
 		group = "set",
 	},
@@ -399,7 +399,7 @@ end
 M.screen_share_rule = hl.window_rule({
 	name = "noscreenshare-general",
 	match = {
-		class = "whatsappweb-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
+		class = "whatsapp-nativefier-d40211|org.telegram.desktop|spotube|com.github.th_ch.youtube_music|steam|com.rtosta.zapzap",
 	},
 	no_screen_share = true,
 })
